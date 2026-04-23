@@ -49,24 +49,13 @@
 
     .nav-logo {
       display: flex;
-      flex-direction: column;
-      line-height: 1.15;
+      align-items: center;
       text-decoration: none;
-      color: var(--text);
     }
-    .nav-logo .fundacion {
-      font-family: 'Inter', sans-serif;
-      font-size: 9px;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-mid);
-    }
-    .nav-logo .nombre {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      font-weight: 500;
-      letter-spacing: 0.01em;
+    .nav-logo img {
+      height: 38px;
+      width: auto;
+      mix-blend-mode: multiply;
     }
 
     .nav-links {
@@ -120,31 +109,28 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 80px 24px;
+      padding: 72px 24px 80px;
       background: var(--cream);
     }
 
     .hero-inner { max-width: 640px; }
 
-    .hero-tag {
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-mid);
-      margin-bottom: 24px;
+    .hero-logo {
+      display: block;
+      width: clamp(220px, 40vw, 340px);
+      height: auto;
+      margin: 0 auto 48px;
+      mix-blend-mode: multiply;
     }
-    .hero-tag span { margin: 0 6px; opacity: 0.5; }
 
     .hero-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(42px, 7vw, 72px);
+      font-size: clamp(36px, 6vw, 62px);
       font-weight: 300;
       line-height: 1.08;
       letter-spacing: -0.01em;
       color: var(--text);
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
     .hero-subtitle {
@@ -556,8 +542,7 @@
   <!-- ── NAV ── -->
   <nav>
     <a href="#inicio" class="nav-logo">
-      <span class="fundacion">Fundación</span>
-      <span class="nombre">Carmen Pascual</span>
+      <img src="logo-mono.jpeg" alt="Fundación Carmen Pascual. Arte Salud Naturaleza">
     </a>
     <button class="nav-toggle" aria-label="Abrir menú" onclick="toggleMenu()">
       <span></span><span></span><span></span>
@@ -574,7 +559,7 @@
   <!-- ── HERO ── -->
   <section id="inicio">
     <div class="hero-inner">
-      <p class="hero-tag">Arte <span>·</span> Salud <span>·</span> Naturaleza</p>
+      <img src="logo-color.jpeg" alt="Fundación Carmen Pascual. Arte Salud Naturaleza" class="hero-logo">
       <h1 class="hero-title">Fundación Carmen Pascual</h1>
       <p class="hero-subtitle">Preservar, difundir y hacer dialogar la obra pictórica de Carmen Pascual con la salud y la naturaleza del Valle del Jerte.</p>
       <div class="hero-buttons">
