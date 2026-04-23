@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="#f4ede0" rx="12"/>
+  <!-- Arte: cuadrado rojo -->
+  <rect x="7" y="35" width="26" height="26" fill="none" stroke="#d6392b" stroke-width="5.5"/>
+  <!-- Salud: círculo azul -->
+  <circle cx="51" cy="48" r="14" fill="none" stroke="#009cc6" stroke-width="5.5"/>
+  <!-- Naturaleza: burbuja verde -->
+  <path d="M73 34 H85 Q92 34 92 41 V51 Q92 58 85 58 H79 L71 68 L73 58 Q66 58 66 51 V41 Q66 34 73 34 Z" fill="none" stroke="#5aa640" stroke-width="5"/>
+</svg>
