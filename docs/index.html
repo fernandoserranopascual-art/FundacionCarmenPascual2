@@ -483,6 +483,124 @@
       font-style: italic;
     }
 
+    /* ── CARMEN PASCUAL ─────────────────────────────── */
+    #carmen {
+      background: var(--cream-alt);
+      padding: 96px 48px;
+    }
+
+    .carmen-inner { max-width: 960px; margin: 0 auto; }
+
+    .carmen-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 300;
+      margin-bottom: 8px;
+    }
+
+    .carmen-dates {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-light);
+      letter-spacing: 0.02em;
+      margin-bottom: 40px;
+    }
+
+    .carmen-bio {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text-mid);
+      max-width: 680px;
+      margin-bottom: 20px;
+    }
+
+    .carmen-quote {
+      border-left: 2px solid var(--green);
+      padding: 12px 0 12px 24px;
+      margin: 40px 0;
+      max-width: 560px;
+    }
+
+    .carmen-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .carmen-quote cite {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    .carmen-section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 400;
+      border-top: 1.5px solid var(--green);
+      padding-top: 20px;
+      margin: 56px 0 16px;
+    }
+
+    .carmen-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text-mid);
+      max-width: 680px;
+      margin-bottom: 16px;
+    }
+
+    .exposiciones {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 16px;
+    }
+
+    .expo-tipo {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 16px;
+    }
+
+    .expo-lista {
+      list-style: none;
+    }
+
+    .expo-lista li {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.6;
+      padding: 10px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .expo-lista li:last-child { border-bottom: 1px solid var(--border); }
+
+    .expo-lista strong {
+      font-weight: 500;
+      color: var(--text);
+      display: block;
+    }
+
     /* ── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 768px) {
       nav { padding: 14px 24px; }
@@ -516,6 +634,8 @@
       #actividades,
       #contacto { padding: 64px 24px; }
 
+      #carmen { padding: 64px 24px; }
+      .exposiciones { grid-template-columns: 1fr; gap: 32px; }
       .tres-vocaciones { grid-template-columns: 1fr; gap: 32px; }
       .patronos { grid-template-columns: 1fr; gap: 16px; }
       .obra-grid { grid-template-columns: repeat(2, 1fr); }
@@ -544,6 +664,7 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#mision" onclick="closeMenu()">Misión</a></li>
       <li><a href="#patronato" onclick="closeMenu()">Patronato</a></li>
+      <li><a href="#carmen" onclick="closeMenu()">Carmen Pascual</a></li>
       <li><a href="#obra" onclick="closeMenu()">Obra</a></li>
       <li><a href="#actividades" onclick="closeMenu()">Actividades</a></li>
       <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
@@ -569,9 +690,12 @@
       <p class="section-label">La Fundación</p>
       <h2 class="mision-title">Una obra, tres vocaciones</h2>
       <p class="mision-intro">
-        La <strong>Fundación Carmen Pascual. Arte Salud Naturaleza</strong> se constituyó en noviembre de 2025 con el
-        propósito de custodiar el legado pictórico de Carmen Pascual —más de 900 obras catalogadas— y
-        ponerlo al servicio de tres vocaciones entrelazadas.
+        La <strong>Fundación Carmen Pascual. Arte Salud Naturaleza</strong> tiene como fines de interés general
+        promover actividades relacionadas con el Arte, la Salud y la Naturaleza, y a través de ellas
+        <strong>favorecer la plasticidad neuronal de las personas con diferentes capacidades</strong>,
+        promoviendo su inclusión tanto en la sociedad civil como en los ámbitos artísticos y culturales.
+        Y catalogar, conservar y difundir la obra de Carmen Pascual Sánchez, como legado artístico,
+        y de su actitud vital ejemplarizante ante la adversidad.
       </p>
       <div class="tres-vocaciones">
         <div class="vocacion">
@@ -611,6 +735,49 @@
           <div class="patrono-avatar">JR</div>
           <p class="patrono-nombre">D. Juan José Regadera Sánchez</p>
           <p class="patrono-cargo">Secretario</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CARMEN PASCUAL ── -->
+  <section id="carmen">
+    <div class="carmen-inner">
+      <p class="section-label">La artista</p>
+      <h2 class="carmen-title">Carmen Pascual Sánchez</h2>
+      <p class="carmen-dates">El Torno, Cáceres, 21 de septiembre de 1931 — Plasencia, 5 de marzo de 2025</p>
+
+      <p class="carmen-bio">Carmen Pascual Sánchez sufrió un accidente cerebrovascular en 2012 que le provocó una hemiplejía en el lado derecho y una afasia que le impidieron comunicarse mediante la palabra. Desde entonces, encontró en la pintura una forma esencial de expresión: un lenguaje silencioso en el que el color y la luz se convirtieron en su voz.</p>
+      <p class="carmen-bio">Su obra es un testimonio conmovedor de resiliencia y una celebración de la vida a través del arte. Cada trazo, cada fragmento de color, es una afirmación de existencia; una manera de decir lo indecible y de transformar la limitación física en libertad interior.</p>
+
+      <blockquote class="carmen-quote">
+        <p>«Pinturas hechas de la luz y del color del alma.»</p>
+        <cite>— La familia de Carmen Pascual</cite>
+      </blockquote>
+
+      <h3 class="carmen-section-title">Trayectoria artística</h3>
+      <p class="carmen-text">Su proyecto <em>Diario de Pinturas</em> comenzó tras el accidente, con ceras blandas sobre papel de estraza gris. Los primeros trazos, tímidos y dispersos, pronto se organizaron en franjas cromáticas de distintas intensidades y texturas. Cada franja era un espacio de respiración, una presencia del tiempo y de la conciencia.</p>
+      <p class="carmen-text">A lo largo de los años, su pintura evolucionó desde la abstracción inicial hacia composiciones más rítmicas, y finalmente hacia obras monocromáticas de tono meditativo. Estas últimas, de sutileza extrema, parecen suspender el gesto en el umbral entre la materia y la luz. Incluso durante sus hospitalizaciones, Carmen siguió pintando. Su constancia y su serenidad creativa convirtieron el arte en un acto cotidiano de resistencia y belleza.</p>
+
+      <h3 class="carmen-section-title">Exposiciones</h3>
+      <div class="exposiciones">
+        <div>
+          <p class="expo-tipo">Individuales</p>
+          <ul class="expo-lista">
+            <li><strong>La madre de todas (mis) exposiciones</strong>Casa de la Cultura, El Torno, 2018</li>
+            <li><strong>El esplendor oculto de la mente</strong>CCMIJU, Cáceres, 2019</li>
+            <li><strong>Luz del alma</strong>Complejo Cultural Las Claras, Plasencia, 2021</li>
+            <li><strong>Carmen Pascual entre poetas, con Juan Ramón Jiménez</strong>Casa Museo Juan Ramón Jiménez, Moguer, 2024–2025</li>
+            <li><strong>Carmen Pascual entre poetas, con Gabriel y Galán</strong>CCMIJU, Cáceres, 2025</li>
+          </ul>
+        </div>
+        <div>
+          <p class="expo-tipo">Colectivas</p>
+          <ul class="expo-lista">
+            <li><strong>Carmen, Paca y Marta</strong>Casa de la Cultura, El Torno, 2023</li>
+            <li><strong>Un'altra ragione I</strong>Casa de la Cultura, El Torno, 2024</li>
+            <li><strong>Un'altra ragione II</strong>CCMIJU, Cáceres, 2024</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -664,22 +831,42 @@
   <!-- ── ACTIVIDADES ── -->
   <section id="actividades">
     <div class="actividades-inner">
-      <p class="section-label">Programa 2026</p>
-      <h2 class="actividades-title">Actividades y colaboraciones</h2>
+      <p class="section-label">La Fundación</p>
+      <h2 class="actividades-title">Actividades y beneficiarios</h2>
 
       <div class="actividad">
-        <h3>Jornada Arte y Naturaleza</h3>
-        <p>El Torno, 17 de octubre de 2026. En colaboración con el Ayuntamiento de El Torno, SOPRODEVAJE y la Mancomunidad de Municipios del Valle del Jerte.</p>
+        <h3>Talleres, cursos y exposiciones</h3>
+        <p>Organización de talleres, cursos, seminarios, certámenes, conferencias, jornadas, congresos y exposiciones de arte de carácter general y/o inclusivas.</p>
       </div>
 
       <div class="actividad">
-        <h3>Catalogación digital del fondo pictórico</h3>
-        <p>945 obras documentadas y organizadas en 22 libros cronológicos.</p>
+        <h3>Programas terapéuticos y sociales</h3>
+        <p>Promoción de programas de carácter terapéutico, educativo y social que integren arte, salud y naturaleza.</p>
       </div>
 
       <div class="actividad">
-        <h3>Acuerdos de colaboración</h3>
-        <p>con el Centro de Cirugía de Mínima Invasión Jesús Usón (CCMIJU) en torno al binomio arte-salud.</p>
+        <h3>Inclusión y participación</h3>
+        <p>Fomento de la participación de personas con diferentes capacidades en proyectos artísticos, culturales y comunitarios.</p>
+      </div>
+
+      <div class="actividad">
+        <h3>Colaboraciones institucionales</h3>
+        <p>Colaboración con entidades públicas y privadas, nacionales o internacionales, que compartan objetivos similares.</p>
+      </div>
+
+      <div class="actividad">
+        <h3>Investigación y publicaciones</h3>
+        <p>Realización de investigaciones y publicaciones en relación con la neuroplasticidad, el arte y la salud.</p>
+      </div>
+
+      <div class="actividad">
+        <h3>Materiales formativos y divulgativos</h3>
+        <p>Edición y difusión de materiales formativos, divulgativos y/o científicos.</p>
+      </div>
+
+      <div class="actividad">
+        <h3>Beneficiarios</h3>
+        <p>Serán beneficiarios de la Fundación las personas físicas que, por sus circunstancias personales, puedan verse favorecidas por estas actividades, y en particular las personas con diferentes capacidades, así como cualquier persona interesada en el Arte, la Salud y la Naturaleza. La selección se realizará conforme a criterios de imparcialidad, no discriminación y objetividad.</p>
       </div>
     </div>
   </section>
