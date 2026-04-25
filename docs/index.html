@@ -154,6 +154,47 @@
 
     .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
+    .hero-qr {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-qr img {
+      width: 148px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 3px 18px rgba(0,0,0,0.09);
+      transition: box-shadow 0.2s;
+    }
+
+    .hero-qr img:hover { box-shadow: 0 6px 28px rgba(0,0,0,0.15); }
+
+    .hero-qr-caption {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    .hero-qr-download {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      text-decoration: none;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+
+    .hero-qr-download:hover { opacity: 1; text-decoration: underline; }
+
     .btn-primary {
       background: var(--green);
       color: #fff;
@@ -468,6 +509,56 @@
       font-style: italic;
     }
 
+    /* ── QR ──────────────────────────────────────────── */
+    .qr-block {
+      margin-top: 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .qr-block img {
+      width: 200px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      transition: box-shadow 0.2s;
+    }
+
+    .qr-block img:hover {
+      box-shadow: 0 6px 32px rgba(0,0,0,0.14);
+    }
+
+    .qr-caption {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      text-align: center;
+    }
+
+    .qr-download {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      text-decoration: none;
+      border: 1px solid var(--green);
+      padding: 8px 20px;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .qr-download:hover {
+      background: var(--green);
+      color: #fff;
+    }
+
     /* ── FOOTER ──────────────────────────────────────── */
     footer {
       background: var(--footer-bg);
@@ -747,6 +838,13 @@
         <a href="#obra" class="btn-primary">Descubrir la obra</a>
         <a href="#mision" class="btn-outline">Conocer la Fundación</a>
       </div>
+
+      <div class="hero-qr">
+        <img src="qr-fundacion.png" alt="Código QR — fundacioncarmenpascual.org">
+        <span class="hero-qr-caption">Escanea para compartir</span>
+        <a class="hero-qr-download" href="qr-fundacion.png" download="qr-fundacion-carmen-pascual.png">↓ Descargar</a>
+      </div>
+
     </div>
   </section>
 
@@ -811,7 +909,7 @@
     <div class="carmen-inner">
       <p class="section-label">La artista / The Artist</p>
       <h2 class="carmen-title">Carmen Pascual Sánchez</h2>
-      <p class="carmen-dates">(El Torno, Cáceres, 21 de septiembre de 1931 – Plasencia, 5 de marzo, miércoles de ceniza, de 2025)</p>
+      <p class="carmen-dates">(El Torno, Cáceres, 21 de septiembre de 1931 – Plasencia, 5 de marzo, <em>miércoles de ceniza</em>, de 2025)</p>
 
       <!-- Biografía / Biography -->
       <h3 class="carmen-section-title">Biografía / Biography</h3>
@@ -977,6 +1075,20 @@
           <p class="carmen-lang-label">English</p>
           <p class="carmen-statement">"Her painting is her voice, her way of expressing what the body keeps silent.<br>Each stroke is a thought, each color a feeling that returns to the world to become visible."</p>
         </div>
+      </div>
+
+      <!-- Una narrativa muy personal -->
+      <h3 class="carmen-section-title">Una narrativa muy personal</h3>
+      <div class="carmen-narrative">
+        <p class="carmen-bio"><strong>Carmen Pascual Sánchez</strong> (El Torno, Cáceres, 21 sept. 1931 / Plasencia, 5 de marzo, <em>miércoles de ceniza</em>, de 2025) sufrió un accidente cerebrovascular el 20 de mayo de 2012, y como consecuencia del mismo padeció una hemiplejia de su lado derecho y una afasia, que le impidieron la movilidad y poder expresar sus pensamientos y deseos por medio de la palabra; de ahí la <strong>elocuencia</strong> de sus pinturas y la pertinencia de la exposición de esta actividad plástica como ejemplo que puede ayudar a otros en similares circunstancias.</p>
+
+        <p class="carmen-text">Con la exhibición, presentación de estos trabajos, que entendemos, sobre todo, como una gran manifestación de amor a la vida a través del arte; queremos proyectar, comunicar, difundir su obra: «pinturas hechas de la luz y del color del alma…». Una traducción de su mundo interior, del espíritu generoso de madre y de mujer valiente que vence con su amplia sonrisa las barreras físicas del movimiento y de la palabra en un tránsito perfecto y auténtico, desde lo más profundo del ser y del sentir hasta la claridad de cada día, de todos los días.</p>
+
+        <p class="carmen-text">Los primeros trazos de este gran proyecto <em>Diario de Pinturas</em>, fueron con ceras blandas sobre papel de estraza gris: vacilantes y dispersos; pero enseguida se fueron agrupando y diferenciando por franjas de distintos tonos, intensidad y textura; el número de franjas cambia de unos ejercicios a otros: tres o cuatro, rara vez más.</p>
+
+        <p class="carmen-text">El proceso ha seguido hasta sus últimos días, con trabajos luminosos unos y otros más melancólicos; unos ligeros y fugaces, otros más detenidamente insistentes; unas temporadas prolíficas (otoño e invierno, más tiempo en casa), otras menos activas (verano, más calle), siempre activa salvo en sus periodos de enfermedad y durante las hospitalizaciones —también durante los periodos de recuperación, incluso en el hospital— seguía pintando.</p>
+
+        <p class="carmen-text">Durante el último año y medio pasó una larga temporada haciendo páginas monocromáticas; es muy visible en ellas la diferente intensidad y densidad del trazo, matices del tono que revelan variaciones en su estado de conciencia y distinta carga de energía… Ahora las entiendo como espacios de meditación, como estados del alma, <em>claros del bosque</em>, pensaría María Zambrano. Posteriormente tuvo un periodo de figuración abstracta, dinámica y de intenso colorido. Y los últimos trabajos de entresueños: fugaces y sutiles, casi evanescentes.</p>
       </div>
 
       <!-- Enlaces / Links -->
@@ -1145,6 +1257,16 @@
           <p class="nota">(buzón corporativo — pendiente de activación)</p>
         </div>
       </div>
+
+      <!-- QR -->
+      <div class="qr-block">
+        <img src="qr-fundacion.png" alt="Código QR de la Fundación Carmen Pascual">
+        <p class="qr-caption">Escanea para visitar la web</p>
+        <a class="qr-download" href="qr-fundacion.png" download="qr-fundacion-carmen-pascual.png">
+          Descargar QR
+        </a>
+      </div>
+
     </div>
   </section>
 
