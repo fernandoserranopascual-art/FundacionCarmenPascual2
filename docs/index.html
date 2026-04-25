@@ -154,6 +154,40 @@
 
     .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
+    /* ── CARTEL EN CONSTRUCCIÓN ──────────────────────── */
+    .cartel-construccion {
+      display: inline-block;
+      margin: 44px auto 0;
+      padding: 14px 36px 16px;
+      background: #fffbe8;
+      border: 3px solid #2a2a2a;
+      box-shadow: 4px 4px 0 #2a2a2a, 8px 8px 18px rgba(0,0,0,0.18);
+      transform: rotate(-4deg);
+      position: relative;
+    }
+
+    .cartel-construccion::before,
+    .cartel-construccion::after {
+      content: '';
+      position: absolute;
+      top: 5px; bottom: 5px;
+      left: 5px; right: 5px;
+      border: 1px solid rgba(42,42,42,0.25);
+      pointer-events: none;
+    }
+
+    .cartel-construccion span {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(18px, 4vw, 28px);
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      color: #2a2a2a;
+      text-transform: uppercase;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
     .hero-qr {
       margin-top: 48px;
       display: flex;
@@ -837,6 +871,10 @@
       <div class="hero-buttons">
         <a href="#obra" class="btn-primary">Descubrir la obra</a>
         <a href="#mision" class="btn-outline">Conocer la Fundación</a>
+      </div>
+
+      <div class="cartel-construccion">
+        <span>En construcción</span>
       </div>
 
       <div class="hero-qr">
