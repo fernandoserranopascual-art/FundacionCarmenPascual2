@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="lang-es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,6 +42,27 @@
       font-size: 16px;
       line-height: 1.6;
     }
+
+    /* ── IDIOMA ──────────────────────────────────────── */
+    html.lang-en .only-es { display: none !important; }
+    html.lang-es .only-en { display: none !important; }
+
+    .lang-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      background: none;
+      border: 1px solid var(--text-light);
+      color: var(--text-mid);
+      padding: 4px 10px;
+      cursor: pointer;
+      border-radius: 2px;
+      margin-left: 24px;
+      flex-shrink: 0;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .lang-btn:hover { border-color: var(--green); color: var(--green); }
 
     /* ── NAV ─────────────────────────────────────────── */
     nav {
@@ -120,6 +141,7 @@
       text-align: center;
       padding: 72px 24px 80px;
       background: var(--cream);
+      position: relative;
     }
 
     .hero-inner { max-width: 640px; }
@@ -166,8 +188,7 @@
       position: relative;
     }
 
-    .cartel-construccion::before,
-    .cartel-construccion::after {
+    .cartel-construccion::before {
       content: '';
       position: absolute;
       top: 5px; bottom: 5px;
@@ -229,6 +250,7 @@
 
     .hero-qr-download:hover { opacity: 1; text-decoration: underline; }
 
+    /* ── BOTONES ─────────────────────────────────────── */
     .btn-primary {
       background: var(--green);
       color: #fff;
@@ -242,6 +264,7 @@
       text-decoration: none;
       transition: background 0.2s;
     }
+
     .btn-primary:hover { background: var(--green-dark); }
 
     .btn-outline {
@@ -255,52 +278,46 @@
       letter-spacing: 0.02em;
       cursor: pointer;
       text-decoration: none;
-      transition: background 0.2s, color 0.2s;
+      transition: border-color 0.2s, color 0.2s;
     }
-    .btn-outline:hover { background: var(--text); color: var(--cream); }
+
+    .btn-outline:hover { border-color: var(--green); color: var(--green); }
 
     /* ── MISIÓN ──────────────────────────────────────── */
     #mision {
-      background: var(--cream-alt);
       padding: 96px 48px;
+      background: var(--cream-dark);
     }
 
     .mision-inner { max-width: 960px; margin: 0 auto; }
 
     .mision-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(32px, 5vw, 52px);
+      font-size: clamp(40px, 6vw, 64px);
       font-weight: 300;
-      line-height: 1.1;
-      margin-bottom: 32px;
+      margin-bottom: 40px;
     }
 
     .mision-intro {
       font-family: 'Inter', sans-serif;
       font-size: 15px;
       font-weight: 300;
-      line-height: 1.75;
+      line-height: 1.8;
       color: var(--text-mid);
-      max-width: 680px;
-      margin-bottom: 64px;
+      max-width: 720px;
+      margin-bottom: 56px;
     }
-    .mision-intro strong { font-weight: 500; color: var(--text); }
 
     .tres-vocaciones {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 48px;
-    }
-
-    .vocacion {
-      border-top: 1.5px solid var(--green);
-      padding-top: 20px;
+      gap: 40px;
     }
 
     .vocacion h3 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 400;
+      font-size: 28px;
+      font-weight: 300;
       margin-bottom: 12px;
     }
 
@@ -309,23 +326,22 @@
       font-size: 13px;
       font-weight: 300;
       color: var(--text-mid);
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
     /* ── PATRONATO ───────────────────────────────────── */
     #patronato {
-      background: var(--cream-alt);
+      background: var(--cream);
       padding: 96px 48px;
     }
 
-    .patronato-inner { max-width: 960px; margin: 0 auto; text-align: center; }
+    .patronato-inner { max-width: 960px; margin: 0 auto; }
 
     .patronato-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(32px, 5vw, 52px);
+      font-size: clamp(40px, 6vw, 64px);
       font-weight: 300;
-      margin-bottom: 20px;
-      text-align: left;
+      margin-bottom: 16px;
     }
 
     .patronato-desc {
@@ -333,214 +349,50 @@
       font-size: 14px;
       font-weight: 300;
       color: var(--text-mid);
-      line-height: 1.7;
+      margin-bottom: 48px;
       max-width: 560px;
-      margin: 0 auto 56px;
     }
 
     .patronos {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 32px;
     }
 
     .patrono-card {
-      background: #fff;
-      padding: 40px 24px 32px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-      border: 1px solid var(--cream-dark);
+      border-top: 1.5px solid var(--green);
+      padding-top: 24px;
     }
 
     .patrono-avatar {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
+      width: 48px;
+      height: 48px;
       background: var(--green);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Inter', sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      color: #fff;
-      letter-spacing: 0.04em;
+      margin-bottom: 16px;
     }
 
     .patrono-nombre {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      font-weight: 500;
-      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      margin-bottom: 4px;
     }
 
     .patrono-cargo {
       font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-light);
-    }
-
-    /* ── OBRA ────────────────────────────────────────── */
-    #obra {
-      background: var(--cream);
-      padding: 96px 48px;
-    }
-
-    .obra-inner { max-width: 960px; margin: 0 auto; }
-
-    .obra-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(32px, 5vw, 52px);
-      font-weight: 300;
-      margin-bottom: 16px;
-    }
-
-    .obra-subtitle {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 300;
-      color: var(--text-mid);
-      line-height: 1.7;
-      max-width: 480px;
-      margin: 0 auto 56px;
-      text-align: center;
-    }
-
-    .obra-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 4px;
-    }
-
-    .obra-item {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .obra-img {
-      width: 100%;
-      aspect-ratio: 1;
-      display: block;
-      object-fit: cover;
-    }
-
-    .obra-fecha {
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 400;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--text-light);
-      margin-top: 8px;
-      text-align: center;
-    }
-
-    .obra-nota {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--text-light);
-      margin-top: 32px;
-      text-align: center;
-    }
-
-    /* ── ACTIVIDADES ─────────────────────────────────── */
-    #actividades {
-      background: var(--cream-alt);
-      padding: 96px 48px;
-    }
-
-    .actividades-inner { max-width: 800px; margin: 0 auto; }
-
-    .actividades-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(32px, 5vw, 52px);
-      font-weight: 300;
-      margin-bottom: 56px;
-    }
-
-    .actividad {
-      border-top: 1px solid var(--border);
-      padding: 28px 0;
-    }
-    .actividad:last-child { border-bottom: 1px solid var(--border); }
-
-    .actividad h3 {
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 8px;
-    }
-
-    .actividad p {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 300;
-      color: var(--text-mid);
-      line-height: 1.7;
-    }
-
-    .actividad p::before {
-      content: '— ';
-      color: var(--text-light);
-    }
-
-    /* ── CONTACTO ────────────────────────────────────── */
-    #contacto {
-      background: var(--cream);
-      padding: 96px 48px;
-    }
-
-    .contacto-inner { max-width: 960px; margin: 0 auto; }
-
-    .contacto-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(40px, 6vw, 64px);
-      font-weight: 300;
-      margin-bottom: 56px;
-    }
-
-    .contacto-cols {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-    }
-
-    .contacto-col h4 {
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
       color: var(--green);
-      margin-bottom: 16px;
-    }
-
-    .contacto-col p,
-    .contacto-col a {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--text-mid);
-      line-height: 1.8;
-      text-decoration: none;
-      display: block;
-    }
-
-    .contacto-col a { color: var(--green); }
-    .contacto-col a:hover { text-decoration: underline; }
-
-    .contacto-col .nota {
-      font-size: 11px;
-      color: var(--text-light);
-      font-style: italic;
     }
 
     /* ── QR ──────────────────────────────────────────── */
@@ -560,9 +412,7 @@
       transition: box-shadow 0.2s;
     }
 
-    .qr-block img:hover {
-      box-shadow: 0 6px 32px rgba(0,0,0,0.14);
-    }
+    .qr-block img:hover { box-shadow: 0 6px 32px rgba(0,0,0,0.14); }
 
     .qr-caption {
       font-family: 'Inter', sans-serif;
@@ -588,10 +438,7 @@
       transition: background 0.2s, color 0.2s;
     }
 
-    .qr-download:hover {
-      background: var(--green);
-      color: #fff;
-    }
+    .qr-download:hover { background: var(--green); color: #fff; }
 
     /* ── FOOTER ──────────────────────────────────────── */
     footer {
@@ -657,25 +504,6 @@
       max-width: 560px;
     }
 
-    .carmen-quote p {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--text);
-      line-height: 1.4;
-      margin-bottom: 8px;
-    }
-
-    .carmen-quote cite {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-light);
-    }
-
     .carmen-section-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 24px;
@@ -696,20 +524,7 @@
     }
 
     .exposiciones {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
       margin-top: 16px;
-    }
-
-    .expo-tipo {
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 16px;
     }
 
     .expo-lista {
@@ -742,20 +557,8 @@
     }
 
     .carmen-bilingual {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      max-width: 680px;
       margin-bottom: 8px;
-    }
-
-    .carmen-lang-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 14px;
     }
 
     .carmen-statement {
@@ -782,12 +585,147 @@
       color: var(--text-mid);
     }
 
-    .carmen-links li a {
-      color: var(--green);
-      text-decoration: none;
+    .carmen-links li a { color: var(--green); text-decoration: none; }
+    .carmen-links li a:hover { text-decoration: underline; }
+
+    /* ── OBRA ────────────────────────────────────────── */
+    #obra { background: var(--cream); padding: 96px 48px; }
+
+    .obra-inner { max-width: 960px; margin: 0 auto; }
+
+    .obra-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 300;
+      margin-bottom: 16px;
     }
 
-    .carmen-links li a:hover { text-decoration: underline; }
+    .obra-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-light);
+      margin-bottom: 48px;
+    }
+
+    .obra-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .obra-item {}
+
+    .obra-img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    .obra-fecha {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--text-light);
+      margin-top: 6px;
+    }
+
+    .obra-nota {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    /* ── ACTIVIDADES ─────────────────────────────────── */
+    #actividades { background: var(--cream-dark); padding: 96px 48px; }
+
+    .actividades-inner { max-width: 720px; margin: 0 auto; }
+
+    .actividades-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 300;
+      margin-bottom: 48px;
+    }
+
+    .actividad {
+      border-top: 1px solid var(--border);
+      padding: 24px 0;
+    }
+
+    .actividad:last-child { border-bottom: 1px solid var(--border); }
+
+    .actividad h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .actividad p {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.75;
+    }
+
+    /* ── CONTACTO ────────────────────────────────────── */
+    #contacto {
+      background: var(--cream);
+      padding: 96px 48px;
+    }
+
+    .contacto-inner { max-width: 960px; margin: 0 auto; }
+
+    .contacto-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 300;
+      margin-bottom: 56px;
+    }
+
+    .contacto-cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .contacto-col h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 16px;
+    }
+
+    .contacto-col p,
+    .contacto-col a {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.8;
+      text-decoration: none;
+      display: block;
+    }
+
+    .contacto-col a { color: var(--green); }
+    .contacto-col a:hover { text-decoration: underline; }
+
+    .contacto-col .nota {
+      font-size: 11px;
+      color: var(--text-light);
+      font-style: italic;
+    }
 
     /* ── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 768px) {
@@ -824,8 +762,6 @@
       #contacto { padding: 64px 24px; }
 
       #carmen { padding: 64px 24px; }
-      .carmen-bilingual { grid-template-columns: 1fr; gap: 32px; }
-      .exposiciones { grid-template-columns: 1fr; gap: 32px; }
       .tres-vocaciones { grid-template-columns: 1fr; gap: 32px; }
       .patronos { grid-template-columns: 1fr; gap: 16px; }
       .obra-grid { grid-template-columns: repeat(2, 1fr); }
@@ -848,18 +784,39 @@
     <a href="#inicio" class="nav-logo">
       <img src="logo-mono.jpeg" alt="Fundación Carmen Pascual. Arte Salud Naturaleza">
     </a>
+    <div style="display:flex;align-items:center;gap:0;">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#mision" onclick="closeMenu()">
+          <span class="only-es">Misión</span>
+          <span class="only-en">Mission</span>
+        </a></li>
+        <li><a href="#patronato" onclick="closeMenu()">
+          <span class="only-es">Patronato</span>
+          <span class="only-en">Board</span>
+        </a></li>
+        <li><a href="#carmen" onclick="closeMenu()">Carmen Pascual</a></li>
+        <li><a href="#obra" onclick="closeMenu()">
+          <span class="only-es">Obra</span>
+          <span class="only-en">Works</span>
+        </a></li>
+        <li><a href="#jornada-iii" onclick="closeMenu()">
+          <span class="only-es">III Jornada</span>
+          <span class="only-en">3rd Conference</span>
+        </a></li>
+        <li><a href="#actividades" onclick="closeMenu()">
+          <span class="only-es">Actividades</span>
+          <span class="only-en">Activities</span>
+        </a></li>
+        <li><a href="#contacto" onclick="closeMenu()">
+          <span class="only-es">Contacto</span>
+          <span class="only-en">Contact</span>
+        </a></li>
+      </ul>
+      <button class="lang-btn" id="lang-btn" aria-label="Switch language">EN</button>
+    </div>
     <button class="nav-toggle" aria-label="Abrir menú" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#mision" onclick="closeMenu()">Misión</a></li>
-      <li><a href="#patronato" onclick="closeMenu()">Patronato</a></li>
-      <li><a href="#carmen" onclick="closeMenu()">Carmen Pascual</a></li>
-      <li><a href="#obra" onclick="closeMenu()">Obra</a></li>
-      <li><a href="#jornada-iii" onclick="closeMenu()">III Jornada</a></li>
-      <li><a href="#actividades" onclick="closeMenu()">Actividades</a></li>
-      <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
-    </ul>
   </nav>
 
   <!-- ── HERO ── -->
@@ -867,20 +824,32 @@
     <div class="hero-inner">
       <img src="logo-color.jpeg" alt="Fundación Carmen Pascual. Arte Salud Naturaleza" class="hero-logo">
       <h1 class="hero-title">Fundación Carmen Pascual</h1>
-      <p class="hero-subtitle">Preservar, difundir y hacer dialogar la obra pictórica de Carmen Pascual con la salud y la naturaleza del Valle del Jerte.</p>
+      <p class="hero-subtitle only-es">Preservar, difundir y hacer dialogar la obra pictórica de Carmen Pascual con la salud y la naturaleza del Valle del Jerte.</p>
+      <p class="hero-subtitle only-en">Preserving, sharing, and creating dialogue between Carmen Pascual's pictorial work, health, and the nature of the Valle del Jerte.</p>
       <div class="hero-buttons">
-        <a href="#obra" class="btn-primary">Descubrir la obra</a>
-        <a href="#mision" class="btn-outline">Conocer la Fundación</a>
+        <a href="#obra" class="btn-primary">
+          <span class="only-es">Descubrir la obra</span>
+          <span class="only-en">Discover the artwork</span>
+        </a>
+        <a href="#mision" class="btn-outline">
+          <span class="only-es">Conocer la Fundación</span>
+          <span class="only-en">About the Foundation</span>
+        </a>
       </div>
 
       <div class="cartel-construccion">
-        <span>En construcción</span>
+        <span class="only-es">En construcción</span>
+        <span class="only-en">Under Construction</span>
       </div>
 
       <div class="hero-qr">
         <img src="qr-fundacion.png" alt="Código QR — fundacioncarmenpascual.org">
-        <span class="hero-qr-caption">Escanea para compartir</span>
-        <a class="hero-qr-download" href="qr-fundacion.png" download="qr-fundacion-carmen-pascual.png">↓ Descargar</a>
+        <span class="hero-qr-caption only-es">Escanea para compartir</span>
+        <span class="hero-qr-caption only-en">Scan to share</span>
+        <a class="hero-qr-download" href="qr-fundacion.png" download="qr-fundacion-carmen-pascual.png">
+          <span class="only-es">↓ Descargar</span>
+          <span class="only-en">↓ Download</span>
+        </a>
       </div>
 
     </div>
@@ -889,9 +858,11 @@
   <!-- ── MISIÓN ── -->
   <section id="mision">
     <div class="mision-inner">
-      <p class="section-label">La Fundación</p>
-      <h2 class="mision-title">Una obra, tres vocaciones</h2>
-      <p class="mision-intro">
+      <p class="section-label only-es">La Fundación</p>
+      <p class="section-label only-en">The Foundation</p>
+      <h2 class="mision-title only-es">Una obra, tres vocaciones</h2>
+      <h2 class="mision-title only-en">One artwork, three vocations</h2>
+      <p class="mision-intro only-es">
         La <strong>Fundación Carmen Pascual. Arte Salud Naturaleza</strong> tiene como fines de interés general
         promover actividades relacionadas con el Arte, la Salud y la Naturaleza, y a través de ellas
         <strong>favorecer la plasticidad neuronal de las personas con diferentes capacidades</strong>,
@@ -899,18 +870,29 @@
         Y catalogar, conservar y difundir la obra de Carmen Pascual Sánchez, como legado artístico,
         y de su actitud vital ejemplarizante ante la adversidad.
       </p>
+      <p class="mision-intro only-en">
+        The <strong>Fundación Carmen Pascual. Arte Salud Naturaleza</strong> (Art Health Nature) exists to promote
+        activities related to Art, Health, and Nature, and through them
+        <strong>to foster the neuroplasticity of people with different abilities</strong>,
+        promoting their inclusion in civil society and in artistic and cultural spheres.
+        And to catalogue, preserve, and share the work of Carmen Pascual Sánchez as an artistic legacy
+        and as an exemplary approach to life in the face of adversity.
+      </p>
       <div class="tres-vocaciones">
         <div class="vocacion">
           <h3>Arte</h3>
-          <p>Catalogación, conservación y difusión de la obra pictórica de Carmen Pascual, con especial atención a la relación entre pintura contemporánea, territorio y memoria personal.</p>
+          <p class="only-es">Catalogación, conservación y difusión de la obra pictórica de Carmen Pascual, con especial atención a la relación entre pintura contemporánea, territorio y memoria personal.</p>
+          <p class="only-en">Cataloguing, preserving, and sharing Carmen Pascual's pictorial work, with special attention to the relationship between contemporary painting, territory, and personal memory.</p>
         </div>
         <div class="vocacion">
           <h3>Salud</h3>
-          <p>Promoción del arte como recurso terapéutico y de bienestar, en colaboración con centros de investigación biomédica y profesionales de la salud.</p>
+          <p class="only-es">Promoción del arte como recurso terapéutico y de bienestar, en colaboración con centros de investigación biomédica y profesionales de la salud.</p>
+          <p class="only-en">Promoting art as a therapeutic and wellbeing resource, in collaboration with biomedical research centres and health professionals.</p>
         </div>
         <div class="vocacion">
           <h3>Naturaleza</h3>
-          <p>Diálogo entre creación artística y entorno natural del Valle del Jerte, a través de jornadas, residencias y colaboraciones con entidades del territorio.</p>
+          <p class="only-es">Diálogo entre creación artística y entorno natural del Valle del Jerte, a través de jornadas, residencias y colaboraciones con entidades del territorio.</p>
+          <p class="only-en">Dialogue between artistic creation and the natural landscape of the Valle del Jerte, through conferences, residencies, and collaborations with local organisations.</p>
         </div>
       </div>
     </div>
@@ -919,24 +901,30 @@
   <!-- ── PATRONATO ── -->
   <section id="patronato">
     <div class="patronato-inner">
-      <p class="section-label" style="text-align:left">Gobierno</p>
-      <h2 class="patronato-title">Patronato</h2>
-      <p class="patronato-desc">El Patronato es el órgano de gobierno y representación de la Fundación, integrado por tres patronos fundadores.</p>
+      <p class="section-label only-es" style="text-align:left">Gobierno</p>
+      <p class="section-label only-en" style="text-align:left">Governance</p>
+      <h2 class="patronato-title only-es">Patronato</h2>
+      <h2 class="patronato-title only-en">Board of Trustees</h2>
+      <p class="patronato-desc only-es">El Patronato es el órgano de gobierno y representación de la Fundación, integrado por tres patronos fundadores.</p>
+      <p class="patronato-desc only-en">The Board of Trustees is the governing and representative body of the Foundation, made up of three founding trustees.</p>
       <div class="patronos">
         <div class="patrono-card">
           <div class="patrono-avatar">AS</div>
           <p class="patrono-nombre">D. Álvaro Serrano Pascual</p>
-          <p class="patrono-cargo">Presidente</p>
+          <p class="patrono-cargo only-es">Presidente</p>
+          <p class="patrono-cargo only-en">President</p>
         </div>
         <div class="patrono-card">
           <div class="patrono-avatar">FS</div>
           <p class="patrono-nombre">D. Fernando Serrano Pascual</p>
-          <p class="patrono-cargo">Vicepresidente</p>
+          <p class="patrono-cargo only-es">Vicepresidente</p>
+          <p class="patrono-cargo only-en">Vice President</p>
         </div>
         <div class="patrono-card">
           <div class="patrono-avatar">JR</div>
           <p class="patrono-nombre">D. Juan José Regadera Sánchez</p>
-          <p class="patrono-cargo">Secretario</p>
+          <p class="patrono-cargo only-es">Secretario</p>
+          <p class="patrono-cargo only-en">Secretary</p>
         </div>
       </div>
     </div>
@@ -945,38 +933,38 @@
   <!-- ── CARMEN PASCUAL ── -->
   <section id="carmen">
     <div class="carmen-inner">
-      <p class="section-label">La artista / The Artist</p>
+      <p class="section-label only-es">La artista</p>
+      <p class="section-label only-en">The Artist</p>
       <h2 class="carmen-title">Carmen Pascual Sánchez</h2>
-      <p class="carmen-dates">(El Torno, Cáceres, 21 de septiembre de 1931 – Plasencia, 5 de marzo, <em>miércoles de ceniza</em>, de 2025)</p>
+      <p class="carmen-dates only-es">(El Torno, Cáceres, 21 de septiembre de 1931 – Plasencia, 5 de marzo, <em>miércoles de ceniza</em>, de 2025)</p>
+      <p class="carmen-dates only-en">(El Torno, Cáceres, 21 September 1931 – Plasencia, 5 March, <em>Ash Wednesday</em>, 2025)</p>
 
-      <!-- Biografía / Biography -->
-      <h3 class="carmen-section-title">Biografía / Biography</h3>
+      <!-- Biografía -->
+      <h3 class="carmen-section-title only-es">Biografía</h3>
+      <h3 class="carmen-section-title only-en">Biography</h3>
       <div class="carmen-bilingual">
-        <div>
-          <p class="carmen-lang-label">Español</p>
+        <div class="only-es">
           <p class="carmen-bio">Carmen Pascual Sánchez sufrió un accidente cerebrovascular en 2012 que le provocó una hemiplejía en el lado derecho y una afasia que le impidieron comunicarse mediante la palabra. Desde entonces, encontró en la pintura una forma esencial de expresión: un lenguaje silencioso en el que el color y la luz se convirtieron en su voz.</p>
           <p class="carmen-bio">Su obra es un testimonio conmovedor de resiliencia y una celebración de la vida a través del arte. Cada trazo, cada fragmento de color, es una afirmación de existencia; una manera de decir lo indecible y de transformar la limitación física en libertad interior.</p>
           <p class="carmen-bio">«Pinturas hechas de la luz y del color del alma.»<br>— así describía su familia la esencia de su creación.</p>
         </div>
-        <div>
-          <p class="carmen-lang-label">English</p>
+        <div class="only-en">
           <p class="carmen-bio">In 2012, Carmen Pascual Sánchez suffered a cerebrovascular accident that caused right-side hemiplegia and aphasia, leaving her unable to communicate through speech. From that moment on, she discovered painting as her essential means of expression — a silent language where color and light became her voice.</p>
           <p class="carmen-bio">Her work stands as a moving testament to resilience and a celebration of life through art. Each brushstroke, each fragment of color, is an affirmation of being — a way to speak the unspeakable and to transform physical limitation into inner freedom.</p>
           <p class="carmen-bio">"Paintings made of the light and color of the soul."<br>— as her family beautifully described the essence of her art.</p>
         </div>
       </div>
 
-      <!-- Trayectoria artística / Artistic Journey -->
-      <h3 class="carmen-section-title">Trayectoria artística / Artistic Journey</h3>
+      <!-- Trayectoria artística -->
+      <h3 class="carmen-section-title only-es">Trayectoria artística</h3>
+      <h3 class="carmen-section-title only-en">Artistic Journey</h3>
       <div class="carmen-bilingual">
-        <div>
-          <p class="carmen-lang-label">Español</p>
+        <div class="only-es">
           <p class="carmen-text">Su proyecto <em>Diario de Pinturas</em> comenzó tras el accidente, con ceras blandas sobre papel de estraza gris. Los primeros trazos, tímidos y dispersos, pronto se organizaron en franjas cromáticas de distintas intensidades y texturas. Cada franja era un espacio de respiración, una presencia del tiempo y de la conciencia.</p>
           <p class="carmen-text">A lo largo de los años, su pintura evolucionó desde la abstracción inicial hacia composiciones más rítmicas, y finalmente hacia obras monocromáticas de tono meditativo. Estas últimas, de sutileza extrema, parecen suspender el gesto en el umbral entre la materia y la luz.</p>
           <p class="carmen-text">Incluso durante sus hospitalizaciones, Carmen siguió pintando. Su constancia y su serenidad creativa convirtieron el arte en un acto cotidiano de resistencia y belleza.</p>
         </div>
-        <div>
-          <p class="carmen-lang-label">English</p>
+        <div class="only-en">
           <p class="carmen-text">Her project <em>Diary of Paintings</em> began after her stroke, using soft waxes on coarse grey paper. The first strokes — hesitant and scattered — soon found order in chromatic bands of varying intensity and texture. Each band became a space of breathing, a presence of time and consciousness.</p>
           <p class="carmen-text">Over the years, her painting evolved from early abstraction to rhythmic compositions, and finally toward monochromatic works of meditative tone. These later pieces, exquisitely subtle, seem to suspend gesture at the threshold between matter and light.</p>
           <p class="carmen-text">Even during hospital stays, Carmen continued to paint. Her persistence and serene creativity turned art into a daily act of resistance and beauty.</p>
@@ -984,10 +972,10 @@
       </div>
 
       <!-- Exposiciones Individuales -->
-      <h3 class="carmen-section-title">Exposiciones Individuales / Solo Exhibitions</h3>
+      <h3 class="carmen-section-title only-es">Exposiciones Individuales</h3>
+      <h3 class="carmen-section-title only-en">Solo Exhibitions</h3>
       <div class="exposiciones">
-        <div>
-          <p class="expo-tipo">Español</p>
+        <div class="only-es">
           <ul class="expo-lista">
             <li>
               <strong>La madre de todas (mis) exposiciones</strong>
@@ -1014,8 +1002,7 @@
             </li>
           </ul>
         </div>
-        <div>
-          <p class="expo-tipo">English</p>
+        <div class="only-en">
           <ul class="expo-lista">
             <li>
               <strong>The Mother of All (My) Exhibitions</strong>
@@ -1045,10 +1032,10 @@
       </div>
 
       <!-- Exposiciones Colectivas -->
-      <h3 class="carmen-section-title">Exposiciones Colectivas / Group Exhibitions</h3>
+      <h3 class="carmen-section-title only-es">Exposiciones Colectivas</h3>
+      <h3 class="carmen-section-title only-en">Group Exhibitions</h3>
       <div class="exposiciones">
-        <div>
-          <p class="expo-tipo">Español</p>
+        <div class="only-es">
           <ul class="expo-lista">
             <li>
               <strong>Carmen, Paca y Marta</strong>
@@ -1066,8 +1053,7 @@
             </li>
           </ul>
         </div>
-        <div>
-          <p class="expo-tipo">English</p>
+        <div class="only-en">
           <ul class="expo-lista">
             <li>
               <strong>Carmen, Paca, and Marta</strong>
@@ -1087,46 +1073,49 @@
         </div>
       </div>
 
-      <!-- Lenguaje plástico / Artistic Language -->
-      <h3 class="carmen-section-title">Lenguaje plástico / Artistic Language</h3>
+      <!-- Lenguaje plástico -->
+      <h3 class="carmen-section-title only-es">Lenguaje plástico</h3>
+      <h3 class="carmen-section-title only-en">Artistic Language</h3>
       <div class="carmen-bilingual">
-        <div>
-          <p class="carmen-lang-label">Español</p>
+        <div class="only-es">
           <p class="carmen-text">El lenguaje pictórico de Carmen Pascual se define por una abstracción lírica que transforma el silencio en color. En sus obras, el trazo vibra como una respiración interior y el color adquiere un poder simbólico y emocional.</p>
           <p class="carmen-text">Su proceso no busca representar el mundo exterior, sino revelar un estado del alma. En cada serie hay una tensión entre el impulso vital y la contemplación; entre la energía del gesto y la calma del espacio.</p>
         </div>
-        <div>
-          <p class="carmen-lang-label">English</p>
+        <div class="only-en">
           <p class="carmen-text">Carmen Pascual's pictorial language is defined by a lyrical abstraction that turns silence into color. In her works, the line vibrates like an inner breath, and color assumes both symbolic and emotional power.</p>
           <p class="carmen-text">Her process does not aim to represent the external world, but rather to reveal a state of the soul. In each series, there is a tension between vital impulse and contemplation; between the energy of gesture and the serenity of space.</p>
         </div>
       </div>
 
-      <!-- Statement / Declaración artística -->
-      <h3 class="carmen-section-title">Statement / Declaración artística</h3>
+      <!-- Statement -->
+      <h3 class="carmen-section-title">Statement</h3>
       <div class="carmen-bilingual">
-        <div>
-          <p class="carmen-lang-label">Español</p>
+        <div class="only-es">
           <p class="carmen-statement">«Su pintura es su voz, su modo de decir lo que el cuerpo calla.<br>Cada trazo es un pensamiento, cada color un sentimiento que vuelve al mundo para hacerse visible.»</p>
         </div>
-        <div>
-          <p class="carmen-lang-label">English</p>
+        <div class="only-en">
           <p class="carmen-statement">"Her painting is her voice, her way of expressing what the body keeps silent.<br>Each stroke is a thought, each color a feeling that returns to the world to become visible."</p>
         </div>
       </div>
 
       <!-- Una narrativa muy personal -->
-      <h3 class="carmen-section-title">Una narrativa muy personal</h3>
+      <h3 class="carmen-section-title only-es">Una narrativa muy personal</h3>
+      <h3 class="carmen-section-title only-en">A Very Personal Narrative</h3>
       <div class="carmen-narrative">
-        <p class="carmen-bio"><strong>Carmen Pascual Sánchez</strong> (El Torno, Cáceres, 21 sept. 1931 / Plasencia, 5 de marzo, <em>miércoles de ceniza</em>, de 2025) sufrió un accidente cerebrovascular el 20 de mayo de 2012, y como consecuencia del mismo padeció una hemiplejia de su lado derecho y una afasia, que le impidieron la movilidad y poder expresar sus pensamientos y deseos por medio de la palabra; de ahí la <strong>elocuencia</strong> de sus pinturas y la pertinencia de la exposición de esta actividad plástica como ejemplo que puede ayudar a otros en similares circunstancias.</p>
-
-        <p class="carmen-text">Con la exhibición, presentación de estos trabajos, que entendemos, sobre todo, como una gran manifestación de amor a la vida a través del arte; queremos proyectar, comunicar, difundir su obra: «pinturas hechas de la luz y del color del alma…». Una traducción de su mundo interior, del espíritu generoso de madre y de mujer valiente que vence con su amplia sonrisa las barreras físicas del movimiento y de la palabra en un tránsito perfecto y auténtico, desde lo más profundo del ser y del sentir hasta la claridad de cada día, de todos los días.</p>
-
-        <p class="carmen-text">Los primeros trazos de este gran proyecto <em>Diario de Pinturas</em>, fueron con ceras blandas sobre papel de estraza gris: vacilantes y dispersos; pero enseguida se fueron agrupando y diferenciando por franjas de distintos tonos, intensidad y textura; el número de franjas cambia de unos ejercicios a otros: tres o cuatro, rara vez más.</p>
-
-        <p class="carmen-text">El proceso ha seguido hasta sus últimos días, con trabajos luminosos unos y otros más melancólicos; unos ligeros y fugaces, otros más detenidamente insistentes; unas temporadas prolíficas (otoño e invierno, más tiempo en casa), otras menos activas (verano, más calle), siempre activa salvo en sus periodos de enfermedad y durante las hospitalizaciones —también durante los periodos de recuperación, incluso en el hospital— seguía pintando.</p>
-
-        <p class="carmen-text">Durante el último año y medio pasó una larga temporada haciendo páginas monocromáticas; es muy visible en ellas la diferente intensidad y densidad del trazo, matices del tono que revelan variaciones en su estado de conciencia y distinta carga de energía… Ahora las entiendo como espacios de meditación, como estados del alma, <em>claros del bosque</em>, pensaría María Zambrano. Posteriormente tuvo un periodo de figuración abstracta, dinámica y de intenso colorido. Y los últimos trabajos de entresueños: fugaces y sutiles, casi evanescentes.</p>
+        <div class="only-es">
+          <p class="carmen-bio"><strong>Carmen Pascual Sánchez</strong> (El Torno, Cáceres, 21 sept. 1931 / Plasencia, 5 de marzo, <em>miércoles de ceniza</em>, de 2025) sufrió un accidente cerebrovascular el 20 de mayo de 2012, y como consecuencia del mismo padeció una hemiplejia de su lado derecho y una afasia, que le impidieron la movilidad y poder expresar sus pensamientos y deseos por medio de la palabra; de ahí la <strong>elocuencia</strong> de sus pinturas y la pertinencia de la exposición de esta actividad plástica como ejemplo que puede ayudar a otros en similares circunstancias.</p>
+          <p class="carmen-text">Con la exhibición, presentación de estos trabajos, que entendemos, sobre todo, como una gran manifestación de amor a la vida a través del arte; queremos proyectar, comunicar, difundir su obra: «pinturas hechas de la luz y del color del alma…». Una traducción de su mundo interior, del espíritu generoso de madre y de mujer valiente que vence con su amplia sonrisa las barreras físicas del movimiento y de la palabra en un tránsito perfecto y auténtico, desde lo más profundo del ser y del sentir hasta la claridad de cada día, de todos los días.</p>
+          <p class="carmen-text">Los primeros trazos de este gran proyecto <em>Diario de Pinturas</em>, fueron con ceras blandas sobre papel de estraza gris: vacilantes y dispersos; pero enseguida se fueron agrupando y diferenciando por franjas de distintos tonos, intensidad y textura; el número de franjas cambia de unos ejercicios a otros: tres o cuatro, rara vez más.</p>
+          <p class="carmen-text">El proceso ha seguido hasta sus últimos días, con trabajos luminosos unos y otros más melancólicos; unos ligeros y fugaces, otros más detenidamente insistentes; unas temporadas prolíficas (otoño e invierno, más tiempo en casa), otras menos activas (verano, más calle), siempre activa salvo en sus periodos de enfermedad y durante las hospitalizaciones —también durante los periodos de recuperación, incluso en el hospital— seguía pintando.</p>
+          <p class="carmen-text">Durante el último año y medio pasó una larga temporada haciendo páginas monocromáticas; es muy visible en ellas la diferente intensidad y densidad del trazo, matices del tono que revelan variaciones en su estado de conciencia y distinta carga de energía… Ahora las entiendo como espacios de meditación, como estados del alma, <em>claros del bosque</em>, pensaría María Zambrano. Posteriormente tuvo un periodo de figuración abstracta, dinámica y de intenso colorido. Y los últimos trabajos de entresueños: fugaces y sutiles, casi evanescentes.</p>
+        </div>
+        <div class="only-en">
+          <p class="carmen-bio"><strong>Carmen Pascual Sánchez</strong> (El Torno, Cáceres, 21 Sept. 1931 / Plasencia, 5 March, <em>Ash Wednesday</em>, 2025) suffered a cerebrovascular accident on 20 May 2012, as a consequence of which she developed right-side hemiplegia and aphasia, which prevented her from moving freely and expressing her thoughts and desires through words; hence the <strong>eloquence</strong> of her paintings and the relevance of exhibiting this artistic activity as an example that may help others in similar circumstances.</p>
+          <p class="carmen-text">With the exhibition and presentation of these works — which we understand above all as a great expression of love for life through art — we aim to project, communicate, and share her work: "paintings made of the light and colour of the soul…". A translation of her inner world, of the generous spirit of a mother and a courageous woman who overcomes with her wide smile the physical barriers of movement and speech in a perfect and authentic passage, from the deepest place of being and feeling to the clarity of each day, of every day.</p>
+          <p class="carmen-text">The first strokes of this great project, <em>Diary of Paintings</em>, were made with soft wax crayons on grey kraft paper: hesitant and scattered; but they soon began to group and differentiate into bands of varying tones, intensity, and texture; the number of bands changes from one exercise to the next: three or four, rarely more.</p>
+          <p class="carmen-text">The process continued until her final days, with some works luminous and others more melancholic; some light and fleeting, others more insistently deliberate; some seasons prolific (autumn and winter, more time at home), others less active (summer, more time outside), always working except during periods of illness and hospitalisation — including during recovery periods, even in hospital — she kept painting.</p>
+          <p class="carmen-text">In the last year and a half she spent a long period making monochromatic pages; the different intensity and density of the line are very visible in them, nuances of tone that reveal variations in her state of consciousness and different levels of energy… I now understand them as spaces of meditation, as states of the soul, <em>clearings in the forest</em>, as María Zambrano might say. Subsequently she went through a period of abstract figuration, dynamic and intensely colourful. And her last works belong to the realm of half-dreams: fleeting and subtle, almost evanescent.</p>
+        </div>
       </div>
 
       <!-- Enlaces / Links -->
@@ -1144,9 +1133,12 @@
   <!-- ── OBRA ── -->
   <section id="obra">
     <div class="obra-inner">
-      <p class="section-label">Catálogo</p>
-      <h2 class="obra-title">La obra de Carmen Pascual</h2>
-      <p class="obra-subtitle">Ocho obras del catálogo, ordenadas cronológicamente de 2015 a 2025.</p>
+      <p class="section-label only-es">Catálogo</p>
+      <p class="section-label only-en">Catalogue</p>
+      <h2 class="obra-title only-es">La obra de Carmen Pascual</h2>
+      <h2 class="obra-title only-en">Carmen Pascual's Work</h2>
+      <p class="obra-subtitle only-es">Ocho obras del catálogo, ordenadas cronológicamente de 2015 a 2025.</p>
+      <p class="obra-subtitle only-en">Eight works from the catalogue, arranged chronologically from 2015 to 2025.</p>
 
       <div class="obra-grid">
         <div class="obra-item">
@@ -1182,15 +1174,18 @@
           <p class="obra-fecha">CP. 8 y 9.02.2025. A4</p>
         </div>
       </div>
-      <p class="obra-nota">El catálogo completo incluye 1.586 obras documentadas en 22 libros cronológicos desde 2012 hasta 2025.</p>
+      <p class="obra-nota only-es">El catálogo completo incluye 1.586 obras documentadas en 22 libros cronológicos desde 2012 hasta 2025.</p>
+      <p class="obra-nota only-en">The complete catalogue includes 1,586 documented works in 22 chronological books from 2012 to 2025.</p>
     </div>
   </section>
 
   <!-- ── III JORNADA ── -->
   <section id="jornada-iii" style="background: var(--cream-alt); padding: 96px 48px;">
     <div class="obra-inner">
-      <p class="section-label">Exposición</p>
-      <h2 class="obra-title">III Jornada Arte y Ciencia</h2>
+      <p class="section-label only-es">Exposición</p>
+      <p class="section-label only-en">Exhibition</p>
+      <h2 class="obra-title only-es">III Jornada Arte y Ciencia</h2>
+      <h2 class="obra-title only-en">3rd Art and Science Conference</h2>
       <p class="obra-subtitle">CCMIJU · Centro de Cirugía de Mínima Invasión Jesús Usón. Cáceres.</p>
 
       <div class="obra-grid">
@@ -1233,42 +1228,58 @@
   <!-- ── ACTIVIDADES ── -->
   <section id="actividades">
     <div class="actividades-inner">
-      <p class="section-label">La Fundación</p>
-      <h2 class="actividades-title">Actividades y beneficiarios</h2>
+      <p class="section-label only-es">La Fundación</p>
+      <p class="section-label only-en">The Foundation</p>
+      <h2 class="actividades-title only-es">Actividades y beneficiarios</h2>
+      <h2 class="actividades-title only-en">Activities and Beneficiaries</h2>
 
       <div class="actividad">
-        <h3>Talleres, cursos y exposiciones</h3>
-        <p>Organización de talleres, cursos, seminarios, certámenes, conferencias, jornadas, congresos y exposiciones de arte de carácter general y/o inclusivas.</p>
+        <h3 class="only-es">Talleres, cursos y exposiciones</h3>
+        <h3 class="only-en">Workshops, courses and exhibitions</h3>
+        <p class="only-es">Organización de talleres, cursos, seminarios, certámenes, conferencias, jornadas, congresos y exposiciones de arte de carácter general y/o inclusivas.</p>
+        <p class="only-en">Organisation of workshops, courses, seminars, competitions, lectures, conferences, congresses, and general and/or inclusive art exhibitions.</p>
       </div>
 
       <div class="actividad">
-        <h3>Programas terapéuticos y sociales</h3>
-        <p>Promoción de programas de carácter terapéutico, educativo y social que integren arte, salud y naturaleza.</p>
+        <h3 class="only-es">Programas terapéuticos y sociales</h3>
+        <h3 class="only-en">Therapeutic and social programmes</h3>
+        <p class="only-es">Promoción de programas de carácter terapéutico, educativo y social que integren arte, salud y naturaleza.</p>
+        <p class="only-en">Promotion of therapeutic, educational, and social programmes that integrate art, health, and nature.</p>
       </div>
 
       <div class="actividad">
-        <h3>Inclusión y participación</h3>
-        <p>Fomento de la participación de personas con diferentes capacidades en proyectos artísticos, culturales y comunitarios.</p>
+        <h3 class="only-es">Inclusión y participación</h3>
+        <h3 class="only-en">Inclusion and participation</h3>
+        <p class="only-es">Fomento de la participación de personas con diferentes capacidades en proyectos artísticos, culturales y comunitarios.</p>
+        <p class="only-en">Fostering the participation of people with different abilities in artistic, cultural, and community projects.</p>
       </div>
 
       <div class="actividad">
-        <h3>Colaboraciones institucionales</h3>
-        <p>Colaboración con entidades públicas y privadas, nacionales o internacionales, que compartan objetivos similares.</p>
+        <h3 class="only-es">Colaboraciones institucionales</h3>
+        <h3 class="only-en">Institutional collaborations</h3>
+        <p class="only-es">Colaboración con entidades públicas y privadas, nacionales o internacionales, que compartan objetivos similares.</p>
+        <p class="only-en">Collaboration with national and international public and private entities sharing similar objectives.</p>
       </div>
 
       <div class="actividad">
-        <h3>Investigación y publicaciones</h3>
-        <p>Realización de investigaciones y publicaciones en relación con la neuroplasticidad, el arte y la salud.</p>
+        <h3 class="only-es">Investigación y publicaciones</h3>
+        <h3 class="only-en">Research and publications</h3>
+        <p class="only-es">Realización de investigaciones y publicaciones en relación con la neuroplasticidad, el arte y la salud.</p>
+        <p class="only-en">Conducting research and publications on neuroplasticity, art, and health.</p>
       </div>
 
       <div class="actividad">
-        <h3>Materiales formativos y divulgativos</h3>
-        <p>Edición y difusión de materiales formativos, divulgativos y/o científicos.</p>
+        <h3 class="only-es">Materiales formativos y divulgativos</h3>
+        <h3 class="only-en">Educational and outreach materials</h3>
+        <p class="only-es">Edición y difusión de materiales formativos, divulgativos y/o científicos.</p>
+        <p class="only-en">Production and dissemination of educational, outreach, and/or scientific materials.</p>
       </div>
 
       <div class="actividad">
-        <h3>Beneficiarios</h3>
-        <p>Serán beneficiarios de la Fundación las personas físicas que, por sus circunstancias personales, puedan verse favorecidas por estas actividades, y en particular las personas con diferentes capacidades, así como cualquier persona interesada en el Arte, la Salud y la Naturaleza. La selección se realizará conforme a criterios de imparcialidad, no discriminación y objetividad.</p>
+        <h3 class="only-es">Beneficiarios</h3>
+        <h3 class="only-en">Beneficiaries</h3>
+        <p class="only-es">Serán beneficiarios de la Fundación las personas físicas que, por sus circunstancias personales, puedan verse favorecidas por estas actividades, y en particular las personas con diferentes capacidades, así como cualquier persona interesada en el Arte, la Salud y la Naturaleza. La selección se realizará conforme a criterios de imparcialidad, no discriminación y objetividad.</p>
+        <p class="only-en">The Foundation's beneficiaries are individuals who, due to their personal circumstances, may benefit from these activities — in particular people with different abilities, as well as anyone with an interest in Art, Health, and Nature. Selection will be made according to criteria of impartiality, non-discrimination, and objectivity.</p>
       </div>
     </div>
   </section>
@@ -1276,32 +1287,42 @@
   <!-- ── CONTACTO ── -->
   <section id="contacto">
     <div class="contacto-inner">
-      <p class="section-label">Contacto</p>
-      <h2 class="contacto-title">Escríbenos</h2>
+      <p class="section-label only-es">Contacto</p>
+      <p class="section-label only-en">Contact</p>
+      <h2 class="contacto-title only-es">Escríbenos</h2>
+      <h2 class="contacto-title only-en">Get in Touch</h2>
       <div class="contacto-cols">
         <div class="contacto-col">
-          <h4>Domicilio Administrativo</h4>
+          <h4 class="only-es">Domicilio Administrativo</h4>
+          <h4 class="only-en">Registered Address</h4>
           <p>Avda. Constitución, 29 — 2º<br>10617 El Torno (Cáceres)<br>España</p>
         </div>
         <div class="contacto-col">
-          <h4>Datos de la Fundación</h4>
+          <h4 class="only-es">Datos de la Fundación</h4>
+          <h4 class="only-en">Foundation Details</h4>
           <p>NIF provisional: G02977944</p>
-          <p>Constituida el 28/11/2025</p>
-          <p>Escritura nº&nbsp;1598 · Notario D.&nbsp;Francisco de Asís Jiménez Velasco (Plasencia)</p>
+          <p class="only-es">Constituida el 28/11/2025</p>
+          <p class="only-en">Founded on 28/11/2025</p>
+          <p class="only-es">Escritura nº&nbsp;1598 · Notario D.&nbsp;Francisco de Asís Jiménez Velasco (Plasencia)</p>
+          <p class="only-en">Deed nº&nbsp;1598 · Notary D.&nbsp;Francisco de Asís Jiménez Velasco (Plasencia)</p>
         </div>
         <div class="contacto-col">
-          <h4>Correo</h4>
+          <h4 class="only-es">Correo</h4>
+          <h4 class="only-en">Email</h4>
           <a href="mailto:info@fundacioncarmenpascual.org">info@fundacioncarmenpascual.org</a>
-          <p class="nota">(buzón corporativo — pendiente de activación)</p>
+          <p class="nota only-es">(buzón corporativo — pendiente de activación)</p>
+          <p class="nota only-en">(corporate mailbox — pending activation)</p>
         </div>
       </div>
 
       <!-- QR -->
       <div class="qr-block">
         <img src="qr-fundacion.png" alt="Código QR de la Fundación Carmen Pascual">
-        <p class="qr-caption">Escanea para visitar la web</p>
+        <p class="qr-caption only-es">Escanea para visitar la web</p>
+        <p class="qr-caption only-en">Scan to visit the website</p>
         <a class="qr-download" href="qr-fundacion.png" download="qr-fundacion-carmen-pascual.png">
-          Descargar QR
+          <span class="only-es">Descargar QR</span>
+          <span class="only-en">Download QR</span>
         </a>
       </div>
 
@@ -1311,7 +1332,8 @@
   <!-- ── FOOTER ── -->
   <footer>
     <p>© 2026 Fundación Carmen Pascual. Arte Salud Naturaleza.</p>
-    <p class="nota-footer">Esta web es una maqueta provisional alojada en GitHub Pages.</p>
+    <p class="nota-footer only-es">Esta web es una maqueta provisional alojada en GitHub Pages.</p>
+    <p class="nota-footer only-en">This website is a provisional draft hosted on GitHub Pages.</p>
   </footer>
 
   <script>
@@ -1321,6 +1343,24 @@
     function closeMenu() {
       document.getElementById('navLinks').classList.remove('open');
     }
+
+    // ── Selector de idioma ──────────────────────────────
+    var langBtn = document.getElementById('lang-btn');
+
+    function setLang(l) {
+      document.documentElement.className = 'lang-' + l;
+      document.documentElement.lang = l;
+      langBtn.textContent = l === 'es' ? 'EN' : 'ES';
+      localStorage.setItem('lang', l);
+    }
+
+    langBtn.addEventListener('click', function () {
+      setLang(document.documentElement.className === 'lang-es' ? 'en' : 'es');
+    });
+
+    // Recuperar preferencia guardada
+    var saved = localStorage.getItem('lang');
+    if (saved && saved !== 'es') setLang(saved);
   </script>
 
 </body>
