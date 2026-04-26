@@ -36,4 +36,4 @@ Aquí puedes ir anotando los prompts que has usado o que quieres usar:
 
 ```
 (espacio libre para tus notas)
-```
+```aún no has quitado del la Web <p class="nota">(buzón corporativo — pendiente de activación)</p> esto. Haz el favor de quitarlo. Porque ya funciona el correo
