@@ -1720,7 +1720,7 @@
       var current  = 0;
 
       function collectImages() {
-        images = Array.from(document.querySelectorAll('.obra-img'));
+        images = Array.from(document.querySelectorAll('.obra-img, .historial-qr'));
         images.forEach(function (img, i) {
           img.addEventListener('click', function () { open(i); });
         });
@@ -1743,7 +1743,8 @@
         var img = images[current];
         lbImg.src = img.src;
         lbImg.alt = img.alt;
-        var fecha = img.closest('.obra-item').querySelector('.obra-fecha');
+        var parent = img.closest('.obra-item, .historial-item');
+        var fecha  = parent && (parent.querySelector('.obra-fecha') || parent.querySelector('.historial-label strong'));
         lbCap.textContent = fecha ? fecha.textContent.trim() : '';
         lbCount.textContent = (current + 1) + ' / ' + images.length;
         lbPrev.style.visibility = current > 0 ? 'visible' : 'hidden';
