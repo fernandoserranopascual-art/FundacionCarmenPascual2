@@ -633,6 +633,71 @@
 
     .obra-item { overflow: hidden; }
 
+    /* ── HISTORIAL ───────────────────────────────────── */
+    #historial { background: var(--cream-alt); padding: 96px 48px; }
+
+    .historial-inner { max-width: 960px; margin: 0 auto; }
+
+    .historial-intro {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.8;
+      max-width: 680px;
+      margin-bottom: 56px;
+    }
+
+    .historial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .historial-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .historial-qr {
+      width: 100%;
+      max-width: 220px;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+      cursor: zoom-in;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .historial-qr:hover {
+      box-shadow: 0 6px 28px rgba(0,0,0,0.15);
+      transform: scale(1.03);
+    }
+
+    .historial-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .historial-label strong {
+      display: block;
+      font-weight: 500;
+      color: var(--text-mid);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: none;
+      margin-bottom: 4px;
+    }
+
     /* ── LIGHTBOX ────────────────────────────────────── */
     #lightbox {
       display: none;
@@ -925,10 +990,12 @@
       #jornada-iii,
       #a-carmen,
       #actividades,
+      #historial,
       #contacto { padding: 64px 24px; }
 
       .acarmen-grid { grid-template-columns: 1fr; gap: 32px; }
       .acarmen-cat + .acarmen-cat { padding-left: 0; border-left: none; }
+      .historial-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
 
       #carmen { padding: 64px 24px; }
       .tres-vocaciones { grid-template-columns: 1fr; gap: 32px; }
@@ -975,6 +1042,10 @@
         <li><a href="#actividades" onclick="closeMenu()">
           <span class="only-es">Actividades</span>
           <span class="only-en">Activities</span>
+        </a></li>
+        <li><a href="#historial" onclick="closeMenu()">
+          <span class="only-es">Historial</span>
+          <span class="only-en">History</span>
         </a></li>
         <li><a href="#patronato" onclick="closeMenu()">
           <span class="only-es">Patronato</span>
@@ -1467,6 +1538,52 @@
         <h3 class="only-en">Beneficiaries</h3>
         <p class="only-es">Serán beneficiarios de la Fundación las personas físicas que, por sus circunstancias personales, puedan verse favorecidas por estas actividades, y en particular las personas con diferentes capacidades, así como cualquier persona interesada en el Arte, la Salud y la Naturaleza. La selección se realizará conforme a criterios de imparcialidad, no discriminación y objetividad.</p>
         <p class="only-en">The Foundation's beneficiaries are individuals who, due to their personal circumstances, may benefit from these activities — in particular people with different abilities, as well as anyone with an interest in Art, Health, and Nature. Selection will be made according to criteria of impartiality, non-discrimination, and objectivity.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HISTORIAL DE ACTIVIDADES ── -->
+  <section id="historial">
+    <div class="historial-inner">
+      <p class="section-label only-es">Archivo</p>
+      <p class="section-label only-en">Archive</p>
+      <h2 class="obra-title only-es">Historial de Actividades</h2>
+      <h2 class="obra-title only-en">Activity History</h2>
+      <p class="historial-intro only-es">Ciclos, jornadas y exposiciones organizadas en el marco de Arte Salud Naturaleza. Escanea cada código QR para acceder a la documentación de cada evento.</p>
+      <p class="historial-intro only-en">Cycles, conferences and exhibitions organised within the Arte Salud Naturaleza framework. Scan each QR code to access the documentation for each event.</p>
+
+      <div class="historial-grid">
+
+        <div class="historial-item">
+          <img src="historial/qr-ciclo-xviii.jpg" alt="QR XVIII Ciclo Arte Salud Naturaleza" class="historial-qr" loading="lazy">
+          <p class="historial-label"><strong>XVIII Ciclo ASN</strong>Arte · Salud · Naturaleza</p>
+        </div>
+
+        <div class="historial-item">
+          <img src="historial/qr-ciclo-xix.jpg" alt="QR XIX Ciclo Arte Salud Naturaleza" class="historial-qr" loading="lazy">
+          <p class="historial-label"><strong>XIX Ciclo ASN</strong>Arte · Salud · Naturaleza</p>
+        </div>
+
+        <div class="historial-item">
+          <img src="historial/qr-ciclo-xx.jpg" alt="QR XX Ciclo Arte Salud Naturaleza" class="historial-qr" loading="lazy">
+          <p class="historial-label"><strong>XX Ciclo ASN</strong>Arte · Salud · Naturaleza</p>
+        </div>
+
+        <div class="historial-item">
+          <img src="historial/qr-ciclo-xxi-jornada-iii.png" alt="QR XXI Ciclo ASN · III Jornada Arte y Ciencia" class="historial-qr" loading="lazy">
+          <p class="historial-label"><strong>XXI Ciclo ASN · III Jornada</strong>Arte y Ciencia</p>
+        </div>
+
+        <div class="historial-item">
+          <img src="historial/qr-cp-jrj.jpg" alt="QR Carmen Pascual entre poetas con Juan Ramón Jiménez" class="historial-qr" loading="lazy">
+          <p class="historial-label"><strong>Carmen Pascual entre poetas</strong>con Juan Ramón Jiménez</p>
+        </div>
+
+        <div class="historial-item">
+          <img src="historial/qr-cp-gyg.png" alt="QR Carmen Pascual entre poetas con Gabriel y Galán" class="historial-qr" loading="lazy">
+          <p class="historial-label"><strong>Carmen Pascual entre poetas</strong>con Gabriel y Galán</p>
+        </div>
+
       </div>
     </div>
   </section>
