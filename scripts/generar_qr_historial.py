@@ -87,32 +87,27 @@ def recolor_eye(arr, ox, oy, box, color):
     arr[dy:dy+3*box, dx:dx+3*box] = [r, g, b, 255]
 
 
+LOGO_ASN_PATH = '/workspaces/FundacionCarmenPascual2/docs/obras/LOGO  ARTE SALUD NATURALEZA.jpg'
+
 def make_asn_logo(size):
-    """Crea el logo ASN (tres cuadros A·S·N) con borde blanco, opaco y bien visible."""
-    pad  = size // 6          # borde blanco alrededor
-    total = size + pad * 2
+    """Carga el logo ASN auténtico, recorta la parte superior (letras A·S·N)
+    y lo enmarca en un cuadrado con borde blanco."""
+    src = Image.open(LOGO_ASN_PATH).convert('RGBA')
 
-    # Fondo blanco opaco (actúa como borde/halo)
+    # Usar solo la mitad superior del logo (donde están las letras A, S, N)
+    crop_h = int(src.height * 0.58)
+    src = src.crop((0, 0, src.width, crop_h))
+
+    # Redimensionar manteniendo proporción para que quepa en 'size'
+    src.thumbnail((size, size), Image.LANCZOS)
+
+    # Centrar en un cuadrado blanco con padding
+    pad    = size // 8
+    total  = size + pad * 2
     canvas = Image.new('RGBA', (total, total), (255, 255, 255, 255))
-    logo   = Image.new('RGBA', (size, size),   (255, 255, 255, 255))
-    d = ImageDraw.Draw(logo)
-
-    w = size // 3
-    d.rectangle([0,       0, w - 1,      size - 1], fill=(*RED,   255))
-    d.rectangle([w,       0, 2*w - 1,    size - 1], fill=(*BLUE,  255))
-    d.rectangle([2*w,     0, size - 1,   size - 1], fill=(*GREEN, 255))
-
-    try:
-        font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', size // 3)
-    except Exception:
-        font = ImageFont.load_default()
-
-    for i, letter in enumerate(['A', 'S', 'N']):
-        lx = i * w + w // 2
-        ly = size // 2
-        d.text((lx, ly), letter, font=font, fill=(255, 255, 255, 255), anchor='mm')
-
-    canvas.paste(logo, (pad, pad))
+    ox = (total - src.width)  // 2
+    oy = (total - src.height) // 2
+    canvas.paste(src, (ox, oy), src)
     return canvas
 
 
