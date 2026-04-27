@@ -90,18 +90,13 @@ def recolor_eye(arr, ox, oy, box, color):
 LOGO_ASN_PATH = '/workspaces/FundacionCarmenPascual2/docs/obras/LOGO  ARTE SALUD NATURALEZA.jpg'
 
 def make_asn_logo(size):
-    """Carga el logo ASN auténtico, recorta la parte superior (letras A·S·N)
-    y lo enmarca en un cuadrado con borde blanco."""
+    """Carga el logo ASN auténtico completo y lo enmarca con borde blanco."""
     src = Image.open(LOGO_ASN_PATH).convert('RGBA')
 
-    # Usar solo la mitad superior del logo (donde están las letras A, S, N)
-    crop_h = int(src.height * 0.58)
-    src = src.crop((0, 0, src.width, crop_h))
-
-    # Redimensionar manteniendo proporción para que quepa en 'size'
+    # Redimensionar el logo completo (sin recortar) para que quepa en 'size'
     src.thumbnail((size, size), Image.LANCZOS)
 
-    # Centrar en un cuadrado blanco con padding
+    # Centrar en un canvas blanco con padding uniforme
     pad    = size // 8
     total  = size + pad * 2
     canvas = Image.new('RGBA', (total, total), (255, 255, 255, 255))
