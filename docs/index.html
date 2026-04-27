@@ -740,6 +740,72 @@
       font-style: italic;
     }
 
+    /* ── A CARMEN ───────────────────────────────────── */
+    #a-carmen { background: var(--cream); padding: 96px 48px; }
+
+    .acarmen-inner { max-width: 960px; margin: 0 auto; }
+
+    .acarmen-intro {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.8;
+      max-width: 680px;
+      margin-bottom: 64px;
+    }
+
+    .acarmen-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+
+    .acarmen-cat {
+      border-top: 1.5px solid var(--green);
+      padding: 32px 32px 32px 0;
+    }
+
+    .acarmen-cat + .acarmen-cat { padding-left: 32px; border-left: 1px solid var(--border); }
+
+    .acarmen-symbol {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--green);
+      margin-bottom: 20px;
+      line-height: 1;
+    }
+
+    .acarmen-cat-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 300;
+      margin-bottom: 12px;
+    }
+
+    .acarmen-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+
+    .acarmen-proximamente {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 2px;
+    }
+
     /* ── ACTIVIDADES ─────────────────────────────────── */
     #actividades { background: var(--cream-dark); padding: 96px 48px; }
 
@@ -857,8 +923,12 @@
       #patronato,
       #obra,
       #jornada-iii,
+      #a-carmen,
       #actividades,
       #contacto { padding: 64px 24px; }
+
+      .acarmen-grid { grid-template-columns: 1fr; gap: 32px; }
+      .acarmen-cat + .acarmen-cat { padding-left: 0; border-left: none; }
 
       #carmen { padding: 64px 24px; }
       .tres-vocaciones { grid-template-columns: 1fr; gap: 32px; }
@@ -897,6 +967,10 @@
         <li><a href="#jornada-iii" onclick="closeMenu()">
           <span class="only-es">III Jornada</span>
           <span class="only-en">III Jornada Arte y Ciencia</span>
+        </a></li>
+        <li><a href="#a-carmen" onclick="closeMenu()">
+          <span class="only-es">A Carmen</span>
+          <span class="only-en">For Carmen</span>
         </a></li>
         <li><a href="#actividades" onclick="closeMenu()">
           <span class="only-es">Actividades</span>
@@ -1288,6 +1362,52 @@
           <img src="obras/jornada-iii/jornada-iii-2015-11-26.jpg" alt="Obra de Carmen Pascual, 26 noviembre 2015" class="obra-img" loading="lazy">
           <p class="obra-fecha">CP. 26.11.15. A3</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── A CARMEN ── -->
+  <section id="a-carmen">
+    <div class="acarmen-inner">
+      <p class="section-label only-es">Homenaje</p>
+      <p class="section-label only-en">Tribute</p>
+      <h2 class="obra-title only-es">A Carmen: poemas, cuadros y música</h2>
+      <h2 class="obra-title only-en">For Carmen: poems, paintings and music</h2>
+      <p class="acarmen-intro only-es">Creaciones que poetas, pintores y músicos han dedicado a Carmen Pascual Sánchez como testimonio de admiración y afecto.</p>
+      <p class="acarmen-intro only-en">Works that poets, painters and musicians have dedicated to Carmen Pascual Sánchez as a testimony of admiration and affection.</p>
+
+      <div class="acarmen-grid">
+
+        <div class="acarmen-cat">
+          <div class="acarmen-symbol">I</div>
+          <h3 class="acarmen-cat-title only-es">Poemas</h3>
+          <h3 class="acarmen-cat-title only-en">Poems</h3>
+          <p class="acarmen-desc only-es">Palabras escritas por poetas que encontraron en la pintura de Carmen una voz silenciosa y luminosa.</p>
+          <p class="acarmen-desc only-en">Words written by poets who found in Carmen's painting a silent and luminous voice.</p>
+          <span class="acarmen-proximamente only-es">Próximamente</span>
+          <span class="acarmen-proximamente only-en">Coming soon</span>
+        </div>
+
+        <div class="acarmen-cat">
+          <div class="acarmen-symbol">II</div>
+          <h3 class="acarmen-cat-title only-es">Cuadros</h3>
+          <h3 class="acarmen-cat-title only-en">Paintings</h3>
+          <p class="acarmen-desc only-es">Obras de pintores que han respondido con su pincel al legado de Carmen.</p>
+          <p class="acarmen-desc only-en">Works by painters who have responded with their brush to Carmen's legacy.</p>
+          <span class="acarmen-proximamente only-es">Próximamente</span>
+          <span class="acarmen-proximamente only-en">Coming soon</span>
+        </div>
+
+        <div class="acarmen-cat">
+          <div class="acarmen-symbol">III</div>
+          <h3 class="acarmen-cat-title only-es">Música</h3>
+          <h3 class="acarmen-cat-title only-en">Music</h3>
+          <p class="acarmen-desc only-es">Composiciones musicales inspiradas en la obra y la vida de Carmen Pascual.</p>
+          <p class="acarmen-desc only-en">Musical compositions inspired by the work and life of Carmen Pascual.</p>
+          <span class="acarmen-proximamente only-es">Próximamente</span>
+          <span class="acarmen-proximamente only-en">Coming soon</span>
+        </div>
+
       </div>
     </div>
   </section>
