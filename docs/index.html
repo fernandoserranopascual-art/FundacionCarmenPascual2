@@ -170,9 +170,16 @@
       font-weight: 300;
       color: var(--text-mid);
       line-height: 1.7;
-      max-width: 440px;
+      max-width: 580px;
       margin: 0 auto 40px;
+      list-style: none;
+      padding: 0;
+      text-align: center;
     }
+    .hero-subtitle p { margin: 0 0 16px; }
+    .hero-subtitle p:last-child { margin-bottom: 0; }
+    .hero-lema { font-weight: 600; color: var(--text); font-size: 16px; }
+    .hero-cierre { font-style: italic; font-weight: 600; }
 
     .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
@@ -1068,16 +1075,18 @@
     <div class="hero-inner">
       <img src="logo-color.jpeg" alt="Fundación Carmen Pascual. Arte Salud Naturaleza" class="hero-logo">
       <h1 class="hero-title">Fundación<br>Carmen Pascual</h1>
-      <ol class="hero-subtitle only-es" type="a">
-        <li>Promover actividades relacionadas con el Arte, la Salud y la Naturaleza, fomentando la interacción entre estas tres disciplinas como herramienta de desarrollo personal, bienestar social y enriquecimiento cultural.</li>
-        <li>Favorecer la plasticidad neuronal y la INCLUSIÓN social, profesional y cultural de personas con diferentes capacidades, desarrollando programas que utilicen el arte, la Salud y las actividades en la Naturaleza como medio terapéutico y de relación social.</li>
-        <li>Catalogar, conservar y difundir las obras de arte de Carmen Pascual, compuesta por más de 1.500 cuadros documentados y debidamente catalogados.</li>
-      </ol>
-      <ol class="hero-subtitle only-en" type="a">
-        <li>To promote activities related to Art, Health and Nature, fostering the interaction between these three disciplines as a tool for personal development, social wellbeing and cultural enrichment.</li>
-        <li>To foster neuroplasticity and the social, professional and cultural INCLUSION of people with different abilities, developing programmes that use art, health and activities in nature as therapeutic means and social engagement.</li>
-        <li>To catalogue, preserve and disseminate the artworks of Carmen Pascual, comprising more than 1,500 documented and duly catalogued paintings.</li>
-      </ol>
+      <div class="hero-subtitle only-es">
+        <p class="hero-lema"><strong>El poder del ARTE, el compromiso de la INCLUSIÓN.</strong></p>
+        <p>A los 80 años, CARMEN PASCUAL sufrió un ictus severo; a partir de entonces creó más de 1.500 obras hasta los 93, superando la adversidad con alegría y la práctica artística.</p>
+        <p>Hoy su fundación lleva ese mismo espíritu a la INCLUSIÓN de personas con diferentes capacidades, a través de actividades terapéuticas y de conocimiento, de ARTE, SALUD y NATURALEZA para el desarrollo de la plasticidad neuronal, hacia un desarrollo y bienestar personal, enriquecimiento cultural y una sociedad más justa, humana y solidaria.</p>
+        <p class="hero-cierre"><em><strong>Su ejemplo fue el principio. La inclusión de todos es el horizonte.</strong></em></p>
+      </div>
+      <div class="hero-subtitle only-en">
+        <p class="hero-lema"><strong>The power of ART, the commitment to INCLUSION.</strong></p>
+        <p>At 80, CARMEN PASCUAL suffered a severe stroke; from then on she created more than 1,500 works until the age of 93, overcoming adversity with joy and artistic practice.</p>
+        <p>Today her foundation carries that same spirit to the INCLUSION of people with different abilities, through therapeutic and educational activities using ART, HEALTH and NATURE to develop neuroplasticity, towards personal wellbeing, cultural enrichment and a fairer, more human and solidary society.</p>
+        <p class="hero-cierre"><em><strong>Her example was the beginning. The inclusion of all is the horizon.</strong></em></p>
+      </div>
       <div class="hero-buttons">
         <a href="#obra" class="btn-primary">
           <span class="only-es">Descubrir la obra</span>
