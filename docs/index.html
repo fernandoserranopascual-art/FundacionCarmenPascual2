@@ -878,6 +878,43 @@
       border-radius: 2px;
     }
 
+    .acarmen-musica-autor {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--text-mid);
+      letter-spacing: 0.04em;
+      margin-bottom: 24px;
+    }
+
+    .acarmen-soneto { margin-bottom: 24px; }
+
+    .acarmen-soneto-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .acarmen-soneto audio {
+      width: 100%;
+      height: 36px;
+      margin-bottom: 6px;
+    }
+
+    .acarmen-soneto-pdf {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      text-decoration: none;
+    }
+    .acarmen-soneto-pdf:hover { text-decoration: underline; }
+
     /* ── ACTIVIDADES ─────────────────────────────────── */
     #actividades { background: var(--cream-dark); padding: 96px 48px; }
 
@@ -1481,8 +1518,44 @@
           <h3 class="acarmen-cat-title only-en">Music</h3>
           <p class="acarmen-desc only-es">Composiciones musicales inspiradas en la obra y la vida de Carmen Pascual.</p>
           <p class="acarmen-desc only-en">Musical compositions inspired by the work and life of Carmen Pascual.</p>
-          <span class="acarmen-proximamente only-es">Próximamente</span>
-          <span class="acarmen-proximamente only-en">Coming soon</span>
+          <p class="acarmen-musica-autor only-es">Sandro Bakhuashvili, piano y composición</p>
+          <p class="acarmen-musica-autor only-en">Sandro Bakhuashvili, piano and composition</p>
+
+          <div class="acarmen-soneto">
+            <p class="acarmen-soneto-title only-es">Soneto I</p>
+            <p class="acarmen-soneto-title only-en">Sonnet I</p>
+            <audio controls preload="none">
+              <source src="acarmen/musica/soneto-i.mp3" type="audio/mpeg">
+            </audio>
+            <a class="acarmen-soneto-pdf" href="acarmen/musica/soneto-i.pdf" target="_blank">
+              <span class="only-es">↓ Partitura PDF</span>
+              <span class="only-en">↓ Score PDF</span>
+            </a>
+          </div>
+
+          <div class="acarmen-soneto">
+            <p class="acarmen-soneto-title only-es">Soneto II</p>
+            <p class="acarmen-soneto-title only-en">Sonnet II</p>
+            <audio controls preload="none">
+              <source src="acarmen/musica/soneto-ii.mp3" type="audio/mpeg">
+            </audio>
+            <a class="acarmen-soneto-pdf" href="acarmen/musica/soneto-ii.pdf" target="_blank">
+              <span class="only-es">↓ Partitura PDF</span>
+              <span class="only-en">↓ Score PDF</span>
+            </a>
+          </div>
+
+          <div class="acarmen-soneto">
+            <p class="acarmen-soneto-title only-es">Soneto III</p>
+            <p class="acarmen-soneto-title only-en">Sonnet III</p>
+            <audio controls preload="none">
+              <source src="acarmen/musica/soneto-iii.mp3" type="audio/mpeg">
+            </audio>
+            <a class="acarmen-soneto-pdf" href="acarmen/musica/soneto-iii.pdf" target="_blank">
+              <span class="only-es">↓ Partitura PDF</span>
+              <span class="only-en">↓ Score PDF</span>
+            </a>
+          </div>
         </div>
 
       </div>
