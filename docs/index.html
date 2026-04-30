@@ -980,6 +980,22 @@
       margin-bottom: 28px;
     }
 
+    .acarmen-cuadro {
+      margin-top: 24px;
+    }
+    .acarmen-cuadro-img {
+      width: 100%;
+      max-width: 480px;
+      display: block;
+      border: 1px solid var(--border);
+    }
+    .acarmen-cuadro-autor {
+      margin-top: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
     .acarmen-proximamente {
       display: inline-block;
       font-family: 'Inter', sans-serif;
@@ -1947,8 +1963,14 @@ pintura y versu!</div>
           <h3 class="acarmen-cat-title only-en">Paintings</h3>
           <p class="acarmen-desc only-es">Obras de pintores que han respondido con su pincel al legado de Carmen.</p>
           <p class="acarmen-desc only-en">Works by painters who have responded with their brush to Carmen's legacy.</p>
-          <span class="acarmen-proximamente only-es">Próximamente</span>
-          <span class="acarmen-proximamente only-en">Coming soon</span>
+
+          <div class="acarmen-cuadro">
+            <img src="acarmen/cuadros/carmen-pascual-por-ramirez-vega.jpg"
+                 alt="Carmen Pascual por Ramírez Vega"
+                 class="acarmen-cuadro-img" loading="lazy">
+            <p class="acarmen-cuadro-autor only-es"><strong>Ramírez Vega</strong></p>
+            <p class="acarmen-cuadro-autor only-en"><strong>Ramírez Vega</strong></p>
+          </div>
         </div>
 
         <div class="acarmen-cat">
