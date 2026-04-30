@@ -838,6 +838,46 @@
       padding: 6px 14px;
       border-radius: 2px;
     }
+    /* ── IMÁGENES PARA RECORDAR ─────────────────────────── */
+    .recuerdo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .recuerdo-item {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .recuerdo-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      cursor: zoom-in;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .recuerdo-item:hover .recuerdo-img {
+      opacity: 0.88;
+      transform: scale(1.02);
+    }
+
+    .recuerdo-caption {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--text-light);
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .recuerdo-grid { grid-template-columns: 1fr; }
+    }
+
     .escritos-lista {
       list-style: none;
       padding: 0;
@@ -2029,8 +2069,21 @@ pintura y versu!</div>
       <h2 class="obra-title only-en">Images to Remember</h2>
       <p class="escritos-intro only-es">Fotografías y momentos que guardan la memoria de Carmen Pascual y de quienes la conocieron.</p>
       <p class="escritos-intro only-en">Photographs and moments that preserve the memory of Carmen Pascual and those who knew her.</p>
-      <span class="escritos-proximamente only-es">Próximamente</span>
-      <span class="escritos-proximamente only-en">Coming soon</span>
+
+      <div class="recuerdo-grid">
+        <figure class="recuerdo-item">
+          <img src="imagenes/foto-carmen-pascual-documento.jpg"
+               alt="Foto de Carmen Pascual. Documento"
+               class="recuerdo-img" loading="lazy">
+          <figcaption class="recuerdo-caption">Foto de Carmen Pascual. Documento</figcaption>
+        </figure>
+        <figure class="recuerdo-item">
+          <img src="imagenes/retrato-carmen-alvaro-fernando-santi-sanchez.jpg"
+               alt="Retrato Carmen, Álvaro y Fernando. Foto Santi Sánchez"
+               class="recuerdo-img" loading="lazy">
+          <figcaption class="recuerdo-caption">Retrato Carmen, Álvaro y Fernando. Foto Santi Sánchez</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -2271,7 +2324,7 @@ pintura y versu!</div>
       var current  = 0;
 
       function collectImages() {
-        images = Array.from(document.querySelectorAll('.obra-img, .historial-qr'));
+        images = Array.from(document.querySelectorAll('.obra-img, .historial-qr, .recuerdo-img'));
         images.forEach(function (img, i) {
           img.addEventListener('click', function () { open(i); });
         });
