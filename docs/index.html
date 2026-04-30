@@ -953,15 +953,32 @@
 
     .acarmen-soneto-pdf {
       display: inline-block;
+      margin-top: 12px;
+      text-decoration: none;
+      position: relative;
+    }
+    .acarmen-soneto-pdf img {
+      display: block;
+      width: 160px;
+      border: 1px solid #d0c9bb;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .acarmen-soneto-pdf:hover img {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      transform: translateY(-2px);
+    }
+    .acarmen-soneto-pdf-label {
+      display: block;
+      margin-top: 6px;
       font-family: 'Inter', sans-serif;
       font-size: 10px;
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--green);
-      text-decoration: none;
+      text-align: center;
     }
-    .acarmen-soneto-pdf:hover { text-decoration: underline; }
 
     /* ── ACTIVIDADES ─────────────────────────────────── */
     #actividades { background: var(--cream-dark); padding: 96px 48px; }
@@ -1607,9 +1624,10 @@ y el alma de las cosas.</div>
             <audio controls preload="none">
               <source src="acarmen/musica/soneto-i.mp3" type="audio/mpeg">
             </audio>
-            <a class="acarmen-soneto-pdf" href="acarmen/musica/soneto-i.pdf" target="_blank">
-              <span class="only-es">↓ Partitura PDF</span>
-              <span class="only-en">↓ Score PDF</span>
+            <a class="acarmen-soneto-pdf" href="acarmen/musica/soneto-i.pdf" target="_blank" download>
+              <img src="acarmen/musica/soneto-i-preview.jpg" alt="Partitura Soneto I">
+              <span class="acarmen-soneto-pdf-label only-es">↓ Descargar partitura</span>
+              <span class="acarmen-soneto-pdf-label only-en">↓ Download score</span>
             </a>
           </div>
 
@@ -1619,9 +1637,10 @@ y el alma de las cosas.</div>
             <audio controls preload="none">
               <source src="acarmen/musica/soneto-ii.mp3" type="audio/mpeg">
             </audio>
-            <a class="acarmen-soneto-pdf" href="acarmen/musica/soneto-ii.pdf" target="_blank">
-              <span class="only-es">↓ Partitura PDF</span>
-              <span class="only-en">↓ Score PDF</span>
+            <a class="acarmen-soneto-pdf" href="acarmen/musica/soneto-ii.pdf" target="_blank" download>
+              <img src="acarmen/musica/soneto-ii-preview.jpg" alt="Partitura Soneto II">
+              <span class="acarmen-soneto-pdf-label only-es">↓ Descargar partitura</span>
+              <span class="acarmen-soneto-pdf-label only-en">↓ Download score</span>
             </a>
           </div>
 
@@ -1631,9 +1650,10 @@ y el alma de las cosas.</div>
             <audio controls preload="none">
               <source src="acarmen/musica/soneto-iii.mp3" type="audio/mpeg">
             </audio>
-            <a class="acarmen-soneto-pdf" href="acarmen/musica/soneto-iii.pdf" target="_blank">
-              <span class="only-es">↓ Partitura PDF</span>
-              <span class="only-en">↓ Score PDF</span>
+            <a class="acarmen-soneto-pdf" href="acarmen/musica/soneto-iii.pdf" target="_blank" download>
+              <img src="acarmen/musica/soneto-iii-preview.jpg" alt="Partitura Soneto III">
+              <span class="acarmen-soneto-pdf-label only-es">↓ Descargar partitura</span>
+              <span class="acarmen-soneto-pdf-label only-en">↓ Download score</span>
             </a>
           </div>
         </div>
