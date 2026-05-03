@@ -83,7 +83,7 @@
       text-decoration: none;
     }
     .nav-logo img {
-      height: 38px;
+      height: 52px;
       width: auto;
       mix-blend-mode: multiply;
     }
@@ -1111,6 +1111,28 @@
       text-align: center;
     }
 
+    .acarmen-video-wrap { margin-top: 32px; }
+    .acarmen-video-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .acarmen-video-wrap video {
+      width: 100%;
+      border: 1px solid #d0c9bb;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .acarmen-video-caption {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--text-mid);
+      letter-spacing: 0.04em;
+      margin-top: 6px;
+    }
+
     /* ── ACTIVIDADES ─────────────────────────────────── */
     #actividades { background: var(--cream-dark); padding: 96px 48px; }
 
@@ -1204,7 +1226,7 @@
       .nav-links {
         display: none;
         position: absolute;
-        top: 61px;
+        top: 81px;
         left: 0;
         right: 0;
         background: var(--cream);
@@ -2056,6 +2078,16 @@ pintura y versu!</div>
               <span class="acarmen-soneto-pdf-label only-es">↓ Descargar partitura</span>
               <span class="acarmen-soneto-pdf-label only-en">↓ Download score</span>
             </a>
+          </div>
+
+          <div class="acarmen-video-wrap">
+            <p class="acarmen-video-title only-es">Tres Sonetos de Invierno para Carmen Pascual — Catedral de Plasencia</p>
+            <p class="acarmen-video-title only-en">Three Winter Sonnets for Carmen Pascual — Plasencia Cathedral</p>
+            <video controls preload="none">
+              <source src="acarmen/musica/tres-sonetos-invierno-catedral-plasencia.mp4" type="video/mp4">
+            </video>
+            <p class="acarmen-video-caption only-es">Sandro Bakhuashvili, piano. Catedral de Plasencia.</p>
+            <p class="acarmen-video-caption only-en">Sandro Bakhuashvili, piano. Plasencia Cathedral.</p>
           </div>
         </div>
 
