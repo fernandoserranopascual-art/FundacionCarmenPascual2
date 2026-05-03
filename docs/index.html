@@ -1119,10 +1119,19 @@
       color: var(--text);
       margin-bottom: 8px;
     }
-    .acarmen-video-wrap video {
+    .acarmen-video-ratio {
+      position: relative;
       width: 100%;
+      padding-top: 56.25%;
       border: 1px solid #d0c9bb;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .acarmen-video-ratio iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
     .acarmen-video-caption {
       font-family: 'Inter', sans-serif;
@@ -2083,9 +2092,12 @@ pintura y versu!</div>
           <div class="acarmen-video-wrap">
             <p class="acarmen-video-title only-es">Tres Sonetos de Invierno para Carmen Pascual — Catedral de Plasencia</p>
             <p class="acarmen-video-title only-en">Three Winter Sonnets for Carmen Pascual — Plasencia Cathedral</p>
-            <video controls preload="none">
-              <source src="acarmen/musica/tres-sonetos-invierno-catedral-plasencia.mp4" type="video/mp4">
-            </video>
+            <div class="acarmen-video-ratio">
+              <iframe src="https://www.youtube.com/embed/FwrOgHHOqSs"
+                      title="Tres Sonetos de Invierno para Carmen Pascual — Sandro Bakhuashvili"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen loading="lazy"></iframe>
+            </div>
             <p class="acarmen-video-caption only-es">Sandro Bakhuashvili, piano. Catedral de Plasencia.</p>
             <p class="acarmen-video-caption only-en">Sandro Bakhuashvili, piano. Plasencia Cathedral.</p>
           </div>
