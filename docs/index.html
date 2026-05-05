@@ -892,18 +892,37 @@
       flex-direction: column;
       gap: 16px;
     }
-    .escritos-lista a {
+    .escritos-lista li {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .escritos-lista-titulo {
       font-family: 'Inter', sans-serif;
       font-size: 15px;
       font-weight: 400;
       color: var(--text);
-      text-decoration: none;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 16px;
-      display: block;
-      transition: color 0.2s;
     }
-    .escritos-lista a:hover { color: var(--green); }
+    .escritos-lista-acciones {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .escritos-lista a {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--green);
+      text-decoration: none;
+      border: 1px solid var(--green);
+      padding: 3px 10px;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .escritos-lista a:hover { background: var(--green); color: #fff; }
     .escritos-textos {
       display: flex;
       flex-direction: column;
@@ -2141,16 +2160,30 @@ pintura y versu!</div>
 
       <ul class="escritos-lista">
         <li>
-          <a href="escritos/El esplendor de la mente. Olegario.docx" download>
-            <span class="only-es">El esplendor de la mente — Olegario (descargar)</span>
-            <span class="only-en">El esplendor de la mente — Olegario (download)</span>
-          </a>
+          <span class="escritos-lista-titulo">El esplendor de la mente — Olegario</span>
+          <span class="escritos-lista-acciones">
+            <a href="escritos/el-esplendor-de-la-mente.html" target="_blank">
+              <span class="only-es">Leer</span>
+              <span class="only-en">Read</span>
+            </a>
+            <a href="escritos/El esplendor de la mente. Olegario.docx" download>
+              <span class="only-es">Descargar</span>
+              <span class="only-en">Download</span>
+            </a>
+          </span>
         </li>
         <li>
-          <a href="escritos/Doble Proyección de afectos y obras. Fdo y Alvaro.docx" download>
-            <span class="only-es">Doble proyección de afectos y obras — Fernando Serrano y Álvaro Pascual (descargar)</span>
-            <span class="only-en">Doble proyección de afectos y obras — Fernando Serrano y Álvaro Pascual (download)</span>
-          </a>
+          <span class="escritos-lista-titulo">Doble proyección de afectos y obras — Fernando y Álvaro Serrano Pascual</span>
+          <span class="escritos-lista-acciones">
+            <a href="escritos/doble-proyeccion-de-afectos-y-obras.html" target="_blank">
+              <span class="only-es">Leer</span>
+              <span class="only-en">Read</span>
+            </a>
+            <a href="escritos/Doble Proyección de afectos y obras. Fdo y Alvaro.docx" download>
+              <span class="only-es">Descargar</span>
+              <span class="only-en">Download</span>
+            </a>
+          </span>
         </li>
       </ul>
     </div>
