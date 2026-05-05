@@ -1081,6 +1081,23 @@
       letter-spacing: 0;
       text-transform: none;
     }
+    .poem-leer-mas {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px 0;
+      margin-bottom: 12px;
+      display: block;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .poem-leer-mas:hover { opacity: 0.7; }
 
     .acarmen-musica-autor {
       font-family: 'Inter', sans-serif;
@@ -1906,7 +1923,9 @@ En esa entremedia, en la tahona,
 el pan blancu se dehpachaba,
 y en el puehtu de "tíu Cahcali"
 loh muchachu sa´remolinaban.
-
+</div>
+            <button class="poem-leer-mas" onclick="togglePoemaColori(this)" aria-expanded="false">Leer más</button>
+            <div class="acarmen-poem-body" hidden id="poem-colori-resto">
 
 II
 Ehtaba el armariu abiertu,
@@ -2458,6 +2477,14 @@ pintura y versu!</div>
   </footer>
 
   <script>
+    function togglePoemaColori(btn) {
+      var resto = document.getElementById('poem-colori-resto');
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      resto.hidden = expanded;
+      btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      btn.textContent = expanded ? 'Leer más' : 'Leer menos';
+    }
+
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('open');
     }
