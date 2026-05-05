@@ -1271,6 +1271,26 @@
     }
 
     /* ── RESPONSIVE ──────────────────────────────────── */
+    /* ── GALERÍA DE RETRATOS ─────────────────────────── */
+    #galeria-retratos { background: var(--cream); padding: 96px 48px; }
+
+    .retratos-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    .retrato-fecha {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--text-light);
+      margin-top: 5px;
+      line-height: 1.4;
+    }
+
     @media (max-width: 768px) {
       nav { padding: 14px 24px; }
 
@@ -1304,6 +1324,7 @@
       #jornada-iii,
       #a-carmen,
       #escritos,
+      #galeria-retratos,
       #actividades,
       #historial,
       #contacto { padding: 64px 24px; }
@@ -1316,6 +1337,7 @@
       .tres-vocaciones { grid-template-columns: 1fr; gap: 32px; }
       .patronos { grid-template-columns: 1fr; gap: 16px; }
       .obra-grid { grid-template-columns: repeat(2, 1fr); }
+      .retratos-grid { grid-template-columns: repeat(3, 1fr); }
       .contacto-cols { grid-template-columns: 1fr; gap: 32px; }
 
       footer { padding: 32px 24px; }
@@ -1323,6 +1345,7 @@
 
     @media (max-width: 480px) {
       .obra-grid { grid-template-columns: 1fr; }
+      .retratos-grid { grid-template-columns: repeat(2, 1fr); }
       .hero-buttons { flex-direction: column; align-items: center; }
       .btn-primary, .btn-outline { width: 100%; text-align: center; }
     }
@@ -1361,6 +1384,10 @@
         <li><a href="#escritos" onclick="closeMenu()">
           <span class="only-es">Escritos</span>
           <span class="only-en">Writings</span>
+        </a></li>
+        <li><a href="#galeria-retratos" onclick="closeMenu()">
+          <span class="only-es">Galería</span>
+          <span class="only-en">Gallery</span>
         </a></li>
         <li><a href="#imagenes" onclick="closeMenu()">
           <span class="only-es">Imágenes</span>
@@ -2276,6 +2303,155 @@ pintura y versu!</div>
           </span>
         </li>
       </ul>
+    </div>
+  </section>
+
+  <!-- ── GALERÍA DE RETRATOS ── -->
+  <section id="galeria-retratos">
+    <div class="obra-inner">
+      <p class="section-label only-es">Galería</p>
+      <p class="section-label only-en">Gallery</p>
+      <h2 class="obra-title only-es">Galería de Retratos de Obras y Afectos de Carmen Pascual</h2>
+      <h2 class="obra-title only-en">Gallery of Portrait Works and Affections of Carmen Pascual</h2>
+
+      <div class="retratos-grid">
+        <div class="obra-item">
+          <img src="galeria-retratos/Adolfo%20G%C3%B3mez%2C%20escritor%20y%20traductor.%20CP.%2004.01.2021.jpg" alt="Adolfo Gómez, escritor y traductor. CP. 04.01.2021" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Adolfo Gómez, escritor y traductor. CP. 04.01.2021</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Adolfo%20Serrano%20Araujo.%20Fil%C3%B3sofo.%20CP%2031.08%20%281%29.2019.jpg" alt="Adolfo Serrano Araujo. Filósofo. CP 31.08 (1).2019" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Adolfo Serrano Araujo. Filósofo. CP 31.08 (1).2019</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Alvaro%20Mora.%20Guitarrista%20Flamenco.%20CP.%2010_25.%20Ed.%2020.02.2019.jpg" alt="Alvaro Mora. Guitarrista Flamenco. CP. 10_25. Ed. 20.02.2019" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Alvaro Mora. Guitarrista Flamenco. CP. 10_25. Ed. 20.02.2019</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Antonino%20Nieto%20Rodr%C3%ADguez.%20Poeta%2C%20Videoartista%20y%20Creador%20Espect%C3%A1culos.%20CP.%2013.09.2019.jpg" alt="Antonino Nieto Rodríguez. Poeta, Videoartista y Creador Espectáculos. CP. 13.09.2019" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Antonino Nieto Rodríguez. Poeta, Videoartista y Creador Espectáculos. CP. 13.09.2019</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Antonio%20G%C3%B3mez%2C%20poeta.%20CP.%2027%20abril%202018.jpg" alt="Antonio Gómez, poeta. CP. 27 abril 2018" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Antonio Gómez, poeta. CP. 27 abril 2018</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Antonio%20Orihuela.%20Escritor.%20CP.%2013_25.%20Ed.%2010.02.2019.jpg" alt="Antonio Orihuela. Escritor. CP. 13_25. Ed. 10.02.2019" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Antonio Orihuela. Escritor. CP. 13_25. Ed. 10.02.2019</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Antonio%20Ram%C3%ADrez.%20Poeta.%20Director%20Museo%20Zenobia%20y%20Juan%20Ram%C3%B3n%20Jim%C3%A9nez.CP.%2026%20julio%202019_.jpg" alt="Antonio Ramírez. Poeta. Director Museo Zenobia y Juan Ramón Jiménez.CP. 26 julio 2019" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Antonio Ramírez. Poeta. Director Museo Zenobia y Juan Ramón Jiménez.CP. 26 julio 2019</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Araceli%20Almoril%20y%20Chema%20Villegas%2C%20pianistas.%20CP.%2021.04.2023.jpg" alt="Araceli Almoril y Chema Villegas, pianistas. CP. 21.04.2023" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Araceli Almoril y Chema Villegas, pianistas. CP. 21.04.2023</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Arnold%20Rodriguez.%20Violonchelista.%20CP.%2026.08.2019.jpg" alt="Arnold Rodriguez. Violonchelista. CP. 26.08.2019" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Arnold Rodriguez. Violonchelista. CP. 26.08.2019</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Aurora%20Blanco%20Serrano.%20Dinamizadora%20de%20Cultura.%20CP.%2019.04.2019.jpg" alt="Aurora Blanco Serrano. Dinamizadora de Cultura. CP. 19.04.2019" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Aurora Blanco Serrano. Dinamizadora de Cultura. CP. 19.04.2019</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Demetrio%20Alonso%20Izquierdo.%20Poeta%20del%20pueblo.%20CP.%2007.02.2021.jpg" alt="Demetrio Alonso Izquierdo. Poeta del pueblo. CP. 07.02.2021" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Demetrio Alonso Izquierdo. Poeta del pueblo. CP. 07.02.2021</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Fran%20M%C3%A9ndez%2C%20artista.%20CP.%2011%20enero%202019.jpg" alt="Fran Méndez, artista. CP. 11 enero 2019" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Fran Méndez, artista. CP. 11 enero 2019</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Francisco%20Cedenilla%2C%20escultor.%20CP.%2013.04.2023.jpg" alt="Francisco Cedenilla, escultor. CP. 13.04.2023" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Francisco Cedenilla, escultor. CP. 13.04.2023</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Ibai%20Pascual%20Mart%C3%ADn.%20Poeta%20y%20apicultor.%20%20CP.%2022.01.2021.jpg" alt="Ibai Pascual Martín. Poeta y apicultor.  CP. 22.01.2021" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Ibai Pascual Martín. Poeta y apicultor.  CP. 22.01.2021</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Javier%20Fern%C3%A1ndez.%20Violinista.%20Dtor.%20Orquesta%20Conservatorio%20de%20Plasencia.%20CP.%2009.01.2021.jpg" alt="Javier Fernández. Violinista. Dtor. Orquesta Conservatorio de Plasencia. CP. 09.01.2021" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Javier Fernández. Violinista. Dtor. Orquesta Conservatorio de Plasencia. CP. 09.01.2021</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Javier%20Regadera%2C%20pat%C3%B3logo.%20Catedr%C3%A1tico%20de%20histolog%C3%ADa.jpg" alt="Javier Regadera, patólogo. Catedrático de histología" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Javier Regadera, patólogo. Catedrático de histología</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Jes%C3%BAs%20L%C3%B3pez%2C%20historiador.%20CP.%205%20nov%202018.jpg" alt="Jesús López, historiador. CP. 5 nov 2018" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Jesús López, historiador. CP. 5 nov 2018</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Jes%C3%BAs%20Us%C3%B3n.%20Fundador%20%20y%20Presidente%20de%20Honor%20del%20CCMIJU.%20CP.%2031%20mayo%202018.jpg" alt="Jesús Usón. Fundador  y Presidente de Honor del CCMIJU. CP. 31 mayo 2018" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Jesús Usón. Fundador  y Presidente de Honor del CCMIJU. CP. 31 mayo 2018</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Job%20Flores.%20Colaborador%20Galer%C3%ADa.%20Ldo.%20BB.AA.%20M%C3%A1ster%20en%20Patrimonio.%20CP.jpg" alt="Job Flores. Colaborador Galería. Ldo. BB.AA. Máster en Patrimonio. CP" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Job Flores. Colaborador Galería. Ldo. BB.AA. Máster en Patrimonio. CP</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Jose%20G.%20Mostazo%2C%20pod%C3%B3logo.%20CP.%2020%20abril%202018_.jpg" alt="Jose G. Mostazo, podólogo. CP. 20 abril 2018" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Jose G. Mostazo, podólogo. CP. 20 abril 2018</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Juan%20Carlos%20L%C3%A1zaro%2C%20artista.%20CP.%208%20mayo%202018_.jpg" alt="Juan Carlos Lázaro, artista. CP. 8 mayo 2018" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Juan Carlos Lázaro, artista. CP. 8 mayo 2018</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Juli%C3%A1n%20Jim%C3%A9nez.%20Gerente%20LASERCOR.%20CP.%2015.05.2023.jpg" alt="Julián Jiménez. Gerente LASERCOR. CP. 15.05.2023" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Julián Jiménez. Gerente LASERCOR. CP. 15.05.2023</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Manuel%20Calle%2C%20exconcejal%20de%20Cultura.%20CP.%2018%20enero%202018.jpg" alt="Manuel Calle, exconcejal de Cultura. CP. 18 enero 2018" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Manuel Calle, exconcejal de Cultura. CP. 18 enero 2018</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Manuel%20Curiel.%20Prof%2C%20Filosof%C3%ADa%20Dtor.%20Coral%20Cant%C3%A1bile.%20CP.%2005.05.2021.jpg" alt="Manuel Curiel. Prof, Filosofía Dtor. Coral Cantábile. CP. 05.05.2021" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Manuel Curiel. Prof, Filosofía Dtor. Coral Cantábile. CP. 05.05.2021</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Oficina%20Proy.%20CSINN.%20Juan%20Antonio%2C%20CEO%20y%20Mabel%20Directora.%20CP.%2018_19%2C9%20y%205%20marzo%202021.jpg" alt="Oficina Proy. CSINN. Juan Antonio, CEO y Mabel Directora. CP. 18_19,9 y 5 marzo 2021" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Oficina Proy. CSINN. Juan Antonio, CEO y Mabel Directora. CP. 18_19,9 y 5 marzo 2021</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Olegario%20y%20Marta.%20CP.%208_9%20mayo%202018.jpg" alt="Olegario y Marta. CP. 8_9 mayo 2018" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Olegario y Marta. CP. 8_9 mayo 2018</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Paulino%20y%20Eva.jpg" alt="Paulino y Eva" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Paulino y Eva</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Pilar%20Cabezas.%20CP.%2016%20oct.%202018.%20Geriatr%C3%ADa.%20Hospital%20Virgen%20del%20Puerto%20de%20Plasencia..jpg" alt="Pilar Cabezas. CP. 16 oct. 2018. Geriatría. Hospital Virgen del Puerto de Plasencia." class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Pilar Cabezas. CP. 16 oct. 2018. Geriatría. Hospital Virgen del Puerto de Plasencia.</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/P%C3%A9rez-Castro%20y%20%C3%81ngela.%20CP.%2011%20nov.%202018.jpg" alt="Pérez-Castro y Ángela. CP. 11 nov. 2018" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Pérez-Castro y Ángela. CP. 11 nov. 2018</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Ram%C3%ADrez-Vega%2C%20artista.%20CP.%206%20y%207.%2003.2021.jpg" alt="Ramírez-Vega, artista. CP. 6 y 7. 03.2021" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Ramírez-Vega, artista. CP. 6 y 7. 03.2021</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Sandro%20Bakhuashvili.%20Pianista%20y%20compositor_.jpg" alt="Sandro Bakhuashvili. Pianista y compositor" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Sandro Bakhuashvili. Pianista y compositor</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Sergio%20Mart%C3%ADn%20y%20Mar%C3%ADa.%20%20CP.%2027%20nov.%202017_.jpg" alt="Sergio Martín y María.  CP. 27 nov. 2017" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Sergio Martín y María.  CP. 27 nov. 2017</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Teresa%20Serrano%20Gonz%C3%A1lez-Peramato.%20M%C3%A9dica.%20CP.%2020%20junio%202020.jpg" alt="Teresa Serrano González-Peramato. Médica. CP. 20 junio 2020" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Teresa Serrano González-Peramato. Médica. CP. 20 junio 2020</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/%C3%81ngel%20Fragoso%2C%20antrop%C3%B3logo.%20CP.%201%20mayo%202018.jpg" alt="Ángel Fragoso, antropólogo. CP. 1 mayo 2018" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Ángel Fragoso, antropólogo. CP. 1 mayo 2018</p>
+        </div>
+      </div>
     </div>
   </section>
 
