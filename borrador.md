@@ -37,3 +37,19 @@ Aquí puedes ir anotando los prompts que has usado o que quieres usar:
 ```
 (espacio libre para tus notas)
 ```aún no has quitado del la Web <p class="nota">(buzón corporativo — pendiente de activación)</p> esto. Haz el favor de quitarlo. Porque ya funciona el correo
+En la WEB, por favor, quitar el letrero: EN CONSTRUCCIÓN, y el Título Fundación Carmen Pascual, aparece en dos líneas: la primera dice Fundación Carmen y en la segunda línea Pascual. por favor haz que aparezca en la primera línea solamente: Fundación y en la segunda: Carmen Pascual.
+
+Mantén el Nombre completa Carmen Pascual Sánchez, solamente en el dato de la biografía, en el resto de referenias que solo aparezca: Carmen Pascual
+a) Promover actividades relacionadas con el Arte, la Salud y la Naturaleza, fomentando la interacción entre estas tres disciplinas como herramienta de desarrollo personal, bienestar social y 
+
+enriquecimiento cultural.
+b) Favorecer la plasticidad neuronal y la INCLUSION social, profesional   y cultural de personas con diferentes capacidades, desarrollando programas que utilicen el arte, la Salud y las actividades en la Naturaleza como medio terapéutico y de relación social.
+c) Catalogar, conservar y difundir las obras de arte  de Carmen Pascual, compuesta por más de 1.500 cuadros documentados y debidamente catalogados. Así co
+Por favor, refunde estos tres puntos en un texto para que encabece el primer comentario de la WEB. haciendo especial atención en la INCLUSIOn de personas con diferentes capacidades a traves de actividades de ARte Salud Naturaleza, y preservar el legado artístico de CPascual y el personal y humano como ejemplo que pueds aservir a otras personal para superar sus limitaciones y dificultades orgánicas funcionales e intelectuales... Dame primer el texto refundido para luego decidir qué poner exactamente en el encabezamiento textual de la WEB, como objetivos de la Fundación
+ La Fundación Carmen Pascual trabaja por la INCLUSIÓN DE PERSONAS CON DIFERENTES CAPACIDADES a través de actividades integradas de ARTE, SALUD y NATURALEZA, diseñadas
+  para favorecer la PLASTICIDAD NEURONAL y el desarrollo personal, la relación social y el bienestar. 
+  La Fundación Carmen Pascual busca  favorecer la plasticidad neuronal  y el desarrollo integral  de personas con diferentes capacidades, a través de actividades relacionadas con el  ARTE, la  SALUD y la NATURALEZA, para lograr  su  Inclusión    
+  social, profesional y cultural. Así mismo procura cons  ,
+  Te dejado en el repositorio, en la carpeta Archivos Temporales, una imagen con el texto que deseo que aparezca en la web cocmo "hero" en lugar de los tres apartados que hay actualmente. Por favor, mantén la tipología, composición y tamaño de los caracteres del texo tal cual están en la imagen. 
+  La primera línea: el poder del Arte, el compromiso con la imnclusión, creo que estaría mejor sin la negrita, quizá aumentar un punto el tamaño y sin negrita. Inténtalo a ver que aspecto tiene
+  
