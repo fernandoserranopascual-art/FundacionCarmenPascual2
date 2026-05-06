@@ -1092,7 +1092,9 @@
       border: none;
       cursor: pointer;
       padding: 4px 0;
+      margin-top: 2px;
       margin-bottom: 12px;
+      margin-left: auto;
       display: block;
       text-decoration: underline;
       text-underline-offset: 3px;
@@ -1951,7 +1953,7 @@ el pan blancu se dehpachaba,
 y en el puehtu de "tíu Cahcali"
 loh muchachu sa´remolinaban.
 </div>
-            <button class="poem-leer-mas" onclick="togglePoemaColori(this)" aria-expanded="false">Leer más</button>
+            <button class="poem-leer-mas" onclick="togglePoemaColori(this)" aria-expanded="false">…Leer más</button>
             <div class="acarmen-poem-body" hidden id="poem-colori-resto">
 
 II
@@ -2710,7 +2712,7 @@ pintura y versu!</div>
       var expanded = btn.getAttribute('aria-expanded') === 'true';
       resto.hidden = expanded;
       btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-      btn.textContent = expanded ? 'Leer más' : 'Leer menos';
+      btn.textContent = expanded ? '…Leer más' : 'Leer menos';
     }
 
     function toggleMenu() {
