@@ -1101,6 +1101,23 @@
     }
     .poem-leer-mas:hover { opacity: 0.7; }
 
+    .retratos-ver-mas {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent);
+      cursor: pointer;
+      padding: 8px 24px;
+      margin: 8px auto 0;
+      display: block;
+      text-decoration: none;
+    }
+    .retratos-ver-mas:hover { opacity: 0.7; }
+
     .acarmen-musica-autor {
       font-family: 'Inter', sans-serif;
       font-size: 12px;
@@ -2357,6 +2374,10 @@ pintura y versu!</div>
           <img src="galeria-retratos/Aurora%20Blanco%20Serrano.%20Dinamizadora%20de%20Cultura.%20CP.%2019.04.2019.jpg" alt="Aurora Blanco Serrano. Dinamizadora de Cultura. CP. 19.04.2019" class="obra-img" loading="lazy">
           <p class="retrato-fecha obra-fecha">Aurora Blanco Serrano. Dinamizadora de Cultura. CP. 19.04.2019</p>
         </div>
+      </div>
+      <button class="retratos-ver-mas" onclick="toggleRetratos(this)" aria-expanded="false">Ver más</button>
+      <div id="retratos-resto" hidden>
+        <div class="retratos-grid">
         <div class="obra-item">
           <img src="galeria-retratos/Chus%20Vaquero%20y%20Gerardo%20Moreno%2C%20bi%C3%B3logos.%20CP.%2021.02.2021.jpg" alt="Chus Vaquero y Gerardo Moreno, biólogos. CP. 21.02.2021" class="obra-img" loading="lazy">
           <p class="retrato-fecha obra-fecha">Chus Vaquero y Gerardo Moreno, biólogos. CP. 21.02.2021</p>
@@ -2504,6 +2525,7 @@ pintura y versu!</div>
         <div class="obra-item">
           <img src="galeria-retratos/%C3%81ngel%20Fragoso%2C%20antrop%C3%B3logo.%20CP.%201%20mayo%202018.jpg" alt="Ángel Fragoso, antropólogo. CP. 1 mayo 2018" class="obra-img" loading="lazy">
           <p class="retrato-fecha obra-fecha">Ángel Fragoso, antropólogo. CP. 1 mayo 2018</p>
+        </div>
         </div>
       </div>
     </div>
@@ -2713,6 +2735,14 @@ pintura y versu!</div>
       resto.hidden = expanded;
       btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
       btn.textContent = expanded ? '…Leer más' : 'Leer menos';
+    }
+
+    function toggleRetratos(btn) {
+      var resto = document.getElementById('retratos-resto');
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      resto.hidden = expanded;
+      btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      btn.textContent = expanded ? 'Ver más' : 'Ver menos';
     }
 
     function toggleMenu() {
