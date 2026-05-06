@@ -1292,6 +1292,23 @@
     /* ── RESPONSIVE ──────────────────────────────────── */
     /* ── GALERÍA DE RETRATOS ─────────────────────────── */
     #galeria-retratos { background: var(--cream); padding: 96px 48px; }
+    #galeria-retratos .obra-title { font-size: clamp(18px, 2.4vw, 26px); margin-bottom: 24px; }
+
+    .retratos-ver-todas {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 8px 24px;
+      margin: 24px auto 0;
+      display: block;
+      text-decoration: none;
+      width: fit-content;
+    }
+    .retratos-ver-todas:hover { opacity: 0.7; }
 
     .retratos-grid {
       display: grid;
@@ -2528,6 +2545,7 @@ pintura y versu!</div>
           <p class="retrato-fecha obra-fecha">Ángel Fragoso, antropólogo. CP. 1 mayo 2018</p>
         </div>
         </div>
+        <a class="retratos-ver-todas" href="https://xurl.es/AfectosyObrasdeCP" target="_blank" rel="noopener">Ver todas</a>
       </div>
     </div>
   </section>
