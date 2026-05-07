@@ -686,6 +686,8 @@
       transform: scale(1.03);
     }
 
+    a .historial-qr { cursor: pointer; }
+
     .historial-label {
       font-family: 'Inter', sans-serif;
       font-size: 11px;
@@ -2466,23 +2468,29 @@ pintura y versu!</div>
       <p class="section-label only-en">Archive</p>
       <h2 class="obra-title only-es">Historial de Actividades</h2>
       <h2 class="obra-title only-en">Activity History</h2>
-      <p class="historial-intro only-es">Ciclos, jornadas y exposiciones organizadas en el marco de Arte Salud Naturaleza. Escanea cada código QR para acceder a la documentación de cada evento.</p>
-      <p class="historial-intro only-en">Cycles, conferences and exhibitions organised within the Arte Salud Naturaleza framework. Scan each QR code to access the documentation for each event.</p>
+      <p class="historial-intro only-es">Ciclos, jornadas y exposiciones organizadas en el marco de Arte Salud Naturaleza. Pulsa cada cartel para acceder a la documentación de cada evento.</p>
+      <p class="historial-intro only-en">Cycles, conferences and exhibitions organised within the Arte Salud Naturaleza framework. Click each poster to access the documentation for each event.</p>
 
       <div class="historial-grid">
 
         <div class="historial-item">
-          <img src="historial/qr-ciclo-xviii.png" alt="QR XVIII Ciclo Arte Salud Naturaleza" class="historial-qr" loading="lazy">
+          <a href="https://drive.google.com/drive/folders/1vD0fo9xC5_ghka8Kj-oI0_Ibv65ijAfN?usp=drive_link" target="_blank" rel="noopener">
+            <img src="historial/cartel-ciclo-xviii.jpg" alt="Cartel XVIII Ciclo Arte Salud Naturaleza" class="historial-qr" loading="lazy">
+          </a>
           <p class="historial-label"><strong>XVIII Ciclo ASN</strong>Arte · Salud · Naturaleza</p>
         </div>
 
         <div class="historial-item">
-          <img src="historial/qr-ciclo-xix.png" alt="QR XIX Ciclo Arte Salud Naturaleza" class="historial-qr" loading="lazy">
+          <a href="https://drive.google.com/drive/folders/1D1STUhvaeZSALfZfqc7o7_1a11jXfpJW?usp=drive_link" target="_blank" rel="noopener">
+            <img src="historial/cartel-ciclo-xix.jpg" alt="Cartel XIX Ciclo Arte Salud Naturaleza" class="historial-qr" loading="lazy">
+          </a>
           <p class="historial-label"><strong>XIX Ciclo ASN</strong>Arte · Salud · Naturaleza</p>
         </div>
 
         <div class="historial-item">
-          <img src="historial/qr-ciclo-xx.png" alt="QR XX Ciclo Arte Salud Naturaleza" class="historial-qr" loading="lazy">
+          <a href="https://drive.google.com/drive/folders/1yCQ6KUGHu8qOIOjSncy303agS8cIM3Di?lfhs=2" target="_blank" rel="noopener">
+            <img src="historial/cartel-ciclo-xx.jpg" alt="Cartel XX Ciclo Arte Salud Naturaleza" class="historial-qr" loading="lazy">
+          </a>
           <p class="historial-label"><strong>XX Ciclo ASN</strong>Arte · Salud · Naturaleza</p>
         </div>
 
@@ -2492,12 +2500,16 @@ pintura y versu!</div>
         </div>
 
         <div class="historial-item">
-          <img src="historial/qr-cp-jrj.png" alt="QR Carmen Pascual entre poetas con Juan Ramón Jiménez" class="historial-qr" loading="lazy">
+          <a href="https://drive.google.com/drive/folders/149LINCCryWzHLcAiLLWaPVy9zLWYZI7e?lfhs=2" target="_blank" rel="noopener">
+            <img src="historial/cartel-cp-jrj.jpg" alt="Cartel Carmen Pascual entre poetas con Juan Ramón Jiménez" class="historial-qr" loading="lazy">
+          </a>
           <p class="historial-label"><strong>Carmen Pascual entre poetas</strong>con Juan Ramón Jiménez</p>
         </div>
 
         <div class="historial-item">
-          <img src="historial/qr-cp-gyg.png" alt="QR Carmen Pascual entre poetas con Gabriel y Galán" class="historial-qr" loading="lazy">
+          <a href="https://drive.google.com/drive/folders/1W-N5Qop6chXRE1jr2lW0UNlXqJ2JZkCy?lfhs=2" target="_blank" rel="noopener">
+            <img src="historial/cartel-cp-gyg.jpg" alt="Cartel Carmen Pascual entre poetas con Gabriel y Galán" class="historial-qr" loading="lazy">
+          </a>
           <p class="historial-label"><strong>Carmen Pascual entre poetas</strong>con Gabriel y Galán</p>
         </div>
 
@@ -2645,7 +2657,7 @@ pintura y versu!</div>
       var current  = 0;
 
       function collectImages() {
-        images = Array.from(document.querySelectorAll('.obra-img, .historial-qr, .recuerdo-img'));
+        images = Array.from(document.querySelectorAll('.obra-img, .historial-qr, .recuerdo-img')).filter(function(img) { return !img.closest('a'); });
         images.forEach(function (img, i) {
           img.addEventListener('click', function () { open(i); });
         });
