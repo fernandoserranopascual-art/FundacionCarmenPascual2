@@ -3037,7 +3037,71 @@ pintura y versu!</div>
           <p class="historial-label"><strong>Carmen Pascual entre poetas</strong>con Gabriel y Galán</p>
         </div>
 
+        <div class="historial-item">
+          <img src="historial/madre-expo/cartel-madre-expo.jpg"
+               alt="Cartel — La madre de todas (mis) exposiciones · Carmen Pascual"
+               class="historial-qr" style="cursor: pointer;"
+               onclick="toggleMadreExpo()" loading="lazy">
+          <p class="historial-label"><strong>La madre de todas (mis) exposiciones</strong>Carmen Pascual</p>
+          <div style="text-align: center; margin-top: 10px;">
+            <button id="btn-madre-expo" class="btn-outline" onclick="toggleMadreExpo()" style="font-size: 12px; padding: 6px 14px;">VER CONTENIDOS</button>
+          </div>
+        </div>
+
       </div>
+
+      <!-- Contenidos ocultos: La madre de todas (mis) exposiciones -->
+      <div id="madre-expo-contenidos" style="display: none; margin-top: 64px;">
+
+        <h3 style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 12px;">La madre de todas (mis) exposiciones · Carmen Pascual</h3>
+
+        <!-- Audio -->
+        <p style="font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-mid); margin-bottom: 8px;">
+          <em>Javier Curiel, violín · José María Villegas, piano</em>
+        </p>
+        <audio id="audio-madre-expo" controls style="width: 100%; margin-bottom: 40px;">
+          <source src="historial/madre-expo/audio-expo-carmen-pascual.m4a" type="audio/mp4">
+        </audio>
+
+        <!-- Imágenes -->
+        <div class="obra-grid">
+          <div class="obra-item">
+            <img src="historial/madre-expo/madre-expo-invitacion-interior.jpg"
+                 alt="Invitación interior — La madre de todas (mis) exposiciones" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Invitación · Interior</p>
+          </div>
+          <div class="obra-item">
+            <img src="historial/madre-expo/madre-expo-014.jpg"
+                 alt="Exposición de Carmen Pascual 014" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Exposición · 014</p>
+          </div>
+          <div class="obra-item">
+            <img src="historial/madre-expo/madre-expo-029.jpg"
+                 alt="Exposición de Carmen Pascual 029" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Exposición · 029</p>
+          </div>
+          <div class="obra-item">
+            <img src="historial/madre-expo/madre-expo-032.jpg"
+                 alt="Exposición de Carmen Pascual 032" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Exposición · 032</p>
+          </div>
+          <div class="obra-item">
+            <img src="historial/madre-expo/madre-expo-042.jpg"
+                 alt="Exposición de Carmen Pascual 042" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Exposición · 042</p>
+          </div>
+          <div class="obra-item">
+            <img src="historial/madre-expo/madre-expo-135232.jpg"
+                 alt="Exposición de Carmen Pascual" class="obra-img" loading="lazy">
+          </div>
+          <div class="obra-item">
+            <img src="historial/madre-expo/madre-expo-img6080.jpg"
+                 alt="Exposición de Carmen Pascual" class="obra-img" loading="lazy">
+          </div>
+        </div>
+
+      </div><!-- /madre-expo-contenidos -->
+
     </div>
   </section>
 
@@ -3262,6 +3326,21 @@ pintura y versu!</div>
       } else {
         contenidos.style.display = 'none';
         btn.textContent = 'VER CONTENIDOS';
+      }
+    }
+
+    function toggleMadreExpo() {
+      var contenidos = document.getElementById('madre-expo-contenidos');
+      var btn = document.getElementById('btn-madre-expo');
+      var audio = document.getElementById('audio-madre-expo');
+      if (contenidos.style.display === 'none') {
+        contenidos.style.display = 'block';
+        btn.textContent = 'VER MENOS';
+        audio.play();
+      } else {
+        contenidos.style.display = 'none';
+        btn.textContent = 'VER CONTENIDOS';
+        audio.pause();
       }
     }
   </script>
