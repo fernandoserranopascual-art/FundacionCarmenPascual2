@@ -695,7 +695,20 @@
       transform: scale(1.03);
     }
 
-    a .historial-qr { cursor: pointer; }
+    .historial-btns {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .historial-btns .btn-outline {
+      font-size: 11px;
+      padding: 5px 12px;
+      letter-spacing: 0.07em;
+      text-decoration: none;
+      display: inline-block;
+    }
 
     .historial-label {
       font-family: 'Inter', sans-serif;
@@ -2988,55 +3001,67 @@ pintura y versu!</div>
       <div class="historial-grid">
 
         <div class="historial-item">
-          <a href="https://drive.google.com/drive/folders/1vD0fo9xC5_ghka8Kj-oI0_Ibv65ijAfN?usp=drive_link" target="_blank" rel="noopener">
-            <img src="historial/cartel-ciclo-xviii.jpg" alt="Cartel XVIII Ciclo Arte Salud Naturaleza" class="historial-qr" loading="lazy">
-          </a>
+          <img id="cartel-xviii" src="historial/cartel-ciclo-xviii.jpg" alt="Cartel XVIII Ciclo Arte Salud Naturaleza" class="historial-qr" loading="lazy">
           <p class="historial-label"><strong>XVIII Ciclo ASN</strong>Arte · Salud · Naturaleza</p>
+          <div class="historial-btns">
+            <button class="btn-outline" onclick="document.getElementById('cartel-xviii').click()">AMPLIAR FOTO</button>
+            <a class="btn-outline" href="https://drive.google.com/drive/folders/1vD0fo9xC5_ghka8Kj-oI0_Ibv65ijAfN?usp=drive_link" target="_blank" rel="noopener">VER CONTENIDOS</a>
+          </div>
         </div>
 
         <div class="historial-item">
-          <a href="https://drive.google.com/drive/folders/1D1STUhvaeZSALfZfqc7o7_1a11jXfpJW?usp=drive_link" target="_blank" rel="noopener">
-            <img src="historial/cartel-ciclo-xix.jpg" alt="Cartel XIX Ciclo Arte Salud Naturaleza" class="historial-qr" loading="lazy">
-          </a>
+          <img id="cartel-xix" src="historial/cartel-ciclo-xix.jpg" alt="Cartel XIX Ciclo Arte Salud Naturaleza" class="historial-qr" loading="lazy">
           <p class="historial-label"><strong>XIX Ciclo ASN</strong>Arte · Salud · Naturaleza</p>
+          <div class="historial-btns">
+            <button class="btn-outline" onclick="document.getElementById('cartel-xix').click()">AMPLIAR FOTO</button>
+            <a class="btn-outline" href="https://drive.google.com/drive/folders/1D1STUhvaeZSALfZfqc7o7_1a11jXfpJW?usp=drive_link" target="_blank" rel="noopener">VER CONTENIDOS</a>
+          </div>
         </div>
 
         <div class="historial-item">
-          <a href="https://drive.google.com/drive/folders/1yCQ6KUGHu8qOIOjSncy303agS8cIM3Di?lfhs=2" target="_blank" rel="noopener">
-            <img src="historial/cartel-ciclo-xx.jpg" alt="Cartel XX Ciclo Arte Salud Naturaleza" class="historial-qr" loading="lazy">
-          </a>
+          <img id="cartel-xx" src="historial/cartel-ciclo-xx.jpg" alt="Cartel XX Ciclo Arte Salud Naturaleza" class="historial-qr" loading="lazy">
           <p class="historial-label"><strong>XX Ciclo ASN</strong>Arte · Salud · Naturaleza</p>
+          <div class="historial-btns">
+            <button class="btn-outline" onclick="document.getElementById('cartel-xx').click()">AMPLIAR FOTO</button>
+            <a class="btn-outline" href="https://drive.google.com/drive/folders/1yCQ6KUGHu8qOIOjSncy303agS8cIM3Di?lfhs=2" target="_blank" rel="noopener">VER CONTENIDOS</a>
+          </div>
         </div>
 
         <div class="historial-item">
-          <a href="https://drive.google.com/drive/folders/1W-N5Qop6chXRE1jr2lW0UNlXqJ2JZkCy?lfhs=2" target="_blank" rel="noopener">
-            <img src="historial/cartel-ciclo-xxi.jpg" alt="Cartel XXI Ciclo ASN · III Jornada Arte y Ciencia" class="historial-qr" loading="lazy">
-          </a>
+          <img id="cartel-xxi" src="historial/cartel-ciclo-xxi.jpg" alt="Cartel XXI Ciclo ASN · III Jornada Arte y Ciencia" class="historial-qr" loading="lazy">
           <p class="historial-label"><strong>XXI Ciclo ASN · III Jornada</strong>Arte y Ciencia</p>
+          <div class="historial-btns">
+            <button class="btn-outline" onclick="document.getElementById('cartel-xxi').click()">AMPLIAR FOTO</button>
+            <a class="btn-outline" href="https://drive.google.com/drive/folders/1W-N5Qop6chXRE1jr2lW0UNlXqJ2JZkCy?lfhs=2" target="_blank" rel="noopener">VER CONTENIDOS</a>
+          </div>
         </div>
 
         <div class="historial-item">
-          <a href="https://drive.google.com/drive/folders/149LINCCryWzHLcAiLLWaPVy9zLWYZI7e?lfhs=2" target="_blank" rel="noopener">
-            <img src="historial/cartel-cp-jrj.jpg" alt="Cartel Carmen Pascual entre poetas con Juan Ramón Jiménez" class="historial-qr" loading="lazy">
-          </a>
+          <img id="cartel-cp-jrj" src="historial/cartel-cp-jrj.jpg" alt="Cartel Carmen Pascual entre poetas con Juan Ramón Jiménez" class="historial-qr" loading="lazy">
           <p class="historial-label"><strong>Carmen Pascual entre poetas</strong>con Juan Ramón Jiménez</p>
+          <div class="historial-btns">
+            <button class="btn-outline" onclick="document.getElementById('cartel-cp-jrj').click()">AMPLIAR FOTO</button>
+            <a class="btn-outline" href="https://drive.google.com/drive/folders/149LINCCryWzHLcAiLLWaPVy9zLWYZI7e?lfhs=2" target="_blank" rel="noopener">VER CONTENIDOS</a>
+          </div>
         </div>
 
         <div class="historial-item">
-          <a href="https://drive.google.com/drive/folders/1W-N5Qop6chXRE1jr2lW0UNlXqJ2JZkCy?lfhs=2" target="_blank" rel="noopener">
-            <img src="historial/cartel-cp-gyg.jpg" alt="Cartel Carmen Pascual entre poetas con Gabriel y Galán" class="historial-qr" loading="lazy">
-          </a>
+          <img id="cartel-cp-gyg" src="historial/cartel-cp-gyg.jpg" alt="Cartel Carmen Pascual entre poetas con Gabriel y Galán" class="historial-qr" loading="lazy">
           <p class="historial-label"><strong>Carmen Pascual entre poetas</strong>con Gabriel y Galán</p>
+          <div class="historial-btns">
+            <button class="btn-outline" onclick="document.getElementById('cartel-cp-gyg').click()">AMPLIAR FOTO</button>
+            <a class="btn-outline" href="https://drive.google.com/drive/folders/1W-N5Qop6chXRE1jr2lW0UNlXqJ2JZkCy?lfhs=2" target="_blank" rel="noopener">VER CONTENIDOS</a>
+          </div>
         </div>
 
         <div class="historial-item">
-          <img src="historial/madre-expo/cartel-madre-expo.jpg"
+          <img id="cartel-madre-expo" src="historial/madre-expo/cartel-madre-expo.jpg"
                alt="Cartel — La madre de todas (mis) exposiciones · Carmen Pascual"
-               class="historial-qr" style="cursor: pointer;"
-               onclick="toggleMadreExpo()" loading="lazy">
+               class="historial-qr" loading="lazy">
           <p class="historial-label"><strong>La madre de todas (mis) exposiciones</strong>Carmen Pascual</p>
-          <div style="text-align: center; margin-top: 10px;">
-            <button id="btn-madre-expo" class="btn-outline" onclick="toggleMadreExpo()" style="font-size: 12px; padding: 6px 14px;">VER CONTENIDOS</button>
+          <div class="historial-btns">
+            <button class="btn-outline" onclick="document.getElementById('cartel-madre-expo').click()">AMPLIAR FOTO</button>
+            <button class="btn-outline" id="btn-madre-expo" onclick="toggleMadreExpo()">VER CONTENIDOS</button>
           </div>
         </div>
 
