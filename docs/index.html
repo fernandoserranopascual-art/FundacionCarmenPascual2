@@ -1365,6 +1365,7 @@
       #patronato,
       #obra,
       #composiciones,
+      #jornada-i,
       #jornada-iii,
       #a-carmen,
       #escritos,
@@ -1419,6 +1420,10 @@
         <li><a href="#composiciones" onclick="closeMenu()">
           <span class="only-es">Composiciones</span>
           <span class="only-en">Compositions</span>
+        </a></li>
+        <li><a href="#jornada-i" onclick="closeMenu()">
+          <span class="only-es">I Jornada</span>
+          <span class="only-en">I Jornada Arte y Ciencia</span>
         </a></li>
         <li><a href="#jornada-iii" onclick="closeMenu()">
           <span class="only-es">III Jornada</span>
@@ -2195,6 +2200,86 @@
   </section>
 
   <!-- ── III JORNADA ── -->
+  <!-- ── I JORNADA ARTE Y CIENCIA ── -->
+  <section id="jornada-i" style="background: var(--cream); padding: 96px 48px;">
+    <div class="obra-inner">
+      <p class="section-label only-es">Exposición</p>
+      <p class="section-label only-en">Exhibition</p>
+      <h2 class="obra-title only-es">I Jornada Arte y Ciencia</h2>
+      <h2 class="obra-title only-en">I Jornada Arte y Ciencia</h2>
+      <p class="obra-subtitle">CCMIJU · Centro de Cirugía de Mínima Invasión Jesús Usón. Cáceres. 2019.</p>
+      <p class="obra-subtitle only-es" style="margin-top: 8px; font-style: italic;">«La Plasticidad Neuronal a través del Arte»</p>
+      <p class="obra-subtitle only-en" style="margin-top: 8px; font-style: italic;">«Neuronal Plasticity through Art»</p>
+
+      <!-- Cartel visible -->
+      <div style="margin: 48px 0 56px; text-align: center;">
+        <img src="obras/jornada-i/cartel-jornada-i.jpg"
+             alt="Cartel — I Jornada Arte y Ciencia · CCMIJU · Cáceres 2019"
+             style="max-width: 360px; width: 100%; box-shadow: 0 4px 24px rgba(0,0,0,0.15); display: block; margin: 0 auto;"
+             loading="lazy">
+        <p class="obra-fecha only-es" style="margin-top: 10px;">Cartel · I Jornada Arte y Ciencia · CCMIJU · Cáceres 2019</p>
+        <p class="obra-fecha only-en" style="margin-top: 10px;">Poster · I Art and Science Conference · CCMIJU · Cáceres 2019</p>
+      </div>
+
+      <!-- Botón VER CONTENIDOS -->
+      <div style="text-align: center; margin-bottom: 48px;">
+        <button id="btn-jornada-i" class="btn-outline" onclick="toggleJornadaI()">VER CONTENIDOS</button>
+      </div>
+
+      <!-- Contenidos ocultos -->
+      <div id="jornada-i-contenidos" style="display: none;">
+
+        <!-- Material expositivo -->
+        <h3 class="only-es" style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 28px;">Material expositivo</h3>
+        <h3 class="only-en" style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 28px;">Exhibition material</h3>
+        <div class="obra-grid" style="margin-bottom: 64px;">
+          <div class="obra-item">
+            <img src="obras/jornada-i/jornada-i-expo-anverso.jpg" alt="Expo CCMIJU 2019 — Anverso" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Expo CCMIJU 2019 · Anverso</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-i/jornada-i-expo-reverso.jpg" alt="Expo CCMIJU 2019 — Póster y Reverso" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Expo CCMIJU 2019 · Póster y Reverso</p>
+          </div>
+        </div>
+
+        <!-- Fotografías -->
+        <h3 class="only-es" style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 28px;">Fotografías de la jornada</h3>
+        <h3 class="only-en" style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 28px;">Conference photographs</h3>
+        <div class="obra-grid">
+          <div class="obra-item">
+            <img src="obras/jornada-i/jornada-i-dsc00910.jpg" alt="I Jornada Arte y Ciencia, CCMIJU 2019" class="obra-img" loading="lazy">
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-i/jornada-i-dsc00963.jpg" alt="I Jornada Arte y Ciencia, CCMIJU 2019" class="obra-img" loading="lazy">
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-i/jornada-i-dsc01045.jpg" alt="I Jornada Arte y Ciencia, CCMIJU 2019" class="obra-img" loading="lazy">
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-i/jornada-i-dsc01054.jpg" alt="I Jornada Arte y Ciencia, CCMIJU 2019" class="obra-img" loading="lazy">
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-i/jornada-i-img0255.jpg" alt="I Jornada Arte y Ciencia, CCMIJU 2019" class="obra-img" loading="lazy">
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-i/jornada-i-img0257.jpg" alt="I Jornada Arte y Ciencia, CCMIJU 2019" class="obra-img" loading="lazy">
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-i/jornada-i-img0262.jpg" alt="I Jornada Arte y Ciencia, CCMIJU 2019" class="obra-img" loading="lazy">
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-i/jornada-i-mah00951.jpg" alt="I Jornada Arte y Ciencia, CCMIJU 2019" class="obra-img" loading="lazy">
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-i/jornada-i-mah01057.jpg" alt="I Jornada Arte y Ciencia, CCMIJU 2019" class="obra-img" loading="lazy">
+          </div>
+        </div>
+
+      </div><!-- /jornada-i-contenidos -->
+    </div>
+  </section>
+
   <section id="jornada-iii" style="background: var(--cream-alt); padding: 96px 48px;">
     <div class="obra-inner">
       <p class="section-label only-es">Exposición</p>
@@ -3151,6 +3236,18 @@ pintura y versu!</div>
       } else {
         ocultas.style.display = 'none';
         btn.textContent = 'VER TODAS';
+      }
+    }
+
+    function toggleJornadaI() {
+      var contenidos = document.getElementById('jornada-i-contenidos');
+      var btn = document.getElementById('btn-jornada-i');
+      if (contenidos.style.display === 'none') {
+        contenidos.style.display = 'block';
+        btn.textContent = 'VER MENOS';
+      } else {
+        contenidos.style.display = 'none';
+        btn.textContent = 'VER CONTENIDOS';
       }
     }
   </script>
