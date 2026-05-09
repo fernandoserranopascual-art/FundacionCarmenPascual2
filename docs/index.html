@@ -3056,6 +3056,9 @@ pintura y versu!</div>
         <h3 style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 12px;">La madre de todas (mis) exposiciones · Carmen Pascual</h3>
 
         <!-- Audio -->
+        <p style="font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-mid); margin-bottom: 4px;">
+          <em>Meditación de Thaïs · Jules Massenet</em>
+        </p>
         <p style="font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-mid); margin-bottom: 8px;">
           <em>Javier Curiel, violín · José María Villegas, piano</em>
         </p>
@@ -3329,20 +3332,37 @@ pintura y versu!</div>
       }
     }
 
-    function toggleMadreExpo() {
-      var contenidos = document.getElementById('madre-expo-contenidos');
-      var btn = document.getElementById('btn-madre-expo');
-      var audio = document.getElementById('audio-madre-expo');
-      if (contenidos.style.display === 'none') {
-        contenidos.style.display = 'block';
-        btn.textContent = 'VER MENOS';
-        audio.play();
-      } else {
-        contenidos.style.display = 'none';
-        btn.textContent = 'VER CONTENIDOS';
-        audio.pause();
+    (function () {
+      var TAIS_START = 465;   // 7:45
+      var TAIS_END   = 572;   // 9:32
+
+      var audioEl = null;
+
+      function onTimeUpdate() {
+        if (audioEl.currentTime >= TAIS_END) {
+          audioEl.currentTime = TAIS_START;
+        }
       }
-    }
+
+      window.toggleMadreExpo = function () {
+        var contenidos = document.getElementById('madre-expo-contenidos');
+        var btn        = document.getElementById('btn-madre-expo');
+        audioEl        = document.getElementById('audio-madre-expo');
+
+        if (contenidos.style.display === 'none') {
+          contenidos.style.display = 'block';
+          btn.textContent = 'VER MENOS';
+          audioEl.currentTime = TAIS_START;
+          audioEl.play();
+          audioEl.addEventListener('timeupdate', onTimeUpdate);
+        } else {
+          contenidos.style.display = 'none';
+          btn.textContent = 'VER CONTENIDOS';
+          audioEl.pause();
+          audioEl.removeEventListener('timeupdate', onTimeUpdate);
+        }
+      };
+    })();
   </script>
 
 </body>
