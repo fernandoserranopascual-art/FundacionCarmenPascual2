@@ -750,6 +750,23 @@
       border-radius: 2px;
       box-shadow: 0 8px 64px rgba(0,0,0,0.6);
       user-select: none;
+      cursor: zoom-in;
+      transition: box-shadow 0.2s;
+    }
+
+    #lightbox-img.lb-zoomed {
+      max-width: none;
+      max-height: none;
+      width: min(190vw, 2000px);
+      cursor: zoom-out;
+    }
+
+    #lightbox.lb-zoomed {
+      overflow: auto;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 24px;
+      touch-action: auto;
     }
 
     #lightbox-caption {
@@ -3281,7 +3298,15 @@ pintura y versu!</div>
         lbClose.focus();
       }
 
+      function resetZoom() {
+        lbImg.classList.remove('lb-zoomed');
+        lb.classList.remove('lb-zoomed');
+        lb.scrollTop = 0;
+        lb.scrollLeft = 0;
+      }
+
       function close() {
+        resetZoom();
         lb.classList.remove('open');
         document.body.style.position = '';
         document.body.style.top = '';
@@ -3290,6 +3315,7 @@ pintura y versu!</div>
       }
 
       function show() {
+        resetZoom();
         var img = images[current];
         lbImg.src = img.src;
         lbImg.alt = img.alt;
@@ -3300,6 +3326,16 @@ pintura y versu!</div>
         lbPrev.style.visibility = current > 0 ? 'visible' : 'hidden';
         lbNext.style.visibility = current < images.length - 1 ? 'visible' : 'hidden';
       }
+
+      lbImg.addEventListener('click', function (e) {
+        e.stopPropagation();
+        if (lbImg.classList.contains('lb-zoomed')) {
+          resetZoom();
+        } else {
+          lbImg.classList.add('lb-zoomed');
+          lb.classList.add('lb-zoomed');
+        }
+      });
 
       function prev() { if (current > 0) { current--; show(); } }
       function next() { if (current < images.length - 1) { current++; show(); } }
