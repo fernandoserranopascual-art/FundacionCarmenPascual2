@@ -624,6 +624,10 @@
       margin-bottom: 32px;
     }
 
+    #composiciones .obra-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
     .obra-item {}
 
     .obra-img {
@@ -1377,6 +1381,7 @@
       .tres-vocaciones { grid-template-columns: 1fr; gap: 32px; }
       .patronos { grid-template-columns: 1fr; gap: 16px; }
       .obra-grid { grid-template-columns: repeat(2, 1fr); }
+      #composiciones .obra-grid { grid-template-columns: repeat(3, 1fr); }
       .retratos-grid { grid-template-columns: repeat(3, 1fr); }
       .contacto-cols { grid-template-columns: 1fr; gap: 32px; }
 
@@ -1385,6 +1390,7 @@
 
     @media (max-width: 480px) {
       .obra-grid { grid-template-columns: 1fr; }
+      #composiciones .obra-grid { grid-template-columns: repeat(2, 1fr); }
       .retratos-grid { grid-template-columns: repeat(2, 1fr); }
       .historial-grid { grid-template-columns: 1fr; }
       .hero-buttons { flex-direction: column; align-items: center; }
@@ -1767,6 +1773,14 @@
           <img src="composiciones/composicion-2020-12-20.jpg" alt="Composición de Carmen Pascual, 20 diciembre 2020" class="obra-img" loading="lazy">
           <p class="obra-fecha">CP.20.12.2020</p>
         </div>
+        <div class="obra-item">
+          <img src="composiciones/CP.01.05.2020(1).jpg" alt="Composición de Carmen Pascual, 1 mayo 2020 (1)" class="obra-img" loading="lazy">
+          <p class="obra-fecha">CP.01.05.2020(1)</p>
+        </div>
+        <div class="obra-item">
+          <img src="composiciones/CP.01.05.2020(2).jpg" alt="Composición de Carmen Pascual, 1 mayo 2020 (2)" class="obra-img" loading="lazy">
+          <p class="obra-fecha">CP.01.05.2020(2)</p>
+        </div>
       </div>
 
       <div style="text-align: center; margin-top: 48px;">
@@ -1775,14 +1789,6 @@
 
       <div id="composiciones-ocultas" style="display: none;">
         <div class="obra-grid" style="margin-top: 48px;">
-          <div class="obra-item">
-            <img src="composiciones/CP.01.05.2020(1).jpg" alt="Composición de Carmen Pascual, CP.01.05.2020(1)" class="obra-img" loading="lazy">
-            <p class="obra-fecha">CP.01.05.2020(1)</p>
-          </div>
-          <div class="obra-item">
-            <img src="composiciones/CP.01.05.2020(2).jpg" alt="Composición de Carmen Pascual, CP.01.05.2020(2)" class="obra-img" loading="lazy">
-            <p class="obra-fecha">CP.01.05.2020(2)</p>
-          </div>
           <div class="obra-item">
             <img src="composiciones/CP.01.12.2020.jpg" alt="Composición de Carmen Pascual, CP.01.12.2020" class="obra-img" loading="lazy">
             <p class="obra-fecha">CP.01.12.2020</p>
