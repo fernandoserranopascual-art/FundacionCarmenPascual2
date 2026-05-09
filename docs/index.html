@@ -1432,8 +1432,8 @@
     /* ── Botón altavoz ─────────────────────────────────── */
     #btn-sonido {
       position: fixed;
-      top: 14px;
-      right: 72px;
+      top: 70px;
+      right: 12px;
       z-index: 900;
       width: 44px;
       height: 44px;
@@ -3278,17 +3278,28 @@ pintura y versu!</div>
 
       function playNext() {
         audio.src = playlist[idx];
-        audio.play().catch(function(){});
         idx = (idx + 1) % playlist.length;
+        audio.play().catch(function(){});
       }
 
       audio.addEventListener('ended', playNext);
-      playNext();
 
       btn.addEventListener('click', function () {
-        audio.muted = !audio.muted;
-        btn.textContent = audio.muted ? '🔇' : '🔊';
-        btn.setAttribute('aria-label', audio.muted ? 'Activar música de fondo' : 'Silenciar música de fondo');
+        if (audio.paused || audio.src === '') {
+          // Primera interacción: arrancar y activar sonido
+          audio.muted = false;
+          playNext();
+          btn.textContent = '🔊';
+          btn.setAttribute('aria-label', 'Silenciar música de fondo');
+        } else if (audio.muted) {
+          audio.muted = false;
+          btn.textContent = '🔊';
+          btn.setAttribute('aria-label', 'Silenciar música de fondo');
+        } else {
+          audio.muted = true;
+          btn.textContent = '🔇';
+          btn.setAttribute('aria-label', 'Activar música de fondo');
+        }
       });
     }());
 
