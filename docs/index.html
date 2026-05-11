@@ -3672,7 +3672,7 @@ pintura y versu!</div>
       <p class="colabora-intro only-en">Your support enables Carmen Pascual's work to reach more people through art, health and nature.</p>
 
       <!-- Nota transitoria -->
-      <div class="colabora-nota">
+      <div class="colabora-nota" id="nota-cif">
         <p class="only-es"><strong>Nota:</strong> La Fundación se encuentra en proceso de obtención del CIF definitivo. Hasta entonces, los mecanismos de pago y la emisión de certificados fiscales estarán pendientes de habilitación. Si deseas manifestar tu interés en colaborar, escríbenos a <a href="mailto:info@fundacioncarmenpascual.org">info@fundacioncarmenpascual.org</a></p>
         <p class="only-en"><strong>Note:</strong> The Foundation is in the process of obtaining its definitive tax identification number (CIF). Until then, payment systems and official tax certificates will not be operational. To express your interest in collaborating, please write to us at <a href="mailto:info@fundacioncarmenpascual.org">info@fundacioncarmenpascual.org</a></p>
       </div>
@@ -3862,6 +3862,13 @@ pintura y versu!</div>
   </footer>
 
   <script>
+    // ── CIF Fundación ── Cambiar a true cuando se obtenga el CIF definitivo
+    var CIF_OBTENIDO = false;
+    if (CIF_OBTENIDO) {
+      var notaCif = document.getElementById('nota-cif');
+      if (notaCif) notaCif.style.display = 'none';
+    }
+
     // ── Música de fondo ─────────────────────────────────
     (function () {
       var playlist = [
