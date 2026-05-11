@@ -2270,8 +2270,13 @@
 
       <!-- Cartel visible -->
       <div style="margin: 48px 0 0; text-align: center;">
-        <img src="obras/jornada-i/cartel-jornada-i.jpg"
+        <div style="margin-bottom: 10px;">
+          <button class="btn-outline" onclick="document.getElementById('cartel-jornada-i').click()">AMPLIAR FOTO CARTEL</button>
+        </div>
+        <img id="cartel-jornada-i"
+             src="obras/jornada-i/cartel-jornada-i.jpg"
              alt="Cartel — I Jornada Arte y Ciencia · CCMIJU · Cáceres 2019"
+             class="historial-qr"
              style="max-width: 360px; width: 100%; box-shadow: 0 4px 24px rgba(0,0,0,0.15); display: block; margin: 0 auto;"
              loading="lazy">
         <div style="margin-top: 10px; margin-bottom: 10px;">
@@ -2279,6 +2284,16 @@
         </div>
         <p class="obra-fecha only-es">Cartel · I Jornada Arte y Ciencia · CCMIJU · Cáceres 2019</p>
         <p class="obra-fecha only-en">Poster · I Art and Science Conference · CCMIJU · Cáceres 2019</p>
+      </div>
+
+      <!-- Foto de grupo -->
+      <div style="text-align: center; margin-top: 48px;">
+        <img src="obras/jornada-i/jornada-i-dsc01045.jpg"
+             alt="Foto de grupo — I Jornada Arte y Ciencia · CCMIJU · Cáceres 2019"
+             style="max-width: 100%; box-shadow: 0 4px 20px rgba(0,0,0,0.12);"
+             loading="lazy">
+        <p class="obra-fecha only-es" style="margin-top: 12px;">Foto de grupo · I Jornada Arte y Ciencia · CCMIJU · Cáceres 2019</p>
+        <p class="obra-fecha only-en" style="margin-top: 12px;">Group photo · I Art and Science Conference · CCMIJU · Cáceres 2019</p>
       </div>
 
       <div style="margin-bottom: 48px;"></div>
@@ -2309,9 +2324,6 @@
           </div>
           <div class="obra-item">
             <img src="obras/jornada-i/jornada-i-dsc00963.jpg" alt="I Jornada Arte y Ciencia, CCMIJU 2019" class="obra-img" loading="lazy">
-          </div>
-          <div class="obra-item">
-            <img src="obras/jornada-i/jornada-i-dsc01045.jpg" alt="I Jornada Arte y Ciencia, CCMIJU 2019" class="obra-img" loading="lazy">
           </div>
           <div class="obra-item">
             <img src="obras/jornada-i/jornada-i-dsc01054.jpg" alt="I Jornada Arte y Ciencia, CCMIJU 2019" class="obra-img" loading="lazy">
@@ -2347,14 +2359,20 @@
 
       <!-- Cartel -->
       <div style="margin-bottom: 56px; text-align: center;">
-        <a href="https://drive.google.com/drive/folders/1W-N5Qop6chXRE1jr2lW0UNlXqJ2JZkCy?lfhs=2" target="_blank" rel="noopener" style="display: inline-block; position: relative;">
-          <img src="obras/jornada-iii/programa-general.jpg"
-               alt="Programa General — XXI Ciclo ASN · III Jornada Arte y Ciencia"
-               style="max-width: 360px; width: 100%; cursor: pointer; box-shadow: 0 4px 24px rgba(0,0,0,0.15); display: block;"
-               loading="lazy">
-          <span class="only-es" style="display: block; margin-top: 10px; font-family: 'Inter', sans-serif; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green); border: 1px solid var(--green); padding: 6px 16px;">Ver contenidos →</span>
-          <span class="only-en" style="display: block; margin-top: 10px; font-family: 'Inter', sans-serif; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green); border: 1px solid var(--green); padding: 6px 16px;">View contents →</span>
-        </a>
+        <div style="margin-bottom: 10px;">
+          <button class="btn-outline" onclick="document.getElementById('cartel-jornada-iii').click()">AMPLIAR FOTO CARTEL</button>
+        </div>
+        <img id="cartel-jornada-iii"
+             src="obras/jornada-iii/programa-general.jpg"
+             alt="Programa General — XXI Ciclo ASN · III Jornada Arte y Ciencia"
+             class="historial-qr"
+             style="max-width: 360px; width: 100%; box-shadow: 0 4px 24px rgba(0,0,0,0.15); display: block; margin: 0 auto;"
+             loading="lazy">
+        <div style="margin-top: 10px;">
+          <a class="btn-outline" href="https://drive.google.com/drive/folders/1W-N5Qop6chXRE1jr2lW0UNlXqJ2JZkCy?lfhs=2" target="_blank" rel="noopener" style="font-size: 11px; padding: 5px 12px; letter-spacing: 0.07em; text-decoration: none; display: inline-block;">
+            <span class="only-es">VER CONTENIDOS</span><span class="only-en">VIEW CONTENTS</span>
+          </a>
+        </div>
         <p class="obra-fecha only-es" style="margin-top: 10px;">Programa General · XXI Ciclo ASN · III Jornada Arte y Ciencia</p>
         <p class="obra-fecha only-en" style="margin-top: 10px;">General Programme · XXI ASN Cycle · III Art and Science Conference</p>
       </div>
@@ -2371,73 +2389,87 @@
       <!-- Obras Carmen Pascual -->
       <h3 class="only-es" style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 28px;">Obras de Carmen Pascual</h3>
       <h3 class="only-en" style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 28px;">Works by Carmen Pascual</h3>
-      <div class="obra-grid" style="margin-bottom: 64px;">
+      <div class="obra-grid" style="margin-bottom: 16px;">
         <div class="obra-item">
           <img src="obras/jornada-iii/jornada-iii-2015-07-28.jpg" alt="Obra de Carmen Pascual, 28 julio 2015" class="obra-img" loading="lazy">
           <p class="obra-fecha">CP. 28.07.15. A3</p>
         </div>
-        <div class="obra-item">
-          <img src="obras/jornada-iii/jornada-iii-2015-09-14.jpg" alt="Obra de Carmen Pascual, 14 septiembre 2015" class="obra-img" loading="lazy">
-          <p class="obra-fecha">CP. 14.09.15. A3</p>
+      </div>
+      <div id="cp-obras-extra" style="display: none;">
+        <div class="obra-grid" style="margin-bottom: 16px;">
+          <div class="obra-item">
+            <img src="obras/jornada-iii/jornada-iii-2015-09-14.jpg" alt="Obra de Carmen Pascual, 14 septiembre 2015" class="obra-img" loading="lazy">
+            <p class="obra-fecha">CP. 14.09.15. A3</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-iii/jornada-iii-2015-09-24.jpg" alt="Obra de Carmen Pascual, 24 septiembre 2015" class="obra-img" loading="lazy">
+            <p class="obra-fecha">CP. 24.09.15. A3</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-iii/jornada-iii-2015-10-01.jpg" alt="Obra de Carmen Pascual, 1 octubre 2015" class="obra-img" loading="lazy">
+            <p class="obra-fecha">CP. 01.10.15. A3</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-iii/jornada-iii-2015-10-21.jpg" alt="Obra de Carmen Pascual, 21 octubre 2015" class="obra-img" loading="lazy">
+            <p class="obra-fecha">CP. 21.10.15. A3</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-iii/jornada-iii-2015-10-23.jpg" alt="Obra de Carmen Pascual, 23 octubre 2015" class="obra-img" loading="lazy">
+            <p class="obra-fecha">CP. 23.10.15. A3</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-iii/jornada-iii-2015-11-11.jpg" alt="Obra de Carmen Pascual, 11 noviembre 2015" class="obra-img" loading="lazy">
+            <p class="obra-fecha">CP. 11.11.15. A3</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-iii/jornada-iii-2015-11-26.jpg" alt="Obra de Carmen Pascual, 26 noviembre 2015" class="obra-img" loading="lazy">
+            <p class="obra-fecha">CP. 26.11.15. A3</p>
+          </div>
         </div>
-        <div class="obra-item">
-          <img src="obras/jornada-iii/jornada-iii-2015-09-24.jpg" alt="Obra de Carmen Pascual, 24 septiembre 2015" class="obra-img" loading="lazy">
-          <p class="obra-fecha">CP. 24.09.15. A3</p>
-        </div>
-        <div class="obra-item">
-          <img src="obras/jornada-iii/jornada-iii-2015-10-01.jpg" alt="Obra de Carmen Pascual, 1 octubre 2015" class="obra-img" loading="lazy">
-          <p class="obra-fecha">CP. 01.10.15. A3</p>
-        </div>
-        <div class="obra-item">
-          <img src="obras/jornada-iii/jornada-iii-2015-10-21.jpg" alt="Obra de Carmen Pascual, 21 octubre 2015" class="obra-img" loading="lazy">
-          <p class="obra-fecha">CP. 21.10.15. A3</p>
-        </div>
-        <div class="obra-item">
-          <img src="obras/jornada-iii/jornada-iii-2015-10-23.jpg" alt="Obra de Carmen Pascual, 23 octubre 2015" class="obra-img" loading="lazy">
-          <p class="obra-fecha">CP. 23.10.15. A3</p>
-        </div>
-        <div class="obra-item">
-          <img src="obras/jornada-iii/jornada-iii-2015-11-11.jpg" alt="Obra de Carmen Pascual, 11 noviembre 2015" class="obra-img" loading="lazy">
-          <p class="obra-fecha">CP. 11.11.15. A3</p>
-        </div>
-        <div class="obra-item">
-          <img src="obras/jornada-iii/jornada-iii-2015-11-26.jpg" alt="Obra de Carmen Pascual, 26 noviembre 2015" class="obra-img" loading="lazy">
-          <p class="obra-fecha">CP. 26.11.15. A3</p>
-        </div>
+      </div>
+      <div style="text-align: center; margin-bottom: 64px;">
+        <button id="btn-cp-obras" class="btn-outline" onclick="toggleObrasCp()">VER MÁS OBRAS</button>
       </div>
 
       <!-- Obras Juan Carlos Lázaro -->
       <h3 class="only-es" style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 28px;">Obras de Juan Carlos Lázaro</h3>
       <h3 class="only-en" style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 28px;">Works by Juan Carlos Lázaro</h3>
-      <div class="obra-grid" style="margin-bottom: 64px;">
-        <div class="obra-item">
-          <img src="obras/jornada-iii/jcl-88.jpg" alt="Pintura 88, Juan Carlos Lázaro" class="obra-img" loading="lazy">
-          <p class="obra-fecha">Pintura 88 · 2020-2025 · Óleo sobre lienzo, 46 × 55 cm</p>
-        </div>
+      <div class="obra-grid" style="margin-bottom: 16px;">
         <div class="obra-item">
           <img src="obras/jornada-iii/jcl-112.jpg" alt="Pintura 112, Juan Carlos Lázaro" class="obra-img" loading="lazy">
           <p class="obra-fecha">Pintura 112 · 2021-2023 · Óleo sobre lienzo, 19 × 27 cm</p>
         </div>
-        <div class="obra-item">
-          <img src="obras/jornada-iii/jcl-116.jpg" alt="Pintura 116, Juan Carlos Lázaro" class="obra-img" loading="lazy">
-          <p class="obra-fecha">Pintura 116 · 2021-2023 · Óleo sobre lienzo, 27 × 35 cm</p>
+      </div>
+      <div id="jcl-obras-extra" style="display: none;">
+        <div class="obra-grid" style="margin-bottom: 16px;">
+          <div class="obra-item">
+            <img src="obras/jornada-iii/jcl-88.jpg" alt="Pintura 88, Juan Carlos Lázaro" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Pintura 88 · 2020-2025 · Óleo sobre lienzo, 46 × 55 cm</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-iii/jcl-116.jpg" alt="Pintura 116, Juan Carlos Lázaro" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Pintura 116 · 2021-2023 · Óleo sobre lienzo, 27 × 35 cm</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-iii/jcl-134.jpg" alt="Pintura 134, Juan Carlos Lázaro" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Pintura 134 · 2021-2025 · Óleo sobre lienzo, 33 × 46 cm</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-iii/jcl-184.jpg" alt="Pintura 184, Juan Carlos Lázaro" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Pintura 184 · 2023 · Óleo sobre lienzo, 33 × 19 cm</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-iii/jcl-211.jpg" alt="Pintura 211, Juan Carlos Lázaro" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Pintura 211 · 2024 · Óleo sobre lienzo, 27 × 35 cm</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-iii/jcl-212.jpg" alt="Pintura 212, Juan Carlos Lázaro" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Pintura 212 · 2024 · Óleo sobre lienzo, 33 × 41 cm</p>
+          </div>
         </div>
-        <div class="obra-item">
-          <img src="obras/jornada-iii/jcl-134.jpg" alt="Pintura 134, Juan Carlos Lázaro" class="obra-img" loading="lazy">
-          <p class="obra-fecha">Pintura 134 · 2021-2025 · Óleo sobre lienzo, 33 × 46 cm</p>
-        </div>
-        <div class="obra-item">
-          <img src="obras/jornada-iii/jcl-184.jpg" alt="Pintura 184, Juan Carlos Lázaro" class="obra-img" loading="lazy">
-          <p class="obra-fecha">Pintura 184 · 2023 · Óleo sobre lienzo, 33 × 19 cm</p>
-        </div>
-        <div class="obra-item">
-          <img src="obras/jornada-iii/jcl-211.jpg" alt="Pintura 211, Juan Carlos Lázaro" class="obra-img" loading="lazy">
-          <p class="obra-fecha">Pintura 211 · 2024 · Óleo sobre lienzo, 27 × 35 cm</p>
-        </div>
-        <div class="obra-item">
-          <img src="obras/jornada-iii/jcl-212.jpg" alt="Pintura 212, Juan Carlos Lázaro" class="obra-img" loading="lazy">
-          <p class="obra-fecha">Pintura 212 · 2024 · Óleo sobre lienzo, 33 × 41 cm</p>
-        </div>
+      </div>
+      <div style="text-align: center; margin-bottom: 64px;">
+        <button id="btn-jcl-obras" class="btn-outline" onclick="toggleObrasJcl()">VER MÁS OBRAS</button>
       </div>
 
       <!-- Foto de grupo -->
@@ -3450,6 +3482,30 @@ pintura y versu!</div>
       } else {
         contenidos.style.display = 'none';
         btn.textContent = 'VER CONTENIDOS';
+      }
+    }
+
+    function toggleObrasCp() {
+      var extra = document.getElementById('cp-obras-extra');
+      var btn = document.getElementById('btn-cp-obras');
+      if (extra.style.display === 'none') {
+        extra.style.display = 'block';
+        btn.textContent = 'VER MENOS OBRAS';
+      } else {
+        extra.style.display = 'none';
+        btn.textContent = 'VER MÁS OBRAS';
+      }
+    }
+
+    function toggleObrasJcl() {
+      var extra = document.getElementById('jcl-obras-extra');
+      var btn = document.getElementById('btn-jcl-obras');
+      if (extra.style.display === 'none') {
+        extra.style.display = 'block';
+        btn.textContent = 'VER MENOS OBRAS';
+      } else {
+        extra.style.display = 'none';
+        btn.textContent = 'VER MÁS OBRAS';
       }
     }
 
