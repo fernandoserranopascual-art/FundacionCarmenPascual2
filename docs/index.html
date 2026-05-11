@@ -629,6 +629,7 @@
     }
 
     #jornada-i .obra-img,
+    #jornada-ii .obra-img,
     #madre-expo-contenidos .obra-img {
       aspect-ratio: unset;
       object-fit: contain;
@@ -1397,6 +1398,7 @@
       #obra,
       #composiciones,
       #jornada-i,
+      #jornada-ii,
       #jornada-iii,
       #a-carmen,
       #escritos,
@@ -1481,6 +1483,10 @@
         <li><a href="#jornada-i" onclick="closeMenu()">
           <span class="only-es">I Jornada</span>
           <span class="only-en">I Jornada Arte y Ciencia</span>
+        </a></li>
+        <li><a href="#jornada-ii" onclick="closeMenu()">
+          <span class="only-es">II Jornada</span>
+          <span class="only-en">II Jornada Arte y Ciencia</span>
         </a></li>
         <li><a href="#jornada-iii" onclick="closeMenu()">
           <span class="only-es">III Jornada</span>
@@ -2346,6 +2352,219 @@
         </div>
 
       </div><!-- /jornada-i-contenidos -->
+    </div>
+  </section>
+
+  <!-- ── II JORNADA ── -->
+  <section id="jornada-ii" style="background: var(--cream-dark); padding: 96px 48px;">
+    <div class="obra-inner">
+      <p class="section-label only-es">Exposición</p>
+      <p class="section-label only-en">Exhibition</p>
+      <h2 class="obra-title only-es">II Jornada Arte y Ciencia</h2>
+      <h2 class="obra-title only-en">II Jornada Arte y Ciencia</h2>
+      <p class="obra-subtitle">CCMIJU · Centro de Cirugía de Mínima Invasión Jesús Usón. Cáceres.</p>
+      <p class="obra-subtitle only-es" style="margin-top: 8px; font-style: italic;">«Diversidad Funcional e Intelectual. Inclusión Social y Dignidad a través del Arte»</p>
+      <p class="obra-subtitle only-en" style="margin-top: 8px; font-style: italic;">«Functional and Intellectual Diversity. Social Inclusion and Dignity through Art»</p>
+
+      <!-- Cartel visible -->
+      <div style="margin: 48px 0 0; text-align: center;">
+        <div style="margin-bottom: 10px;">
+          <button class="btn-outline" onclick="document.getElementById('cartel-jornada-ii').click()">AMPLIAR FOTO CARTEL</button>
+        </div>
+        <img id="cartel-jornada-ii"
+             src="obras/jornada-ii/cartel-general-iii-jornada-arte-y-ciencia-xix-ciclo-asn-ii.jpg"
+             alt="Cartel General · XIX Ciclo ASN · II Jornada Arte y Ciencia"
+             class="historial-qr"
+             style="max-width: 360px; width: 100%; box-shadow: 0 4px 24px rgba(0,0,0,0.15); display: block; margin: 0 auto;"
+             loading="lazy">
+        <div style="margin-top: 10px; margin-bottom: 10px;">
+          <button id="btn-jornada-ii" class="btn-outline" onclick="toggleJornadaII()">VER CONTENIDOS</button>
+        </div>
+        <p class="obra-fecha only-es">Cartel General · XIX Ciclo ASN · II Jornada Arte y Ciencia</p>
+        <p class="obra-fecha only-en">General Poster · XIX ASN Cycle · II Art and Science Conference</p>
+      </div>
+
+      <!-- Foto de grupo visible -->
+      <div style="text-align: center; margin-top: 48px;">
+        <img src="obras/jornada-ii/ii-jornada-arte-salud-naturaleza.jpg"
+             alt="II Jornada Arte Salud Naturaleza"
+             style="max-width: 100%; box-shadow: 0 4px 20px rgba(0,0,0,0.12);"
+             loading="lazy">
+        <p class="obra-fecha only-es" style="margin-top: 12px;">II Jornada Arte Salud Naturaleza</p>
+        <p class="obra-fecha only-en" style="margin-top: 12px;">II Art and Science Conference · Arte Salud Naturaleza</p>
+      </div>
+
+      <div style="margin-bottom: 48px;"></div>
+
+      <!-- Contenidos ocultos -->
+      <div id="jornada-ii-contenidos" style="display: none;">
+
+        <!-- Textos -->
+        <h3 class="only-es" style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 28px;">Textos</h3>
+        <h3 class="only-en" style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 28px;">Texts</h3>
+        <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 56px;">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 16px; background: var(--cream); border: 1px solid var(--border); border-radius: 2px;">
+            <span style="flex: 1; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-mid);">A3 TEXTO CATÁLAGO XIX Ciclo ASN</span>
+            <a href="obras/jornada-ii/textos/texto-catalago.html" target="_blank" rel="noopener" class="btn-outline" style="font-size: 11px; padding: 5px 12px; text-decoration: none; display: inline-block; letter-spacing: 0.07em;">LEER</a>
+            <a href="obras/jornada-ii/textos/a3-texto-catalago-xix-ciclo-asn.docx" download class="btn-outline" style="font-size: 11px; padding: 5px 12px; text-decoration: none; display: inline-block; letter-spacing: 0.07em;">DESCARGAR</a>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 16px; background: var(--cream); border: 1px solid var(--border); border-radius: 2px;">
+            <span style="flex: 1; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-mid);">Nota de Prensa II JORNADA de Arte y Ciencia</span>
+            <a href="obras/jornada-ii/textos/nota-de-prensa.html" target="_blank" rel="noopener" class="btn-outline" style="font-size: 11px; padding: 5px 12px; text-decoration: none; display: inline-block; letter-spacing: 0.07em;">LEER</a>
+            <a href="obras/jornada-ii/textos/nota-de-prensa-ii-jornada-de-arte-y-ciencia.docx" download class="btn-outline" style="font-size: 11px; padding: 5px 12px; text-decoration: none; display: inline-block; letter-spacing: 0.07em;">DESCARGAR</a>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 16px; background: var(--cream); border: 1px solid var(--border); border-radius: 2px;">
+            <span style="flex: 1; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-mid);">Programa Ars Nova</span>
+            <a href="obras/jornada-ii/textos/programa-ars-nova.html" target="_blank" rel="noopener" class="btn-outline" style="font-size: 11px; padding: 5px 12px; text-decoration: none; display: inline-block; letter-spacing: 0.07em;">LEER</a>
+            <a href="obras/jornada-ii/textos/programa-ars-nova.docx" download class="btn-outline" style="font-size: 11px; padding: 5px 12px; text-decoration: none; display: inline-block; letter-spacing: 0.07em;">DESCARGAR</a>
+          </div>
+        </div>
+
+        <!-- Cartel Ars Nova -->
+        <h3 class="only-es" style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 28px;">Cartel Ars Nova</h3>
+        <h3 class="only-en" style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 28px;">Ars Nova Poster</h3>
+        <div class="obra-grid" style="margin-bottom: 56px;">
+          <div class="obra-item">
+            <img src="obras/jornada-ii/cartel-ars-nova-a3.jpg" alt="Cartel Ars Nova A3" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Cartel Ars Nova A3</p>
+          </div>
+        </div>
+
+        <!-- Fotografías -->
+        <h3 class="only-es" style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 28px;">Fotografías de la jornada</h3>
+        <h3 class="only-en" style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 28px;">Conference photographs</h3>
+        <div class="obra-grid" style="margin-bottom: 64px;">
+          <div class="obra-item">
+            <img src="obras/jornada-ii/carmen-pascual.jpg" alt="Carmen Pascual" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Carmen Pascual</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/adolfo-manzano.jpg" alt="Adolfo Manzano" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Adolfo Manzano</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/anotnio-bueno-y-alvaro-serrano.jpg" alt="Anotnio Bueno y Álvaro Serrano" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Anotnio Bueno y Álvaro Serrano</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/d-francisco-sanchezmargallo.jpg" alt="D. Francisco Sánchez-Margallo" class="obra-img" loading="lazy">
+            <p class="obra-fecha">D. Francisco Sánchez_Margallo</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/david-serrano-prof-d-jesus-uson-y-andres-herrera.jpg" alt="David Serrano, Prof. D. Jesús Usón y Andrés Herrera" class="obra-img" loading="lazy">
+            <p class="obra-fecha">David Serrano, Prof. D. Jesús Usón y Andrés Herrera</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/de-izq-drcha-veredas-lopez-marian-palomo-y-eva-calle.jpg" alt="De Izq. Drcha. Veredas López, Marian Palomo y Eva Calle" class="obra-img" loading="lazy">
+            <p class="obra-fecha">De Izq. Drcha. Veredas López, Marian Palomo y Eva Calle</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/de-izq-a-dcha-antonio-bueno-olegario-y-fernando-serrano.jpg" alt="De Izq. a Dcha. Antonio Bueno, Olegario y Fernando Serrano" class="obra-img" loading="lazy">
+            <p class="obra-fecha">De Izq. a Dcha. Antonio Bueno, Olegario y Fernando Serrano</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/de-izq-a-drecha-david-serrano-andres-herrera-alvaro-serrano-y-francisco-d-sanchez-margargallo.jpg" alt="De Izq. a Drecha. DAvid Serrano, Andrés Herrera, Álvaro Serrano y FRancisco D. Sánchez-Margargallo" class="obra-img" loading="lazy">
+            <p class="obra-fecha">De Izq. a Drecha. DAvid Serrano, Andrés Herrera, Álvaro Serrano y FRancisco D. Sánchez-Margargallo</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/fernando-de-castro-conferencia-on-line.jpg" alt="Fernando de Castro. Conferencia on line" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Fernando de Castro. Conferencia on line</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/javier-font-conferencia-on-line.jpg" alt="Javier Font. Conferencia On line" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Javier Font. Conferencia On line</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/jose-ramon-gutierrez-alvaro-serrano-y-d-fco-sanchez-margallo.jpg" alt="Jose Ramón Gutierrez, Álvaro Serrano y D. Fco. Sánchez-Margallo" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Jose Ramón Gutierrez, Álvaro Serrano y D. Fco. Sánchez-Margallo</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/juan-l-orozco-y-antonio-bueno.jpg" alt="Juan L. Orozco y Antonio Bueno" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Juan L. Orozco y Antonio Bueno</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/juan-luis-oroozca-y-fernando-serrano.jpg" alt="Juan Luis Oroozca y Fernando Serrano" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Juan Luis Oroozca y Fernando Serrano</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/juan-luis-orozzco.jpg" alt="Juan Luis Orozzco" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Juan Luis Orozzco</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/julian-elizo-y-alvaro-serrano.jpg" alt="Julián Elizo y Álvaro Serrano" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Julián Elizo y Álvaro Serrano</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/manuel-ramirez-vega.jpg" alt="Manuel Ramírez-Vega" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Manuel Ramírez-Vega</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/marga-sanchez-pericuesta-1.jpg" alt="Marga Sánchez Pericuesta 1" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Marga Sánchez Pericuesta 1</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/marga-sanchez-pericuesta.jpg" alt="Marga Sánchez-Pericuesta" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Marga Sánchez-Pericuesta</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/maria-jocyles-y-sandra-izquierdo.jpg" alt="Maria Jocyles y Sandra Izquierdo" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Maria Jocyles y Sandra Izquierdo</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/marina-palomo.jpg" alt="Marina Palomo" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Marina Palomo</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/olegario.jpg" alt="Olegario" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Olegario</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/veredas-lopez.jpg" alt="Veredas López" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Veredas López</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/virginia-montero-carolina-parajes-m-jose-teruel-y-pablo-punzon-fundacion-sorapan-de-rieros.jpg" alt="Virginia Montero, CArolina Parajes, Mª José Teruel y Pablo Punzón. Fundación Sorapán de Rieros" class="obra-img" loading="lazy">
+            <p class="obra-fecha">Virginia Montero, CArolina Parajes, Mª José Teruel y Pablo Punzón. Fundación Sorapán de Rieros</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/dsc01803.jpg" alt="DSC01803" class="obra-img" loading="lazy">
+            <p class="obra-fecha">DSC01803</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/dsc01820.jpg" alt="DSC01820" class="obra-img" loading="lazy">
+            <p class="obra-fecha">DSC01820</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/dsc01889.jpg" alt="DSC01889" class="obra-img" loading="lazy">
+            <p class="obra-fecha">DSC01889</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/dsc02025.jpg" alt="DSC02025" class="obra-img" loading="lazy">
+            <p class="obra-fecha">DSC02025</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/dsc02037.jpg" alt="DSC02037" class="obra-img" loading="lazy">
+            <p class="obra-fecha">DSC02037</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/dsc02042.jpg" alt="DSC02042" class="obra-img" loading="lazy">
+            <p class="obra-fecha">DSC02042</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/dsc02046.jpg" alt="DSC02046" class="obra-img" loading="lazy">
+            <p class="obra-fecha">DSC02046</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/dsc02052.jpg" alt="DSC02052" class="obra-img" loading="lazy">
+            <p class="obra-fecha">DSC02052</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-ii/dsc02062.jpg" alt="DSC02062" class="obra-img" loading="lazy">
+            <p class="obra-fecha">DSC02062</p>
+          </div>
+        </div>
+
+      </div><!-- /jornada-ii-contenidos -->
     </div>
   </section>
 
@@ -3476,6 +3695,18 @@ pintura y versu!</div>
     function toggleJornadaI() {
       var contenidos = document.getElementById('jornada-i-contenidos');
       var btn = document.getElementById('btn-jornada-i');
+      if (contenidos.style.display === 'none') {
+        contenidos.style.display = 'block';
+        btn.textContent = 'VER MENOS';
+      } else {
+        contenidos.style.display = 'none';
+        btn.textContent = 'VER CONTENIDOS';
+      }
+    }
+
+    function toggleJornadaII() {
+      var contenidos = document.getElementById('jornada-ii-contenidos');
+      var btn = document.getElementById('btn-jornada-ii');
       if (contenidos.style.display === 'none') {
         contenidos.style.display = 'block';
         btn.textContent = 'VER MENOS';
