@@ -2405,9 +2405,9 @@
         <p style="font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-mid); margin-bottom: 4px;">
           <em>Coro de Cámara ARS NOVA · dir. Félix Alberto García</em>
         </p>
-        <audio id="audio-jornada-ii" controls loop style="width: 100%; margin-bottom: 40px;">
-          <source src="obras/jornada-ii/ars-nova-audio.mp3" type="audio/mpeg">
-        </audio>
+        <audio id="audio-jornada-ii" controls loop
+               src="obras/jornada-ii/ars-nova-audio.mp3"
+               style="width: 100%; margin-bottom: 40px;"></audio>
 
         <!-- Textos -->
         <h3 class="only-es" style="font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 28px;">Textos</h3>
@@ -3722,7 +3722,7 @@ pintura y versu!</div>
       if (contenidos.style.display === 'none') {
         contenidos.style.display = 'block';
         btn.textContent = 'VER MENOS';
-        if (audio) { audio.play(); }
+        if (audio) { audio.load(); audio.play().catch(function(){}); }
       } else {
         contenidos.style.display = 'none';
         btn.textContent = 'VER CONTENIDOS';
