@@ -3718,12 +3718,15 @@ pintura y versu!</div>
     function toggleJornadaII() {
       var contenidos = document.getElementById('jornada-ii-contenidos');
       var btn = document.getElementById('btn-jornada-ii');
+      var audio = document.getElementById('audio-jornada-ii');
       if (contenidos.style.display === 'none') {
         contenidos.style.display = 'block';
         btn.textContent = 'VER MENOS';
+        if (audio) { audio.play(); }
       } else {
         contenidos.style.display = 'none';
         btn.textContent = 'VER CONTENIDOS';
+        if (audio) { audio.pause(); audio.currentTime = 0; }
       }
     }
 
