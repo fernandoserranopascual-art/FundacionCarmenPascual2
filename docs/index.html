@@ -1331,6 +1331,197 @@
       font-style: italic;
     }
 
+    /* ── COLABORA ─────────────────────────────────────── */
+    #colabora { background: var(--cream-alt); padding: 96px 48px; }
+
+    .colabora-inner { max-width: 960px; margin: 0 auto; }
+
+    .colabora-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 300;
+      margin-bottom: 16px;
+    }
+
+    .colabora-intro {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-mid);
+      max-width: 600px;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .colabora-nota {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.7;
+      background: #fef8ed;
+      border-left: 3px solid var(--green);
+      padding: 18px 24px;
+      border-radius: 2px;
+      margin-bottom: 64px;
+    }
+
+    .colabora-nota a { color: var(--green); text-decoration: none; }
+    .colabora-nota a:hover { text-decoration: underline; }
+
+    .colabora-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 56px;
+    }
+
+    .colabora-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .colabora-card--destacada { border-color: var(--green); border-width: 2px; }
+
+    .colabora-card-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-weight: 300;
+      color: var(--green);
+      line-height: 1;
+    }
+
+    .colabora-card-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .colabora-card-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    .colabora-card-cuota {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: var(--text-light);
+      background: rgba(74, 103, 65, 0.07);
+      padding: 6px 12px;
+      border-radius: 2px;
+      align-self: flex-start;
+    }
+
+    .colabora-card-list {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.9;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .colabora-card-list li::before { content: '— '; color: var(--green); }
+
+    .colabora-cta {
+      text-align: center;
+      padding: 40px 0 64px;
+      border-top: 1px solid var(--border);
+    }
+
+    .colabora-cta > p {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-mid);
+      margin-bottom: 20px;
+    }
+
+    .donaciones { padding-top: 8px; }
+
+    .donaciones-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin: 36px 0 28px;
+    }
+
+    .donaciones-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 28px 24px;
+    }
+
+    .donaciones-card-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin: 0 0 20px;
+    }
+
+    .donaciones-lista {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.9;
+      list-style: none;
+      padding: 0;
+      margin: 0 0 16px;
+    }
+
+    .donaciones-lista li { padding-left: 14px; position: relative; }
+    .donaciones-lista li::before {
+      content: '·';
+      color: var(--green);
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+    }
+
+    .donaciones-lista strong { color: var(--text); font-weight: 500; }
+
+    .donaciones-ejemplo {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: var(--text-light);
+      background: rgba(74, 103, 65, 0.06);
+      border-left: 2px solid rgba(74, 103, 65, 0.25);
+      padding: 10px 14px;
+      border-radius: 2px;
+      line-height: 1.6;
+    }
+
+    .donaciones-ejemplo strong { color: var(--text-mid); font-weight: 500; }
+
+    .donaciones-nota {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.7;
+      font-style: italic;
+    }
+
     /* ── RESPONSIVE ──────────────────────────────────── */
     /* ── GALERÍA DE RETRATOS ─────────────────────────── */
     #galeria-retratos { background: var(--cream); padding: 96px 48px; }
@@ -1407,6 +1598,7 @@
       #galeria-retratos,
       #actividades,
       #historial,
+      #colabora,
       #contacto { padding: 64px 24px; }
 
       .acarmen-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -1420,6 +1612,8 @@
       #composiciones .obra-grid { grid-template-columns: repeat(3, 1fr); }
       .retratos-grid { grid-template-columns: repeat(3, 1fr); }
       .contacto-cols { grid-template-columns: 1fr; gap: 32px; }
+      .colabora-cards { grid-template-columns: 1fr; }
+      .donaciones-grid { grid-template-columns: 1fr; }
 
       footer { padding: 32px 24px; }
     }
@@ -1469,6 +1663,10 @@
     </a>
     <div style="display:flex;align-items:center;gap:0;">
       <ul class="nav-links" id="navLinks">
+        <li><a href="#colabora" onclick="closeMenu()">
+          <span class="only-es">Colabora</span>
+          <span class="only-en">Support Us</span>
+        </a></li>
         <li><a href="#mision" onclick="closeMenu()">
           <span class="only-es">Misión</span>
           <span class="only-en">Mission</span>
@@ -1570,6 +1768,141 @@
           <span class="only-es">↓ Descargar</span>
           <span class="only-en">↓ Download</span>
         </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── COLABORA ── -->
+  <section id="colabora">
+    <div class="colabora-inner">
+
+      <p class="section-label only-es">Colabora</p>
+      <p class="section-label only-en">Support Us</p>
+      <h2 class="colabora-title only-es">Modalidades de colaboración</h2>
+      <h2 class="colabora-title only-en">Ways to Collaborate</h2>
+      <p class="colabora-intro only-es">Tu apoyo permite que la obra de Carmen Pascual continúe llegando a más personas a través del arte, la salud y la naturaleza.</p>
+      <p class="colabora-intro only-en">Your support enables Carmen Pascual's work to reach more people through art, health and nature.</p>
+
+      <!-- Nota transitoria -->
+      <div class="colabora-nota">
+        <p class="only-es"><strong>Nota:</strong> La Fundación se encuentra en proceso de obtención del CIF definitivo. Hasta entonces, los mecanismos de pago y la emisión de certificados fiscales estarán pendientes de habilitación. Si deseas manifestar tu interés en colaborar, escríbenos a <a href="mailto:info@fundacioncarmenpascual.org">info@fundacioncarmenpascual.org</a></p>
+        <p class="only-en"><strong>Note:</strong> The Foundation is in the process of obtaining its definitive tax identification number (CIF). Until then, payment systems and official tax certificates will not be operational. To express your interest in collaborating, please write to us at <a href="mailto:info@fundacioncarmenpascual.org">info@fundacioncarmenpascual.org</a></p>
+      </div>
+
+      <!-- Tres categorías -->
+      <div class="colabora-cards">
+
+        <div class="colabora-card">
+          <div class="colabora-card-num">I</div>
+          <h3 class="colabora-card-title only-es">Socio / Socia</h3>
+          <h3 class="colabora-card-title only-en">Member</h3>
+          <p class="colabora-card-desc only-es">Personas físicas que comparten los valores de la Fundación y desean apoyar su misión de forma continuada.</p>
+          <p class="colabora-card-desc only-en">Individuals who share the Foundation's values and wish to support its mission on an ongoing basis.</p>
+          <span class="colabora-card-cuota only-es">Cuota anual · a determinar</span>
+          <span class="colabora-card-cuota only-en">Annual fee · to be determined</span>
+          <ul class="colabora-card-list">
+            <li class="only-es">Comunicaciones y memoria anual</li>
+            <li class="only-en">Newsletters and annual report</li>
+            <li class="only-es">Invitación a actos y exposiciones</li>
+            <li class="only-en">Invitations to events and exhibitions</li>
+            <li class="only-es">Certificado fiscal de aportación</li>
+            <li class="only-en">Official donation tax certificate</li>
+          </ul>
+        </div>
+
+        <div class="colabora-card">
+          <div class="colabora-card-num">II</div>
+          <h3 class="colabora-card-title only-es">Colaborador/a</h3>
+          <h3 class="colabora-card-title only-en">Collaborator</h3>
+          <p class="colabora-card-desc only-es">Empresas, entidades o instituciones que apoyan proyectos concretos de la Fundación con aportaciones puntuales o periódicas.</p>
+          <p class="colabora-card-desc only-en">Companies, organisations or institutions that support specific Foundation projects with one-off or regular contributions.</p>
+          <span class="colabora-card-cuota only-es">Aportación · a determinar</span>
+          <span class="colabora-card-cuota only-en">Contribution · to be determined</span>
+          <ul class="colabora-card-list">
+            <li class="only-es">Mención en la web y en materiales de difusión</li>
+            <li class="only-en">Acknowledgement on web and promotional materials</li>
+            <li class="only-es">Certificado fiscal de aportación</li>
+            <li class="only-en">Official donation tax certificate</li>
+            <li class="only-es">Vinculación a proyectos específicos</li>
+            <li class="only-en">Linkage to specific projects</li>
+          </ul>
+        </div>
+
+        <div class="colabora-card colabora-card--destacada">
+          <div class="colabora-card-num">III</div>
+          <h3 class="colabora-card-title only-es">Mecenas / Protector/a</h3>
+          <h3 class="colabora-card-title only-en">Patron / Protector</h3>
+          <p class="colabora-card-desc only-es">Personas o entidades con implicación especial en la misión de la Fundación, cuya aportación hace posibles los proyectos de mayor alcance.</p>
+          <p class="colabora-card-desc only-en">Individuals or entities with a special commitment to the Foundation's mission, whose contribution enables the most ambitious projects.</p>
+          <span class="colabora-card-cuota only-es">Aportación · a determinar</span>
+          <span class="colabora-card-cuota only-en">Contribution · to be determined</span>
+          <ul class="colabora-card-list">
+            <li class="only-es">Reconocimiento destacado en la web</li>
+            <li class="only-en">Featured acknowledgement on web</li>
+            <li class="only-es">Presencia en carteles y materiales</li>
+            <li class="only-en">Presence on posters and materials</li>
+            <li class="only-es">Invitación a todos los actos</li>
+            <li class="only-en">Invitation to all events</li>
+            <li class="only-es">Certificado fiscal de aportación</li>
+            <li class="only-en">Official donation tax certificate</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- CTA contacto -->
+      <div class="colabora-cta">
+        <p class="only-es">Para más información o para expresar tu interés en colaborar:</p>
+        <p class="only-en">For more information or to express your interest in collaborating:</p>
+        <a href="mailto:info@fundacioncarmenpascual.org" class="btn-primary">info@fundacioncarmenpascual.org</a>
+      </div>
+
+      <!-- Donaciones y ventajas fiscales -->
+      <div class="donaciones">
+        <p class="section-label only-es">Donaciones</p>
+        <p class="section-label only-en">Donations</p>
+        <h2 class="colabora-title only-es">Ventajas fiscales</h2>
+        <h2 class="colabora-title only-en">Tax Benefits</h2>
+        <p class="colabora-intro only-es">La Fundación Carmen Pascual se acoge al régimen fiscal de la <strong>Ley 49/2002</strong>, que establece importantes incentivos para quienes realizan donaciones a entidades sin fines lucrativos declaradas de utilidad pública.</p>
+        <p class="colabora-intro only-en">Fundación Carmen Pascual operates under the tax framework of <strong>Law 49/2002</strong>, which provides significant fiscal incentives for donations to non-profit organisations recognised as being of public interest.</p>
+
+        <div class="donaciones-grid">
+
+          <div class="donaciones-card">
+            <p class="donaciones-card-title only-es">Personas físicas · IRPF</p>
+            <p class="donaciones-card-title only-en">Individuals · Income Tax</p>
+            <ul class="donaciones-lista">
+              <li class="only-es">Primeros <strong>250 €</strong>: deducción del <strong>80 %</strong></li>
+              <li class="only-en">First <strong>€250</strong>: <strong>80 %</strong> deduction</li>
+              <li class="only-es">Exceso sobre 250 €: deducción del <strong>40 %</strong></li>
+              <li class="only-en">Above €250: <strong>40 %</strong> deduction</li>
+              <li class="only-es">Si se dona la misma cantidad o más durante <strong>3 años consecutivos</strong>: deducción del <strong>45 %</strong> sobre el exceso</li>
+              <li class="only-en">If the same amount or more is donated for <strong>3 consecutive years</strong>: <strong>45 %</strong> deduction on the excess</li>
+            </ul>
+            <p class="donaciones-ejemplo only-es">Ejemplo: una donación de <strong>500 €</strong> tiene un coste real de solo <strong>200 €</strong> tras aplicar la deducción.</p>
+            <p class="donaciones-ejemplo only-en">Example: a <strong>€500</strong> donation has a real cost of only <strong>€200</strong> after applying the deduction.</p>
+          </div>
+
+          <div class="donaciones-card">
+            <p class="donaciones-card-title only-es">Empresas · Impuesto de Sociedades</p>
+            <p class="donaciones-card-title only-en">Companies · Corporate Tax</p>
+            <ul class="donaciones-lista">
+              <li class="only-es">Deducción del <strong>35 %</strong> de la donación</li>
+              <li class="only-en"><strong>35 %</strong> deduction on the donation</li>
+              <li class="only-es">Si se dona la misma cantidad o más durante <strong>3 años consecutivos</strong>: deducción del <strong>40 %</strong></li>
+              <li class="only-en">If the same amount or more is donated for <strong>3 consecutive years</strong>: <strong>40 %</strong> deduction</li>
+              <li class="only-es">Base de deducción: hasta el <strong>10 % de la base imponible</strong></li>
+              <li class="only-en">Deduction base: up to <strong>10 % of the taxable base</strong></li>
+            </ul>
+            <p class="donaciones-ejemplo only-es">Ejemplo: una empresa dona <strong>1.000 €</strong> y deduce <strong>350 €</strong> directamente de su cuota del Impuesto de Sociedades.</p>
+            <p class="donaciones-ejemplo only-en">Example: a company donates <strong>€1,000</strong> and deducts <strong>€350</strong> directly from its corporate tax liability.</p>
+          </div>
+
+        </div>
+
+        <p class="donaciones-nota only-es">* Deducciones de aplicación general conforme a la Ley 49/2002. Consulte a su asesor fiscal para su situación específica.</p>
+        <p class="donaciones-nota only-en">* Deductions of general application under Law 49/2002. Please consult your tax adviser for your specific situation.</p>
       </div>
 
     </div>
