@@ -1062,6 +1062,25 @@
       font-size: 13px;
       color: var(--text-light);
     }
+    .acarmen-cuadro-img.zoomable { cursor: zoom-in; }
+    #lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    #lightbox-overlay.open { display: flex; }
+    #lightbox-overlay img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border: none;
+      box-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
+    }
 
     .acarmen-proximamente {
       display: inline-block;
@@ -4126,6 +4145,41 @@ pintura y versu!</div>
           audioEl.removeEventListener('timeupdate', onTimeUpdate);
         }
       };
+    })();
+  </script>
+
+  <div id="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <script>
+    (function () {
+      var overlay = document.getElementById('lightbox-overlay');
+      var lbImg   = document.getElementById('lightbox-img');
+
+      function closeLightbox() {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      // Apartado II: segundo .acarmen-cat (Retratos)
+      var cats = document.querySelectorAll('.acarmen-cat');
+      if (cats[1]) {
+        cats[1].querySelectorAll('.acarmen-cuadro-img').forEach(function (img) {
+          img.classList.add('zoomable');
+          img.addEventListener('click', function () {
+            lbImg.src = this.src;
+            lbImg.alt = this.alt;
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+          });
+        });
+      }
+
+      overlay.addEventListener('click', closeLightbox);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeLightbox();
+      });
     })();
   </script>
 
