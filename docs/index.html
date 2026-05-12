@@ -4162,10 +4162,10 @@ pintura y versu!</div>
         document.body.style.overflow = '';
       }
 
-      // Apartado II: segundo .acarmen-cat (Retratos)
-      var cats = document.querySelectorAll('.acarmen-cat');
-      if (cats[1]) {
-        cats[1].querySelectorAll('.acarmen-cuadro-img').forEach(function (img) {
+      // Apartados I y II: imágenes de poema ilustrado y retratos
+      document.querySelectorAll('.acarmen-cat').forEach(function (cat, i) {
+        if (i > 1) return; // sólo I y II
+        cat.querySelectorAll('.acarmen-cuadro-img').forEach(function (img) {
           img.classList.add('zoomable');
           img.addEventListener('click', function () {
             lbImg.src = this.src;
@@ -4174,7 +4174,7 @@ pintura y versu!</div>
             document.body.style.overflow = 'hidden';
           });
         });
-      }
+      });
 
       overlay.addEventListener('click', closeLightbox);
       document.addEventListener('keydown', function (e) {
