@@ -1063,6 +1063,7 @@
       color: var(--text-light);
     }
     .acarmen-cuadro-img.zoomable { cursor: zoom-in; }
+    .acarmen-soneto-pdf img.zoomable { cursor: zoom-in; }
     #lightbox-overlay {
       display: none;
       position: fixed;
@@ -4162,19 +4163,29 @@ pintura y versu!</div>
         document.body.style.overflow = '';
       }
 
-      // Apartados I y II: imágenes de poema ilustrado y retratos
-      document.querySelectorAll('.acarmen-cat').forEach(function (cat, i) {
-        if (i > 1) return; // sólo I y II
-        cat.querySelectorAll('.acarmen-cuadro-img').forEach(function (img) {
-          img.classList.add('zoomable');
-          img.addEventListener('click', function () {
-            lbImg.src = this.src;
-            lbImg.alt = this.alt;
-            overlay.classList.add('open');
-            document.body.style.overflow = 'hidden';
-          });
+      function makeZoomable(img, e) {
+        img.classList.add('zoomable');
+        img.addEventListener('click', function (e) {
+          if (e) e.preventDefault();
+          lbImg.src = this.src;
+          lbImg.alt = this.alt;
+          overlay.classList.add('open');
+          document.body.style.overflow = 'hidden';
         });
+      }
+
+      var cats = document.querySelectorAll('.acarmen-cat');
+
+      // Apartados I y II: .acarmen-cuadro-img
+      [0, 1].forEach(function (i) {
+        if (!cats[i]) return;
+        cats[i].querySelectorAll('.acarmen-cuadro-img').forEach(makeZoomable);
       });
+
+      // Apartado III: miniaturas de partitura dentro de .acarmen-soneto-pdf
+      if (cats[2]) {
+        cats[2].querySelectorAll('.acarmen-soneto-pdf img').forEach(makeZoomable);
+      }
 
       overlay.addEventListener('click', closeLightbox);
       document.addEventListener('keydown', function (e) {
