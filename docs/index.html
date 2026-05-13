@@ -3790,6 +3790,37 @@ pintura y versu!</div>
           </div>
         </div>
 
+        <!-- Obras Trinidad Toscano -->
+        <h4 style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-mid); margin: 48px 0 20px;">Obras Trinidad Toscano</h4>
+
+        <div class="obra-grid">
+          <div class="obra-item">
+            <img src="historial/luz-del-alma/obras-trinidad-toscano/trinidad-toscano-01.jpg"
+                 alt="Obras Trinidad Toscano · 1" class="obra-img" loading="lazy">
+          </div>
+        </div>
+
+        <div style="text-align: center; margin: 24px 0;">
+          <button class="btn-outline" id="btn-trinidad-toscano" onclick="toggleTrinidadToscano()">VER MÁS</button>
+        </div>
+
+        <div id="trinidad-toscano-fotos" style="display: none;">
+          <div class="obra-grid">
+            <div class="obra-item">
+              <img src="historial/luz-del-alma/obras-trinidad-toscano/trinidad-toscano-02.jpg"
+                   alt="Obras Trinidad Toscano · 2" class="obra-img" loading="lazy">
+            </div>
+            <div class="obra-item">
+              <img src="historial/luz-del-alma/obras-trinidad-toscano/trinidad-toscano-03.jpg"
+                   alt="Obras Trinidad Toscano · 3" class="obra-img" loading="lazy">
+            </div>
+            <div class="obra-item">
+              <img src="historial/luz-del-alma/obras-trinidad-toscano/trinidad-toscano-04.jpg"
+                   alt="Obras Trinidad Toscano · 4" class="obra-img" loading="lazy">
+            </div>
+          </div>
+        </div>
+
       </div><!-- /luz-del-alma-contenidos -->
 
     </div>
@@ -4333,6 +4364,18 @@ pintura y versu!</div>
           audioEl.currentTime = TAIS_START;
         }
       }
+
+      window.toggleTrinidadToscano = function () {
+        var fotos = document.getElementById('trinidad-toscano-fotos');
+        var btn   = document.getElementById('btn-trinidad-toscano');
+        if (fotos.style.display === 'none') {
+          fotos.style.display = 'block';
+          btn.textContent = 'VER MENOS';
+        } else {
+          fotos.style.display = 'none';
+          btn.textContent = 'VER MÁS';
+        }
+      };
 
       window.toggleElTorno = function () {
         var fotos = document.getElementById('el-torno-fotos');
