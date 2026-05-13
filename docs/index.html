@@ -3731,6 +3731,65 @@ pintura y versu!</div>
           </div>
         </div>
 
+        <!-- Luz del Alma en El Torno -->
+        <h4 style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-mid); margin: 48px 0 20px;">Luz del Alma en El Torno</h4>
+
+        <div class="obra-grid">
+          <div class="obra-item">
+            <img src="historial/luz-del-alma/luz-del-alma-en-el-torno/el-torno-01.jpg"
+                 alt="Luz del Alma en El Torno · 1" class="obra-img" loading="lazy">
+          </div>
+        </div>
+
+        <div style="text-align: center; margin: 24px 0;">
+          <button class="btn-outline" id="btn-el-torno" onclick="toggleElTorno()">VER MÁS</button>
+        </div>
+
+        <div id="el-torno-fotos" style="display: none;">
+          <div class="obra-grid">
+            <div class="obra-item">
+              <img src="historial/luz-del-alma/luz-del-alma-en-el-torno/el-torno-02.jpg"
+                   alt="Luz del Alma en El Torno · 2" class="obra-img" loading="lazy">
+            </div>
+            <div class="obra-item">
+              <img src="historial/luz-del-alma/luz-del-alma-en-el-torno/el-torno-03.jpg"
+                   alt="Luz del Alma en El Torno · 3" class="obra-img" loading="lazy">
+            </div>
+            <div class="obra-item">
+              <img src="historial/luz-del-alma/luz-del-alma-en-el-torno/el-torno-04.jpg"
+                   alt="Luz del Alma en El Torno · 4" class="obra-img" loading="lazy">
+            </div>
+            <div class="obra-item">
+              <img src="historial/luz-del-alma/luz-del-alma-en-el-torno/el-torno-05.jpg"
+                   alt="Luz del Alma en El Torno · 5" class="obra-img" loading="lazy">
+            </div>
+            <div class="obra-item">
+              <img src="historial/luz-del-alma/luz-del-alma-en-el-torno/el-torno-06.jpg"
+                   alt="Luz del Alma en El Torno · 6" class="obra-img" loading="lazy">
+            </div>
+            <div class="obra-item">
+              <img src="historial/luz-del-alma/luz-del-alma-en-el-torno/el-torno-07.jpg"
+                   alt="Luz del Alma en El Torno · 7" class="obra-img" loading="lazy">
+            </div>
+            <div class="obra-item">
+              <img src="historial/luz-del-alma/luz-del-alma-en-el-torno/el-torno-08.jpg"
+                   alt="Luz del Alma en El Torno · 8" class="obra-img" loading="lazy">
+            </div>
+            <div class="obra-item">
+              <img src="historial/luz-del-alma/luz-del-alma-en-el-torno/el-torno-09.jpg"
+                   alt="Luz del Alma en El Torno · 9" class="obra-img" loading="lazy">
+            </div>
+            <div class="obra-item">
+              <img src="historial/luz-del-alma/luz-del-alma-en-el-torno/el-torno-10.jpg"
+                   alt="Luz del Alma en El Torno · 10" class="obra-img" loading="lazy">
+            </div>
+            <div class="obra-item">
+              <img src="historial/luz-del-alma/luz-del-alma-en-el-torno/el-torno-11.jpg"
+                   alt="Luz del Alma en El Torno · 11" class="obra-img" loading="lazy">
+            </div>
+          </div>
+        </div>
+
       </div><!-- /luz-del-alma-contenidos -->
 
     </div>
@@ -4274,6 +4333,18 @@ pintura y versu!</div>
           audioEl.currentTime = TAIS_START;
         }
       }
+
+      window.toggleElTorno = function () {
+        var fotos = document.getElementById('el-torno-fotos');
+        var btn   = document.getElementById('btn-el-torno');
+        if (fotos.style.display === 'none') {
+          fotos.style.display = 'block';
+          btn.textContent = 'VER MENOS';
+        } else {
+          fotos.style.display = 'none';
+          btn.textContent = 'VER MÁS';
+        }
+      };
 
       window.toggleConciertoInaugural = function () {
         var fotos = document.getElementById('concierto-inaugural-fotos');
