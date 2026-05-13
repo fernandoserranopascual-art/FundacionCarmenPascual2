@@ -3673,6 +3673,64 @@ pintura y versu!</div>
           </div>
         </div>
 
+        <!-- Concierto Inaugural -->
+        <h4 style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-mid); margin: 48px 0 20px;">Concierto Inaugural</h4>
+
+        <!-- Foto de referencia visible -->
+        <div class="obra-grid">
+          <div class="obra-item">
+            <img src="historial/luz-del-alma/concierto-inaugural/carmen-pascual-retablo-mascara.jpg"
+                 alt="Carmen Pascual · Concierto Inaugural · Luz del Alma" class="obra-img" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Botón Ver más -->
+        <div style="text-align: center; margin: 24px 0;">
+          <button class="btn-outline" id="btn-concierto-inaugural" onclick="toggleConciertoInaugural()">VER MÁS</button>
+        </div>
+
+        <!-- Fotos ocultas -->
+        <div id="concierto-inaugural-fotos" style="display: none;">
+          <div class="obra-grid">
+            <div class="obra-item">
+              <img src="historial/luz-del-alma/concierto-inaugural/javier-y-carmen.jpg"
+                   alt="Javier y Carmen · Concierto Inaugural" class="obra-img" loading="lazy">
+            </div>
+            <div class="obra-item">
+              <img src="historial/luz-del-alma/concierto-inaugural/carmen-con-nietos-teresa-javier.jpg"
+                   alt="Carmen con sus nietos Teresa y Javier · Foto Eduardo Moreno" class="obra-img" loading="lazy">
+            </div>
+            <div class="obra-item">
+              <img src="historial/luz-del-alma/concierto-inaugural/carmen-con-sandro-bakhuashvili.jpg"
+                   alt="Carmen con Sandro Bakhuashvili · Foto Eduardo Moreno" class="obra-img" loading="lazy">
+            </div>
+            <div class="obra-item">
+              <img src="historial/luz-del-alma/concierto-inaugural/carmen-grupo-familiar.jpg"
+                   alt="Carmen con familia y amigos · Foto Eduardo Moreno" class="obra-img" loading="lazy">
+            </div>
+            <div class="obra-item">
+              <img src="historial/luz-del-alma/concierto-inaugural/carmen-con-laura.jpg"
+                   alt="Carmen con Laura · Concierto Inaugural" class="obra-img" loading="lazy">
+            </div>
+            <div class="obra-item">
+              <img src="historial/luz-del-alma/concierto-inaugural/foto-eduardo-moreno-a.jpg"
+                   alt="Concierto Inaugural · Foto Eduardo Moreno" class="obra-img" loading="lazy">
+            </div>
+            <div class="obra-item">
+              <img src="historial/luz-del-alma/concierto-inaugural/foto-eduardo-moreno-b.jpg"
+                   alt="Concierto Inaugural · Foto Eduardo Moreno" class="obra-img" loading="lazy">
+            </div>
+            <div class="obra-item">
+              <img src="historial/luz-del-alma/concierto-inaugural/concierto-inaugural-01.jpg"
+                   alt="Concierto Inaugural · Luz del Alma" class="obra-img" loading="lazy">
+            </div>
+            <div class="obra-item">
+              <img src="historial/luz-del-alma/concierto-inaugural/concierto-inaugural-02.jpg"
+                   alt="Concierto Inaugural · Luz del Alma" class="obra-img" loading="lazy">
+            </div>
+          </div>
+        </div>
+
       </div><!-- /luz-del-alma-contenidos -->
 
     </div>
@@ -4216,6 +4274,18 @@ pintura y versu!</div>
           audioEl.currentTime = TAIS_START;
         }
       }
+
+      window.toggleConciertoInaugural = function () {
+        var fotos = document.getElementById('concierto-inaugural-fotos');
+        var btn   = document.getElementById('btn-concierto-inaugural');
+        if (fotos.style.display === 'none') {
+          fotos.style.display = 'block';
+          btn.textContent = 'VER MENOS';
+        } else {
+          fotos.style.display = 'none';
+          btn.textContent = 'VER MÁS';
+        }
+      };
 
       window.toggleLuzDelAlma = function () {
         var contenidos = document.getElementById('luz-del-alma-contenidos');
