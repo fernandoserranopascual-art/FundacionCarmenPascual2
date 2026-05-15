@@ -2886,11 +2886,18 @@ pintura y versu!</div>
       <div class="acarmen-video-wrap">
         <p class="acarmen-video-title only-es">Tres Sonetos de Invierno para Carmen Pascual — Catedral de Plasencia</p>
         <p class="acarmen-video-title only-en">Three Winter Sonnets for Carmen Pascual — Plasencia Cathedral</p>
-        <div class="acarmen-video-ratio">
-          <iframe src="https://www.youtube.com/embed/FwrOgHHOqSs"
-                  title="Tres Sonetos de Invierno para Carmen Pascual — Sandro Bakhuashvili"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen loading="lazy"></iframe>
+        <div class="acarmen-video-ratio" id="yt-sonetos-wrap">
+          <div id="yt-sonetos-facade" onclick="loadYTSonetos()"
+               style="position:absolute;inset:0;cursor:pointer;background:#000;">
+            <img src="acarmen/musica/tres-sonetos-poster.jpg"
+                 alt="Tres Sonetos de Invierno para Carmen Pascual — Sandro Bakhuashvili · Foto Santi Sánchez"
+                 style="width:100%;height:100%;object-fit:cover;opacity:0.9;">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+              <div style="width:72px;height:72px;background:rgba(0,0,0,0.65);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                <svg viewBox="0 0 24 24" width="36" height="36" fill="white"><polygon points="8,5 19,12 8,19"/></svg>
+              </div>
+            </div>
+          </div>
         </div>
         <p class="acarmen-video-caption only-es">Sandro Bakhuashvili, piano. Catedral de Plasencia.</p>
         <p class="acarmen-video-caption only-en">Sandro Bakhuashvili, piano. Plasencia Cathedral.</p>
@@ -4406,6 +4413,19 @@ pintura y versu!</div>
           fotos.style.display = 'none';
           btn.textContent = 'VER MÁS';
         }
+      };
+
+      window.loadYTSonetos = function () {
+        var facade = document.getElementById('yt-sonetos-facade');
+        var wrap   = document.getElementById('yt-sonetos-wrap');
+        facade.style.display = 'none';
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube.com/embed/FwrOgHHOqSs?autoplay=1';
+        iframe.title = 'Tres Sonetos de Invierno para Carmen Pascual — Sandro Bakhuashvili';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;';
+        wrap.appendChild(iframe);
       };
 
       window.toggleLuzDelAlma = function () {
