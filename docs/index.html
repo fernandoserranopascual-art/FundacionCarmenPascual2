@@ -3125,13 +3125,18 @@ pintura y versu!</div>
           <source src="historial/madre-expo/audio-expo-carmen-pascual.m4a" type="audio/mp4">
         </audio>
 
+        <!-- Invitación a vista completa -->
+        <div style="margin-bottom: 40px; text-align: center;">
+          <img id="inv-interior"
+               src="historial/madre-expo/madre-expo-invitacion-interior.jpg"
+               alt="Invitación interior — La madre de todas (mis) exposiciones"
+               style="width: 100%; max-width: 700px; display: block; margin: 0 auto; cursor: zoom-in; box-shadow: 0 4px 24px rgba(0,0,0,0.12);"
+               loading="lazy">
+          <p class="obra-fecha" style="margin-top: 10px;">Invitación · Interior</p>
+        </div>
+
         <!-- Imágenes -->
         <div class="obra-grid">
-          <div class="obra-item">
-            <img src="historial/madre-expo/madre-expo-invitacion-interior.jpg"
-                 alt="Invitación interior — La madre de todas (mis) exposiciones" class="obra-img" loading="lazy">
-            <p class="obra-fecha">Invitación · Interior</p>
-          </div>
           <div class="obra-item">
             <img src="historial/madre-expo/madre-expo-014.jpg"
                  alt="Exposición de Carmen Pascual 014" class="obra-img" loading="lazy">
@@ -4530,17 +4535,32 @@ pintura y versu!</div>
       };
 
       window.toggleMadreExpo = function () {
-        var scriptTais =
+        var scriptVentana =
+          /* Bucle Massenet: arrancar desde 7:45 y volver al llegar a 9:32 */
           '(function(){' +
           'var a=document.getElementById("audio-madre-expo");' +
-          'if(!a)return;' +
+          'if(a){' +
           'var S=465,E=572;' +
           'a.addEventListener("timeupdate",function(){if(a.currentTime>=E)a.currentTime=S;});' +
           'function arrancar(){a.currentTime=S;a.play().catch(function(){});}' +
-          'if(a.readyState>=1){arrancar();}' +
-          'else{a.addEventListener("loadedmetadata",arrancar,{once:true});}' +
+          'if(a.readyState>=1){arrancar();}else{a.addEventListener("loadedmetadata",arrancar,{once:true});}' +
+          '}' +
+          /* Zoom al clic sobre la invitación */
+          'var img=document.getElementById("inv-interior");' +
+          'if(img){' +
+          'img.addEventListener("click",function(){' +
+          'var o=document.createElement("div");' +
+          'o.style.cssText="position:fixed;inset:0;background:rgba(0,0,0,0.92);display:flex;align-items:center;justify-content:center;cursor:zoom-out;z-index:9999;";' +
+          'var b=document.createElement("img");' +
+          'b.src=img.src;' +
+          'b.style.cssText="max-width:92vw;max-height:92vh;object-fit:contain;box-shadow:0 4px 40px rgba(0,0,0,0.6);";' +
+          'o.appendChild(b);' +
+          'o.addEventListener("click",function(){o.remove();});' +
+          'document.body.appendChild(o);' +
+          '});' +
+          '}' +
           '})();';
-        abrirEnVentanaNueva('madre-expo-contenidos', 'La madre de todas (mis) exposiciones · Carmen Pascual', scriptTais);
+        abrirEnVentanaNueva('madre-expo-contenidos', 'La madre de todas (mis) exposiciones · Carmen Pascual', scriptVentana);
       };
     })();
   </script>
