@@ -4205,10 +4205,27 @@ pintura y versu!</div>
         '.ven-titulo{font-family:Inter,sans-serif;font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#888;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid #e0e0e0;}\n' +
         '#cp-obras-extra,#jcl-obras-extra{display:block!important;}\n' +
         '#btn-cp-obras,#btn-jcl-obras{display:none!important;}\n' +
+        '#las-claras-fotos,#concierto-inaugural-fotos,#el-torno-fotos{display:block!important;}\n' +
+        '#btn-las-claras,#btn-concierto-inaugural,#btn-el-torno{display:none!important;}\n' +
+        '.obra-img{object-fit:contain!important;aspect-ratio:unset!important;height:auto!important;}\n' +
+        '.obra-item{overflow:visible!important;}\n' +
         '</style>\n' +
         '</head>\n<body>\n' +
         '<p class="ven-titulo">' + titulo + '</p>\n' +
         div.innerHTML + '\n' +
+        '<script>(function(){' +
+        'document.querySelectorAll("img[loading=\'lazy\']").forEach(function(img){' +
+        'img.style.cursor="zoom-in";' +
+        'img.addEventListener("click",function(){' +
+        'var o=document.createElement("div");' +
+        'o.style.cssText="position:fixed;inset:0;background:rgba(0,0,0,0.92);display:flex;align-items:center;justify-content:center;cursor:zoom-out;z-index:9999;";' +
+        'var b=document.createElement("img");b.src=img.src;b.alt=img.alt;' +
+        'b.style.cssText="max-width:92vw;max-height:92vh;object-fit:contain;box-shadow:0 4px 40px rgba(0,0,0,0.6);";' +
+        'o.appendChild(b);o.addEventListener("click",function(){o.remove();});' +
+        'document.body.appendChild(o);' +
+        '});' +
+        '});' +
+        '})();<\/script>\n' +
         (extraScript ? '<script>' + extraScript + '<\/script>\n' : '') +
         '</body>\n</html>';
 
@@ -4545,16 +4562,6 @@ pintura y versu!</div>
           'function iniciar(){a.currentTime=S;a.play().catch(function(){});}' +
           'if(a.readyState>=1){iniciar();}' +
           'else{a.addEventListener("loadedmetadata",iniciar,{once:true});}' +
-          '}' +
-          /* ── Zoom sobre la invitación ── */
-          'var img=document.getElementById("inv-interior");' +
-          'if(img){img.addEventListener("click",function(){' +
-          'var o=document.createElement("div");' +
-          'o.style.cssText="position:fixed;inset:0;background:rgba(0,0,0,0.92);display:flex;align-items:center;justify-content:center;cursor:zoom-out;z-index:9999;";' +
-          'var b=document.createElement("img");b.src=img.src;' +
-          'b.style.cssText="max-width:92vw;max-height:92vh;object-fit:contain;box-shadow:0 4px 40px rgba(0,0,0,0.6);";' +
-          'o.appendChild(b);o.addEventListener("click",function(){o.remove();});' +
-          'document.body.appendChild(o);});' +
           '}' +
           '})();';
         abrirEnVentanaNueva('madre-expo-contenidos', 'La madre de todas (mis) exposiciones · Carmen Pascual', scriptVentana);
