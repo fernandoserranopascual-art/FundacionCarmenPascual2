@@ -2597,6 +2597,10 @@ un paraíso fértil.</div>
             <p class="acarmen-poem-autor" style="text-align:right"><strong>Antonio Gómez</strong><br><span class="acarmen-poem-fecha">poeta</span></p>
           </div>
 
+          <button id="btn-poemas-extra" class="btn-outline" onclick="togglePoemasExtra()" style="margin-top: 16px;">VER MÁS</button>
+
+          <div id="poemas-extra" style="display:none;">
+
           <div class="acarmen-poem">
             <div class="acarmen-poem-body">el color la palabra del alma
 las manos el cuerpo que la palabra exhuma del vientre del tiempo
@@ -2848,6 +2852,8 @@ pintura y versu!</div>
             <p class="acarmen-cuadro-autor only-es"><strong>A. Orihuela</strong><br>poema ilustrado</p>
             <p class="acarmen-cuadro-autor only-en"><strong>A. Orihuela</strong><br>illustrated poem</p>
           </div>
+
+          </div><!-- /poemas-extra -->
         </div>
 
         <div class="acarmen-cat">
@@ -2859,35 +2865,41 @@ pintura y versu!</div>
 
           <div class="acarmen-cuadro">
             <img src="retratos-carmen-pascual/carmen-pascual-por-ramirez-vega.jpg"
-                 alt="Carmen Pascual por Ramírez Vega"
+                 alt="Carmen Pascual por Manuel Ramírez-Vega"
                  class="acarmen-cuadro-img" loading="lazy">
-            <p class="acarmen-cuadro-autor only-es"><strong>Ramírez Vega</strong></p>
-            <p class="acarmen-cuadro-autor only-en"><strong>Ramírez Vega</strong></p>
+            <p class="acarmen-cuadro-autor only-es"><strong>Manuel Ramírez-Vega</strong>. <em>Carmen Pascual</em>. Óleo sb.lienzo. 48,5x33 cm. 2021</p>
+            <p class="acarmen-cuadro-autor only-en"><strong>Manuel Ramírez-Vega</strong>. <em>Carmen Pascual</em>. Oil on canvas. 48.5x33 cm. 2021</p>
           </div>
+
+          <button id="btn-retratos-extra" class="btn-outline" onclick="toggleRetratosExtra()" style="margin-top: 16px;">VER MÁS</button>
+
+          <div id="retratos-extra" style="display:none;">
 
           <div class="acarmen-cuadro">
             <img src="retratos-carmen-pascual/carmen-pascual-prof-uson.jpg"
                  alt="Carmen Pascual por el Prof. D. Jesús Usón"
                  class="acarmen-cuadro-img" loading="lazy">
-            <p class="acarmen-cuadro-autor only-es">Carmen Pascual. Por el <strong>Prof. D. Jesús Usón</strong>. Primera donación a la Fundación Carmen Pascual. Arte Salud Naturaleza.</p>
-            <p class="acarmen-cuadro-autor only-en">Carmen Pascual. By <strong>Prof. D. Jesús Usón</strong>. First donation to the Fundación Carmen Pascual. Arte Salud Naturaleza.</p>
+            <p class="acarmen-cuadro-autor only-es">Carmen Pascual. Por el Prof. D. Jesús Usón. Primera donación a la Fundación Carmen Pascual. Arte Salud Naturaleza.</p>
+            <p class="acarmen-cuadro-autor only-en">Carmen Pascual. By Prof. D. Jesús Usón. First donation to the Fundación Carmen Pascual. Arte Salud Naturaleza.</p>
           </div>
 
           <div class="acarmen-cuadro">
             <img src="retratos-carmen-pascual/retrato-carmen-alvaro-fernando-santi-sanchez.jpg"
                  alt="Retrato Carmen, Álvaro y Fernando. Foto Santi Sánchez"
                  class="acarmen-cuadro-img" loading="lazy">
-            <p class="acarmen-cuadro-autor only-es">Retrato Carmen, Álvaro y Fernando. Foto <strong>Santi Sánchez Izquierdo</strong></p>
-            <p class="acarmen-cuadro-autor only-en">Portrait Carmen, Álvaro and Fernando. Photo <strong>Santi Sánchez Izquierdo</strong></p>
+            <p class="acarmen-cuadro-autor only-es">Retrato Carmen, Álvaro y Fernando. Foto Santi Sánchez Izquierdo</p>
+            <p class="acarmen-cuadro-autor only-en">Portrait Carmen, Álvaro and Fernando. Photo Santi Sánchez Izquierdo</p>
           </div>
 
           <div class="acarmen-cuadro">
             <img src="retratos-carmen-pascual/carmen-pascual-2018-foto-claudio.jpg"
                  alt="Carmen Pascual. 2018. Foto. Autor Claudio. Corrección Fran Mendez"
                  class="acarmen-cuadro-img" loading="lazy">
-            <p class="acarmen-cuadro-autor only-es">Carmen Pascual, 2018. Foto: <strong>Claudio Regadera Elizo</strong>. Retoques de <strong>Fran Méndez</strong>.</p>
-            <p class="acarmen-cuadro-autor only-en">Carmen Pascual, 2018. Photo: <strong>Claudio Regadera Elizo</strong>. Retouching by <strong>Fran Méndez</strong>.</p>
+            <p class="acarmen-cuadro-autor only-es">Carmen Pascual, 2018. Foto: Claudio Regadera Elizo. Retoques de Fran Méndez.</p>
+            <p class="acarmen-cuadro-autor only-en">Carmen Pascual, 2018. Photo: Claudio Regadera Elizo. Retouching by Fran Méndez.</p>
           </div>
+
+          </div><!-- /retratos-extra -->
         </div>
 
         <div class="acarmen-cat">
@@ -2898,6 +2910,31 @@ pintura y versu!</div>
           <p class="acarmen-desc only-en">Musical compositions inspired by the work and life of Carmen Pascual.</p>
           <p class="acarmen-musica-autor only-es">Sandro Bakhuashvili, piano y composición</p>
           <p class="acarmen-musica-autor only-en">Sandro Bakhuashvili, piano and composition</p>
+
+          <!-- Carátula del vídeo — visible -->
+          <div class="acarmen-video-wrap" style="margin-top: 24px;">
+            <p class="acarmen-video-title only-es">Tres Sonetos de Invierno para Carmen Pascual — Catedral de Plasencia</p>
+            <p class="acarmen-video-title only-en">Three Winter Sonnets for Carmen Pascual — Plasencia Cathedral</p>
+            <div class="acarmen-video-ratio" id="yt-sonetos-wrap">
+              <div id="yt-sonetos-facade" onclick="loadYTSonetos()"
+                   style="position:absolute;inset:0;cursor:pointer;background:#000;">
+                <img src="acarmen/musica/tres-sonetos-poster.jpg"
+                     alt="Tres Sonetos de Invierno para Carmen Pascual — Sandro Bakhuashvili · Foto Santi Sánchez"
+                     style="width:100%;height:100%;object-fit:cover;opacity:0.9;">
+                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+                  <div style="width:72px;height:72px;background:rgba(0,0,0,0.65);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                    <svg viewBox="0 0 24 24" width="36" height="36" fill="white"><polygon points="8,5 19,12 8,19"/></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="acarmen-video-caption only-es">Sandro Bakhuashvili, piano. Catedral de Plasencia.</p>
+            <p class="acarmen-video-caption only-en">Sandro Bakhuashvili, piano. Plasencia Cathedral.</p>
+          </div>
+
+          <button id="btn-sonetos-extra" class="btn-outline" onclick="toggleSonetosExtra()" style="margin-top: 20px;">VER MÁS</button>
+
+          <div id="sonetos-extra" style="display:none;">
 
           <div class="acarmen-soneto">
             <p class="acarmen-soneto-title only-es">Soneto I</p>
@@ -2938,64 +2975,23 @@ pintura y versu!</div>
             </a>
           </div>
 
+          </div><!-- /sonetos-extra -->
+
         </div>
 
       </div>
 
-      <div class="acarmen-video-wrap">
-        <p class="acarmen-video-title only-es">Tres Sonetos de Invierno para Carmen Pascual — Catedral de Plasencia</p>
-        <p class="acarmen-video-title only-en">Three Winter Sonnets for Carmen Pascual — Plasencia Cathedral</p>
-        <div class="acarmen-video-ratio" id="yt-sonetos-wrap">
-          <div id="yt-sonetos-facade" onclick="loadYTSonetos()"
-               style="position:absolute;inset:0;cursor:pointer;background:#000;">
-            <img src="acarmen/musica/tres-sonetos-poster.jpg"
-                 alt="Tres Sonetos de Invierno para Carmen Pascual — Sandro Bakhuashvili · Foto Santi Sánchez"
-                 style="width:100%;height:100%;object-fit:cover;opacity:0.9;">
-            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
-              <div style="width:72px;height:72px;background:rgba(0,0,0,0.65);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-                <svg viewBox="0 0 24 24" width="36" height="36" fill="white"><polygon points="8,5 19,12 8,19"/></svg>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p class="acarmen-video-caption only-es">Sandro Bakhuashvili, piano. Catedral de Plasencia.</p>
-        <p class="acarmen-video-caption only-en">Sandro Bakhuashvili, piano. Plasencia Cathedral.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── ESCRITOS ── -->
-  <section id="escritos">
-    <div class="escritos-inner">
-      <p class="section-label only-es">Escritos</p>
-      <p class="section-label only-en">Writings</p>
-      <h2 class="obra-title only-es">Sobre Carmen Pascual. Escritos</h2>
-      <h2 class="obra-title only-en">About Carmen Pascual. Writings</h2>
-      <p class="escritos-intro only-es">Textos, artículos y reflexiones dedicados a la vida y la obra de Carmen Pascual.</p>
-      <p class="escritos-intro only-en">Texts, articles and reflections dedicated to the life and work of Carmen Pascual.</p>
+      <!-- ── IV Escritos (integrado en A Carmen) ── -->
+      <div id="escritos" style="border-top: 1.5px solid var(--green); padding: 32px 0 0; margin-top: 48px;">
+        <div class="acarmen-symbol">IV</div>
+        <h3 class="acarmen-cat-title only-es">Escritos</h3>
+        <h3 class="acarmen-cat-title only-en">Writings</h3>
+        <p class="acarmen-desc only-es">Textos, artículos y reflexiones dedicados a la vida y la obra de Carmen Pascual.</p>
+        <p class="acarmen-desc only-en">Texts, articles and reflections dedicated to the life and work of Carmen Pascual.</p>
 
       <div class="escritos-textos">
 
-        <div class="escrito-item">
-          <p class="escrito-texto">El talento es la cosa mejor repartida del universo. Está en todos y en cada uno de nosotros y se manifiesta a través de diferentes habilidades, destrezas y capacidades. Basta con posibilitarlo para que aparezca. El talento no está sujeto a edad, ni condición humana, sea la que sea.</p>
-          <p class="escrito-firma"><strong>Ángel Fragoso</strong><br><em>antropólogo</em></p>
-        </div>
-
-        <div class="escrito-item">
-          <p class="escrito-texto">La pintura de Carmen es un devenir de sensaciones y de sentimientos en los que surge la placidez, la reflexiva relajación del espíritu en torno a su vida serena. Gracias, Carmen, porque a través de tu pintura, regalas a tus hijos y a tus amigos una lección de generosidad, al transformar tu silencio en una maravillosa sonrisa, que nos provoca siempre sosiego cuando estamos a tu lado.</p>
-          <p class="escrito-firma"><strong>Javier Regadera</strong><br><em>médico patólogo</em></p>
-        </div>
-
-        <div class="escrito-item">
-          <p class="escrito-texto">Conseguir que Carmen, nuestra madre, haya logrado encontrar un sitio en la actividad pictórica ha supuesto un auténtico reto para ella, porque desde unas capacidades físicas limitadas, ha reconducido su pensamiento y sus ocupaciones para manifestarse, ante nosotros, con una pintura llena de entusiasmo. Verla concentrada en su trabajo es una sensación muy agradable, placentera, porque siento que su mente está ocupada en lograr algo positivo y que transmite mucha alegría y gran afán de superación. Muchas gracias, madre, por permitirnos disfrutar de la luz y el optimismo que desprenden tus cuadros.</p>
-          <p class="escrito-firma"><strong>Álvaro Serrano Pascual</strong></p>
-        </div>
-
-        <div class="escrito-item">
-          <p class="escrito-texto">Que sea mi madre la única protagonista de esta exposición, que se realice en su pueblo, para sus paisanos, familiares y amigos, y que ésta sea <em>La madre de todas mis exposiciones</em> es algo que jamás hubiera imaginado. Y, sin embargo, aquí estamos ante la obra de Carmen: un lenguaje sin retórica, directo, sencillo y pulcro; de múltiples variaciones tonales en armonías y contrastes, y de un pulso sereno y breve que todo lo llena como una música dulce y vibrante. Puertas que se abren a espacios siderales desconocidos o a paisajes inventados de franjas terrenales creados por su originario talento expresivo. Un legado luminoso de paz y superación que transciende y será tiempo infinito en nuestros enamorados corazones.</p>
-          <p class="escrito-firma"><strong>Fernando Serrano Pascual</strong></p>
-        </div>
-
+        <!-- Juan Carlos Lázaro — visible -->
         <div class="escrito-item">
           <p class="escrito-texto">Levedad, luminosidad y belleza fue la primera impresión que recibí al ver las imágenes (variaciones) de Carmen Pascual. Sus bandas cromáticas de parecido esquema compositivo, de trazos leves, como alados, sus combinaciones sutiles de colores vaporosos, de contrastes atenuados, su luz siempre visible por entre las finas capas de colores translúcidos, su espacialidad casi desmaterializada, etérea, como de leves fluidos en suave movimiento. Desprenden sus singulares imágenes una melodía tranquila, sutil, que alegra nuestros ojos y conforta, como un bálsamo, nuestro espíritu. Enhorabuena, Carmen, y gracias.</p>
           <p class="escrito-firma"><strong>Juan Carlos Lázaro</strong><br><em>pintor</em></p>
@@ -3003,49 +2999,81 @@ pintura y versu!</div>
 
       </div>
 
-      <ul class="escritos-lista">
-        <li>
-          <span class="escritos-lista-titulo">El esplendor de la mente — Olegario</span>
-          <span class="escritos-lista-acciones">
-            <a href="escritos/el-esplendor-de-la-mente.html" target="_blank">
-              <span class="only-es">Leer</span>
-              <span class="only-en">Read</span>
-            </a>
-            <a href="escritos/El esplendor de la mente. Olegario.docx" download>
-              <span class="only-es">Descargar</span>
-              <span class="only-en">Download</span>
-            </a>
-          </span>
-        </li>
-        <li>
-          <span class="escritos-lista-titulo">Doble proyección de afectos y obras — Fernando y Álvaro Serrano Pascual</span>
-          <span class="escritos-lista-acciones">
-            <a href="escritos/doble-proyeccion-de-afectos-y-obras.html" target="_blank">
-              <span class="only-es">Leer</span>
-              <span class="only-en">Read</span>
-            </a>
-            <a href="escritos/Doble Proyección de afectos y obras. Fdo y Alvaro.docx" download>
-              <span class="only-es">Descargar</span>
-              <span class="only-en">Download</span>
-            </a>
-          </span>
-        </li>
-        <li>
-          <span class="escritos-lista-titulo">Cuatro veces Carmen — Prof. Jesús Usón Gargallo</span>
-          <span class="escritos-lista-acciones">
-            <a href="escritos/cuatro-veces-carmen.html" target="_blank">
-              <span class="only-es">Leer</span>
-              <span class="only-en">Read</span>
-            </a>
-            <a href="escritos/Cuatro veces Carmen. Prof. Usón.docx" download>
-              <span class="only-es">Descargar</span>
-              <span class="only-en">Download</span>
-            </a>
-          </span>
-        </li>
-      </ul>
-    </div>
-  </section>
+      <button id="btn-escritos-extra" class="btn-outline" onclick="toggleEscritosExtra()" style="margin-top: 16px;">VER MÁS</button>
+
+      <div id="escritos-extra" style="display:none;">
+
+        <div class="escritos-textos">
+
+          <div class="escrito-item">
+            <p class="escrito-texto">El talento es la cosa mejor repartida del universo. Está en todos y en cada uno de nosotros y se manifiesta a través de diferentes habilidades, destrezas y capacidades. Basta con posibilitarlo para que aparezca. El talento no está sujeto a edad, ni condición humana, sea la que sea.</p>
+            <p class="escrito-firma"><strong>Ángel Fragoso</strong><br><em>antropólogo</em></p>
+          </div>
+
+          <div class="escrito-item">
+            <p class="escrito-texto">La pintura de Carmen es un devenir de sensaciones y de sentimientos en los que surge la placidez, la reflexiva relajación del espíritu en torno a su vida serena. Gracias, Carmen, porque a través de tu pintura, regalas a tus hijos y a tus amigos una lección de generosidad, al transformar tu silencio en una maravillosa sonrisa, que nos provoca siempre sosiego cuando estamos a tu lado.</p>
+            <p class="escrito-firma"><strong>Javier Regadera</strong><br><em>médico patólogo</em></p>
+          </div>
+
+          <div class="escrito-item">
+            <p class="escrito-texto">Conseguir que Carmen, nuestra madre, haya logrado encontrar un sitio en la actividad pictórica ha supuesto un auténtico reto para ella, porque desde unas capacidades físicas limitadas, ha reconducido su pensamiento y sus ocupaciones para manifestarse, ante nosotros, con una pintura llena de entusiasmo. Verla concentrada en su trabajo es una sensación muy agradable, placentera, porque siento que su mente está ocupada en lograr algo positivo y que transmite mucha alegría y gran afán de superación. Muchas gracias, madre, por permitirnos disfrutar de la luz y el optimismo que desprenden tus cuadros.</p>
+            <p class="escrito-firma"><strong>Álvaro Serrano Pascual</strong></p>
+          </div>
+
+          <div class="escrito-item">
+            <p class="escrito-texto">Que sea mi madre la única protagonista de esta exposición, que se realice en su pueblo, para sus paisanos, familiares y amigos, y que ésta sea <em>La madre de todas mis exposiciones</em> es algo que jamás hubiera imaginado. Y, sin embargo, aquí estamos ante la obra de Carmen: un lenguaje sin retórica, directo, sencillo y pulcro; de múltiples variaciones tonales en armonías y contrastes, y de un pulso sereno y breve que todo lo llena como una música dulce y vibrante. Puertas que se abren a espacios siderales desconocidos o a paisajes inventados de franjas terrenales creados por su originario talento expresivo. Un legado luminoso de paz y superación que transciende y será tiempo infinito en nuestros enamorados corazones.</p>
+            <p class="escrito-firma"><strong>Fernando Serrano Pascual</strong></p>
+          </div>
+
+        </div>
+
+        <ul class="escritos-lista">
+          <li>
+            <span class="escritos-lista-titulo">El esplendor de la mente — Olegario</span>
+            <span class="escritos-lista-acciones">
+              <a href="escritos/el-esplendor-de-la-mente.html" target="_blank">
+                <span class="only-es">Leer</span>
+                <span class="only-en">Read</span>
+              </a>
+              <a href="escritos/El esplendor de la mente. Olegario.docx" download>
+                <span class="only-es">Descargar</span>
+                <span class="only-en">Download</span>
+              </a>
+            </span>
+          </li>
+          <li>
+            <span class="escritos-lista-titulo">Doble proyección de afectos y obras — Fernando y Álvaro Serrano Pascual</span>
+            <span class="escritos-lista-acciones">
+              <a href="escritos/doble-proyeccion-de-afectos-y-obras.html" target="_blank">
+                <span class="only-es">Leer</span>
+                <span class="only-en">Read</span>
+              </a>
+              <a href="escritos/Doble Proyección de afectos y obras. Fdo y Alvaro.docx" download>
+                <span class="only-es">Descargar</span>
+                <span class="only-en">Download</span>
+              </a>
+            </span>
+          </li>
+          <li>
+            <span class="escritos-lista-titulo">Cuatro veces Carmen — Prof. Jesús Usón Gargallo</span>
+            <span class="escritos-lista-acciones">
+              <a href="escritos/cuatro-veces-carmen.html" target="_blank">
+                <span class="only-es">Leer</span>
+                <span class="only-en">Read</span>
+              </a>
+              <a href="escritos/Cuatro veces Carmen. Prof. Usón.docx" download>
+                <span class="only-es">Descargar</span>
+                <span class="only-en">Download</span>
+              </a>
+            </span>
+          </li>
+        </ul>
+
+      </div><!-- /escritos-extra -->
+
+      </div><!-- /IV Escritos -->
+    </div><!-- /acarmen-inner -->
+  </section><!-- /a-carmen -->
 
   <!-- ── GALERÍA DE RETRATOS ── -->
   <section id="galeria-retratos">
@@ -4394,6 +4422,54 @@ pintura y versu!</div>
         btn.textContent = 'VER MENOS';
       } else {
         ocultas.style.display = 'none';
+        btn.textContent = 'VER MÁS';
+      }
+    }
+
+    function togglePoemasExtra() {
+      var extra = document.getElementById('poemas-extra');
+      var btn   = document.getElementById('btn-poemas-extra');
+      if (extra.style.display === 'none') {
+        extra.style.display = 'block';
+        btn.textContent = 'VER MENOS';
+      } else {
+        extra.style.display = 'none';
+        btn.textContent = 'VER MÁS';
+      }
+    }
+
+    function toggleRetratosExtra() {
+      var extra = document.getElementById('retratos-extra');
+      var btn   = document.getElementById('btn-retratos-extra');
+      if (extra.style.display === 'none') {
+        extra.style.display = 'block';
+        btn.textContent = 'VER MENOS';
+      } else {
+        extra.style.display = 'none';
+        btn.textContent = 'VER MÁS';
+      }
+    }
+
+    function toggleSonetosExtra() {
+      var extra = document.getElementById('sonetos-extra');
+      var btn   = document.getElementById('btn-sonetos-extra');
+      if (extra.style.display === 'none') {
+        extra.style.display = 'block';
+        btn.textContent = 'VER MENOS';
+      } else {
+        extra.style.display = 'none';
+        btn.textContent = 'VER MÁS';
+      }
+    }
+
+    function toggleEscritosExtra() {
+      var extra = document.getElementById('escritos-extra');
+      var btn   = document.getElementById('btn-escritos-extra');
+      if (extra.style.display === 'none') {
+        extra.style.display = 'block';
+        btn.textContent = 'VER MENOS';
+      } else {
+        extra.style.display = 'none';
         btn.textContent = 'VER MÁS';
       }
     }
