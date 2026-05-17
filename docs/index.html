@@ -1700,63 +1700,6 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.18);
     }
 
-    /* ── Modal de contenidos ── */
-    #contenido-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 2000;
-      background: #fff;
-      flex-direction: column;
-      overflow: hidden;
-    }
-    #contenido-modal.open { display: flex; }
-    #contenido-modal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 24px;
-      border-bottom: 1px solid #e0e0e0;
-      background: #fff;
-      flex-shrink: 0;
-      position: sticky;
-      top: 0;
-      z-index: 1;
-    }
-    #contenido-modal-titulo {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-mid);
-      margin: 0;
-    }
-    #contenido-modal-cerrar {
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 24px;
-      line-height: 1;
-      color: var(--text-mid);
-      padding: 4px 8px;
-      border-radius: 4px;
-      transition: background 0.15s;
-    }
-    #contenido-modal-cerrar:hover { background: #f0f0f0; }
-    #contenido-modal-body {
-      flex: 1;
-      overflow-y: auto;
-      padding: 40px 24px 64px;
-      max-width: 960px;
-      width: 100%;
-      margin: 0 auto;
-      box-sizing: border-box;
-    }
-    #contenido-modal-body > div {
-      display: block !important;
-      margin-top: 0 !important;
-    }
 
   </style>
 </head>
@@ -4232,52 +4175,42 @@ pintura y versu!</div>
       });
     }());
 
-    /* ── Modal de contenidos ── */
-    (function () {
-      var modal     = document.getElementById('contenido-modal');
-      var modalBody = document.getElementById('contenido-modal-body');
-      var modalTit  = document.getElementById('contenido-modal-titulo');
-      var btnCerrar = document.getElementById('contenido-modal-cerrar');
-      var contenidoActivo = null;
-      var placeholder     = null;
-      var onOpenCb  = null;
-      var onCloseCb = null;
+    /* ── Abrir contenidos en ventana nueva ── */
+    function abrirEnVentanaNueva(id, titulo) {
+      var div = document.getElementById(id);
+      if (!div) return;
 
-      function cerrarModal() {
-        if (!contenidoActivo) return;
-        if (onCloseCb) onCloseCb();
-        contenidoActivo.style.display = 'none';
-        placeholder.parentNode.insertBefore(contenidoActivo, placeholder);
-        placeholder.parentNode.removeChild(placeholder);
-        placeholder = null;
-        contenidoActivo = null;
-        onOpenCb  = null;
-        onCloseCb = null;
-        modal.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-
-      window.abrirModalContenido = function (id, titulo, onOpen, onClose) {
-        var div = document.getElementById(id);
-        if (!div) return;
-        placeholder = document.createComment('placeholder-' + id);
-        div.parentNode.insertBefore(placeholder, div);
-        modalBody.appendChild(div);
-        modalTit.textContent = titulo;
-        contenidoActivo = div;
-        onOpenCb  = onOpen  || null;
-        onCloseCb = onClose || null;
-        modal.classList.add('open');
-        document.body.style.overflow = 'hidden';
-        modalBody.scrollTop = 0;
-        if (onOpenCb) onOpenCb();
-      };
-
-      btnCerrar.addEventListener('click', cerrarModal);
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') cerrarModal();
+      var cssText = '';
+      Array.from(document.querySelectorAll('style')).forEach(function(s) {
+        cssText += s.textContent;
       });
-    }());
+
+      var baseHref = window.location.href.replace(/\/[^\/]*(\?.*)?$/, '/');
+
+      var html = '<!DOCTYPE html>\n<html lang="es">\n<head>\n' +
+        '<meta charset="UTF-8">\n' +
+        '<meta name="viewport" content="width=device-width,initial-scale=1">\n' +
+        '<base href="' + baseHref + '">\n' +
+        '<title>' + titulo + ' · Fundación Carmen Pascual</title>\n' +
+        '<link rel="preconnect" href="https://fonts.googleapis.com">\n' +
+        '<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">\n' +
+        '<style>' + cssText + '</style>\n' +
+        '<style>\n' +
+        'body{padding:48px 32px;max-width:960px;margin:0 auto;}\n' +
+        '.ven-titulo{font-family:Inter,sans-serif;font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#888;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid #e0e0e0;}\n' +
+        '#cp-obras-extra,#jcl-obras-extra{display:block!important;}\n' +
+        '#btn-cp-obras,#btn-jcl-obras{display:none!important;}\n' +
+        '</style>\n' +
+        '</head>\n<body>\n' +
+        '<p class="ven-titulo">' + titulo + '</p>\n' +
+        div.innerHTML + '\n' +
+        '</body>\n</html>';
+
+      var w = window.open('', '_blank');
+      if (w) { w.document.write(html); w.document.close(); }
+    }
+
+    window.abrirModalContenido = abrirEnVentanaNueva;
 
     function togglePoemaColori(btn) {
       var resto = document.getElementById('poem-colori-resto');
@@ -4608,15 +4541,6 @@ pintura y versu!</div>
       };
     })();
   </script>
-
-  <!-- Modal de contenidos (Exposiciones y Jornadas) -->
-  <div id="contenido-modal" role="dialog" aria-modal="true" aria-labelledby="contenido-modal-titulo">
-    <div id="contenido-modal-header">
-      <p id="contenido-modal-titulo"></p>
-      <button id="contenido-modal-cerrar" aria-label="Cerrar">&#x2715;</button>
-    </div>
-    <div id="contenido-modal-body"></div>
-  </div>
 
   <div id="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
     <img id="lightbox-overlay-img" src="" alt="">
