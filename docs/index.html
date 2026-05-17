@@ -4176,7 +4176,7 @@ pintura y versu!</div>
     }());
 
     /* ── Abrir contenidos en ventana nueva ── */
-    function abrirEnVentanaNueva(id, titulo) {
+    function abrirEnVentanaNueva(id, titulo, extraScript) {
       var div = document.getElementById(id);
       if (!div) return;
 
@@ -4204,6 +4204,7 @@ pintura y versu!</div>
         '</head>\n<body>\n' +
         '<p class="ven-titulo">' + titulo + '</p>\n' +
         div.innerHTML + '\n' +
+        (extraScript ? '<script>' + extraScript + '<\/script>\n' : '') +
         '</body>\n</html>';
 
       var w = window.open('', '_blank');
@@ -4529,15 +4530,17 @@ pintura y versu!</div>
       };
 
       window.toggleMadreExpo = function () {
-        audioEl = document.getElementById('audio-madre-expo');
-        abrirModalContenido('madre-expo-contenidos', 'La madre de todas (mis) exposiciones · Carmen Pascual', function() {
-          audioEl.currentTime = TAIS_START;
-          audioEl.play();
-          audioEl.addEventListener('timeupdate', onTimeUpdate);
-        }, function() {
-          audioEl.pause();
-          audioEl.removeEventListener('timeupdate', onTimeUpdate);
-        });
+        var scriptTais =
+          '(function(){' +
+          'var a=document.getElementById("audio-madre-expo");' +
+          'if(!a)return;' +
+          'var S=465,E=572;' +
+          'a.addEventListener("timeupdate",function(){if(a.currentTime>=E)a.currentTime=S;});' +
+          'function arrancar(){a.currentTime=S;a.play().catch(function(){});}' +
+          'if(a.readyState>=1){arrancar();}' +
+          'else{a.addEventListener("loadedmetadata",arrancar,{once:true});}' +
+          '})();';
+        abrirEnVentanaNueva('madre-expo-contenidos', 'La madre de todas (mis) exposiciones · Carmen Pascual', scriptTais);
       };
     })();
   </script>
