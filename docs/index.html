@@ -4540,14 +4540,11 @@ pintura y versu!</div>
           /* ── Massenet: bucle 7:45 → 9:32 ── */
           'var a=document.getElementById("audio-madre-expo");' +
           'if(a){' +
-          'var S=465,E=572,ok=false;' +
+          'var S=465,E=572;' +
           'a.addEventListener("timeupdate",function(){if(a.currentTime>=E)a.currentTime=S;});' +
-          'function play(){if(ok)return;a.preload="auto";a.currentTime=S;' +
-          'var p=a.play();if(p&&p.then)p.then(function(){ok=true;}).catch(function(){});else ok=true;}' +
-          'a.load();' +
-          'a.addEventListener("canplay",play,{once:true});' +
-          'a.addEventListener("loadedmetadata",play,{once:true});' +
-          'setTimeout(play,400);setTimeout(play,1000);setTimeout(play,2500);' +
+          'function iniciar(){a.currentTime=S;a.play().catch(function(){});}' +
+          'if(a.readyState>=1){iniciar();}' +
+          'else{a.addEventListener("loadedmetadata",iniciar,{once:true});}' +
           '}' +
           /* ── Zoom sobre la invitación ── */
           'var img=document.getElementById("inv-interior");' +
