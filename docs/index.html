@@ -4560,9 +4560,7 @@ pintura y versu!</div>
           'var a=document.getElementById("audio-madre-expo");' +
           'if(!a)return;' +
           'a.loop=true;' +
-          'function play(){a.play().catch(function(){});}' +
-          'if(a.readyState>=2){play();}' +
-          'else{a.addEventListener("canplay",play,{once:true});}' +
+          'a.play().catch(function(){});' +
           '})();';
         abrirEnVentanaNueva('madre-expo-contenidos', 'La madre de todas (mis) exposiciones · Carmen Pascual', scriptVentana);
       };
