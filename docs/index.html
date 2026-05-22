@@ -4560,7 +4560,16 @@ pintura y versu!</div>
           'var a=document.getElementById("audio-madre-expo");' +
           'if(!a)return;' +
           'a.loop=true;' +
-          'a.play().catch(function(){});' +
+          /* Botón altavoz fijo arriba-derecha */
+          'var btn=document.createElement("button");' +
+          'btn.textContent="🔇";' +
+          'btn.title="Meditación de Thaïs · Jules Massenet";' +
+          'btn.style.cssText="position:fixed;top:12px;right:12px;z-index:900;width:44px;height:44px;border-radius:50%;border:1px solid #ddd;background:#faf8f4;font-size:20px;line-height:1;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.12);display:flex;align-items:center;justify-content:center;";' +
+          'btn.addEventListener("click",function(){' +
+          'if(a.paused){a.play().catch(function(){});btn.textContent="🔊";}' +
+          'else{a.pause();btn.textContent="🔇";}' +
+          '});' +
+          'document.body.appendChild(btn);' +
           '})();';
         abrirEnVentanaNueva('madre-expo-contenidos', 'La madre de todas (mis) exposiciones · Carmen Pascual', scriptVentana);
       };
