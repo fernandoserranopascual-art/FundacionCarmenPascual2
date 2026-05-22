@@ -3098,7 +3098,11 @@ pintura y versu!</div>
           <img id="cartel-madre-expo" src="historial/madre-expo/cartel-madre-expo.jpg"
                alt="Cartel — La madre de todas (mis) exposiciones · Carmen Pascual"
                class="historial-qr" loading="lazy">
-          <button class="btn-outline historial-btns" id="btn-madre-expo" onclick="toggleMadreExpo()">VER CONTENIDOS</button>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <button class="btn-outline historial-btns" id="btn-madre-expo" onclick="toggleMadreExpo()">VER CONTENIDOS</button>
+            <button id="btn-tais" title="Meditación de Thaïs · Jules Massenet" aria-label="Reproducir Meditación de Thaïs" style="width:34px;height:34px;border-radius:50%;border:1px solid var(--border);background:var(--cream);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,0.10);">🔇</button>
+          </div>
+          <audio id="audio-tais" loop preload="none" src="historial/madre-expo/massenet-meditacion-tais.mp3"></audio>
         </div>
 
         <div class="historial-item" style="background: #e8e0d4;">
@@ -4179,6 +4183,24 @@ pintura y versu!</div>
           audio.muted = true;
           btn.textContent = '🔇';
           btn.setAttribute('aria-label', 'Activar música de fondo');
+        }
+      });
+    }());
+
+    // ── Botón Meditación de Thaïs ───────────────────────
+    (function () {
+      var btn   = document.getElementById('btn-tais');
+      var audio = document.getElementById('audio-tais');
+      if (!btn || !audio) return;
+      btn.addEventListener('click', function () {
+        if (audio.paused) {
+          audio.play().catch(function () {});
+          btn.textContent = '🔊';
+          btn.setAttribute('aria-label', 'Pausar Meditación de Thaïs');
+        } else {
+          audio.pause();
+          btn.textContent = '🔇';
+          btn.setAttribute('aria-label', 'Reproducir Meditación de Thaïs');
         }
       });
     }());
