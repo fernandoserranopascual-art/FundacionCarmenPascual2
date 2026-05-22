@@ -90,10 +90,12 @@
 
     .nav-links {
       display: flex;
-      gap: 36px;
+      gap: 28px;
       list-style: none;
+      align-items: center;
     }
-    .nav-links a {
+    .nav-links a,
+    .nav-group-btn {
       font-family: 'Inter', sans-serif;
       font-size: 13px;
       font-weight: 400;
@@ -101,8 +103,71 @@
       text-decoration: none;
       letter-spacing: 0.01em;
       transition: color 0.2s;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      white-space: nowrap;
     }
-    .nav-links a:hover { color: var(--green); }
+    .nav-links a:hover,
+    .nav-group-btn:hover { color: var(--green); }
+
+    /* ── Grupos desplegables ── */
+    .nav-group { position: relative; }
+    .nav-group-btn {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-group-btn::after {
+      content: '▾';
+      font-size: 9px;
+      opacity: 0.6;
+      transition: transform 0.15s;
+      display: inline-block;
+    }
+    .nav-group.open .nav-group-btn::after { transform: rotate(-180deg); }
+
+    .nav-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 0;
+      list-style: none;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      z-index: 1000;
+      min-width: 180px;
+    }
+    .nav-group:hover .nav-dropdown,
+    .nav-group.open .nav-dropdown { display: block; }
+    .nav-dropdown::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-top: none;
+      border-bottom-color: var(--border);
+    }
+    .nav-dropdown li a {
+      display: block;
+      padding: 8px 20px;
+      font-size: 12px;
+      white-space: nowrap;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-dropdown li a:hover {
+      color: var(--green);
+      background: rgba(0,0,0,0.03);
+    }
 
     .nav-toggle {
       display: none;
@@ -1631,6 +1696,31 @@
         padding: 12px 24px;
         font-size: 14px;
       }
+      .nav-group-btn {
+        display: block;
+        width: 100%;
+        padding: 12px 24px;
+        font-size: 14px;
+        text-align: left;
+      }
+      .nav-group-btn::after { display: none; }
+      .nav-dropdown {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        border-top: 1px solid var(--border);
+        background: rgba(0,0,0,0.03);
+        padding: 4px 0;
+        min-width: unset;
+        display: none;
+      }
+      .nav-group.open .nav-dropdown { display: block; }
+      .nav-group:hover .nav-dropdown { display: none; }
+      .nav-group.open .nav-dropdown { display: block; }
+      .nav-dropdown li a { padding: 10px 24px 10px 40px; font-size: 13px; }
+      .nav-dropdown::before { display: none; }
 
       .nav-toggle { display: flex; }
 
@@ -1715,47 +1805,79 @@
     </a>
     <div style="display:flex;align-items:center;gap:0;">
       <ul class="nav-links" id="navLinks">
+
         <li><a href="#mision" onclick="closeMenu()">
           <span class="only-es">Misión</span>
           <span class="only-en">Mission</span>
         </a></li>
-        <li><a href="#carmen" onclick="closeMenu()">Carmen Pascual</a></li>
-        <li><a href="#obra" onclick="closeMenu()">
-          <span class="only-es">Obra</span>
-          <span class="only-en">Works</span>
-        </a></li>
-        <li><a href="#composiciones" onclick="closeMenu()">
-          <span class="only-es">Composiciones</span>
-          <span class="only-en">Compositions</span>
-        </a></li>
-        <li><a href="#historial" onclick="closeMenu()">
-          <span class="only-es">Jornadas</span>
-          <span class="only-en">Conferences</span>
-        </a></li>
-        <li><a href="#a-carmen" onclick="closeMenu()">
-          <span class="only-es">A Carmen</span>
-          <span class="only-en">For Carmen</span>
-        </a></li>
-        <li><a href="#escritos" onclick="closeMenu()">
-          <span class="only-es">Escritos</span>
-          <span class="only-en">Writings</span>
-        </a></li>
-        <li><a href="#galeria-retratos" onclick="closeMenu()">
-          <span class="only-es">Galería</span>
-          <span class="only-en">Gallery</span>
-        </a></li>
-        <li><a href="#imagenes" onclick="closeMenu()">
-          <span class="only-es">Imágenes</span>
-          <span class="only-en">Images</span>
-        </a></li>
-        <li><a href="#historial" onclick="closeMenu()">
-          <span class="only-es">Historial</span>
-          <span class="only-en">History</span>
-        </a></li>
-        <li><a href="#actividades" onclick="closeMenu()">
-          <span class="only-es">Actividades</span>
-          <span class="only-en">Activities</span>
-        </a></li>
+
+        <!-- ── Carmen Pascual ── -->
+        <li class="nav-group">
+          <button class="nav-group-btn" onclick="toggleNavGroup(this)">Carmen Pascual</button>
+          <ul class="nav-dropdown">
+            <li><a href="#carmen" onclick="closeMenu()">
+              <span class="only-es">Carmen Pascual</span>
+              <span class="only-en">Carmen Pascual</span>
+            </a></li>
+            <li><a href="#obra" onclick="closeMenu()">
+              <span class="only-es">Obra</span>
+              <span class="only-en">Works</span>
+            </a></li>
+            <li><a href="#composiciones" onclick="closeMenu()">
+              <span class="only-es">Composiciones</span>
+              <span class="only-en">Compositions</span>
+            </a></li>
+            <li><a href="#a-carmen" onclick="closeMenu()">
+              <span class="only-es">A Carmen</span>
+              <span class="only-en">For Carmen</span>
+            </a></li>
+            <li><a href="#galeria-retratos" onclick="closeMenu()">
+              <span class="only-es">Galería de retratos</span>
+              <span class="only-en">Portrait Gallery</span>
+            </a></li>
+            <li><a href="#escritos" onclick="closeMenu()">
+              <span class="only-es">Escritos</span>
+              <span class="only-en">Writings</span>
+            </a></li>
+            <li><a href="#imagenes" onclick="closeMenu()">
+              <span class="only-es">Imágenes</span>
+              <span class="only-en">Images</span>
+            </a></li>
+          </ul>
+        </li>
+
+        <!-- ── Arte Salud Naturaleza ── -->
+        <li class="nav-group">
+          <button class="nav-group-btn" onclick="toggleNavGroup(this)">
+            <span class="only-es">Arte Salud Naturaleza</span>
+            <span class="only-en">Art Health Nature</span>
+          </button>
+          <ul class="nav-dropdown">
+            <li><a href="#historial" onclick="closeMenu()">
+              <span class="only-es">Historial</span>
+              <span class="only-en">History</span>
+            </a></li>
+            <li><a href="#actividades" onclick="closeMenu()">
+              <span class="only-es">Actividades</span>
+              <span class="only-en">Activities</span>
+            </a></li>
+          </ul>
+        </li>
+
+        <!-- ── Jornadas Arte y Ciencia ── -->
+        <li class="nav-group">
+          <button class="nav-group-btn" onclick="toggleNavGroup(this)">
+            <span class="only-es">Arte y Ciencia</span>
+            <span class="only-en">Art &amp; Science</span>
+          </button>
+          <ul class="nav-dropdown">
+            <li><a href="#historial" onclick="closeMenu()">
+              <span class="only-es">Jornadas</span>
+              <span class="only-en">Conferences</span>
+            </a></li>
+          </ul>
+        </li>
+
         <li><a href="#patronato" onclick="closeMenu()">
           <span class="only-es">Patronato</span>
           <span class="only-en">Board</span>
@@ -1768,6 +1890,7 @@
           <span class="only-es">Contacto</span>
           <span class="only-en">Contact</span>
         </a></li>
+
       </ul>
       <button class="lang-btn" id="lang-btn" aria-label="Switch language">EN</button>
     </div>
@@ -4273,7 +4396,25 @@ pintura y versu!</div>
     }
     function closeMenu() {
       document.getElementById('navLinks').classList.remove('open');
+      document.querySelectorAll('.nav-group').forEach(function(g) {
+        g.classList.remove('open');
+      });
     }
+    function toggleNavGroup(btn) {
+      var group = btn.closest('.nav-group');
+      var isOpen = group.classList.contains('open');
+      document.querySelectorAll('.nav-group').forEach(function(g) {
+        g.classList.remove('open');
+      });
+      if (!isOpen) group.classList.add('open');
+    }
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nav-group')) {
+        document.querySelectorAll('.nav-group').forEach(function(g) {
+          g.classList.remove('open');
+        });
+      }
+    });
 
     // ── Selector de idioma ──────────────────────────────
     var langBtn = document.getElementById('lang-btn');
