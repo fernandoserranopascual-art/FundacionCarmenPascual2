@@ -144,24 +144,27 @@
       position: relative;
     }
 
-    .hero-inner { max-width: 640px; }
+    .hero-inner { max-width: 700px; }
 
     .hero-logo {
       display: block;
-      width: clamp(220px, 40vw, 340px);
+      width: clamp(300px, 62vw, 520px);
       height: auto;
-      margin: 0 auto 48px;
+      margin: 0 auto 28px;
       mix-blend-mode: multiply;
     }
 
     .hero-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(36px, 6vw, 62px);
+      font-size: clamp(26px, 4.8vw, 48px);
       font-weight: 300;
       line-height: 1.08;
-      letter-spacing: -0.01em;
+      letter-spacing: 0.12em;
       color: var(--text);
       margin-bottom: 24px;
+      width: clamp(300px, 62vw, 520px);
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .hero-subtitle {
@@ -3121,7 +3124,7 @@ pintura y versu!</div>
         <p style="font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-mid); margin-bottom: 8px;">
           <em>Javier Curiel, violín · José María Villegas, piano</em>
         </p>
-        <audio id="audio-madre-expo" controls preload="auto" style="width: 100%; margin-bottom: 40px;">
+        <audio id="audio-madre-expo" controls loop preload="auto" style="width: 100%; margin-bottom: 40px;">
           <source src="historial/madre-expo/audio-expo-carmen-pascual.m4a" type="audio/mp4">
         </audio>
 
@@ -4554,15 +4557,12 @@ pintura y versu!</div>
       window.toggleMadreExpo = function () {
         var scriptVentana =
           '(function(){' +
-          /* ── Massenet: bucle 7:45 → 9:32 ── */
           'var a=document.getElementById("audio-madre-expo");' +
-          'if(a){' +
-          'var S=465,E=572;' +
-          'a.addEventListener("timeupdate",function(){if(a.currentTime>=E)a.currentTime=S;});' +
-          'function iniciar(){a.currentTime=S;a.play().catch(function(){});}' +
-          'if(a.readyState>=1){iniciar();}' +
-          'else{a.addEventListener("loadedmetadata",iniciar,{once:true});}' +
-          '}' +
+          'if(!a)return;' +
+          'a.loop=true;' +
+          'function play(){a.play().catch(function(){});}' +
+          'if(a.readyState>=2){play();}' +
+          'else{a.addEventListener("canplay",play,{once:true});}' +
           '})();';
         abrirEnVentanaNueva('madre-expo-contenidos', 'La madre de todas (mis) exposiciones · Carmen Pascual', scriptVentana);
       };
