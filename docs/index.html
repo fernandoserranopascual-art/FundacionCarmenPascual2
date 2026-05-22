@@ -2310,6 +2310,12 @@
             <img src="composiciones/CP.13.04.2020.jpg" alt="Composición de Carmen Pascual, CP.13.04.2020" class="obra-img" loading="lazy">
             <p class="obra-fecha">CP.13.04.2020</p>
           </div>
+        </div>
+        <div style="text-align: center; margin: 48px 0;">
+          <a id="btn-seguir-viendo" href="#" onclick="mostrarRestoComposiciones(); return false;" class="btn-outline">SEGUIR VIENDO</a>
+        </div>
+        <div id="composiciones-resto" style="display: none;">
+          <div class="obra-grid">
           <div class="obra-item">
             <img src="composiciones/CP.13.08.2020.jpg" alt="Composición de Carmen Pascual, CP.13.08.2020" class="obra-img" loading="lazy">
             <p class="obra-fecha">CP.13.08.2020</p>
@@ -2633,6 +2639,7 @@
           <div class="obra-item">
             <img src="composiciones/CP.31.08.2020.jpg" alt="Composición de Carmen Pascual, CP.31.08.2020" class="obra-img" loading="lazy">
             <p class="obra-fecha">CP.31.08.2020</p>
+          </div>
           </div>
         </div>
       </div>
@@ -4548,7 +4555,18 @@ pintura y versu!</div>
       } else {
         ocultas.style.display = 'none';
         btn.textContent = 'VER MÁS';
+        var resto = document.getElementById('composiciones-resto');
+        if (resto) resto.style.display = 'none';
+        var btnSeguir = document.getElementById('btn-seguir-viendo');
+        if (btnSeguir) btnSeguir.style.display = 'inline-block';
       }
+    }
+
+    function mostrarRestoComposiciones() {
+      var resto = document.getElementById('composiciones-resto');
+      var btn = document.getElementById('btn-seguir-viendo');
+      if (resto) resto.style.display = 'block';
+      if (btn) btn.style.display = 'none';
     }
 
     function togglePoemasExtra() {
