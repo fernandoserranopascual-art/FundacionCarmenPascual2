@@ -164,6 +164,27 @@
       margin-bottom: 24px;
     }
 
+    /* Acceso a la IV Jornada, entre el logotipo y el titulo */
+    .hero-jornada {
+      display: inline-block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(19px, 2.9vw, 30px);
+      font-weight: 300;
+      line-height: 1.25;
+      letter-spacing: 0.01em;
+      color: var(--green);
+      text-decoration: none;
+      margin: -28px auto 26px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .hero-jornada:hover,
+    .hero-jornada:focus-visible {
+      color: var(--green-dark);
+      border-bottom-color: var(--green);
+    }
+
     .hero-subtitle {
       font-family: 'Inter', sans-serif;
       font-size: 15px;
@@ -289,6 +310,156 @@
     }
 
     .btn-outline:hover { border-color: var(--green); color: var(--green); }
+
+    /* ── IV JORNADA ──────────────────────────────────── */
+    #jornada-iv {
+      padding: 96px 48px;
+      background: var(--cream-alt);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .jornada-iv-inner { max-width: 960px; margin: 0 auto; }
+
+    .jornada-iv-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(30px, 4.6vw, 46px);
+      font-weight: 300;
+      line-height: 1.12;
+      color: var(--text);
+      margin: 0 0 40px;
+    }
+
+    .jornada-iv-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 28px;
+      margin: 0 0 56px;
+      padding: 28px 32px;
+      background: var(--cream);
+      border-left: 2px solid var(--green);
+    }
+    .jornada-iv-meta div { margin: 0; }
+    .jornada-iv-meta dt {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+    .jornada-iv-meta dd {
+      margin: 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px;
+      font-weight: 300;
+      line-height: 1.35;
+      color: var(--text);
+    }
+
+    .jornada-iv-carteles {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      margin-bottom: 64px;
+    }
+    .jornada-iv-carteles figure { margin: 0; }
+    .jornada-iv-carteles .obra-img {
+      aspect-ratio: unset;
+      object-fit: contain;
+      background: transparent;
+      border: 1px solid var(--border);
+    }
+    .jornada-iv-carteles figcaption {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--text-light);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    .jornada-iv-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin: 0 0 8px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .jornada-iv-programa {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .jornada-iv-programa li {
+      display: grid;
+      grid-template-columns: 76px 1fr;
+      gap: 24px;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .jornada-iv-programa li:last-child { border-bottom: none; }
+    .jornada-iv-programa .hora {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--green);
+      line-height: 1.3;
+    }
+    .jornada-iv-programa h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 23px;
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--text);
+      margin: 0 0 8px;
+    }
+    .jornada-iv-programa p {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--text-mid);
+      margin: 0;
+    }
+    .jornada-iv-programa .repertorio {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      color: var(--text);
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+    .jornada-iv-programa .descanso .hora,
+    .jornada-iv-programa .descanso h4 { color: var(--text-light); }
+
+    .jornada-iv-colaboran {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--text-mid);
+      margin: 48px 0 0;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+    .jornada-iv-colaboran strong { font-weight: 500; color: var(--text); }
+
+    .jornada-iv-cierre { margin-top: 40px; }
+
+    @media (max-width: 860px) {
+      #jornada-iv { padding: 64px 24px; }
+      .jornada-iv-carteles { grid-template-columns: 1fr; gap: 28px; }
+      .jornada-iv-meta { padding: 24px; }
+      .jornada-iv-programa li { grid-template-columns: 1fr; gap: 4px; padding: 22px 0; }
+      .jornada-iv-programa .hora { font-size: 19px; }
+    }
 
     /* ── MISIÓN ──────────────────────────────────────── */
     #mision {
@@ -1771,6 +1942,10 @@
   <section id="inicio">
     <div class="hero-inner">
       <img src="logo-color.jpeg" alt="Fundación Carmen Pascual. Arte Salud Naturaleza" class="hero-logo">
+      <a href="#jornada-iv" class="hero-jornada" id="btn-jornada-iv" onclick="return abrirJornadaIV(event);">
+        <span class="only-es">IV Jornada de Arte y Ciencia por la INCLUSIÓN</span>
+        <span class="only-en">IV Art and Science Conference for INCLUSION</span>
+      </a>
       <h1 class="hero-title">Fundación<br>CARMEN PASCUAL</h1>
       <div class="hero-subtitle only-es">
         <p class="hero-lema">El poder del ARTE, el compromiso de la INCLUSIÓN.</p>
@@ -1803,6 +1978,148 @@
           <span class="only-es">↓ Descargar</span>
           <span class="only-en">↓ Download</span>
         </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── IV JORNADA (oculta; se abre desde la leyenda del hero) ── -->
+  <section id="jornada-iv" style="display: none;">
+    <div class="jornada-iv-inner">
+
+      <p class="section-label only-es">Próxima actividad</p>
+      <p class="section-label only-en">Next event</p>
+      <h2 class="jornada-iv-title only-es">IV Jornada de Arte y Ciencia<br>por la INCLUSIÓN</h2>
+      <h2 class="jornada-iv-title only-en">IV Art and Science Conference<br>for INCLUSION</h2>
+
+      <dl class="jornada-iv-meta">
+        <div>
+          <dt class="only-es">Fecha</dt>
+          <dt class="only-en">Date</dt>
+          <dd class="only-es"><time datetime="2026-10-23">Viernes 23 de octubre de 2026</time></dd>
+          <dd class="only-en"><time datetime="2026-10-23">Friday, 23 October 2026</time></dd>
+        </div>
+        <div>
+          <dt class="only-es">Lugar</dt>
+          <dt class="only-en">Venue</dt>
+          <dd class="only-es">Centro de Cirugía de Mínima Invasión Jesús Usón (CCMIJU)<br>Cáceres</dd>
+          <dd class="only-en">Jesús Usón Minimally Invasive Surgery Centre (CCMIJU)<br>Cáceres, Spain</dd>
+        </div>
+        <div>
+          <dt class="only-es">Organizan</dt>
+          <dt class="only-en">Organised by</dt>
+          <dd>CCMIJU · Fundación Carmen Pascual</dd>
+        </div>
+      </dl>
+
+      <div class="jornada-iv-carteles">
+        <figure>
+          <img src="obras/jornada-iv/cartel-jornada-iv.jpg" class="obra-img" loading="lazy"
+               alt="Cartel de la IV Jornada de Arte y Ciencia por la Inclusión — concierto de clausura de José María Villegas, CCMIJU, Cáceres, 23 de octubre de 2026">
+          <figcaption class="only-es">Cartel de la Jornada. Pulsa para ampliar.</figcaption>
+          <figcaption class="only-en">Event poster. Click to enlarge.</figcaption>
+        </figure>
+        <figure>
+          <img src="obras/jornada-iv/cartela-jornada-iv.jpg" class="obra-img" loading="lazy"
+               alt="Cartela con el programa completo de la IV Jornada de Arte y Ciencia por la Inclusión">
+          <figcaption class="only-es">Cartela con el programa. Pulsa para ampliar.</figcaption>
+          <figcaption class="only-en">Programme sheet. Click to enlarge.</figcaption>
+        </figure>
+      </div>
+
+      <h3 class="jornada-iv-sub only-es">Programa</h3>
+      <h3 class="jornada-iv-sub only-en">Programme</h3>
+
+      <ol class="jornada-iv-programa only-es">
+        <li><span class="hora">09:45</span><div class="acto">
+          <h4>Inauguración</h4>
+          <p>Bienvenida del <strong>Prof. Jesús Usón</strong>, presidente de honor y fundador del CCMIJU. Presentación del programa general por el director científico <strong>Dr. Francisco Sánchez-Margallo</strong>, los coordinadores <strong>Álvaro y Fernando Serrano Pascual</strong> y, por parte de ASCEMI, <strong>Antonio Bueno</strong>.</p>
+        </div></li>
+        <li><span class="hora">10:00</span><div class="acto">
+          <h4>El papel de la bioimpresión 3D en medicina personalizada</h4>
+          <p>Conferencia del <strong>Dr. Joaquín Gómez Abellán</strong>, científico del CCMIJU. Bioimpresión de tejido ovárico y uterino para crear dispositivos implantables que ayuden a tratar patologías reproductivas.</p>
+        </div></li>
+        <li><span class="hora">10:20</span><div class="acto">
+          <h4>Deporte e inclusión: la mística de la superación</h4>
+          <p><strong>Kini Carrasco Ávila</strong>, pionero del triatlón y el duatlón adaptados en España. Tras perder su brazo izquierdo en un accidente a los veinte años, convirtió la adversidad en una oportunidad de crecimiento; ha representado a España durante más de cuatro décadas y participado en cuatro olimpiadas.</p>
+        </div></li>
+        <li><span class="hora">10:40</span><div class="acto">
+          <h4>Lectura poética y proyección de vídeo</h4>
+          <p><strong>Clara del Carmen Martín</strong>. El testimonio poético de una mujer que narra su travesía por el sufrimiento psíquico.</p>
+        </div></li>
+        <li><span class="hora">11:00</span><div class="acto">
+          <h4>Presentación y entrevista: <em>Infancia debilitada</em></h4>
+          <p><strong>Carlos Montenegro</strong> (Madrid, 1947) presenta su relato autobiográfico, un alegato contra el alcoholismo que padeció su madre y sufrió toda su familia.</p>
+        </div></li>
+        <li><span class="hora">11:20</span><div class="acto">
+          <h4>Exposición <em>De profundis</em></h4>
+          <p>En la Sala Galería de Arte Salvador Pascual. Acto de entrega a la Fundación CCMIJU del <em>Retrato de busto en bronce de D. Jesús Usón</em>, obra del escultor <strong>Olegario</strong>, y del <em>Retrato de Carmen Pascual</em>, pintura del <strong>Prof. Jesús Usón</strong>, a la Fundación Carmen Pascual. Participan Olegario (escultura), Carmen Pascual y Jesús Usón (pintura), con Carlos Montenegro como artista invitado.</p>
+        </div></li>
+        <li class="descanso"><span class="hora">11:45</span><div class="acto"><h4>Descanso</h4></div></li>
+        <li><span class="hora">12:10</span><div class="acto">
+          <h4>Música y educación inclusiva</h4>
+          <p>Conferencia de la <strong>Dra. Silvia Núñez</strong>, creadora y directora del proyecto NeuroRedes (Conservatorio Profesional Esteban Sánchez, Mérida): <em>Estimulación neuronal a través de la música II</em>. Al piano, <strong>Elena Álvarez Parejo</strong>, alumna con síndrome de Down integrada en la educación normalizada gracias al proyecto.</p>
+        </div></li>
+        <li><span class="hora">12:40</span><div class="acto">
+          <h4>Cirugía cerebral en pacientes despiertos</h4>
+          <p>Conferencia del <strong>Dr. Ángel Pérez Núñez</strong>, neurocirujano oncológico del Hospital Universitario 12 de Octubre. El pianista <strong>JM Villegas</strong> sufrió un tumor cerebral y fue intervenido por él mientras tocaba el instrumento; hoy está totalmente recuperado para la docencia, la música y la vida.</p>
+        </div></li>
+        <li><span class="hora">13:00</span><div class="acto">
+          <h4>Concierto de clausura. Piano solo</h4>
+          <p><strong>José María Villegas</strong>, alumno del pianista georgiano Alexander Kandelaki, formado en el Conservatorio Superior de Badajoz y en The Juilliard School de Nueva York. Ha obtenido numerosos premios y actuado en distintos países. Desde 2013 reside en Extremadura, donde ha conseguido el mayor de todos sus logros: ser padre de Vera y Mateo Villegas Almoril.</p>
+          <p class="repertorio">Bach · Chopin · Scriabin · Chacona de Bach-Busoni</p>
+        </div></li>
+      </ol>
+
+      <ol class="jornada-iv-programa only-en">
+        <li><span class="hora">09:45</span><div class="acto">
+          <h4>Opening</h4>
+          <p>Welcome by <strong>Prof. Jesús Usón</strong>, honorary president and founder of the CCMIJU. Presentation of the general programme by scientific director <strong>Dr Francisco Sánchez-Margallo</strong>, coordinators <strong>Álvaro and Fernando Serrano Pascual</strong> and, on behalf of ASCEMI, <strong>Antonio Bueno</strong>.</p>
+        </div></li>
+        <li><span class="hora">10:00</span><div class="acto">
+          <h4>The role of 3D bioprinting in personalised medicine</h4>
+          <p>Lecture by <strong>Dr Joaquín Gómez Abellán</strong>, CCMIJU researcher. Bioprinting of ovarian and uterine tissue to create implantable devices that help treat reproductive conditions.</p>
+        </div></li>
+        <li><span class="hora">10:20</span><div class="acto">
+          <h4>Sport and inclusion: the mystique of perseverance</h4>
+          <p><strong>Kini Carrasco Ávila</strong>, a pioneer of adapted triathlon and duathlon in Spain. After losing his left arm in an accident at the age of twenty, he turned adversity into growth; he has represented Spain for over four decades and competed in four Olympic Games.</p>
+        </div></li>
+        <li><span class="hora">10:40</span><div class="acto">
+          <h4>Poetry reading and video screening</h4>
+          <p><strong>Clara del Carmen Martín</strong>. The poetic testimony of a woman recounting her journey through psychological suffering.</p>
+        </div></li>
+        <li><span class="hora">11:00</span><div class="acto">
+          <h4>Presentation and interview: <em>Infancia debilitada</em></h4>
+          <p><strong>Carlos Montenegro</strong> (Madrid, 1947) presents his autobiographical account, a plea against the alcoholism his mother suffered and his whole family endured.</p>
+        </div></li>
+        <li><span class="hora">11:20</span><div class="acto">
+          <h4><em>De profundis</em> exhibition</h4>
+          <p>At the Salvador Pascual Art Gallery. Presentation to the CCMIJU Foundation of the <em>bronze bust portrait of Prof. Jesús Usón</em> by sculptor <strong>Olegario</strong>, and of the <em>Portrait of Carmen Pascual</em>, painted by <strong>Prof. Jesús Usón</strong>, to the Carmen Pascual Foundation. With Olegario (sculpture), Carmen Pascual and Jesús Usón (painting), and Carlos Montenegro as guest artist.</p>
+        </div></li>
+        <li class="descanso"><span class="hora">11:45</span><div class="acto"><h4>Break</h4></div></li>
+        <li><span class="hora">12:10</span><div class="acto">
+          <h4>Music and inclusive education</h4>
+          <p>Lecture by <strong>Dr Silvia Núñez</strong>, founder and director of the NeuroRedes project (Esteban Sánchez Conservatory, Mérida): <em>Neuronal stimulation through music II</em>. At the piano, <strong>Elena Álvarez Parejo</strong>, a student with Down syndrome integrated into mainstream education thanks to the project.</p>
+        </div></li>
+        <li><span class="hora">12:40</span><div class="acto">
+          <h4>Brain surgery on awake patients</h4>
+          <p>Lecture by <strong>Dr Ángel Pérez Núñez</strong>, oncological neurosurgeon at Hospital Universitario 12 de Octubre. Pianist <strong>JM Villegas</strong> had a brain tumour and was operated on by him while playing the instrument; today he has fully recovered for teaching, music and life.</p>
+        </div></li>
+        <li><span class="hora">13:00</span><div class="acto">
+          <h4>Closing concert. Solo piano</h4>
+          <p><strong>José María Villegas</strong>, a student of Georgian pianist Alexander Kandelaki, trained at the Badajoz Conservatory and at The Juilliard School in New York. He has won numerous prizes and performed in many countries. Since 2013 he has lived in Extremadura, where he achieved his greatest accomplishment: becoming father to Vera and Mateo Villegas Almoril.</p>
+          <p class="repertorio">Bach · Chopin · Scriabin · Bach-Busoni Chaconne</p>
+        </div></li>
+      </ol>
+
+      <p class="jornada-iv-colaboran only-es"><strong>Colaboran:</strong> Excma. Diputación Provincial de Cáceres y ASCEMI (Asociación de Amigos del Centro de Cirugía).</p>
+      <p class="jornada-iv-colaboran only-en"><strong>With the support of:</strong> Provincial Council of Cáceres and ASCEMI (Friends of the Surgery Centre Association).</p>
+
+      <div class="jornada-iv-cierre">
+        <button class="btn-outline" onclick="cerrarJornadaIV()">
+          <span class="only-es">CERRAR</span>
+          <span class="only-en">CLOSE</span>
+        </button>
       </div>
 
     </div>
@@ -4314,6 +4631,22 @@ pintura y versu!</div>
         btn.textContent = 'VER CONTENIDOS';
         if (audio) { audio.pause(); audio.currentTime = 0; }
       }
+    }
+
+    function abrirJornadaIV(e) {
+      if (e) e.preventDefault();
+      var seccion = document.getElementById('jornada-iv');
+      var abierta = seccion.style.display !== 'none';
+      seccion.style.display = abierta ? 'none' : 'block';
+      if (!abierta) {
+        seccion.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      return false;
+    }
+
+    function cerrarJornadaIV() {
+      document.getElementById('jornada-iv').style.display = 'none';
+      document.getElementById('btn-jornada-iv').scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     function toggleJornadaIII() {
