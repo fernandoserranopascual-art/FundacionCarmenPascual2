@@ -90,10 +90,12 @@
 
     .nav-links {
       display: flex;
-      gap: 36px;
+      gap: 28px;
       list-style: none;
+      align-items: center;
     }
-    .nav-links a {
+    .nav-links a,
+    .nav-group-btn {
       font-family: 'Inter', sans-serif;
       font-size: 13px;
       font-weight: 400;
@@ -101,8 +103,71 @@
       text-decoration: none;
       letter-spacing: 0.01em;
       transition: color 0.2s;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      white-space: nowrap;
     }
-    .nav-links a:hover { color: var(--green); }
+    .nav-links a:hover,
+    .nav-group-btn:hover { color: var(--green); }
+
+    /* ── Grupos desplegables ── */
+    .nav-group { position: relative; }
+    .nav-group-btn {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-group-btn::after {
+      content: '▾';
+      font-size: 9px;
+      opacity: 0.6;
+      transition: transform 0.15s;
+      display: inline-block;
+    }
+    .nav-group.open .nav-group-btn::after { transform: rotate(-180deg); }
+
+    .nav-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 0;
+      list-style: none;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      z-index: 1000;
+      min-width: 180px;
+    }
+    .nav-group:hover .nav-dropdown,
+    .nav-group.open .nav-dropdown { display: block; }
+    .nav-dropdown::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-top: none;
+      border-bottom-color: var(--border);
+    }
+    .nav-dropdown li a {
+      display: block;
+      padding: 8px 20px;
+      font-size: 12px;
+      white-space: nowrap;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-dropdown li a:hover {
+      color: var(--green);
+      background: rgba(0,0,0,0.03);
+    }
 
     .nav-toggle {
       display: none;
@@ -144,24 +209,27 @@
       position: relative;
     }
 
-    .hero-inner { max-width: 640px; }
+    .hero-inner { max-width: 700px; }
 
     .hero-logo {
       display: block;
-      width: clamp(220px, 40vw, 340px);
+      width: clamp(300px, 62vw, 520px);
       height: auto;
-      margin: 0 auto 48px;
+      margin: 0 auto 28px;
       mix-blend-mode: multiply;
     }
 
     .hero-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(36px, 6vw, 62px);
+      font-size: clamp(26px, 4.8vw, 48px);
       font-weight: 300;
       line-height: 1.08;
-      letter-spacing: -0.01em;
+      letter-spacing: 0.12em;
       color: var(--text);
       margin-bottom: 24px;
+      width: clamp(300px, 62vw, 520px);
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* Acceso a la IV Jornada, entre el logotipo y el titulo */
@@ -795,7 +863,8 @@
       margin-bottom: 32px;
     }
 
-    #composiciones .obra-grid {
+    #composiciones .obra-grid,
+    #obra .obra-grid {
       grid-template-columns: repeat(5, 1fr);
     }
 
@@ -1798,6 +1867,31 @@
         padding: 12px 24px;
         font-size: 14px;
       }
+      .nav-group-btn {
+        display: block;
+        width: 100%;
+        padding: 12px 24px;
+        font-size: 14px;
+        text-align: left;
+      }
+      .nav-group-btn::after { display: none; }
+      .nav-dropdown {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        border-top: 1px solid var(--border);
+        background: rgba(0,0,0,0.03);
+        padding: 4px 0;
+        min-width: unset;
+        display: none;
+      }
+      .nav-group.open .nav-dropdown { display: block; }
+      .nav-group:hover .nav-dropdown { display: none; }
+      .nav-group.open .nav-dropdown { display: block; }
+      .nav-dropdown li a { padding: 10px 24px 10px 40px; font-size: 13px; }
+      .nav-dropdown::before { display: none; }
 
       .nav-toggle { display: flex; }
 
@@ -1823,7 +1917,9 @@
       .tres-vocaciones { grid-template-columns: 1fr; gap: 32px; }
       .patronos { grid-template-columns: 1fr; gap: 16px; }
       .obra-grid { grid-template-columns: repeat(2, 1fr); }
-      #composiciones .obra-grid { grid-template-columns: repeat(3, 1fr); }
+      #composiciones .obra-grid,
+      #obra .obra-grid { grid-template-columns: repeat(3, 1fr); }
+      #historial .obra-grid { grid-template-columns: repeat(4, 1fr); }
       .retratos-grid { grid-template-columns: repeat(3, 1fr); }
       .contacto-cols { grid-template-columns: 1fr; gap: 32px; }
       .colabora-cards { grid-template-columns: 1fr; }
@@ -1834,7 +1930,8 @@
 
     @media (max-width: 480px) {
       .obra-grid { grid-template-columns: 1fr; }
-      #composiciones .obra-grid { grid-template-columns: repeat(2, 1fr); }
+      #composiciones .obra-grid,
+      #obra .obra-grid { grid-template-columns: repeat(2, 1fr); }
       .retratos-grid { grid-template-columns: repeat(2, 1fr); }
       .historial-grid { grid-template-columns: 1fr; }
       .hero-buttons { flex-direction: column; align-items: center; }
@@ -1866,6 +1963,8 @@
       background: var(--cream-alt);
       box-shadow: 0 4px 20px rgba(0,0,0,0.18);
     }
+
+
   </style>
 </head>
 <body>
@@ -1877,47 +1976,79 @@
     </a>
     <div style="display:flex;align-items:center;gap:0;">
       <ul class="nav-links" id="navLinks">
+
         <li><a href="#mision" onclick="closeMenu()">
           <span class="only-es">Misión</span>
           <span class="only-en">Mission</span>
         </a></li>
-        <li><a href="#carmen" onclick="closeMenu()">Carmen Pascual</a></li>
-        <li><a href="#obra" onclick="closeMenu()">
-          <span class="only-es">Obra</span>
-          <span class="only-en">Works</span>
-        </a></li>
-        <li><a href="#composiciones" onclick="closeMenu()">
-          <span class="only-es">Composiciones</span>
-          <span class="only-en">Compositions</span>
-        </a></li>
-        <li><a href="#historial" onclick="closeMenu()">
-          <span class="only-es">Jornadas</span>
-          <span class="only-en">Conferences</span>
-        </a></li>
-        <li><a href="#a-carmen" onclick="closeMenu()">
-          <span class="only-es">A Carmen</span>
-          <span class="only-en">For Carmen</span>
-        </a></li>
-        <li><a href="#escritos" onclick="closeMenu()">
-          <span class="only-es">Escritos</span>
-          <span class="only-en">Writings</span>
-        </a></li>
-        <li><a href="#galeria-retratos" onclick="closeMenu()">
-          <span class="only-es">Galería</span>
-          <span class="only-en">Gallery</span>
-        </a></li>
-        <li><a href="#imagenes" onclick="closeMenu()">
-          <span class="only-es">Imágenes</span>
-          <span class="only-en">Images</span>
-        </a></li>
-        <li><a href="#historial" onclick="closeMenu()">
-          <span class="only-es">Historial</span>
-          <span class="only-en">History</span>
-        </a></li>
-        <li><a href="#actividades" onclick="closeMenu()">
-          <span class="only-es">Actividades</span>
-          <span class="only-en">Activities</span>
-        </a></li>
+
+        <!-- ── Carmen Pascual ── -->
+        <li class="nav-group">
+          <button class="nav-group-btn" onclick="toggleNavGroup(this)">Carmen Pascual</button>
+          <ul class="nav-dropdown">
+            <li><a href="#carmen" onclick="closeMenu()">
+              <span class="only-es">Carmen Pascual</span>
+              <span class="only-en">Carmen Pascual</span>
+            </a></li>
+            <li><a href="#obra" onclick="closeMenu()">
+              <span class="only-es">Obra</span>
+              <span class="only-en">Works</span>
+            </a></li>
+            <li><a href="#composiciones" onclick="closeMenu()">
+              <span class="only-es">Composiciones</span>
+              <span class="only-en">Compositions</span>
+            </a></li>
+            <li><a href="#a-carmen" onclick="closeMenu()">
+              <span class="only-es">A Carmen</span>
+              <span class="only-en">For Carmen</span>
+            </a></li>
+            <li><a href="#galeria-retratos" onclick="closeMenu()">
+              <span class="only-es">Galería de retratos</span>
+              <span class="only-en">Portrait Gallery</span>
+            </a></li>
+            <li><a href="#escritos" onclick="closeMenu()">
+              <span class="only-es">Escritos</span>
+              <span class="only-en">Writings</span>
+            </a></li>
+            <li><a href="#imagenes" onclick="closeMenu()">
+              <span class="only-es">Imágenes</span>
+              <span class="only-en">Images</span>
+            </a></li>
+          </ul>
+        </li>
+
+        <!-- ── Arte Salud Naturaleza ── -->
+        <li class="nav-group">
+          <button class="nav-group-btn" onclick="toggleNavGroup(this)">
+            <span class="only-es">Arte Salud Naturaleza</span>
+            <span class="only-en">Art Health Nature</span>
+          </button>
+          <ul class="nav-dropdown">
+            <li><a href="#historial" onclick="closeMenu()">
+              <span class="only-es">Historial</span>
+              <span class="only-en">History</span>
+            </a></li>
+            <li><a href="#actividades" onclick="closeMenu()">
+              <span class="only-es">Actividades</span>
+              <span class="only-en">Activities</span>
+            </a></li>
+          </ul>
+        </li>
+
+        <!-- ── Jornadas Arte y Ciencia ── -->
+        <li class="nav-group">
+          <button class="nav-group-btn" onclick="toggleNavGroup(this)">
+            <span class="only-es">Arte y Ciencia</span>
+            <span class="only-en">Art &amp; Science</span>
+          </button>
+          <ul class="nav-dropdown">
+            <li><a href="#historial" onclick="closeMenu()">
+              <span class="only-es">Jornadas</span>
+              <span class="only-en">Conferences</span>
+            </a></li>
+          </ul>
+        </li>
+
         <li><a href="#patronato" onclick="closeMenu()">
           <span class="only-es">Patronato</span>
           <span class="only-en">Board</span>
@@ -1930,6 +2061,7 @@
           <span class="only-es">Contacto</span>
           <span class="only-en">Contact</span>
         </a></li>
+
       </ul>
       <button class="lang-btn" id="lang-btn" aria-label="Switch language">EN</button>
     </div>
@@ -2318,6 +2450,18 @@
           <img src="obras/obra-2015-09-24.jpg" alt="Obra de Carmen Pascual, septiembre 2015" class="obra-img" loading="lazy">
           <p class="obra-fecha">CP. 24.09.2015. A3</p>
         </div>
+        <div class="obra-item">
+          <img src="obras/obra-2016-01-21.jpg" alt="Obra de Carmen Pascual, enero 2016" class="obra-img" loading="lazy">
+          <p class="obra-fecha">CP. 21.01.2016. A3</p>
+        </div>
+        <div class="obra-item">
+          <img src="obras/obra-2019-02-10.jpg" alt="Obra de Carmen Pascual, febrero 2019" class="obra-img" loading="lazy">
+          <p class="obra-fecha">CP 10 feb 2019. A4</p>
+        </div>
+        <div class="obra-item">
+          <img src="obras/obra-2020-02-11.jpg" alt="Obra de Carmen Pascual, febrero 2020" class="obra-img" loading="lazy">
+          <p class="obra-fecha">CP. 11y12.02.2020. A4</p>
+        </div>
       </div>
 
       <div style="text-align: center; margin-top: 32px;">
@@ -2326,18 +2470,6 @@
 
       <div id="obras-ocultas" style="display: none;">
         <div class="obra-grid" style="margin-top: 32px;">
-          <div class="obra-item">
-            <img src="obras/obra-2016-01-21.jpg" alt="Obra de Carmen Pascual, enero 2016" class="obra-img" loading="lazy">
-            <p class="obra-fecha">CP. 21.01.2016. A3</p>
-          </div>
-          <div class="obra-item">
-            <img src="obras/obra-2019-02-10.jpg" alt="Obra de Carmen Pascual, febrero 2019" class="obra-img" loading="lazy">
-            <p class="obra-fecha">CP 10 feb 2019. A4</p>
-          </div>
-          <div class="obra-item">
-            <img src="obras/obra-2020-02-11.jpg" alt="Obra de Carmen Pascual, febrero 2020" class="obra-img" loading="lazy">
-            <p class="obra-fecha">CP. 11y12.02.2020. A4</p>
-          </div>
           <div class="obra-item">
             <img src="obras/obra-2022-02-11.jpg" alt="Obra de Carmen Pascual, febrero 2022" class="obra-img" loading="lazy">
             <p class="obra-fecha">CP. 11.02.2022. A4</p>
@@ -2375,6 +2507,18 @@
           <img src="composiciones/CP.02.03.2020(1).jpg" alt="Composición de Carmen Pascual, 2 marzo 2020" class="obra-img" loading="lazy">
           <p class="obra-fecha">CP.02.03.2020(1)</p>
         </div>
+        <div class="obra-item">
+          <img src="composiciones/CP.03.04.2020.jpg" alt="Composición de Carmen Pascual, 3 abril 2020" class="obra-img" loading="lazy">
+          <p class="obra-fecha">CP.03.04.2020</p>
+        </div>
+        <div class="obra-item">
+          <img src="composiciones/CP.06.08.2020.jpg" alt="Composición de Carmen Pascual, 6 agosto 2020" class="obra-img" loading="lazy">
+          <p class="obra-fecha">CP.06.08.2020</p>
+        </div>
+        <div class="obra-item">
+          <img src="composiciones/CP.08.08.2020(1).jpg" alt="Composición de Carmen Pascual, 8 agosto 2020 (1)" class="obra-img" loading="lazy">
+          <p class="obra-fecha">CP.08.08.2020(1)</p>
+        </div>
       </div>
 
       <div style="text-align: center; margin-top: 48px;">
@@ -2383,18 +2527,6 @@
 
       <div id="composiciones-ocultas" style="display: none;">
         <div class="obra-grid" style="margin-top: 48px;">
-          <div class="obra-item">
-            <img src="composiciones/CP.03.04.2020.jpg" alt="Composición de Carmen Pascual, 3 abril 2020" class="obra-img" loading="lazy">
-            <p class="obra-fecha">CP.03.04.2020</p>
-          </div>
-          <div class="obra-item">
-            <img src="composiciones/CP.06.08.2020.jpg" alt="Composición de Carmen Pascual, 6 agosto 2020" class="obra-img" loading="lazy">
-            <p class="obra-fecha">CP.06.08.2020</p>
-          </div>
-          <div class="obra-item">
-            <img src="composiciones/CP.08.08.2020(1).jpg" alt="Composición de Carmen Pascual, 8 agosto 2020 (1)" class="obra-img" loading="lazy">
-            <p class="obra-fecha">CP.08.08.2020(1)</p>
-          </div>
           <div class="obra-item">
             <img src="composiciones/CP.08.08.2020(2).jpg" alt="Composición de Carmen Pascual, 8 agosto 2020 (2)" class="obra-img" loading="lazy">
             <p class="obra-fecha">CP.08.08.2020(2)</p>
@@ -2495,6 +2627,12 @@
             <img src="composiciones/CP.13.04.2020.jpg" alt="Composición de Carmen Pascual, CP.13.04.2020" class="obra-img" loading="lazy">
             <p class="obra-fecha">CP.13.04.2020</p>
           </div>
+        </div>
+        <div style="text-align: center; margin: 48px 0;">
+          <a id="btn-seguir-viendo" href="#" onclick="mostrarRestoComposiciones(); return false;" class="btn-outline">SEGUIR VIENDO</a>
+        </div>
+        <div id="composiciones-resto" style="display: none;">
+          <div class="obra-grid">
           <div class="obra-item">
             <img src="composiciones/CP.13.08.2020.jpg" alt="Composición de Carmen Pascual, CP.13.08.2020" class="obra-img" loading="lazy">
             <p class="obra-fecha">CP.13.08.2020</p>
@@ -2819,6 +2957,7 @@
             <img src="composiciones/CP.31.08.2020.jpg" alt="Composición de Carmen Pascual, CP.31.08.2020" class="obra-img" loading="lazy">
             <p class="obra-fecha">CP.31.08.2020</p>
           </div>
+          </div>
         </div>
       </div>
     </div>
@@ -2829,8 +2968,8 @@
     <div class="acarmen-inner">
       <p class="section-label only-es">Homenaje</p>
       <p class="section-label only-en">Tribute</p>
-      <h2 class="obra-title only-es">A Carmen: poemas, cuadros y música</h2>
-      <h2 class="obra-title only-en">For Carmen: poems, paintings and music</h2>
+      <h2 class="obra-title only-es">A Carmen: poemas, retratos, música y escritos</h2>
+      <h2 class="obra-title only-en">For Carmen: poems, portraits, music and writings</h2>
       <p class="acarmen-intro only-es">Creaciones que poetas, pintores y músicos han dedicado a Carmen Pascual como testimonio de admiración y afecto.</p>
       <p class="acarmen-intro only-en">Works that poets, painters and musicians have dedicated to Carmen Pascual as a testimony of admiration and affection.</p>
 
@@ -2853,6 +2992,10 @@ Tu memoria hoy
 un paraíso fértil.</div>
             <p class="acarmen-poem-autor" style="text-align:right"><strong>Antonio Gómez</strong><br><span class="acarmen-poem-fecha">poeta</span></p>
           </div>
+
+          <button id="btn-poemas-extra" class="btn-outline" onclick="togglePoemasExtra()" style="margin-top: 16px;">VER MÁS</button>
+
+          <div id="poemas-extra" style="display:none;">
 
           <div class="acarmen-poem">
             <div class="acarmen-poem-body">el color la palabra del alma
@@ -3105,6 +3248,8 @@ pintura y versu!</div>
             <p class="acarmen-cuadro-autor only-es"><strong>A. Orihuela</strong><br>poema ilustrado</p>
             <p class="acarmen-cuadro-autor only-en"><strong>A. Orihuela</strong><br>illustrated poem</p>
           </div>
+
+          </div><!-- /poemas-extra -->
         </div>
 
         <div class="acarmen-cat">
@@ -3116,35 +3261,41 @@ pintura y versu!</div>
 
           <div class="acarmen-cuadro">
             <img src="retratos-carmen-pascual/carmen-pascual-por-ramirez-vega.jpg"
-                 alt="Carmen Pascual por Ramírez Vega"
+                 alt="Carmen Pascual por Manuel Ramírez-Vega"
                  class="acarmen-cuadro-img" loading="lazy">
-            <p class="acarmen-cuadro-autor only-es"><strong>Ramírez Vega</strong></p>
-            <p class="acarmen-cuadro-autor only-en"><strong>Ramírez Vega</strong></p>
+            <p class="acarmen-cuadro-autor only-es"><strong>Manuel Ramírez-Vega</strong>. <em>Carmen Pascual</em>. Óleo sb.lienzo. 48,5x33 cm. 2021</p>
+            <p class="acarmen-cuadro-autor only-en"><strong>Manuel Ramírez-Vega</strong>. <em>Carmen Pascual</em>. Oil on canvas. 48.5x33 cm. 2021</p>
           </div>
+
+          <button id="btn-retratos-extra" class="btn-outline" onclick="toggleRetratosExtra()" style="margin-top: 16px;">VER MÁS</button>
+
+          <div id="retratos-extra" style="display:none;">
 
           <div class="acarmen-cuadro">
             <img src="retratos-carmen-pascual/carmen-pascual-prof-uson.jpg"
                  alt="Carmen Pascual por el Prof. D. Jesús Usón"
                  class="acarmen-cuadro-img" loading="lazy">
-            <p class="acarmen-cuadro-autor only-es">Carmen Pascual. Por el <strong>Prof. D. Jesús Usón</strong>. Primera donación a la Fundación Carmen Pascual. Arte Salud Naturaleza.</p>
-            <p class="acarmen-cuadro-autor only-en">Carmen Pascual. By <strong>Prof. D. Jesús Usón</strong>. First donation to the Fundación Carmen Pascual. Arte Salud Naturaleza.</p>
+            <p class="acarmen-cuadro-autor only-es">Carmen Pascual. Por el Prof. D. Jesús Usón. Primera donación a la Fundación Carmen Pascual. Arte Salud Naturaleza.</p>
+            <p class="acarmen-cuadro-autor only-en">Carmen Pascual. By Prof. D. Jesús Usón. First donation to the Fundación Carmen Pascual. Arte Salud Naturaleza.</p>
           </div>
 
           <div class="acarmen-cuadro">
             <img src="retratos-carmen-pascual/retrato-carmen-alvaro-fernando-santi-sanchez.jpg"
                  alt="Retrato Carmen, Álvaro y Fernando. Foto Santi Sánchez"
                  class="acarmen-cuadro-img" loading="lazy">
-            <p class="acarmen-cuadro-autor only-es">Retrato Carmen, Álvaro y Fernando. Foto <strong>Santi Sánchez Izquierdo</strong></p>
-            <p class="acarmen-cuadro-autor only-en">Portrait Carmen, Álvaro and Fernando. Photo <strong>Santi Sánchez Izquierdo</strong></p>
+            <p class="acarmen-cuadro-autor only-es">Retrato Carmen, Álvaro y Fernando. Foto Santi Sánchez Izquierdo</p>
+            <p class="acarmen-cuadro-autor only-en">Portrait Carmen, Álvaro and Fernando. Photo Santi Sánchez Izquierdo</p>
           </div>
 
           <div class="acarmen-cuadro">
             <img src="retratos-carmen-pascual/carmen-pascual-2018-foto-claudio.jpg"
                  alt="Carmen Pascual. 2018. Foto. Autor Claudio. Corrección Fran Mendez"
                  class="acarmen-cuadro-img" loading="lazy">
-            <p class="acarmen-cuadro-autor only-es">Carmen Pascual, 2018. Foto: <strong>Claudio Regadera Elizo</strong>. Retoques de <strong>Fran Méndez</strong>.</p>
-            <p class="acarmen-cuadro-autor only-en">Carmen Pascual, 2018. Photo: <strong>Claudio Regadera Elizo</strong>. Retouching by <strong>Fran Méndez</strong>.</p>
+            <p class="acarmen-cuadro-autor only-es">Carmen Pascual, 2018. Foto: Claudio Regadera Elizo. Retoques de Fran Méndez.</p>
+            <p class="acarmen-cuadro-autor only-en">Carmen Pascual, 2018. Photo: Claudio Regadera Elizo. Retouching by Fran Méndez.</p>
           </div>
+
+          </div><!-- /retratos-extra -->
         </div>
 
         <div class="acarmen-cat">
@@ -3155,6 +3306,31 @@ pintura y versu!</div>
           <p class="acarmen-desc only-en">Musical compositions inspired by the work and life of Carmen Pascual.</p>
           <p class="acarmen-musica-autor only-es">Sandro Bakhuashvili, piano y composición</p>
           <p class="acarmen-musica-autor only-en">Sandro Bakhuashvili, piano and composition</p>
+
+          <!-- Carátula del vídeo — visible -->
+          <div class="acarmen-video-wrap" style="margin-top: 24px;">
+            <p class="acarmen-video-title only-es">Tres Sonetos de Invierno para Carmen Pascual — Catedral de Plasencia</p>
+            <p class="acarmen-video-title only-en">Three Winter Sonnets for Carmen Pascual — Plasencia Cathedral</p>
+            <div class="acarmen-video-ratio" id="yt-sonetos-wrap">
+              <div id="yt-sonetos-facade" onclick="loadYTSonetos()"
+                   style="position:absolute;inset:0;cursor:pointer;background:#000;">
+                <img src="acarmen/musica/tres-sonetos-poster.jpg"
+                     alt="Tres Sonetos de Invierno para Carmen Pascual — Sandro Bakhuashvili · Foto Santi Sánchez"
+                     style="width:100%;height:100%;object-fit:cover;opacity:0.9;">
+                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+                  <div style="width:72px;height:72px;background:rgba(0,0,0,0.65);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                    <svg viewBox="0 0 24 24" width="36" height="36" fill="white"><polygon points="8,5 19,12 8,19"/></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="acarmen-video-caption only-es">Sandro Bakhuashvili, piano. Catedral de Plasencia.</p>
+            <p class="acarmen-video-caption only-en">Sandro Bakhuashvili, piano. Plasencia Cathedral.</p>
+          </div>
+
+          <button id="btn-sonetos-extra" class="btn-outline" onclick="toggleSonetosExtra()" style="margin-top: 20px;">VER MÁS</button>
+
+          <div id="sonetos-extra" style="display:none;">
 
           <div class="acarmen-soneto">
             <p class="acarmen-soneto-title only-es">Soneto I</p>
@@ -3195,57 +3371,23 @@ pintura y versu!</div>
             </a>
           </div>
 
+          </div><!-- /sonetos-extra -->
+
         </div>
 
       </div>
 
-      <div class="acarmen-video-wrap">
-        <p class="acarmen-video-title only-es">Tres Sonetos de Invierno para Carmen Pascual — Catedral de Plasencia</p>
-        <p class="acarmen-video-title only-en">Three Winter Sonnets for Carmen Pascual — Plasencia Cathedral</p>
-        <div class="acarmen-video-ratio">
-          <iframe src="https://www.youtube.com/embed/FwrOgHHOqSs"
-                  title="Tres Sonetos de Invierno para Carmen Pascual — Sandro Bakhuashvili"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen loading="lazy"></iframe>
-        </div>
-        <p class="acarmen-video-caption only-es">Sandro Bakhuashvili, piano. Catedral de Plasencia.</p>
-        <p class="acarmen-video-caption only-en">Sandro Bakhuashvili, piano. Plasencia Cathedral.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── ESCRITOS ── -->
-  <section id="escritos">
-    <div class="escritos-inner">
-      <p class="section-label only-es">Escritos</p>
-      <p class="section-label only-en">Writings</p>
-      <h2 class="obra-title only-es">Sobre Carmen Pascual. Escritos</h2>
-      <h2 class="obra-title only-en">About Carmen Pascual. Writings</h2>
-      <p class="escritos-intro only-es">Textos, artículos y reflexiones dedicados a la vida y la obra de Carmen Pascual.</p>
-      <p class="escritos-intro only-en">Texts, articles and reflections dedicated to the life and work of Carmen Pascual.</p>
+      <!-- ── IV Escritos (integrado en A Carmen) ── -->
+      <div id="escritos" style="border-top: 1.5px solid var(--green); padding: 32px 0 0; margin-top: 48px;">
+        <div class="acarmen-symbol">IV</div>
+        <h3 class="acarmen-cat-title only-es">Escritos</h3>
+        <h3 class="acarmen-cat-title only-en">Writings</h3>
+        <p class="acarmen-desc only-es">Textos, artículos y reflexiones dedicados a la vida y la obra de Carmen Pascual.</p>
+        <p class="acarmen-desc only-en">Texts, articles and reflections dedicated to the life and work of Carmen Pascual.</p>
 
       <div class="escritos-textos">
 
-        <div class="escrito-item">
-          <p class="escrito-texto">El talento es la cosa mejor repartida del universo. Está en todos y en cada uno de nosotros y se manifiesta a través de diferentes habilidades, destrezas y capacidades. Basta con posibilitarlo para que aparezca. El talento no está sujeto a edad, ni condición humana, sea la que sea.</p>
-          <p class="escrito-firma"><strong>Ángel Fragoso</strong><br><em>antropólogo</em></p>
-        </div>
-
-        <div class="escrito-item">
-          <p class="escrito-texto">La pintura de Carmen es un devenir de sensaciones y de sentimientos en los que surge la placidez, la reflexiva relajación del espíritu en torno a su vida serena. Gracias, Carmen, porque a través de tu pintura, regalas a tus hijos y a tus amigos una lección de generosidad, al transformar tu silencio en una maravillosa sonrisa, que nos provoca siempre sosiego cuando estamos a tu lado.</p>
-          <p class="escrito-firma"><strong>Javier Regadera</strong><br><em>médico patólogo</em></p>
-        </div>
-
-        <div class="escrito-item">
-          <p class="escrito-texto">Conseguir que Carmen, nuestra madre, haya logrado encontrar un sitio en la actividad pictórica ha supuesto un auténtico reto para ella, porque desde unas capacidades físicas limitadas, ha reconducido su pensamiento y sus ocupaciones para manifestarse, ante nosotros, con una pintura llena de entusiasmo. Verla concentrada en su trabajo es una sensación muy agradable, placentera, porque siento que su mente está ocupada en lograr algo positivo y que transmite mucha alegría y gran afán de superación. Muchas gracias, madre, por permitirnos disfrutar de la luz y el optimismo que desprenden tus cuadros.</p>
-          <p class="escrito-firma"><strong>Álvaro Serrano Pascual</strong></p>
-        </div>
-
-        <div class="escrito-item">
-          <p class="escrito-texto">Que sea mi madre la única protagonista de esta exposición, que se realice en su pueblo, para sus paisanos, familiares y amigos, y que ésta sea <em>La madre de todas mis exposiciones</em> es algo que jamás hubiera imaginado. Y, sin embargo, aquí estamos ante la obra de Carmen: un lenguaje sin retórica, directo, sencillo y pulcro; de múltiples variaciones tonales en armonías y contrastes, y de un pulso sereno y breve que todo lo llena como una música dulce y vibrante. Puertas que se abren a espacios siderales desconocidos o a paisajes inventados de franjas terrenales creados por su originario talento expresivo. Un legado luminoso de paz y superación que transciende y será tiempo infinito en nuestros enamorados corazones.</p>
-          <p class="escrito-firma"><strong>Fernando Serrano Pascual</strong></p>
-        </div>
-
+        <!-- Juan Carlos Lázaro — visible -->
         <div class="escrito-item">
           <p class="escrito-texto">Levedad, luminosidad y belleza fue la primera impresión que recibí al ver las imágenes (variaciones) de Carmen Pascual. Sus bandas cromáticas de parecido esquema compositivo, de trazos leves, como alados, sus combinaciones sutiles de colores vaporosos, de contrastes atenuados, su luz siempre visible por entre las finas capas de colores translúcidos, su espacialidad casi desmaterializada, etérea, como de leves fluidos en suave movimiento. Desprenden sus singulares imágenes una melodía tranquila, sutil, que alegra nuestros ojos y conforta, como un bálsamo, nuestro espíritu. Enhorabuena, Carmen, y gracias.</p>
           <p class="escrito-firma"><strong>Juan Carlos Lázaro</strong><br><em>pintor</em></p>
@@ -3253,49 +3395,81 @@ pintura y versu!</div>
 
       </div>
 
-      <ul class="escritos-lista">
-        <li>
-          <span class="escritos-lista-titulo">El esplendor de la mente — Olegario</span>
-          <span class="escritos-lista-acciones">
-            <a href="escritos/el-esplendor-de-la-mente.html" target="_blank">
-              <span class="only-es">Leer</span>
-              <span class="only-en">Read</span>
-            </a>
-            <a href="escritos/El esplendor de la mente. Olegario.docx" download>
-              <span class="only-es">Descargar</span>
-              <span class="only-en">Download</span>
-            </a>
-          </span>
-        </li>
-        <li>
-          <span class="escritos-lista-titulo">Doble proyección de afectos y obras — Fernando y Álvaro Serrano Pascual</span>
-          <span class="escritos-lista-acciones">
-            <a href="escritos/doble-proyeccion-de-afectos-y-obras.html" target="_blank">
-              <span class="only-es">Leer</span>
-              <span class="only-en">Read</span>
-            </a>
-            <a href="escritos/Doble Proyección de afectos y obras. Fdo y Alvaro.docx" download>
-              <span class="only-es">Descargar</span>
-              <span class="only-en">Download</span>
-            </a>
-          </span>
-        </li>
-        <li>
-          <span class="escritos-lista-titulo">Cuatro veces Carmen — Prof. Jesús Usón Gargallo</span>
-          <span class="escritos-lista-acciones">
-            <a href="escritos/cuatro-veces-carmen.html" target="_blank">
-              <span class="only-es">Leer</span>
-              <span class="only-en">Read</span>
-            </a>
-            <a href="escritos/Cuatro veces Carmen. Prof. Usón.docx" download>
-              <span class="only-es">Descargar</span>
-              <span class="only-en">Download</span>
-            </a>
-          </span>
-        </li>
-      </ul>
-    </div>
-  </section>
+      <button id="btn-escritos-extra" class="btn-outline" onclick="toggleEscritosExtra()" style="margin-top: 16px;">VER MÁS</button>
+
+      <div id="escritos-extra" style="display:none;">
+
+        <div class="escritos-textos">
+
+          <div class="escrito-item">
+            <p class="escrito-texto">El talento es la cosa mejor repartida del universo. Está en todos y en cada uno de nosotros y se manifiesta a través de diferentes habilidades, destrezas y capacidades. Basta con posibilitarlo para que aparezca. El talento no está sujeto a edad, ni condición humana, sea la que sea.</p>
+            <p class="escrito-firma"><strong>Ángel Fragoso</strong><br><em>antropólogo</em></p>
+          </div>
+
+          <div class="escrito-item">
+            <p class="escrito-texto">La pintura de Carmen es un devenir de sensaciones y de sentimientos en los que surge la placidez, la reflexiva relajación del espíritu en torno a su vida serena. Gracias, Carmen, porque a través de tu pintura, regalas a tus hijos y a tus amigos una lección de generosidad, al transformar tu silencio en una maravillosa sonrisa, que nos provoca siempre sosiego cuando estamos a tu lado.</p>
+            <p class="escrito-firma"><strong>Javier Regadera</strong><br><em>médico patólogo</em></p>
+          </div>
+
+          <div class="escrito-item">
+            <p class="escrito-texto">Conseguir que Carmen, nuestra madre, haya logrado encontrar un sitio en la actividad pictórica ha supuesto un auténtico reto para ella, porque desde unas capacidades físicas limitadas, ha reconducido su pensamiento y sus ocupaciones para manifestarse, ante nosotros, con una pintura llena de entusiasmo. Verla concentrada en su trabajo es una sensación muy agradable, placentera, porque siento que su mente está ocupada en lograr algo positivo y que transmite mucha alegría y gran afán de superación. Muchas gracias, madre, por permitirnos disfrutar de la luz y el optimismo que desprenden tus cuadros.</p>
+            <p class="escrito-firma"><strong>Álvaro Serrano Pascual</strong></p>
+          </div>
+
+          <div class="escrito-item">
+            <p class="escrito-texto">Que sea mi madre la única protagonista de esta exposición, que se realice en su pueblo, para sus paisanos, familiares y amigos, y que ésta sea <em>La madre de todas mis exposiciones</em> es algo que jamás hubiera imaginado. Y, sin embargo, aquí estamos ante la obra de Carmen: un lenguaje sin retórica, directo, sencillo y pulcro; de múltiples variaciones tonales en armonías y contrastes, y de un pulso sereno y breve que todo lo llena como una música dulce y vibrante. Puertas que se abren a espacios siderales desconocidos o a paisajes inventados de franjas terrenales creados por su originario talento expresivo. Un legado luminoso de paz y superación que transciende y será tiempo infinito en nuestros enamorados corazones.</p>
+            <p class="escrito-firma"><strong>Fernando Serrano Pascual</strong></p>
+          </div>
+
+        </div>
+
+        <ul class="escritos-lista">
+          <li>
+            <span class="escritos-lista-titulo">El esplendor de la mente — Olegario</span>
+            <span class="escritos-lista-acciones">
+              <a href="escritos/el-esplendor-de-la-mente.html" target="_blank">
+                <span class="only-es">Leer</span>
+                <span class="only-en">Read</span>
+              </a>
+              <a href="escritos/El esplendor de la mente. Olegario.docx" download>
+                <span class="only-es">Descargar</span>
+                <span class="only-en">Download</span>
+              </a>
+            </span>
+          </li>
+          <li>
+            <span class="escritos-lista-titulo">Doble proyección de afectos y obras — Fernando y Álvaro Serrano Pascual</span>
+            <span class="escritos-lista-acciones">
+              <a href="escritos/doble-proyeccion-de-afectos-y-obras.html" target="_blank">
+                <span class="only-es">Leer</span>
+                <span class="only-en">Read</span>
+              </a>
+              <a href="escritos/Doble Proyección de afectos y obras. Fdo y Alvaro.docx" download>
+                <span class="only-es">Descargar</span>
+                <span class="only-en">Download</span>
+              </a>
+            </span>
+          </li>
+          <li>
+            <span class="escritos-lista-titulo">Cuatro veces Carmen — Prof. Jesús Usón Gargallo</span>
+            <span class="escritos-lista-acciones">
+              <a href="escritos/cuatro-veces-carmen.html" target="_blank">
+                <span class="only-es">Leer</span>
+                <span class="only-en">Read</span>
+              </a>
+              <a href="escritos/Cuatro veces Carmen. Prof. Usón.docx" download>
+                <span class="only-es">Descargar</span>
+                <span class="only-en">Download</span>
+              </a>
+            </span>
+          </li>
+        </ul>
+
+      </div><!-- /escritos-extra -->
+
+      </div><!-- /IV Escritos -->
+    </div><!-- /acarmen-inner -->
+  </section><!-- /a-carmen -->
 
   <!-- ── GALERÍA DE RETRATOS ── -->
   <section id="galeria-retratos">
@@ -3347,7 +3521,195 @@ pintura y versu!</div>
           <p class="retrato-fecha obra-fecha">Aurora Blanco Serrano. Dinamizadora de Cultura. CP. 19.04.2019</p>
         </div>
       </div>
-      <a class="retratos-ver-mas" href="https://xurl.es/AfectosyObrasdeCP" target="_blank" rel="noopener">Ver más</a>
+      <div style="text-align: center; margin-top: 48px;">
+        <button id="btn-ver-retratos" class="btn-outline" onclick="toggleRetratos()">VER MÁS</button>
+      </div>
+      <div id="retratos-ocultas" style="display: none;">
+        <div class="retratos-grid" style="margin-top: 48px;">
+        <div class="obra-item">
+          <img src="galeria-retratos/Chus%20Vaquero%20y%20Gerardo%20Moreno%2C%20bi%C3%B3logos.%20CP.%2021.02.2021.jpg" alt="Chus Vaquero y Gerardo Moreno, biólogos. CP. 21.02.2021" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Chus Vaquero y Gerardo Moreno, biólogos. CP. 21.02.2021</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Cristina%20y%20Casto.%20Trigueros.%20CP.%2025%20oct.%202019.jpg" alt="Cristina y Casto. Trigueros. CP. 25 oct. 2019" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Cristina y Casto. Trigueros. CP. 25 oct. 2019</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Demetrio%20Alonso%20Izquierdo.%20Poeta%20del%20pueblo.%20CP.%2007.02.2021.jpg" alt="Demetrio Alonso Izquierdo. Poeta del pueblo. CP. 07.02.2021" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Demetrio Alonso Izquierdo. Poeta del pueblo. CP. 07.02.2021</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Eduardo%20Moreno.%20Fot%C3%B3grafo.%20CP.%2001.09.2019.jpg" alt="Eduardo Moreno. Fotógrafo. CP. 01.09.2019" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Eduardo Moreno. Fotógrafo. CP. 01.09.2019</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Efra%C3%ADn%20Callejo.%20Pianista.%20CP.%2013_25.%20Ed.%2010.02.2019.jpg" alt="Efraín Callejo. Pianista. CP. 13_25. Ed. 10.02.2019" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Efraín Callejo. Pianista. CP. 13_25. Ed. 10.02.2019</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Fernando%20J.%20Guti%C3%A9rrez.%20Fil%C3%B3sofo%20y%20escritor.%20Ed%20Gicl%C3%A9e%2C%204_25.%20CP.%2013.09.2019.jpg" alt="Fernando J. Gutiérrez. Filósofo y escritor. Ed Giclée, 4_25. CP. 13.09.2019" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Fernando J. Gutiérrez. Filósofo y escritor. Ed Giclée, 4_25. CP. 13.09.2019</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Fran%20M%C3%A9ndez%2C%20artista.%20CP.%2011%20enero%202019.jpg" alt="Fran Méndez, artista. CP. 11 enero 2019" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Fran Méndez, artista. CP. 11 enero 2019</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Francisco%20Cedenilla%2C%20escultor.%20CP.%2013.04.2023.jpg" alt="Francisco Cedenilla, escultor. CP. 13.04.2023" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Francisco Cedenilla, escultor. CP. 13.04.2023</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Helio%20V%C3%A1zquez.%20Catedr%C3%A1tico%20biolog%C3%ADa.%20CP.%2013.09.2019.%20Ed.%20Digital.jpg" alt="Helio Vázquez. Catedrático biología. CP. 13.09.2019. Ed. Digital" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Helio Vázquez. Catedrático biología. CP. 13.09.2019. Ed. Digital</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/II%20Jornada%20de%20Arte%20y%20Ciencia.jpg" alt="II Jornada de Arte y Ciencia" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">II Jornada de Arte y Ciencia</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Ibai%20Pascual%20Mart%C3%ADn.%20Poeta%20y%20apicultor.%20%20CP.%2022.01.2021.jpg" alt="Ibai Pascual Martín. Poeta y apicultor.  CP. 22.01.2021" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Ibai Pascual Martín. Poeta y apicultor.  CP. 22.01.2021</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Javier%20Fern%C3%A1ndez.%20Violinista.%20Dtor.%20Orquesta%20Conservatorio%20de%20Plasencia.%20CP.%2009.01.2021.jpg" alt="Javier Fernández. Violinista. Dtor. Orquesta Conservatorio de Plasencia. CP. 09.01.2021" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Javier Fernández. Violinista. Dtor. Orquesta Conservatorio de Plasencia. CP. 09.01.2021</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Javier%20Regadera%2C%20pat%C3%B3logo.%20Catedr%C3%A1tico%20de%20histolog%C3%ADa.jpg" alt="Javier Regadera, patólogo. Catedrático de histología" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Javier Regadera, patólogo. Catedrático de histología</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Jes%C3%BAs%20L%C3%B3pez%2C%20historiador.%20CP.%205%20nov%202018.jpg" alt="Jesús López, historiador. CP. 5 nov 2018" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Jesús López, historiador. CP. 5 nov 2018</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Jes%C3%BAs%20Us%C3%B3n.%20Fundador%20%20y%20Presidente%20de%20Honor%20del%20CCMIJU.%20CP.%2031%20mayo%202018.jpg" alt="Jesús Usón. Fundador  y Presidente de Honor del CCMIJU. CP. 31 mayo 2018" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Jesús Usón. Fundador  y Presidente de Honor del CCMIJU. CP. 31 mayo 2018</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Job%20Flores.%20Colaborador%20Galer%C3%ADa.%20Ldo.%20BB.AA.%20M%C3%A1ster%20en%20Patrimonio.%20CP.jpg" alt="Job Flores. Colaborador Galería. Ldo. BB.AA. Máster en Patrimonio. CP" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Job Flores. Colaborador Galería. Ldo. BB.AA. Máster en Patrimonio. CP</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Jose%20G.%20Mostazo%2C%20pod%C3%B3logo.%20CP.%2020%20abril%202018_.jpg" alt="Jose G. Mostazo, podólogo. CP. 20 abril 2018_" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Jose G. Mostazo, podólogo. CP. 20 abril 2018_</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Juan%20Carlos%20L%C3%A1zaro%2C%20artista.%20CP.%208%20mayo%202018_.jpg" alt="Juan Carlos Lázaro, artista. CP. 8 mayo 2018_" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Juan Carlos Lázaro, artista. CP. 8 mayo 2018_</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Juan%20Manuel%20Gonz%C3%A1lez.%20Odont%C3%B3logo.%20CP.%2013.09.2019.%20Ed.%20Gicl%C3%A9.%2015_25.jpg" alt="Juan Manuel González. Odontólogo. CP. 13.09.2019. Ed. Giclé. 15_25" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Juan Manuel González. Odontólogo. CP. 13.09.2019. Ed. Giclé. 15_25</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Juli%C3%A1n%20Jim%C3%A9nez.%20Gerente%20LASERCOR.%20CP.%2015.05.2023.jpg" alt="Julián Jiménez. Gerente LASERCOR. CP. 15.05.2023" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Julián Jiménez. Gerente LASERCOR. CP. 15.05.2023</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Luc%C3%ADa%20Sanguino%20Llanos.%20Contrabajo.%20Ed%20Gicl%C3%A9e%2C%2011_25.%20CP.%2013.09.2019.jpg" alt="Lucía Sanguino Llanos. Contrabajo. Ed Giclée, 11_25. CP. 13.09.2019" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Lucía Sanguino Llanos. Contrabajo. Ed Giclée, 11_25. CP. 13.09.2019</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Luis%20Miguel%20S%C3%A1nchez%20Garc%C3%ADa.%20Arquitecto.%20CP.%2007.03.2021.jpg" alt="Luis Miguel Sánchez García. Arquitecto. CP. 07.03.2021" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Luis Miguel Sánchez García. Arquitecto. CP. 07.03.2021</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Manuel%20Calle%2C%20exconcejal%20de%20Cultura.%20CP.%2018%20enero%202018.jpg" alt="Manuel Calle, exconcejal de Cultura. CP. 18 enero 2018" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Manuel Calle, exconcejal de Cultura. CP. 18 enero 2018</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Manuel%20Curiel.%20Prof%2C%20Filosof%C3%ADa%20Dtor.%20Coral%20Cant%C3%A1bile.%20CP.%2005.05.2021.jpg" alt="Manuel Curiel. Prof, Filosofía Dtor. Coral Cantábile. CP. 05.05.2021" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Manuel Curiel. Prof, Filosofía Dtor. Coral Cantábile. CP. 05.05.2021</p>
+        </div>
+        <div class="obra-item">
+          <img src="galeria-retratos/Oficina%20Proy.%20CSINN.%20Juan%20Antonio%2C%20CEO%20y%20Mabel%20Directora.%20CP.%2018_19%2C9%20y%205%20marzo%202021.jpg" alt="Oficina Proy. CSINN. Juan Antonio, CEO y Mabel Directora. CP. 18_19,9 y 5 marzo 2021" class="obra-img" loading="lazy">
+          <p class="retrato-fecha obra-fecha">Oficina Proy. CSINN. Juan Antonio, CEO y Mabel Directora. CP. 18_19,9 y 5 marzo 2021</p>
+        </div>
+        </div>
+        <div style="text-align: center; margin: 48px 0;">
+          <a id="btn-seguir-retratos" href="#" onclick="mostrarRestoRetratos(); return false;" class="btn-outline">SEGUIR VIENDO</a>
+        </div>
+        <div id="retratos-resto" style="display: none;">
+          <div class="retratos-grid">
+          <div class="obra-item">
+            <img src="galeria-retratos/Olegario%20y%20Marta.%20CP.%208_9%20mayo%202018.jpg" alt="Olegario y Marta. CP. 8_9 mayo 2018" class="obra-img" loading="lazy">
+            <p class="retrato-fecha obra-fecha">Olegario y Marta. CP. 8_9 mayo 2018</p>
+          </div>
+          <div class="obra-item">
+            <img src="galeria-retratos/Paulino%20y%20Eva.jpg" alt="Paulino y Eva" class="obra-img" loading="lazy">
+            <p class="retrato-fecha obra-fecha">Paulino y Eva</p>
+          </div>
+          <div class="obra-item">
+            <img src="galeria-retratos/Pilar%20Cabezas.%20CP.%2016%20oct.%202018.%20Geriatr%C3%ADa.%20Hospital%20Virgen%20del%20Puerto%20de%20Plasencia..jpg" alt="Pilar Cabezas. CP. 16 oct. 2018. Geriatría. Hospital Virgen del Puerto de Plasencia." class="obra-img" loading="lazy">
+            <p class="retrato-fecha obra-fecha">Pilar Cabezas. CP. 16 oct. 2018. Geriatría. Hospital Virgen del Puerto de Plasencia.</p>
+          </div>
+          <div class="obra-item">
+            <img src="galeria-retratos/Prof.%20Manuel%20Nistal.%20Catedr%C3%A1tico%20Histolog%C3%ADa%20UAM.%20CP.jpg" alt="Prof. Manuel Nistal. Catedrático Histología UAM. CP" class="obra-img" loading="lazy">
+            <p class="retrato-fecha obra-fecha">Prof. Manuel Nistal. Catedrático Histología UAM. CP</p>
+          </div>
+          <div class="obra-item">
+            <img src="galeria-retratos/P%C3%A9rez-Castro%20y%20%C3%81ngela.%20CP.%2011%20nov.%202018.jpg" alt="Pérez-Castro y Ángela. CP. 11 nov. 2018" class="obra-img" loading="lazy">
+            <p class="retrato-fecha obra-fecha">Pérez-Castro y Ángela. CP. 11 nov. 2018</p>
+          </div>
+          <div class="obra-item">
+            <img src="galeria-retratos/Ram%C3%ADrez-Vega%2C%20artista.%20CP.%206%20y%207.%2003.2021.jpg" alt="Ramírez-Vega, artista. CP. 6 y 7. 03.2021" class="obra-img" loading="lazy">
+            <p class="retrato-fecha obra-fecha">Ramírez-Vega, artista. CP. 6 y 7. 03.2021</p>
+          </div>
+          <div class="obra-item">
+            <img src="galeria-retratos/Sandro%20Bakhuashvili.%20Pianista%20y%20compositor_.jpg" alt="Sandro Bakhuashvili. Pianista y compositor_" class="obra-img" loading="lazy">
+            <p class="retrato-fecha obra-fecha">Sandro Bakhuashvili. Pianista y compositor_</p>
+          </div>
+          <div class="obra-item">
+            <img src="galeria-retratos/Santi%20S%C3%A1nchez%2C%20fotog%C3%A1fo.%20CP.%203%20sept.%202018.jpg" alt="Santi Sánchez, fotogáfo. CP. 3 sept. 2018" class="obra-img" loading="lazy">
+            <p class="retrato-fecha obra-fecha">Santi Sánchez, fotogáfo. CP. 3 sept. 2018</p>
+          </div>
+          <div class="obra-item">
+            <img src="galeria-retratos/Sergio%20Mart%C3%ADn%20y%20Mar%C3%ADa.%20%20CP.%2027%20nov.%202017_.jpg" alt="Sergio Martín y María.  CP. 27 nov. 2017_" class="obra-img" loading="lazy">
+            <p class="retrato-fecha obra-fecha">Sergio Martín y María.  CP. 27 nov. 2017_</p>
+          </div>
+          <div class="obra-item">
+            <img src="galeria-retratos/Teo%20y%20Maril%C3%B3.%20Entrenador%20de%20Javier.%20CP.%2012%20nov.%202018.jpg" alt="Teo y Mariló. Entrenador de Javier. CP. 12 nov. 2018" class="obra-img" loading="lazy">
+            <p class="retrato-fecha obra-fecha">Teo y Mariló. Entrenador de Javier. CP. 12 nov. 2018</p>
+          </div>
+          <div class="obra-item">
+            <img src="galeria-retratos/Teresa%20Serrano%20Gonz%C3%A1lez-Peramato.%20M%C3%A9dica.%20CP.%2020%20junio%202020.jpg" alt="Teresa Serrano González-Peramato. Médica. CP. 20 junio 2020" class="obra-img" loading="lazy">
+            <p class="retrato-fecha obra-fecha">Teresa Serrano González-Peramato. Médica. CP. 20 junio 2020</p>
+          </div>
+          <div class="obra-item">
+            <img src="galeria-retratos/%C3%81ngel%20Fragoso%2C%20antrop%C3%B3logo.%20CP.%201%20mayo%202018.jpg" alt="Ángel Fragoso, antropólogo. CP. 1 mayo 2018" class="obra-img" loading="lazy">
+            <p class="retrato-fecha obra-fecha">Ángel Fragoso, antropólogo. CP. 1 mayo 2018</p>
+          </div>
+          <div class="obra-item">
+            <img src="galeria-retratos/Adolfo%20Manzano.%20Escultor.%20Ed.%20Gicl%C3%A9e%2C%2024-25.%20CP.%2013.03.2019.jpg" alt="Adolfo Manzano. Escultor. Ed. Giclée, 24-25. CP. 13.03.2019" class="obra-img" loading="lazy">
+            <p class="retrato-fecha obra-fecha">Adolfo Manzano. Escultor. Ed. Giclée, 24-25. CP. 13.03.2019</p>
+          </div>
+          <div class="obra-item">
+            <img src="galeria-retratos/Fernando%20Pizarro.%20Alcalde%20de%20Plasencia.%20CP.%2003.08.2019.jpg" alt="Fernando Pizarro. Alcalde de Plasencia. CP. 03.08.2019" class="obra-img" loading="lazy">
+            <p class="retrato-fecha obra-fecha">Fernando Pizarro. Alcalde de Plasencia. CP. 03.08.2019</p>
+          </div>
+          <div class="obra-item">
+            <img src="galeria-retratos/Jos%C3%A9%20Luis%20%C3%81lvarez%20Osorio%20y%20Manuela.%20Pdte.%20Asoc.%20Urolog%C3%ADa%20de%20Espa%C3%B1a.%20CP.jpg" alt="José Luis Álvarez Osorio y Manuela. Pdte. Asoc. Urología de España. CP" class="obra-img" loading="lazy">
+            <p class="retrato-fecha obra-fecha">José Luis Álvarez Osorio y Manuela. Pdte. Asoc. Urología de España. CP</p>
+          </div>
+          <div class="obra-item">
+            <img src="galeria-retratos/Lucas%2C%20hijo%20de%20Jumi%20y%20Ma.%20Jos%C3%A9.%20CP.%207%20abril%202017.jpg" alt="Lucas, hijo de Jumi y Ma. José. CP. 7 abril 2017" class="obra-img" loading="lazy">
+            <p class="retrato-fecha obra-fecha">Lucas, hijo de Jumi y Ma. José. CP. 7 abril 2017</p>
+          </div>
+          <div class="obra-item">
+            <img src="galeria-retratos/Manoli%20Elizo.%20Genealogista.%20CP.%2013.03.2019.jpg" alt="Manoli Elizo. Genealogista. CP. 13.03.2019" class="obra-img" loading="lazy">
+            <p class="retrato-fecha obra-fecha">Manoli Elizo. Genealogista. CP. 13.03.2019</p>
+          </div>
+          <div class="obra-item">
+            <img src="galeria-retratos/Mode%2C%20sobrina%20y%20cuidadora%20de%20Carmen.%20CP.%2024%20sept.%202018.jpg" alt="Mode, sobrina y cuidadora de Carmen. CP. 24 sept. 2018" class="obra-img" loading="lazy">
+            <p class="retrato-fecha obra-fecha">Mode, sobrina y cuidadora de Carmen. CP. 24 sept. 2018</p>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align: center; margin: 48px 0 16px;">
+        <a href="https://xurl.es/AfectosyObrasdeCP" target="_blank" rel="noopener" class="btn-outline" style="font-size: 0.85em; letter-spacing: 0.08em;">VER TODAS EN DRIVE →</a>
+      </div>
     </div>
   </section>
 
@@ -3371,7 +3733,11 @@ pintura y versu!</div>
           <img id="cartel-madre-expo" src="historial/madre-expo/cartel-madre-expo.jpg"
                alt="Cartel — La madre de todas (mis) exposiciones · Carmen Pascual"
                class="historial-qr" loading="lazy">
-          <button class="btn-outline historial-btns" id="btn-madre-expo" onclick="toggleMadreExpo()">VER CONTENIDOS</button>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <button class="btn-outline historial-btns" id="btn-madre-expo" onclick="toggleMadreExpo()">VER CONTENIDOS</button>
+            <button id="btn-tais" title="Meditación de Thaïs · Jules Massenet" aria-label="Reproducir Meditación de Thaïs" style="width:34px;height:34px;border-radius:50%;border:1px solid var(--border);background:var(--cream);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,0.10);">🔇</button>
+          </div>
+          <audio id="audio-tais" loop preload="none" src="historial/madre-expo/massenet-meditacion-tais.mp3"></audio>
         </div>
 
         <div class="historial-item" style="background: #e8e0d4;">
@@ -3381,20 +3747,6 @@ pintura y versu!</div>
                alt="Cartel — Luz del Alma · Pinturas de Amor en Silencio · Carmen Pascual"
                class="historial-qr" loading="lazy">
           <button class="btn-outline historial-btns" id="btn-luz-del-alma" onclick="toggleLuzDelAlma()">VER CONTENIDOS</button>
-        </div>
-
-        <div class="historial-item" style="background: #ecdde4;">
-          <p class="historial-label"><strong>Carmen Pascual entre poetas</strong>con Juan Ramón Jiménez</p>
-          <button class="btn-outline historial-btns" onclick="document.getElementById('cartel-cp-jrj').click()">AMPLIAR FOTO CARTEL</button>
-          <img id="cartel-cp-jrj" src="historial/cartel-cp-jrj.jpg" alt="Cartel Carmen Pascual entre poetas con Juan Ramón Jiménez" class="historial-qr" loading="lazy">
-          <a class="btn-outline historial-btns" href="https://drive.google.com/drive/folders/149LINCCryWzHLcAiLLWaPVy9zLWYZI7e?lfhs=2" target="_blank" rel="noopener">VER CONTENIDOS</a>
-        </div>
-
-        <div class="historial-item" style="background: #f0e4d0;">
-          <p class="historial-label"><strong>Carmen Pascual entre poetas</strong>con Gabriel y Galán</p>
-          <button class="btn-outline historial-btns" onclick="document.getElementById('cartel-cp-gyg').click()">AMPLIAR FOTO CARTEL</button>
-          <img id="cartel-cp-gyg" src="historial/cartel-cp-gyg.jpg" alt="Cartel Carmen Pascual entre poetas con Gabriel y Galán" class="historial-qr" loading="lazy">
-          <a class="btn-outline historial-btns" href="https://drive.google.com/drive/folders/1W-N5Qop6chXRE1jr2lW0UNlXqJ2JZkCy?lfhs=2" target="_blank" rel="noopener">VER CONTENIDOS</a>
         </div>
 
       </div>
@@ -3411,17 +3763,22 @@ pintura y versu!</div>
         <p style="font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-mid); margin-bottom: 8px;">
           <em>Javier Curiel, violín · José María Villegas, piano</em>
         </p>
-        <audio id="audio-madre-expo" controls style="width: 100%; margin-bottom: 40px;">
-          <source src="historial/madre-expo/audio-expo-carmen-pascual.m4a" type="audio/mp4">
+        <audio id="audio-madre-expo" controls loop preload="auto" style="width: 100%; margin-bottom: 40px;">
+          <source src="historial/madre-expo/massenet-meditacion-tais.mp3" type="audio/mpeg">
         </audio>
+
+        <!-- Invitación a vista completa -->
+        <div style="margin-bottom: 40px; text-align: center;">
+          <img id="inv-interior"
+               src="historial/madre-expo/madre-expo-invitacion-interior.jpg"
+               alt="Invitación interior — La madre de todas (mis) exposiciones"
+               style="width: 100%; max-width: 700px; display: block; margin: 0 auto; cursor: zoom-in; box-shadow: 0 4px 24px rgba(0,0,0,0.12);"
+               loading="lazy">
+          <p class="obra-fecha" style="margin-top: 10px;">Invitación · Interior</p>
+        </div>
 
         <!-- Imágenes -->
         <div class="obra-grid">
-          <div class="obra-item">
-            <img src="historial/madre-expo/madre-expo-invitacion-interior.jpg"
-                 alt="Invitación interior — La madre de todas (mis) exposiciones" class="obra-img" loading="lazy">
-            <p class="obra-fecha">Invitación · Interior</p>
-          </div>
           <div class="obra-item">
             <img src="historial/madre-expo/madre-expo-014.jpg"
                  alt="Exposición de Carmen Pascual 014" class="obra-img" loading="lazy">
@@ -3497,6 +3854,18 @@ pintura y versu!</div>
             <img src="historial/luz-del-alma/centro-cultural-las-claras/expo-las-claras-02.jpg"
                  alt="Luz del Alma · Centro Cultural Las Claras · Vista general de la exposición" class="obra-img" loading="lazy">
           </div>
+          <div class="obra-item">
+            <img src="historial/luz-del-alma/centro-cultural-las-claras/foto-eduardo-moreno-01.jpg"
+                 alt="Luz del Alma · Centro Cultural Las Claras · Foto Eduardo Moreno 1" class="obra-img" loading="lazy">
+          </div>
+          <div class="obra-item">
+            <img src="historial/luz-del-alma/centro-cultural-las-claras/foto-eduardo-moreno-02.jpg"
+                 alt="Luz del Alma · Centro Cultural Las Claras · Foto Eduardo Moreno 2" class="obra-img" loading="lazy">
+          </div>
+          <div class="obra-item">
+            <img src="historial/luz-del-alma/centro-cultural-las-claras/foto-eduardo-moreno-03.jpg"
+                 alt="Luz del Alma · Centro Cultural Las Claras · Foto Eduardo Moreno 3" class="obra-img" loading="lazy">
+          </div>
         </div>
 
         <div style="text-align: center; margin: 24px 0;">
@@ -3505,18 +3874,6 @@ pintura y versu!</div>
 
         <div id="las-claras-fotos" style="display: none;">
           <div class="obra-grid">
-            <div class="obra-item">
-              <img src="historial/luz-del-alma/centro-cultural-las-claras/foto-eduardo-moreno-01.jpg"
-                   alt="Luz del Alma · Centro Cultural Las Claras · Foto Eduardo Moreno 1" class="obra-img" loading="lazy">
-            </div>
-            <div class="obra-item">
-              <img src="historial/luz-del-alma/centro-cultural-las-claras/foto-eduardo-moreno-02.jpg"
-                   alt="Luz del Alma · Centro Cultural Las Claras · Foto Eduardo Moreno 2" class="obra-img" loading="lazy">
-            </div>
-            <div class="obra-item">
-              <img src="historial/luz-del-alma/centro-cultural-las-claras/foto-eduardo-moreno-03.jpg"
-                   alt="Luz del Alma · Centro Cultural Las Claras · Foto Eduardo Moreno 3" class="obra-img" loading="lazy">
-            </div>
             <div class="obra-item">
               <img src="historial/luz-del-alma/centro-cultural-las-claras/foto-eduardo-moreno-04.jpg"
                    alt="Luz del Alma · Centro Cultural Las Claras · Foto Eduardo Moreno 4" class="obra-img" loading="lazy">
@@ -3575,11 +3932,23 @@ pintura y versu!</div>
         <!-- Concierto Inaugural -->
         <h4 style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-mid); margin: 48px 0 20px;">Concierto Inaugural</h4>
 
-        <!-- Foto de referencia visible -->
+        <!-- Fotos de referencia visibles -->
         <div class="obra-grid">
           <div class="obra-item">
             <img src="historial/luz-del-alma/concierto-inaugural/carmen-pascual-retablo-mascara.jpg"
                  alt="Carmen Pascual · Concierto Inaugural · Luz del Alma" class="obra-img" loading="lazy">
+          </div>
+          <div class="obra-item">
+            <img src="historial/luz-del-alma/concierto-inaugural/javier-y-carmen.jpg"
+                 alt="Javier y Carmen · Concierto Inaugural" class="obra-img" loading="lazy">
+          </div>
+          <div class="obra-item">
+            <img src="historial/luz-del-alma/concierto-inaugural/carmen-con-nietos-teresa-javier.jpg"
+                 alt="Carmen con sus nietos Teresa y Javier · Foto Eduardo Moreno" class="obra-img" loading="lazy">
+          </div>
+          <div class="obra-item">
+            <img src="historial/luz-del-alma/concierto-inaugural/carmen-con-sandro-bakhuashvili.jpg"
+                 alt="Carmen con Sandro Bakhuashvili · Foto Eduardo Moreno" class="obra-img" loading="lazy">
           </div>
         </div>
 
@@ -3591,18 +3960,6 @@ pintura y versu!</div>
         <!-- Fotos ocultas -->
         <div id="concierto-inaugural-fotos" style="display: none;">
           <div class="obra-grid">
-            <div class="obra-item">
-              <img src="historial/luz-del-alma/concierto-inaugural/javier-y-carmen.jpg"
-                   alt="Javier y Carmen · Concierto Inaugural" class="obra-img" loading="lazy">
-            </div>
-            <div class="obra-item">
-              <img src="historial/luz-del-alma/concierto-inaugural/carmen-con-nietos-teresa-javier.jpg"
-                   alt="Carmen con sus nietos Teresa y Javier · Foto Eduardo Moreno" class="obra-img" loading="lazy">
-            </div>
-            <div class="obra-item">
-              <img src="historial/luz-del-alma/concierto-inaugural/carmen-con-sandro-bakhuashvili.jpg"
-                   alt="Carmen con Sandro Bakhuashvili · Foto Eduardo Moreno" class="obra-img" loading="lazy">
-            </div>
             <div class="obra-item">
               <img src="historial/luz-del-alma/concierto-inaugural/carmen-grupo-familiar.jpg"
                    alt="Carmen con familia y amigos · Foto Eduardo Moreno" class="obra-img" loading="lazy">
@@ -3638,6 +3995,18 @@ pintura y versu!</div>
             <img src="historial/luz-del-alma/luz-del-alma-en-el-torno/el-torno-01.jpg"
                  alt="Luz del Alma en El Torno · 1" class="obra-img" loading="lazy">
           </div>
+          <div class="obra-item">
+            <img src="historial/luz-del-alma/luz-del-alma-en-el-torno/el-torno-02.jpg"
+                 alt="Luz del Alma en El Torno · 2" class="obra-img" loading="lazy">
+          </div>
+          <div class="obra-item">
+            <img src="historial/luz-del-alma/luz-del-alma-en-el-torno/el-torno-03.jpg"
+                 alt="Luz del Alma en El Torno · 3" class="obra-img" loading="lazy">
+          </div>
+          <div class="obra-item">
+            <img src="historial/luz-del-alma/luz-del-alma-en-el-torno/el-torno-04.jpg"
+                 alt="Luz del Alma en El Torno · 4" class="obra-img" loading="lazy">
+          </div>
         </div>
 
         <div style="text-align: center; margin: 24px 0;">
@@ -3646,18 +4015,6 @@ pintura y versu!</div>
 
         <div id="el-torno-fotos" style="display: none;">
           <div class="obra-grid">
-            <div class="obra-item">
-              <img src="historial/luz-del-alma/luz-del-alma-en-el-torno/el-torno-02.jpg"
-                   alt="Luz del Alma en El Torno · 2" class="obra-img" loading="lazy">
-            </div>
-            <div class="obra-item">
-              <img src="historial/luz-del-alma/luz-del-alma-en-el-torno/el-torno-03.jpg"
-                   alt="Luz del Alma en El Torno · 3" class="obra-img" loading="lazy">
-            </div>
-            <div class="obra-item">
-              <img src="historial/luz-del-alma/luz-del-alma-en-el-torno/el-torno-04.jpg"
-                   alt="Luz del Alma en El Torno · 4" class="obra-img" loading="lazy">
-            </div>
             <div class="obra-item">
               <img src="historial/luz-del-alma/luz-del-alma-en-el-torno/el-torno-05.jpg"
                    alt="Luz del Alma en El Torno · 5" class="obra-img" loading="lazy">
@@ -3693,26 +4050,17 @@ pintura y versu!</div>
             <img src="historial/luz-del-alma/obras-trinidad-toscano/trinidad-toscano-01.jpg"
                  alt="Obras Trinidad Toscano · 1" class="obra-img" loading="lazy">
           </div>
-        </div>
-
-        <div style="text-align: center; margin: 24px 0;">
-          <button class="btn-outline" id="btn-trinidad-toscano" onclick="toggleTrinidadToscano()">VER MÁS</button>
-        </div>
-
-        <div id="trinidad-toscano-fotos" style="display: none;">
-          <div class="obra-grid">
-            <div class="obra-item">
-              <img src="historial/luz-del-alma/obras-trinidad-toscano/trinidad-toscano-02.jpg"
-                   alt="Obras Trinidad Toscano · 2" class="obra-img" loading="lazy">
-            </div>
-            <div class="obra-item">
-              <img src="historial/luz-del-alma/obras-trinidad-toscano/trinidad-toscano-03.jpg"
-                   alt="Obras Trinidad Toscano · 3" class="obra-img" loading="lazy">
-            </div>
-            <div class="obra-item">
-              <img src="historial/luz-del-alma/obras-trinidad-toscano/trinidad-toscano-04.jpg"
-                   alt="Obras Trinidad Toscano · 4" class="obra-img" loading="lazy">
-            </div>
+          <div class="obra-item">
+            <img src="historial/luz-del-alma/obras-trinidad-toscano/trinidad-toscano-02.jpg"
+                 alt="Obras Trinidad Toscano · 2" class="obra-img" loading="lazy">
+          </div>
+          <div class="obra-item">
+            <img src="historial/luz-del-alma/obras-trinidad-toscano/trinidad-toscano-03.jpg"
+                 alt="Obras Trinidad Toscano · 3" class="obra-img" loading="lazy">
+          </div>
+          <div class="obra-item">
+            <img src="historial/luz-del-alma/obras-trinidad-toscano/trinidad-toscano-04.jpg"
+                 alt="Obras Trinidad Toscano · 4" class="obra-img" loading="lazy">
           </div>
         </div>
 
@@ -3736,6 +4084,24 @@ pintura y versu!</div>
         </div>
 
       </div><!-- /luz-del-alma-contenidos -->
+
+      <div class="historial-grid">
+
+        <div class="historial-item" style="background: #ecdde4;">
+          <p class="historial-label"><strong>Carmen Pascual entre poetas</strong>con Juan Ramón Jiménez</p>
+          <button class="btn-outline historial-btns" onclick="document.getElementById('cartel-cp-jrj').click()">AMPLIAR FOTO CARTEL</button>
+          <img id="cartel-cp-jrj" src="historial/cartel-cp-jrj.jpg" alt="Cartel Carmen Pascual entre poetas con Juan Ramón Jiménez" class="historial-qr" loading="lazy">
+          <a class="btn-outline historial-btns" href="https://drive.google.com/drive/folders/149LINCCryWzHLcAiLLWaPVy9zLWYZI7e?lfhs=2" target="_blank" rel="noopener">VER CONTENIDOS</a>
+        </div>
+
+        <div class="historial-item" style="background: #f0e4d0;">
+          <p class="historial-label"><strong>Carmen Pascual entre poetas</strong>con Gabriel y Galán</p>
+          <button class="btn-outline historial-btns" onclick="document.getElementById('cartel-cp-gyg').click()">AMPLIAR FOTO CARTEL</button>
+          <img id="cartel-cp-gyg" src="historial/cartel-cp-gyg.jpg" alt="Cartel Carmen Pascual entre poetas con Gabriel y Galán" class="historial-qr" loading="lazy">
+          <a class="btn-outline historial-btns" href="https://drive.google.com/drive/folders/1W-N5Qop6chXRE1jr2lW0UNlXqJ2JZkCy?lfhs=2" target="_blank" rel="noopener">VER CONTENIDOS</a>
+        </div>
+
+      </div>
 
       <!-- ── 2. JORNADAS DE ARTE Y CIENCIA ── -->
       <h3 class="historial-seccion-titulo">2. Jornadas de Arte y Ciencia</h3>
@@ -4456,6 +4822,79 @@ pintura y versu!</div>
       });
     }());
 
+    // ── Botón Meditación de Thaïs ───────────────────────
+    (function () {
+      var btn   = document.getElementById('btn-tais');
+      var audio = document.getElementById('audio-tais');
+      if (!btn || !audio) return;
+      btn.addEventListener('click', function () {
+        if (audio.paused) {
+          audio.play().catch(function () {});
+          btn.textContent = '🔊';
+          btn.setAttribute('aria-label', 'Pausar Meditación de Thaïs');
+        } else {
+          audio.pause();
+          btn.textContent = '🔇';
+          btn.setAttribute('aria-label', 'Reproducir Meditación de Thaïs');
+        }
+      });
+    }());
+
+    /* ── Abrir contenidos en ventana nueva ── */
+    function abrirEnVentanaNueva(id, titulo, extraScript) {
+      var div = document.getElementById(id);
+      if (!div) return;
+
+      var cssText = '';
+      Array.from(document.querySelectorAll('style')).forEach(function(s) {
+        cssText += s.textContent;
+      });
+
+      var baseHref = window.location.href.replace(/\/[^\/]*(\?.*)?$/, '/');
+
+      var html = '<!DOCTYPE html>\n<html lang="es">\n<head>\n' +
+        '<meta charset="UTF-8">\n' +
+        '<meta name="viewport" content="width=device-width,initial-scale=1">\n' +
+        '<base href="' + baseHref + '">\n' +
+        '<title>' + titulo + ' · Fundación Carmen Pascual</title>\n' +
+        '<link rel="preconnect" href="https://fonts.googleapis.com">\n' +
+        '<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">\n' +
+        '<style>' + cssText + '</style>\n' +
+        '<style>\n' +
+        'body{padding:48px 32px;max-width:960px;margin:0 auto;}\n' +
+        '.ven-titulo{font-family:Inter,sans-serif;font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#888;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid #e0e0e0;}\n' +
+        '#cp-obras-extra,#jcl-obras-extra{display:block!important;}\n' +
+        '#btn-cp-obras,#btn-jcl-obras{display:none!important;}\n' +
+        '#las-claras-fotos,#concierto-inaugural-fotos,#el-torno-fotos{display:block!important;}\n' +
+        '#btn-las-claras,#btn-concierto-inaugural,#btn-el-torno{display:none!important;}\n' +
+        '.obra-img{object-fit:contain!important;aspect-ratio:unset!important;height:auto!important;}\n' +
+        '.obra-item{overflow:visible!important;}\n' +
+        '</style>\n' +
+        '</head>\n<body>\n' +
+        '<p class="ven-titulo">' + titulo + '</p>\n' +
+        div.innerHTML + '\n' +
+        '<script>(function(){' +
+        'document.querySelectorAll("img[loading=\'lazy\']").forEach(function(img){' +
+        'img.style.cursor="zoom-in";' +
+        'img.addEventListener("click",function(){' +
+        'var o=document.createElement("div");' +
+        'o.style.cssText="position:fixed;inset:0;background:rgba(0,0,0,0.92);display:flex;align-items:center;justify-content:center;cursor:zoom-out;z-index:9999;";' +
+        'var b=document.createElement("img");b.src=img.src;b.alt=img.alt;' +
+        'b.style.cssText="max-width:92vw;max-height:92vh;object-fit:contain;box-shadow:0 4px 40px rgba(0,0,0,0.6);";' +
+        'o.appendChild(b);o.addEventListener("click",function(){o.remove();});' +
+        'document.body.appendChild(o);' +
+        '});' +
+        '});' +
+        '})();<\/script>\n' +
+        (extraScript ? '<script>' + extraScript + '<\/script>\n' : '') +
+        '</body>\n</html>';
+
+      var w = window.open('', '_blank');
+      if (w) { w.document.write(html); w.document.close(); }
+    }
+
+    window.abrirModalContenido = abrirEnVentanaNueva;
+
     function togglePoemaColori(btn) {
       var resto = document.getElementById('poem-colori-resto');
       var expanded = btn.getAttribute('aria-expanded') === 'true';
@@ -4469,7 +4908,25 @@ pintura y versu!</div>
     }
     function closeMenu() {
       document.getElementById('navLinks').classList.remove('open');
+      document.querySelectorAll('.nav-group').forEach(function(g) {
+        g.classList.remove('open');
+      });
     }
+    function toggleNavGroup(btn) {
+      var group = btn.closest('.nav-group');
+      var isOpen = group.classList.contains('open');
+      document.querySelectorAll('.nav-group').forEach(function(g) {
+        g.classList.remove('open');
+      });
+      if (!isOpen) group.classList.add('open');
+    }
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nav-group')) {
+        document.querySelectorAll('.nav-group').forEach(function(g) {
+          g.classList.remove('open');
+        });
+      }
+    });
 
     // ── Selector de idioma ──────────────────────────────
     var langBtn = document.getElementById('lang-btn');
@@ -4603,34 +5060,102 @@ pintura y versu!</div>
       } else {
         ocultas.style.display = 'none';
         btn.textContent = 'VER MÁS';
+        var resto = document.getElementById('composiciones-resto');
+        if (resto) resto.style.display = 'none';
+        var btnSeguir = document.getElementById('btn-seguir-viendo');
+        if (btnSeguir) btnSeguir.style.display = 'inline-block';
+      }
+    }
+
+    function mostrarRestoComposiciones() {
+      var resto = document.getElementById('composiciones-resto');
+      var btn = document.getElementById('btn-seguir-viendo');
+      if (resto) resto.style.display = 'block';
+      if (btn) btn.style.display = 'none';
+    }
+
+    function toggleRetratos() {
+      var ocultas = document.getElementById('retratos-ocultas');
+      var btn = document.getElementById('btn-ver-retratos');
+      if (ocultas.style.display === 'none') {
+        ocultas.style.display = 'block';
+        btn.textContent = 'VER MENOS';
+      } else {
+        ocultas.style.display = 'none';
+        btn.textContent = 'VER MÁS';
+        var resto = document.getElementById('retratos-resto');
+        if (resto) resto.style.display = 'none';
+        var btnSeguir = document.getElementById('btn-seguir-retratos');
+        if (btnSeguir) btnSeguir.style.display = 'inline-block';
+      }
+    }
+
+    function mostrarRestoRetratos() {
+      var resto = document.getElementById('retratos-resto');
+      var btn = document.getElementById('btn-seguir-retratos');
+      if (resto) resto.style.display = 'block';
+      if (btn) btn.style.display = 'none';
+    }
+
+    function togglePoemasExtra() {
+      var extra = document.getElementById('poemas-extra');
+      var btn   = document.getElementById('btn-poemas-extra');
+      if (extra.style.display === 'none') {
+        extra.style.display = 'block';
+        btn.textContent = 'VER MENOS';
+      } else {
+        extra.style.display = 'none';
+        btn.textContent = 'VER MÁS';
+      }
+    }
+
+    function toggleRetratosExtra() {
+      var extra = document.getElementById('retratos-extra');
+      var btn   = document.getElementById('btn-retratos-extra');
+      if (extra.style.display === 'none') {
+        extra.style.display = 'block';
+        btn.textContent = 'VER MENOS';
+      } else {
+        extra.style.display = 'none';
+        btn.textContent = 'VER MÁS';
+      }
+    }
+
+    function toggleSonetosExtra() {
+      var extra = document.getElementById('sonetos-extra');
+      var btn   = document.getElementById('btn-sonetos-extra');
+      if (extra.style.display === 'none') {
+        extra.style.display = 'block';
+        btn.textContent = 'VER MENOS';
+      } else {
+        extra.style.display = 'none';
+        btn.textContent = 'VER MÁS';
+      }
+    }
+
+    function toggleEscritosExtra() {
+      var extra = document.getElementById('escritos-extra');
+      var btn   = document.getElementById('btn-escritos-extra');
+      if (extra.style.display === 'none') {
+        extra.style.display = 'block';
+        btn.textContent = 'VER MENOS';
+      } else {
+        extra.style.display = 'none';
+        btn.textContent = 'VER MÁS';
       }
     }
 
     function toggleJornadaI() {
-      var contenidos = document.getElementById('jornada-i-contenidos');
-      var btn = document.getElementById('btn-jornada-i');
-      if (contenidos.style.display === 'none') {
-        contenidos.style.display = 'block';
-        btn.textContent = 'VER MENOS';
-      } else {
-        contenidos.style.display = 'none';
-        btn.textContent = 'VER CONTENIDOS';
-      }
+      abrirModalContenido('jornada-i-contenidos', 'I Jornada Arte y Ciencia · CCMIJU · Cáceres 2019');
     }
 
     function toggleJornadaII() {
-      var contenidos = document.getElementById('jornada-ii-contenidos');
-      var btn = document.getElementById('btn-jornada-ii');
       var audio = document.getElementById('audio-jornada-ii');
-      if (contenidos.style.display === 'none') {
-        contenidos.style.display = 'block';
-        btn.textContent = 'VER MENOS';
+      abrirModalContenido('jornada-ii-contenidos', 'II Jornada Arte y Ciencia · CCMIJU · Cáceres', function() {
         if (audio) { audio.load(); audio.play().catch(function(){}); }
-      } else {
-        contenidos.style.display = 'none';
-        btn.textContent = 'VER CONTENIDOS';
+      }, function() {
         if (audio) { audio.pause(); audio.currentTime = 0; }
-      }
+      });
     }
 
     function abrirJornadaIV(e) {
@@ -4650,15 +5175,7 @@ pintura y versu!</div>
     }
 
     function toggleJornadaIII() {
-      var contenidos = document.getElementById('jornada-iii-contenidos');
-      var btn = document.getElementById('btn-jornada-iii');
-      if (contenidos.style.display === 'none') {
-        contenidos.style.display = 'block';
-        btn.textContent = 'VER MENOS';
-      } else {
-        contenidos.style.display = 'none';
-        btn.textContent = 'VER CONTENIDOS';
-      }
+      abrirModalContenido('jornada-iii-contenidos', 'III Jornada Arte y Ciencia · CCMIJU · Cáceres');
     }
 
     function toggleObrasCp() {
@@ -4745,35 +5262,25 @@ pintura y versu!</div>
         }
       };
 
+      window.loadYTSonetos = function () {
+        var facade = document.getElementById('yt-sonetos-facade');
+        var wrap   = document.getElementById('yt-sonetos-wrap');
+        facade.style.display = 'none';
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube.com/embed/FwrOgHHOqSs?autoplay=1';
+        iframe.title = 'Tres Sonetos de Invierno para Carmen Pascual — Sandro Bakhuashvili';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;';
+        wrap.appendChild(iframe);
+      };
+
       window.toggleLuzDelAlma = function () {
-        var contenidos = document.getElementById('luz-del-alma-contenidos');
-        var btn        = document.getElementById('btn-luz-del-alma');
-        if (contenidos.style.display === 'none') {
-          contenidos.style.display = 'block';
-          btn.textContent = 'VER MENOS';
-        } else {
-          contenidos.style.display = 'none';
-          btn.textContent = 'VER CONTENIDOS';
-        }
+        abrirModalContenido('luz-del-alma-contenidos', 'Luz del Alma · Pinturas de Amor en Silencio · Carmen Pascual');
       };
 
       window.toggleMadreExpo = function () {
-        var contenidos = document.getElementById('madre-expo-contenidos');
-        var btn        = document.getElementById('btn-madre-expo');
-        audioEl        = document.getElementById('audio-madre-expo');
-
-        if (contenidos.style.display === 'none') {
-          contenidos.style.display = 'block';
-          btn.textContent = 'VER MENOS';
-          audioEl.currentTime = TAIS_START;
-          audioEl.play();
-          audioEl.addEventListener('timeupdate', onTimeUpdate);
-        } else {
-          contenidos.style.display = 'none';
-          btn.textContent = 'VER CONTENIDOS';
-          audioEl.pause();
-          audioEl.removeEventListener('timeupdate', onTimeUpdate);
-        }
+        abrirEnVentanaNueva('madre-expo-contenidos', 'La madre de todas (mis) exposiciones · Carmen Pascual');
       };
     })();
   </script>
