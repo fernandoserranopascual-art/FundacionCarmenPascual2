@@ -234,23 +234,51 @@
 
     /* Acceso a la IV Jornada, entre el logotipo y el titulo */
     .hero-jornada {
-      display: inline-block;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      width: fit-content;
+      max-width: 100%;
+      margin: -41px auto 65px;
+      text-decoration: none;
+    }
+
+    /* Cartela sobre base de color, como el boton "Descubrir la obra" */
+    .hero-jornada-cartela {
+      background: var(--green);
+      color: #fff;
+      padding: 8px 18px 9px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      line-height: 1;
+      text-align: center;
+      transition: background 0.2s;
+    }
+
+    .hero-jornada-texto {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(19px, 2.9vw, 30px);
       font-weight: 300;
       line-height: 1.25;
       letter-spacing: 0.01em;
-      color: var(--green);
-      text-decoration: none;
-      margin: -28px auto 26px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--border);
-      transition: color 0.2s, border-color 0.2s;
+      color: var(--text);
+      background: transparent;
+      border: 1px solid var(--text);
+      border-top: none;
+      padding: 14px 28px 16px;
+      text-align: center;
+      transition: border-color 0.2s, color 0.2s;
     }
-    .hero-jornada:hover,
-    .hero-jornada:focus-visible {
-      color: var(--green-dark);
-      border-bottom-color: var(--green);
+
+    .hero-jornada:hover .hero-jornada-cartela,
+    .hero-jornada:focus-visible .hero-jornada-cartela { background: var(--green-dark); }
+    .hero-jornada:hover .hero-jornada-texto,
+    .hero-jornada:focus-visible .hero-jornada-texto {
+      border-color: var(--green);
+      color: var(--green);
     }
 
     .hero-subtitle {
@@ -2101,8 +2129,14 @@
     <div class="hero-inner">
       <img src="logo-color.jpeg" alt="Fundación Carmen Pascual. Arte Salud Naturaleza" class="hero-logo">
       <a href="#jornada-iv" class="hero-jornada" id="btn-jornada-iv" onclick="return abrirJornadaIV(event);">
-        <span class="only-es">IV Jornada de Arte y Ciencia por la INCLUSIÓN</span>
-        <span class="only-en">IV Art and Science Conference for INCLUSION</span>
+        <span class="hero-jornada-cartela">
+          <span class="only-es">Próxima actividad</span>
+          <span class="only-en">Upcoming activity</span>
+        </span>
+        <span class="hero-jornada-texto">
+          <span class="only-es">IV Jornada de Arte y Ciencia por la INCLUSIÓN</span>
+          <span class="only-en">IV Art and Science Conference for INCLUSION</span>
+        </span>
       </a>
       <h1 class="hero-title">Fundación<br>CARMEN PASCUAL</h1>
       <div class="hero-subtitle only-es">
