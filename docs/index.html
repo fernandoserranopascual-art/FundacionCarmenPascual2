@@ -187,6 +187,26 @@
     }
 
     /* ── SECCIÓN LABEL ───────────────────────────────── */
+    /* INCLUSIÓN va siempre en mayúsculas; a cuerpo algo menor para que
+       su altura case con la del texto que la rodea */
+    .incl {
+      font-size: 0.86em;
+      letter-spacing: 0.015em;
+    }
+    /* donde el contenedor ya está en mayúsculas, no hay nada que igualar */
+    .section-label .incl,
+    .jornada-iv-sub .incl,
+    .jornada-iv-bloque-hora .incl,
+    .jornada-iv-meta dt .incl,
+    .historial-seccion-titulo .incl,
+    .historial-label .incl,
+    .patrono-cargo .incl,
+    .hero-qr-caption .incl,
+    .qr-caption .incl {
+      font-size: inherit;
+      letter-spacing: inherit;
+    }
+
     .section-label {
       font-family: 'Inter', sans-serif;
       font-size: 10px;
@@ -2315,22 +2335,22 @@
           <span class="only-en">Upcoming activity</span>
         </span>
         <span class="hero-jornada-texto">
-          <span class="only-es">IV Jornada de Arte y Ciencia por la INCLUSIÓN</span>
-          <span class="only-en">IV Art and Science Conference for INCLUSION</span>
+          <span class="only-es">IV Jornada de Arte y Ciencia por la <span class="incl">INCLUSIÓN</span></span>
+          <span class="only-en">IV Art and Science Conference for <span class="incl">INCLUSION</span></span>
         </span>
       </a>
       <h1 class="hero-title">Fundación<br>CARMEN PASCUAL</h1>
       <div class="hero-subtitle only-es">
-        <p class="hero-lema">El poder del ARTE, el compromiso de la INCLUSIÓN.</p>
+        <p class="hero-lema">El poder del ARTE, el compromiso de la <span class="incl">INCLUSIÓN</span>.</p>
         <p>A los 80 años, CARMEN PASCUAL sufrió un ictus severo; a partir de entonces creó más de 1.500 obras hasta los 93, superando la adversidad con alegría y la práctica artística.</p>
-        <p>Hoy su fundación lleva ese mismo espíritu a la INCLUSIÓN de personas con diferentes capacidades, a través de actividades terapéuticas y de conocimiento, de ARTE, SALUD y NATURALEZA para el desarrollo de la plasticidad neuronal , hacia el bienestar personal, el enriquecimiento cultural y hacia una sociedad más cohesionada e integradora.</p>
-        <p class="hero-cierre"><em>Su ejemplo fue el principio. La INCLUSIÓN de todos es el horizonte.</em></p>
+        <p>Hoy su fundación lleva ese mismo espíritu a la <span class="incl">INCLUSIÓN</span> de personas con diferentes capacidades, a través de actividades terapéuticas y de conocimiento, de ARTE, SALUD y NATURALEZA para el desarrollo de la plasticidad neuronal , hacia el bienestar personal, el enriquecimiento cultural y hacia una sociedad más cohesionada e integradora.</p>
+        <p class="hero-cierre"><em>Su ejemplo fue el principio. La <span class="incl">INCLUSIÓN</span> de todos es el horizonte.</em></p>
       </div>
       <div class="hero-subtitle only-en">
-        <p class="hero-lema">The power of ART, the commitment to INCLUSION.</p>
+        <p class="hero-lema">The power of ART, the commitment to <span class="incl">INCLUSION</span>.</p>
         <p>At 80, CARMEN PASCUAL suffered a severe stroke; from then on she created more than 1,500 works until the age of 93, overcoming adversity with joy and artistic practice.</p>
-        <p>Today her foundation carries that same spirit to the INCLUSION of people with different abilities, through therapeutic and educational activities using ART, HEALTH and NATURE to develop neuroplasticity, towards personal wellbeing, cultural enrichment and a fairer, more human and solidary society.</p>
-        <p class="hero-cierre"><em>Her example was the beginning. The INCLUSION of all is the horizon.</em></p>
+        <p>Today her foundation carries that same spirit to the <span class="incl">INCLUSION</span> of people with different abilities, through therapeutic and educational activities using ART, HEALTH and NATURE to develop neuroplasticity, towards personal wellbeing, cultural enrichment and a fairer, more human and solidary society.</p>
+        <p class="hero-cierre"><em>Her example was the beginning. The <span class="incl">INCLUSION</span> of all is the horizon.</em></p>
       </div>
       <div class="hero-buttons">
         <a href="#obra" class="btn-primary">
@@ -2362,8 +2382,8 @@
 
       <p class="section-label only-es">Próxima actividad</p>
       <p class="section-label only-en">Next event</p>
-      <h2 class="jornada-iv-title only-es">IV Jornada de Arte y Ciencia por la INCLUSIÓN</h2>
-      <h2 class="jornada-iv-title only-en">IV Art and Science Conference for INCLUSION</h2>
+      <h2 class="jornada-iv-title only-es">IV Jornada de Arte y Ciencia por la <span class="incl">INCLUSIÓN</span></h2>
+      <h2 class="jornada-iv-title only-en">IV Art and Science Conference for <span class="incl">INCLUSION</span></h2>
 
       <dl class="jornada-iv-meta">
         <div>
@@ -2381,7 +2401,7 @@
         <div>
           <dt class="only-es">Organizan</dt>
           <dt class="only-en">Organised by</dt>
-          <dd>CCMIJU · Fundación Carmen Pascual <span class="jornada-iv-ast">*</span></dd>
+          <dd>CCMIJU<br>Fundación Carmen Pascual <span class="jornada-iv-ast">*</span></dd>
         </div>
       </dl>
 
@@ -2407,7 +2427,7 @@
           <p>Conferencia del <strong>Dr. Joaquín Gómez Abellán</strong>, científico del CCMIJU. Bioimpresión de tejido ovárico y uterino para crear dispositivos implantables que ayuden a tratar patologías reproductivas.</p>
         </div></li>
         <li><span class="hora">10:20</span><div class="acto">
-          <h4>Deporte e INCLUSIÓN: la mística de la superación</h4>
+          <h4>Deporte e <span class="incl">INCLUSIÓN</span>: la mística de la superación</h4>
           <p><strong>Kini Carrasco Ávila</strong></p>
         </div></li>
         <li><span class="hora">10:40</span><div class="acto">
@@ -2450,7 +2470,7 @@
           <p>Lecture by <strong>Dr Joaquín Gómez Abellán</strong>, CCMIJU scientist. Bioprinting of ovarian and uterine tissue to create implantable devices for treating reproductive conditions.</p>
         </div></li>
         <li><span class="hora">10:20</span><div class="acto">
-          <h4>Sport and INCLUSION: the mystique of endurance</h4>
+          <h4>Sport and <span class="incl">INCLUSION</span>: the mystique of endurance</h4>
           <p><strong>Kini Carrasco Ávila</strong></p>
         </div></li>
         <li><span class="hora">10:40</span><div class="acto">
@@ -2485,8 +2505,8 @@
 
       <!-- ── bloque: Kini Carrasco ── -->
       <div class="jornada-iv-bloque">
-        <p class="jornada-iv-bloque-hora only-es">10:20 · Deporte e INCLUSIÓN</p>
-        <p class="jornada-iv-bloque-hora only-en">10:20 · Sport and INCLUSION</p>
+        <p class="jornada-iv-bloque-hora only-es">10:20 · Deporte e <span class="incl">INCLUSIÓN</span></p>
+        <p class="jornada-iv-bloque-hora only-en">10:20 · Sport and <span class="incl">INCLUSION</span></p>
         <h3 class="jornada-iv-bloque-titulo only-es">Kini Carrasco, o la voluntad de poder</h3>
         <h3 class="jornada-iv-bloque-titulo only-en">Kini Carrasco, or the will to power</h3>
         <p class="jornada-iv-bloque-sub only-es">La mística de la superación, a través del esfuerzo y la fe</p>
@@ -2505,10 +2525,10 @@
         <blockquote class="jornada-iv-cita only-en">What stands in the way becomes the way. The obstacle does not halt the march; it redefines it.<span>Marcus Aurelius, <em>Meditations</em></span></blockquote>
 
         <p class="only-es"><strong>Kini Carrasco Ávila</strong> (Cáceres, 1965) es uno de los deportistas paralímpicos más destacados e inspiradores de España. Tras sufrir un accidente de tráfico a los veinte años en el que perdió su brazo izquierdo, convirtió la adversidad en una oportunidad de crecimiento personal y deportivo.</p>
-        <p class="only-es">Pionero del triatlón y el duatlón adaptados en España, ha representado a su país durante más de cuatro décadas en competiciones nacionales e internacionales y ha participado en cuatro olimpiadas, con un extenso palmarés. En paralelo ha desarrollado una sólida carrera como preparador físico, entrenador, director deportivo, gestor de entidades deportivas y conferenciante, y es un referente en valores de INCLUSIÓN y superación personal. En 2025 fue elegido miembro de la Asamblea de Extremadura.</p>
+        <p class="only-es">Pionero del triatlón y el duatlón adaptados en España, ha representado a su país durante más de cuatro décadas en competiciones nacionales e internacionales y ha participado en cuatro olimpiadas, con un extenso palmarés. En paralelo ha desarrollado una sólida carrera como preparador físico, entrenador, director deportivo, gestor de entidades deportivas y conferenciante, y es un referente en valores de <span class="incl">INCLUSIÓN</span> y superación personal. En 2025 fue elegido miembro de la Asamblea de Extremadura.</p>
 
         <p class="only-en"><strong>Kini Carrasco Ávila</strong> (Cáceres, 1965) is one of Spain's most prominent and inspiring Paralympic athletes. After a traffic accident at the age of twenty in which he lost his left arm, he turned adversity into an opportunity for personal and sporting growth.</p>
-        <p class="only-en">A pioneer of adapted triathlon and duathlon in Spain, he has represented his country for more than four decades in national and international competition and has taken part in four Olympic Games. Alongside his sporting career he has worked as a physical trainer, coach, sports director, manager and speaker, and is a leading voice on INCLUSION and personal achievement. In 2025 he was elected a member of the Assembly of Extremadura.</p>
+        <p class="only-en">A pioneer of adapted triathlon and duathlon in Spain, he has represented his country for more than four decades in national and international competition and has taken part in four Olympic Games. Alongside his sporting career he has worked as a physical trainer, coach, sports director, manager and speaker, and is a leading voice on <span class="incl">INCLUSION</span> and personal achievement. In 2025 he was elected a member of the Assembly of Extremadura.</p>
       </div>
 
       <!-- ── bloque: De profundis ── -->
@@ -2561,8 +2581,8 @@
       <div class="jornada-iv-bloque">
         <p class="jornada-iv-bloque-hora only-es">12:10 · 12:40 · 13:00</p>
         <p class="jornada-iv-bloque-hora only-en">12:10 · 12:40 · 13:00</p>
-        <h3 class="jornada-iv-bloque-titulo only-es">Música y ciencia por la INCLUSIÓN</h3>
-        <h3 class="jornada-iv-bloque-titulo only-en">Music and science for INCLUSION</h3>
+        <h3 class="jornada-iv-bloque-titulo only-es">Música y ciencia por la <span class="incl">INCLUSIÓN</span></h3>
+        <h3 class="jornada-iv-bloque-titulo only-en">Music and science for <span class="incl">INCLUSION</span></h3>
         <p class="jornada-iv-bloque-sub only-es">El tramo final de la jornada, donde la ciencia devuelve vidas y la música las hace audibles</p>
         <p class="jornada-iv-bloque-sub only-en">The closing stretch of the day, where science gives lives back and music makes them audible</p>
 
@@ -2640,12 +2660,12 @@
       <h2 class="mision-title only-en">One artwork, three vocations</h2>
       <ol class="mision-intro only-es" type="a">
         <li>Promover actividades relacionadas con el Arte, la Salud y la Naturaleza, fomentando la interacción entre estas tres disciplinas como herramienta de desarrollo personal, bienestar social y enriquecimiento cultural.</li>
-        <li>Favorecer la plasticidad neuronal y la INCLUSIÓN social, profesional y cultural de personas con diferentes capacidades, desarrollando programas que utilicen el arte, la Salud y las actividades en la Naturaleza como medio terapéutico y de relación social.</li>
+        <li>Favorecer la plasticidad neuronal y la <span class="incl">INCLUSIÓN</span> social, profesional y cultural de personas con diferentes capacidades, desarrollando programas que utilicen el arte, la Salud y las actividades en la Naturaleza como medio terapéutico y de relación social.</li>
         <li>Catalogar, conservar y difundir las obras de arte de Carmen Pascual, compuesta por más de 1.500 cuadros documentados y debidamente catalogados.</li>
       </ol>
       <ol class="mision-intro only-en" type="a">
         <li>To promote activities related to Art, Health and Nature, fostering the interaction between these three disciplines as a tool for personal development, social wellbeing and cultural enrichment.</li>
-        <li>To foster neuroplasticity and the social, professional and cultural INCLUSION of people with different abilities, developing programmes that use art, health and activities in nature as therapeutic means and social engagement.</li>
+        <li>To foster neuroplasticity and the social, professional and cultural <span class="incl">INCLUSION</span> of people with different abilities, developing programmes that use art, health and activities in nature as therapeutic means and social engagement.</li>
         <li>To catalogue, preserve and disseminate the artworks of Carmen Pascual, comprising more than 1,500 documented and duly catalogued paintings.</li>
       </ol>
       <div class="tres-vocaciones">
@@ -2767,12 +2787,12 @@
             </li>
             <li>
               <strong>Un'altra ragione I (Otra razón)</strong>
-              Diversidad Funcional e Intelectual. Por la INCLUSIÓN, dignidad y tolerancia.<br>
+              Diversidad Funcional e Intelectual. Por la <span class="incl">INCLUSIÓN</span>, dignidad y tolerancia.<br>
               Casa de la Cultura, El Torno, 2024.
             </li>
             <li>
               <strong>Un'altra ragione II (Otra razón)</strong>
-              II Jornada de Ciencia y Arte: «Diversidad Funcional e Intelectual. INCLUSIÓN Social y Dignidad a través del Arte».<br>
+              II Jornada de Ciencia y Arte: «Diversidad Funcional e Intelectual. <span class="incl">INCLUSIÓN</span> Social y Dignidad a través del Arte».<br>
               CCMIJU – Centro de Cirugía de Mínima Invasión Jesús Usón, Cáceres, octubre 2024.
             </li>
           </ul>
@@ -2785,12 +2805,12 @@
             </li>
             <li>
               <strong>Un'altra ragione I (Another Reason)</strong>
-              Functional and Intellectual Diversity. For INCLUSION, dignity, and tolerance.<br>
+              Functional and Intellectual Diversity. For <span class="incl">INCLUSION</span>, dignity, and tolerance.<br>
               Casa de la Cultura, El Torno, 2024.
             </li>
             <li>
               <strong>Un'altra ragione II (Another Reason)</strong>
-              2nd Science and Art Conference: "Functional and Intellectual Diversity. Social INCLUSION and Dignity through Art."<br>
+              2nd Science and Art Conference: "Functional and Intellectual Diversity. Social <span class="incl">INCLUSION</span> and Dignity through Art."<br>
               CCMIJU – Jesús Usón Center for Minimally Invasive Surgery, Cáceres, October 2024.
             </li>
           </ul>
@@ -4901,8 +4921,8 @@ pintura y versu!</div>
       </div>
 
       <div class="actividad">
-        <h3 class="only-es">INCLUSIÓN y participación</h3>
-        <h3 class="only-en">INCLUSION and participation</h3>
+        <h3 class="only-es"><span class="incl">INCLUSIÓN</span> y participación</h3>
+        <h3 class="only-en"><span class="incl">INCLUSION</span> and participation</h3>
         <p class="only-es">Fomento de la participación de personas con diferentes capacidades en proyectos artísticos, culturales y comunitarios.</p>
         <p class="only-en">Fostering the participation of people with different abilities in artistic, cultural, and community projects.</p>
       </div>
@@ -4977,8 +4997,8 @@ pintura y versu!</div>
       <p class="section-label only-en">Support Us</p>
       <h2 class="colabora-title only-es">Modalidades de colaboración</h2>
       <h2 class="colabora-title only-en">Ways to Collaborate</h2>
-      <p class="colabora-intro only-es">Tu apoyo nos permite que el legado humano y la práctica artística de Carmen Pascual, continue llegando a más personas, por si pudiera ser una referencia para aquellas que tienen algún tipo de dificultad funcional o intelectual. Todas las actividades de los Programas Arte Salud Naturaleza y de Arte y Ciencia están dirigidas al desarrollo de la plasticidad neuronal de las personas con diferentes capacidades para favorecer su <strong>INCLUSIÓN</strong> social, laboral y cultural.</p>
-      <p class="colabora-intro only-en">Your support allows the human legacy and artistic practice of Carmen Pascual to continue reaching more people, as a possible reference for those with any type of functional or intellectual difficulty. All activities of the Arte Salud Naturaleza and Arte y Ciencia Programmes are aimed at developing the neuroplasticity of people with different abilities, to promote their social, professional and cultural <strong>INCLUSION</strong>.</p>
+      <p class="colabora-intro only-es">Tu apoyo nos permite que el legado humano y la práctica artística de Carmen Pascual, continue llegando a más personas, por si pudiera ser una referencia para aquellas que tienen algún tipo de dificultad funcional o intelectual. Todas las actividades de los Programas Arte Salud Naturaleza y de Arte y Ciencia están dirigidas al desarrollo de la plasticidad neuronal de las personas con diferentes capacidades para favorecer su <strong><span class="incl">INCLUSIÓN</span></strong> social, laboral y cultural.</p>
+      <p class="colabora-intro only-en">Your support allows the human legacy and artistic practice of Carmen Pascual to continue reaching more people, as a possible reference for those with any type of functional or intellectual difficulty. All activities of the Arte Salud Naturaleza and Arte y Ciencia Programmes are aimed at developing the neuroplasticity of people with different abilities, to promote their social, professional and cultural <strong><span class="incl">INCLUSION</span></strong>.</p>
 
       <!-- Nota transitoria -->
       <div class="colabora-nota" id="nota-cif">
