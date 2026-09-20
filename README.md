@@ -23,8 +23,11 @@ pies de imagen, textos de `alt` y texto corrido.
 No es un capricho tipográfico: es el nombre y el sentido de lo que hace la
 Fundación, y así aparece en los carteles de las Jornadas.
 
-Lo mismo con **KINI**, el nombre por el que se conoce a Kini Carrasco Ávila, que
-en sus carteles figura siempre en mayúsculas.
+Lo mismo con **KINI**, el nombre por el que se conoce a KINI Carrasco Ávila. Se
+escribe así por voluntad expresa suya: en mayúsculas la grafía remite a lo
+oriental, al espíritu, al zen, que es como él entiende su manera de estar en el
+deporte y en la vida. No se escribe «Kini» en ningún sitio, ni siquiera en texto
+corrido, y así figura ya en sus carteles.
 
 En los dos casos la palabra se envuelve en `<span class="incl">`, que la deja en
 mayúsculas pero a `0.86em`, de modo que su altura case con la del texto que la
@@ -42,7 +45,7 @@ Para comprobar que no se ha escapado ninguna:
 
 ```bash
 grep -n "\b[Ii]nclusi[oó]n\b" docs/index.html   # no debe devolver nada
-grep -n "Kini" docs/index.html              # tampoco
+grep -n "\bKini\b" docs/index.html         # tampoco
 ```
 
 ### La web es bilingüe
