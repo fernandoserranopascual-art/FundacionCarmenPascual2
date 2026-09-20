@@ -14,7 +14,7 @@ Sitio web de la Fundación Carmen Pascual. Arte Salud Naturaleza.
 
 ## Convenciones de estilo
 
-### INCLUSIÓN, siempre en mayúsculas
+### Palabras que van siempre en mayúsculas: INCLUSIÓN y KINI
 
 La palabra **INCLUSIÓN** se escribe siempre en mayúsculas, en español y en
 inglés (**INCLUSION**), en cualquier sitio donde aparezca: títulos, programas,
@@ -22,6 +22,15 @@ pies de imagen, textos de `alt` y texto corrido.
 
 No es un capricho tipográfico: es el nombre y el sentido de lo que hace la
 Fundación, y así aparece en los carteles de las Jornadas.
+
+Lo mismo con **KINI**, el nombre por el que se conoce a Kini Carrasco Ávila, que
+en sus carteles figura siempre en mayúsculas.
+
+En los dos casos la palabra se envuelve en `<span class="incl">`, que la deja en
+mayúsculas pero a `0.86em`, de modo que su altura case con la del texto que la
+rodea y no dé el salto de las mayúsculas a cuerpo completo. Donde el contenedor
+ya va en mayúsculas por CSS, la regla se anula sola. Dentro de un atributo
+`alt` no cabe la etiqueta: ahí la palabra va en mayúsculas y sin envolver.
 
 ```html
 <h2>IV Jornada de Arte y Ciencia por la INCLUSIÓN</h2>
@@ -33,6 +42,7 @@ Para comprobar que no se ha escapado ninguna:
 
 ```bash
 grep -n "\b[Ii]nclusi[oó]n\b" docs/index.html   # no debe devolver nada
+grep -n "Kini" docs/index.html              # tampoco
 ```
 
 ### La web es bilingüe
