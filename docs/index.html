@@ -5586,7 +5586,23 @@ pintura y versu!</div>
     function cerrarJornadaIV() {
       document.getElementById('jornada-iv').style.display = 'none';
       document.getElementById('btn-jornada-iv').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (window.location.hash === '#jornada-iv') {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
     }
+
+    // Enlace directo desde fuera (notas de prensa, carteles, redes):
+    // www.fundacioncarmenpascual.org/#jornada-iv abre la seccion ya desplegada.
+    function abrirJornadaIVdesdeURL() {
+      if (window.location.hash !== '#jornada-iv') return;
+      var seccion = document.getElementById('jornada-iv');
+      if (!seccion) return;
+      seccion.style.display = 'block';
+      seccion.scrollIntoView({ block: 'start' });
+    }
+    window.addEventListener('DOMContentLoaded', abrirJornadaIVdesdeURL);
+    window.addEventListener('load', abrirJornadaIVdesdeURL);
+    window.addEventListener('hashchange', abrirJornadaIVdesdeURL);
 
     function toggleJornadaIII() {
       abrirModalContenido('jornada-iii-contenidos', 'III Jornada Arte y Ciencia · CCMIJU · Cáceres');
