@@ -717,6 +717,20 @@
     }
     .jornada-iv-obras .obra-fecha { text-align: center; }
 
+    /* video vertical dentro de un bloque */
+    .jornada-iv-video {
+      max-width: 340px;
+      margin: 28px auto 0;
+      text-align: center;
+    }
+    .jornada-iv-video video {
+      width: 100%;
+      display: block;
+      background: #000;
+      border: 1px solid var(--border);
+    }
+    .jornada-iv-video .obra-fecha { margin-top: 12px; }
+
     /* epigrafe dentro de un bloque */
     .jornada-iv-epigrafe {
       font-family: 'Inter', sans-serif;
@@ -2595,6 +2609,27 @@
 
         <p class="only-en"><strong><span class="incl">KINI</span> Carrasco Ávila</strong> (Cáceres, 1965) is one of Spain's most prominent and inspiring Paralympic athletes. After a traffic accident at the age of twenty in which he lost his left arm, he turned adversity into an opportunity for personal and sporting growth.</p>
         <p class="only-en">A pioneer of adapted triathlon and duathlon in Spain, he has represented his country for more than four decades in national and international competition and has taken part in four Olympic Games. Alongside his sporting career he has worked as a physical trainer, coach, sports director, manager and speaker, and is a leading voice on <span class="incl">INCLUSION</span> and personal achievement. In 2025 he was elected a member of the Assembly of Extremadura.</p>
+      </div>
+
+      <!-- ── bloque: Clara del Carmen ── -->
+      <div class="jornada-iv-bloque">
+        <p class="jornada-iv-bloque-hora only-es">10:40 · Lectura poética</p>
+        <p class="jornada-iv-bloque-hora only-en">10:40 · Poetry reading</p>
+        <h3 class="jornada-iv-bloque-titulo only-es"><em>Travesía por el dolor</em></h3>
+        <h3 class="jornada-iv-bloque-titulo only-en"><em>A passage through pain</em></h3>
+        <p class="jornada-iv-bloque-sub only-es">Clara del Carmen Martín. Lectura poética y proyección de vídeo</p>
+        <p class="jornada-iv-bloque-sub only-en">Clara del Carmen Martín. Poetry reading and video projection</p>
+
+        <p class="only-es">El testimonio poético de una mujer que narra su travesía por el sufrimiento psíquico, una mística que se inserta en la tradición espiritual de introspección y resistencia, de gran autenticidad literaria y humana. Su voz llega acompañada de proyección de vídeo.</p>
+        <p class="only-en">The poetic testimony of a woman recounting her passage through psychological suffering, a mysticism rooted in the spiritual tradition of introspection and resistance, of great literary and human authenticity. Her voice comes accompanied by video projection.</p>
+
+        <div class="jornada-iv-video">
+          <video controls playsinline preload="metadata">
+            <source src="obras/jornada-iv/clara-del-carmen-primavera.mp4" type="video/mp4">
+          </video>
+          <p class="obra-fecha only-es"><em>Primavera</em>, de Clara del Carmen Martín</p>
+          <p class="obra-fecha only-en"><em>Primavera</em>, by Clara del Carmen Martín</p>
+        </div>
       </div>
 
       <!-- ── bloque: De profundis ── -->
