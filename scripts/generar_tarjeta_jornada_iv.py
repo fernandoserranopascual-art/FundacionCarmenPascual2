@@ -60,13 +60,15 @@ def mosaico_cuatro(img, d, x, y, w, alto):
     del CCMIJU y el piano de José María Villegas.
     """
     hueco = 16
-    col_r = (w - 2 * hueco - 312) // 2      # ancho de cada retrato
-    col_e = w - 2 * col_r - 2 * hueco       # ancho de la columna de escenas
+    # los retratos son verticales y las escenas muy apaisadas: se les da a cada
+    # una el ancho que pide su proporcion, para que ninguna quede recortada de mas
+    col_r = 270                             # cada retrato
+    col_e = w - 2 * col_r - 2 * hueco       # columna de las dos escenas
     alto_e = (alto - hueco) // 2
 
     piezas = [
         ("retrato-carmen-pascual-uson.jpg", x, y, col_r, alto, 0.5, 0.42),
-        ("busto-jesus-uson-olegario.jpg",   x + col_r + hueco, y, col_r, alto, 0.5, 0.30),
+        ("busto-jesus-uson-olegario.jpg",   x + col_r + hueco, y, col_r, alto, 0.5, 0.26),
         ("ccmiju-quirofano.jpg",            x + 2 * (col_r + hueco), y, col_e, alto_e, 0.5, 0.5),
         ("villegas-concierto.jpg",          x + 2 * (col_r + hueco), y + alto_e + hueco, col_e, alto_e, 0.46, 0.5),
     ]
@@ -74,6 +76,56 @@ def mosaico_cuatro(img, d, x, y, w, alto):
         pieza = recortar(Image.open(os.path.join(OBRAS, nombre)), pw, ph, ax, ay)
         img.paste(pieza, (px, py))
         d.rectangle([px, py, px + pw - 1, py + ph - 1], outline=BORDER, width=1)
+
+
+# ── Mosaico de participantes, al modo del cartel de De profundis ──
+JORNADA = r"C:\Users\Fernando Serrano P\Documents\FundacionCarmenPascual\IV Jornada Arte y Ciencia"
+
+# Los recortes se dan en fracciones del original, no en pixeles, para poder
+# sacarlos de los A3 a 3508x4961 que estan en la carpeta de la Jornada.
+# (fichero, caja fraccional o None, nombre, ancla vertical del recorte final)
+PERFIL = os.path.join(JORNADA, "A3 Cartel De profundis.jpg")
+PARTICIPANTES = [
+    (PERFIL, (0.0331, 0.2086, 0.2163, 0.4030), "Carmen Pascual",    0.20),
+    (PERFIL, (0.2363, 0.2086, 0.3763, 0.4030), "Jesús Usón",        0.18),
+    (PERFIL, (0.3981, 0.2086, 0.5756, 0.4030), "Olegario",          0.16),
+    (PERFIL, (0.5913, 0.2086, 0.7881, 0.4030), "Carlos Montenegro", 0.16),
+    (PERFIL, (0.8019, 0.2086, 0.9713, 0.4030), "Clara del Carmen",  0.16),
+    (os.path.join(JORNADA, "Kini Carrrasco o la voluntad de poder.jpg"),
+             (0.1063, 0.3802, 0.3625, 0.8930), "KINI Carrasco",     0.30),
+    (os.path.join(JORNADA, "A3 Cartel Silvia y Elena.jpg"),
+             (0.0344, 0.2298, 0.2063, 0.3977), "Silvia Núñez",      0.20),
+    (os.path.join(JORNADA, "WhatsApp Image 2026-09-10 at 20.15.31.jpeg"),
+             (0.1438, 0.2167, 0.4750, 0.9833), "Elena Álvarez",     0.22),
+    (os.path.join(JORNADA, "Chema Villegas. Foto. Manuel Curiel.jpg"),
+             (0.3500, 0.0000, 0.6000, 1.0000), "J. M. Villegas",    0.28),
+    (os.path.join(OBRAS, "ccmiju-quirofano.jpg"), None,             "CCMIJU",            0.50),
+]
+
+
+def mosaico_participantes(img, d, x, y, w):
+    """Una imagen por participante, como la fila de retratos de De profundis."""
+    hueco, filas, columnas = 15, 2, 5
+    cw = (w - (columnas - 1) * hueco) // columnas
+    ch = 186
+    f_nombre = sans(13)
+    alto_total = filas * (ch + 20) + (filas - 1) * hueco
+
+    for i, (fichero, caja, nombre, ancla) in enumerate(PARTICIPANTES):
+        fila, col = divmod(i, columnas)
+        px = x + col * (cw + hueco)
+        py = y + fila * (ch + 20 + hueco)
+        pieza = Image.open(fichero).convert("RGB")
+        if caja:
+            x0, y0, x1, y1 = caja
+            pieza = pieza.crop((round(x0 * pieza.width), round(y0 * pieza.height),
+                                round(x1 * pieza.width), round(y1 * pieza.height)))
+        pieza = recortar(pieza, cw, ch, 0.5, ancla)
+        img.paste(pieza, (px, py))
+        d.rectangle([px, py, px + cw - 1, py + ch - 1], outline=BORDER, width=1)
+        d.text((px + cw / 2, py + ch + 4), nombre, font=f_nombre, fill=TEXT_MID, anchor="ma")
+
+    return alto_total
 
 def barra_tricolor(draw, x, y, w, alto):
     tercio = w / 3
@@ -125,7 +177,11 @@ def tarjeta(variante="foto"):
            font=sans(23), fill=TEXT_MID, anchor="ma")
 
     # imagen o mosaico
-    if variante == "cuatro":
+    if variante == "participantes":
+        mosaico_participantes(img, d, M, 290, CW)
+        credito = "Imágenes: carteles de la Jornada · Juanmi · CCMIJU · Manuel Curiel."
+        y_credito, y_label, y_prog, salto = 730, 764, 802, 34
+    elif variante == "cuatro":
         mosaico_cuatro(img, d, M, 298, CW, 408)
         credito = "Fotos: Juanmi, CCMIJU y Manuel Curiel."
         y_credito, y_label, y_prog, salto = 714, 752, 792, 34
@@ -178,7 +234,9 @@ def tarjeta(variante="foto"):
 
     barra_tricolor(d, 0, H - 8, W, 8)
 
-    nombre = "tarjeta-whatsapp.jpg" if variante == "foto" else "tarjeta-whatsapp-cuatro.jpg"
+    nombre = {"foto":          "tarjeta-whatsapp.jpg",
+              "cuatro":        "tarjeta-whatsapp-cuatro.jpg",
+              "participantes": "tarjeta-whatsapp-participantes.jpg"}[variante]
     salida = os.path.join(OBRAS, nombre)
     img.save(salida, "JPEG", quality=88, progressive=True, optimize=True)
     print("%-28s %dx%d  %d KB" % (nombre, img.width, img.height, os.path.getsize(salida) // 1024))
@@ -212,4 +270,5 @@ def og():
 if __name__ == "__main__":
     tarjeta("foto")
     tarjeta("cuatro")
+    tarjeta("participantes")
     og()
