@@ -39,13 +39,41 @@ def sans(px, peso="normal"):
 def ancho(draw, texto, fuente):
     return draw.textbbox((0, 0), texto, font=fuente)[2]
 
-def recortar(img, w, h):
-    """Recorta al centro para llenar exactamente w x h, sin deformar."""
+def recortar(img, w, h, ancla_x=0.5, ancla_y=0.5):
+    """Recorta para llenar exactamente w x h, sin deformar.
+
+    ancla_x / ancla_y dicen por donde se corta: 0,5 es el centro; 0,35 en
+    vertical deja mas aire por abajo y salva la cabeza en un retrato.
+    """
     escala = max(w / img.width, h / img.height)
     img = img.resize((round(img.width * escala), round(img.height * escala)), Image.LANCZOS)
-    izq = (img.width - w) // 2
-    arr = (img.height - h) // 2
+    izq = round((img.width - w) * ancla_x)
+    arr = round((img.height - h) * ancla_y)
     return img.crop((izq, arr, izq + w, arr + h))
+
+
+def mosaico_cuatro(img, d, x, y, w, alto):
+    """Los cuatro elementos que articulan la Jornada:
+
+    los dos retratos a la izquierda -Carmen Pascual por Jesus Uson, y Jesus
+    Uson por Olegario- y, a la derecha, el arte y la ciencia: el quirofano
+    del CCMIJU y el piano de José María Villegas.
+    """
+    hueco = 16
+    col_r = (w - 2 * hueco - 312) // 2      # ancho de cada retrato
+    col_e = w - 2 * col_r - 2 * hueco       # ancho de la columna de escenas
+    alto_e = (alto - hueco) // 2
+
+    piezas = [
+        ("retrato-carmen-pascual-uson.jpg", x, y, col_r, alto, 0.5, 0.42),
+        ("busto-jesus-uson-olegario.jpg",   x + col_r + hueco, y, col_r, alto, 0.5, 0.30),
+        ("ccmiju-quirofano.jpg",            x + 2 * (col_r + hueco), y, col_e, alto_e, 0.5, 0.5),
+        ("villegas-concierto.jpg",          x + 2 * (col_r + hueco), y + alto_e + hueco, col_e, alto_e, 0.46, 0.5),
+    ]
+    for nombre, px, py, pw, ph, ax, ay in piezas:
+        pieza = recortar(Image.open(os.path.join(OBRAS, nombre)), pw, ph, ax, ay)
+        img.paste(pieza, (px, py))
+        d.rectangle([px, py, px + pw - 1, py + ph - 1], outline=BORDER, width=1)
 
 def barra_tricolor(draw, x, y, w, alto):
     tercio = w / 3
@@ -75,7 +103,8 @@ PROGRAMA = [
 
 
 # ══ 1. Tarjeta de WhatsApp, 1080 x 1350 ═══════════════════════
-def tarjeta():
+def tarjeta(variante="foto"):
+    """variante 'foto': solo el quirofano.  'cuatro': los cuatro elementos."""
     W, H, M = 1080, 1350, 70
     CW = W - 2 * M
     img = Image.new("RGB", (W, H), CREAM)
@@ -95,18 +124,25 @@ def tarjeta():
     d.text((W / 2, 250), "CCMIJU · Cáceres · Entrada libre hasta completar aforo",
            font=sans(23), fill=TEXT_MID, anchor="ma")
 
-    # foto
-    foto = Image.open(os.path.join(OBRAS, "ccmiju-quirofano.jpg"))
-    foto = recortar(foto, CW, 360)
-    img.paste(foto, (M, 300))
-    d.rectangle([M, 300, M + CW - 1, 300 + 360 - 1], outline=BORDER, width=1)
-    d.text((M + CW, 666), "Foto: CCMIJU, 2025.", font=sans(16), fill=TEXT_LIGHT, anchor="ra")
+    # imagen o mosaico
+    if variante == "cuatro":
+        mosaico_cuatro(img, d, M, 298, CW, 408)
+        credito = "Fotos: Juanmi, CCMIJU y Manuel Curiel."
+        y_credito, y_label, y_prog, salto = 714, 752, 792, 34
+    else:
+        foto = recortar(Image.open(os.path.join(OBRAS, "ccmiju-quirofano.jpg")), CW, 360)
+        img.paste(foto, (M, 300))
+        d.rectangle([M, 300, M + CW - 1, 300 + 360 - 1], outline=BORDER, width=1)
+        credito = "Foto: CCMIJU, 2025."
+        y_credito, y_label, y_prog, salto = 666, 706, 748, 38
+
+    d.text((M + CW, y_credito), credito, font=sans(16), fill=TEXT_LIGHT, anchor="ra")
 
     # programa
-    d.text((M, 706), "P R O G R A M A", font=sans(19, "bold"), fill=GREEN)
+    d.text((M, y_label), "P R O G R A M A", font=sans(19, "bold"), fill=GREEN)
     f_hora = serif(26)
-    f_acto = sans(21)
-    y = 748
+    f_acto = sans(21 if variante == "foto" else 20)
+    y = y_prog
     for hora, acto in PROGRAMA:
         d.text((M, y - 4), hora, font=f_hora, fill=GREEN)
         if "INCLUSIÓN" in acto:
@@ -119,7 +155,7 @@ def tarjeta():
             d.text((x, y), despues, font=f_acto, fill=TEXT_MID)
         else:
             d.text((M + 92, y), acto, font=f_acto, fill=TEXT_MID)
-        y += 38
+        y += salto
 
     # llamada a la web
     d.line([(M, 1108), (M + CW, 1108)], fill=BORDER, width=1)
@@ -142,9 +178,10 @@ def tarjeta():
 
     barra_tricolor(d, 0, H - 8, W, 8)
 
-    salida = os.path.join(OBRAS, "tarjeta-whatsapp.jpg")
+    nombre = "tarjeta-whatsapp.jpg" if variante == "foto" else "tarjeta-whatsapp-cuatro.jpg"
+    salida = os.path.join(OBRAS, nombre)
     img.save(salida, "JPEG", quality=88, progressive=True, optimize=True)
-    print("tarjeta   %dx%d  %d KB" % (img.width, img.height, os.path.getsize(salida) // 1024))
+    print("%-28s %dx%d  %d KB" % (nombre, img.width, img.height, os.path.getsize(salida) // 1024))
 
 
 # ══ 2. Vista previa del enlace, 1200 x 630 ════════════════════
@@ -173,5 +210,6 @@ def og():
 
 
 if __name__ == "__main__":
-    tarjeta()
+    tarjeta("foto")
+    tarjeta("cuatro")
     og()
