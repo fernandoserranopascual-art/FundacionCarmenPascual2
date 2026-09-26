@@ -672,6 +672,62 @@
       margin-bottom: 36px;
     }
 
+    /* dos obras juntas, igualadas en altura */
+    .jornada-iv-duo-obra .obra-img {
+      width: auto;
+      max-width: 100%;
+      max-height: 560px;
+      margin: 0 auto;
+    }
+
+    /* foto a todo lo ancho, fuera de los bloques */
+    .jornada-iv-foto {
+      max-width: 760px;
+      margin: 0 auto 56px;
+    }
+    .jornada-iv-foto figure { margin: 0; }
+    .jornada-iv-foto .obra-img {
+      aspect-ratio: unset;
+      object-fit: contain;
+      background: transparent;
+      border: 1px solid var(--border);
+    }
+    .jornada-iv-foto figcaption {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--text-light);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* rejilla de cuadros dentro de un bloque */
+    .jornada-iv-obras {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      align-items: start;
+      margin-top: 24px;
+    }
+    .jornada-iv-obras .obra-item { overflow: visible; }
+    .jornada-iv-obras .obra-img {
+      aspect-ratio: unset;
+      object-fit: contain;
+      height: auto;
+    }
+    .jornada-iv-obras .obra-fecha { text-align: center; }
+
+    /* epigrafe dentro de un bloque */
+    .jornada-iv-epigrafe {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin: 44px 0 6px;
+    }
+
     /* actos dentro de un bloque compartido */
     .jornada-iv-actos {
       list-style: none;
@@ -751,6 +807,7 @@
       .jornada-iv-programa .hora { font-size: 19px; }
       .jornada-iv-bloque-medio { grid-template-columns: 1fr; gap: 28px; }
       .jornada-iv-bloque-duo { grid-template-columns: 1fr; gap: 24px; }
+      .jornada-iv-obras { grid-template-columns: repeat(2, 1fr); gap: 16px; }
       .jornada-iv-bloque { margin-top: 52px; padding-top: 40px; }
       .jornada-iv-bloque-titulo { font-size: 28px; }
       .jornada-iv-actos li { grid-template-columns: 1fr; gap: 4px; padding: 18px 0; }
@@ -2414,6 +2471,15 @@
         </figure>
       </div>
 
+      <div class="jornada-iv-foto">
+        <figure>
+          <img src="obras/jornada-iv/ccmiju-quirofano.jpg" class="obra-img" loading="lazy"
+               alt="Quirófano experimental del CCMIJU, con brazos robóticos de cirugía de mínima invasión">
+          <figcaption class="only-es">El quirófano experimental del CCMIJU, sede de la Jornada. Foto: CCMIJU, 2025.</figcaption>
+          <figcaption class="only-en">The CCMIJU experimental operating theatre, venue of the Conference. Photo: CCMIJU, 2025.</figcaption>
+        </figure>
+      </div>
+
       <h3 class="jornada-iv-sub only-es">Programa</h3>
       <h3 class="jornada-iv-sub only-en">Programme</h3>
 
@@ -2560,6 +2626,21 @@
           </div>
         </div>
 
+        <div class="jornada-iv-bloque-duo jornada-iv-duo-obra">
+          <figure>
+            <img src="obras/jornada-iv/retrato-carmen-pascual-uson.jpg" class="obra-img" loading="lazy"
+                 alt="Retrato de Carmen Pascual, pintura del Prof. Jesús Usón, 2025">
+            <figcaption class="only-es"><em>Retrato de Carmen Pascual</em>, del Prof. Jesús Usón, 2025. Foto: Juanmi.</figcaption>
+            <figcaption class="only-en"><em>Portrait of Carmen Pascual</em>, by Prof. Jesús Usón, 2025. Photo: Juanmi.</figcaption>
+          </figure>
+          <figure>
+            <img src="obras/jornada-iv/busto-jesus-uson-olegario.jpg" class="obra-img" loading="lazy"
+                 alt="Retrato de busto de Jesús Usón, del escultor Olegario, en el modelado original de 2025">
+            <figcaption class="only-es"><em>Retrato de busto de Jesús Usón</em>, del escultor Olegario, 2025, en el modelado original.</figcaption>
+            <figcaption class="only-en"><em>Bust portrait of Jesús Usón</em>, by the sculptor Olegario, 2025, in the original modelling.</figcaption>
+          </figure>
+        </div>
+
         <ul class="jornada-iv-quienes only-es">
           <li><b>Carmen Pascual.</b> A los 80 años sufrió un ictus que le produjo una hemiplejía y una afasia total. A partir de entonces, y hasta su fallecimiento con 93 años, realizó más de 1.500 obras de pintura, expuestas en numerosas muestras individuales y colectivas.</li>
           <li><b>Jesús Usón.</b> Fundador y presidente de honor del CCMIJU. Los principios de lo que hoy es un centro de excelencia en investigación y formación en cirugía de mínima invasión, de máxima referencia internacional, empezaron habilitando como laboratorios unas «cochiqueras».</li>
@@ -2575,6 +2656,44 @@
           <li><b>Carlos Montenegro.</b> A model of resilience and humanism, author of <em>Infancia debilitada</em>, an autobiographical account that goes beyond the sordid world Zola portrays in <em>L'Assommoir</em>. Here he shows his paintings: luminous, full of charm, rigour and truth.</li>
           <li><b>Clara del Carmen Martín.</b> The poetic testimony of a woman recounting her passage through psychological suffering, a mysticism rooted in the spiritual tradition of introspection and resistance, of great literary and human authenticity.</li>
         </ul>
+
+        <p class="jornada-iv-epigrafe only-es">Pinturas de Carlos Montenegro</p>
+        <p class="jornada-iv-epigrafe only-en">Paintings by Carlos Montenegro</p>
+        <p class="only-es">Seis de las obras que trae a la exposición: luminosas, minuciosas, llenas de encanto, rigor y verdad.</p>
+        <p class="only-en">Six of the works he brings to the exhibition: luminous, meticulous, full of charm, rigour and truth.</p>
+
+        <div class="jornada-iv-obras">
+          <div class="obra-item">
+            <img src="obras/jornada-iv/montenegro-vista-el-torno.jpg" class="obra-img" loading="lazy"
+                 alt="Vista de El Torno, pintura de Carlos Montenegro: el pueblo de tejados rojos en la ladera del valle">
+            <p class="obra-fecha">Vista de El Torno</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-iv/montenegro-choza-rusa.jpg" class="obra-img" loading="lazy"
+                 alt="Choza rusa, pintura de Carlos Montenegro: casa de tejado de paja tras una empalizada y un jardín florido">
+            <p class="obra-fecha">Choza rusa</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-iv/montenegro-calle-de-madrid.jpg" class="obra-img" loading="lazy"
+                 alt="Calle de Madrid, dibujo a tinta de Carlos Montenegro: una calle en cuesta entre casas con balcones">
+            <p class="obra-fecha">Calle de Madrid</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-iv/montenegro-isidora.jpg" class="obra-img" loading="lazy"
+                 alt="Isidora, pintura de Carlos Montenegro: una mujer en el soportal de una calle de casas encaladas">
+            <p class="obra-fecha">Isidora</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-iv/montenegro-la-boda.jpg" class="obra-img" loading="lazy"
+                 alt="La boda, pintura de Carlos Montenegro: retrato de una pareja de novios con ramo de rosas">
+            <p class="obra-fecha">La boda</p>
+          </div>
+          <div class="obra-item">
+            <img src="obras/jornada-iv/montenegro-jarron-margaritas.jpg" class="obra-img" loading="lazy"
+                 alt="Jarrón con margaritas de fantasía, pintura de Carlos Montenegro: cuatro margaritas de colores en un jarrón de barro">
+            <p class="obra-fecha">Jarrón con margaritas de fantasía</p>
+          </div>
+        </div>
       </div>
 
       <!-- ── bloque: música y ciencia (dos carteles, un solo contenido) ── -->
@@ -2598,6 +2717,15 @@
                  alt="Cartel del concierto de clausura de José María Villegas, piano solo">
             <figcaption class="only-es">José María Villegas. Concierto de clausura.</figcaption>
             <figcaption class="only-en">José María Villegas. Closing concert.</figcaption>
+          </figure>
+        </div>
+
+        <div class="jornada-iv-bloque-ancho">
+          <figure>
+            <img src="obras/jornada-iv/villegas-concierto.jpg" class="obra-img" loading="lazy"
+                 alt="José María Villegas junto al piano de cola, saludando al público al final de su concierto">
+            <figcaption class="only-es">José María Villegas en el concierto con el que celebró su recuperación tras la cirugía. Gran Teatro de Cáceres, 4 de marzo de 2026. Foto: Manuel Curiel.</figcaption>
+            <figcaption class="only-en">José María Villegas at the concert celebrating his recovery after surgery. Gran Teatro de Cáceres, 4 March 2026. Photo: Manuel Curiel.</figcaption>
           </figure>
         </div>
 
@@ -2635,6 +2763,26 @@
 
         <p class="only-es">El pianista <strong>José María Villegas</strong> padeció un tumor cerebral y fue intervenido con éxito por el <strong>Dr. Ángel Pérez</strong> mientras tocaba el instrumento. Hoy está totalmente recuperado para la docencia, la música y la vida. El cirujano explica la intervención y, acto seguido, el paciente se sienta al piano.</p>
         <p class="only-en">Pianist <strong>José María Villegas</strong> had a brain tumour and was successfully operated on by <strong>Dr Ángel Pérez</strong> while playing the instrument. Today he has fully recovered for teaching, music and life. The surgeon explains the operation and, moments later, the patient sits down at the piano.</p>
+
+        <p class="jornada-iv-epigrafe only-es">Notas al programa. La danza como memoria</p>
+        <p class="jornada-iv-epigrafe only-en">Programme notes. Dance as memory</p>
+        <p class="only-es">El programa del concierto y sus notas, con las obras de Bach, Chopin, Scriabin y la Chacona de Bach-Busoni.</p>
+        <p class="only-en">The concert programme and its notes, with works by Bach, Chopin, Scriabin and the Bach-Busoni Chaconne.</p>
+
+        <div class="jornada-iv-bloque-duo">
+          <figure>
+            <img src="obras/jornada-iv/notas-programa-1.jpg" class="obra-img" loading="lazy"
+                 alt="Primera hoja de las notas al programa del concierto de clausura, con la fotografía y la semblanza de José María Villegas">
+            <figcaption class="only-es">El intérprete. Pulsa para ampliar.</figcaption>
+            <figcaption class="only-en">The performer. Click to enlarge.</figcaption>
+          </figure>
+          <figure>
+            <img src="obras/jornada-iv/notas-programa-2.jpg" class="obra-img" loading="lazy"
+                 alt="Segunda hoja de las notas al programa, con el repertorio del concierto y el comentario de las obras">
+            <figcaption class="only-es">Programa y comentario. Pulsa para ampliar.</figcaption>
+            <figcaption class="only-en">Programme and commentary. Click to enlarge.</figcaption>
+          </figure>
+        </div>
       </div>
 
 
