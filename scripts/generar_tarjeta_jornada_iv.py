@@ -104,11 +104,18 @@ PARTICIPANTES = [
 
 
 def mosaico_participantes(img, d, x, y, w):
-    """Una imagen por participante, como la fila de retratos de De profundis."""
-    hueco, filas, columnas = 15, 2, 5
+    """Una imagen por participante, como la fila de retratos de De profundis.
+
+    La rejilla se adapta al numero de participantes: en dos filas, tantas
+    columnas como hagan falta. Anadir a alguien es anadir una linea a
+    PARTICIPANTES; el alto de cada celda se recalcula solo para que la
+    proporcion no cambie.
+    """
+    hueco, filas = 15, 2
+    columnas = -(-len(PARTICIPANTES) // filas)          # division hacia arriba
     cw = (w - (columnas - 1) * hueco) // columnas
-    ch = 186
-    f_nombre = sans(13)
+    ch = round(cw * 1.06)                               # celda ligeramente vertical
+    f_nombre = sans(13 if columnas <= 5 else 12)
     alto_total = filas * (ch + 20) + (filas - 1) * hueco
 
     for i, (fichero, caja, nombre, ancla) in enumerate(PARTICIPANTES):
