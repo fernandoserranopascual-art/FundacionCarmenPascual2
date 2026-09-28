@@ -666,26 +666,35 @@
     }
 
     /* rejilla de cuadros dentro de un bloque */
-    /* Las obras, colgadas como en una pared: cada fila a una misma altura y los
-       anchos, los que pida cada lienzo. Nada se recorta. */
+    /* Las obras, colgadas como en una pared. Las dos hileras ocupan la misma
+       anchura y, dentro de cada una, los cuadros comparten altura: las columnas
+       van en proporcion al lienzo (1.435 = 1600/1115, y asi cada una), de modo
+       que anchura / proporcion da la misma altura para todos. Nada se recorta y
+       nada se descuelga a una linea de mas al estrechar la ventana. */
     .jornada-iv-hilera {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 26px;
+      display: grid;
+      align-items: start;
       margin-top: 22px;
     }
-    .jornada-iv-hilera .obra-item { overflow: visible; }
+    .jornada-iv-hilera .obra-item { overflow: visible; min-width: 0; }
     .jornada-iv-hilera .obra-img {
       aspect-ratio: unset;
       object-fit: contain;
-      width: auto;
-      max-width: 100%;
+      width: 100%;
+      height: auto;
     }
     .jornada-iv-hilera .obra-fecha { text-align: center; }
-    .jornada-iv-hilera-apaisadas .obra-img { height: 318px; }
-    .jornada-iv-hilera-verticales .obra-img { height: 292px; }
+    /* Vista de El Torno y Choza rusa */
+    .jornada-iv-hilera-apaisadas {
+      grid-template-columns: 1.435fr 1.1808fr;
+      gap: 26px;
+    }
+    /* Calle de Madrid, Isidora, La boda y el bodegon: separacion mas corta,
+       que es lo que permite que los cuatro quepan en la misma anchura */
+    .jornada-iv-hilera-verticales {
+      grid-template-columns: 0.7129fr 0.8271fr 0.7285fr 0.7129fr;
+      gap: 18px;
+    }
 
     /* video vertical dentro de un bloque */
     .jornada-iv-video {
@@ -798,10 +807,8 @@
       .jornada-iv-bloque-medio { grid-template-columns: 1fr; gap: 28px; }
       .jornada-iv-bloque-duo { grid-template-columns: 1fr; gap: 24px; }
       .jornada-iv-hilera { gap: 16px; }
-      .jornada-iv-hilera .obra-item { flex: 0 1 calc(50% - 8px); }
-      .jornada-iv-hilera .obra-img,
-      .jornada-iv-hilera-apaisadas .obra-img,
-      .jornada-iv-hilera-verticales .obra-img { height: auto; width: 100%; }
+      .jornada-iv-hilera-apaisadas { grid-template-columns: 1fr; }
+      .jornada-iv-hilera-verticales { grid-template-columns: repeat(2, 1fr); }
       .jornada-iv-bloque { margin-top: 52px; padding-top: 40px; }
       .jornada-iv-bloque-titulo { font-size: 28px; }
       .jornada-iv-actos li { grid-template-columns: 1fr; gap: 4px; padding: 18px 0; }
