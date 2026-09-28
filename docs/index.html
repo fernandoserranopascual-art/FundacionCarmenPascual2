@@ -195,7 +195,6 @@
     }
     /* donde el contenedor ya está en mayúsculas, no hay nada que igualar */
     .section-label .incl,
-    .jornada-iv-sub .incl,
     .jornada-iv-bloque-hora .incl,
     .jornada-iv-meta dt .incl,
     .historial-seccion-titulo .incl,
@@ -497,65 +496,6 @@
       margin-top: 12px;
     }
 
-    .jornada-iv-sub {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-mid);
-      margin: 0 0 8px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .jornada-iv-programa {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .jornada-iv-programa li {
-      display: grid;
-      grid-template-columns: 76px 1fr;
-      gap: 24px;
-      padding: 26px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .jornada-iv-programa li:last-child { border-bottom: none; }
-    .jornada-iv-programa .hora {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 300;
-      color: var(--green);
-      line-height: 1.3;
-    }
-    .jornada-iv-programa h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 23px;
-      font-weight: 400;
-      line-height: 1.25;
-      color: var(--text);
-      margin: 0 0 8px;
-    }
-    .jornada-iv-programa p {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 300;
-      line-height: 1.7;
-      color: var(--text-mid);
-      margin: 0;
-    }
-    .jornada-iv-programa .repertorio {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 19px;
-      color: var(--text);
-      margin-top: 14px;
-      padding-top: 14px;
-      border-top: 1px solid var(--border);
-    }
-    .jornada-iv-programa .descanso .hora,
-    .jornada-iv-programa .descanso h4 { color: var(--text-light); }
-
     /* cartel general, solo y centrado */
     .jornada-iv-cartel-solo {
       max-width: 520px;
@@ -579,8 +519,8 @@
 
     /* bloques destacados, uno por cartel tematico */
     .jornada-iv-bloque {
-      margin-top: 72px;
-      padding-top: 56px;
+      margin-top: 54px;
+      padding-top: 40px;
       border-top: 1px solid var(--border);
     }
     .jornada-iv-bloque-hora {
@@ -605,18 +545,42 @@
       font-size: 13px;
       font-weight: 300;
       color: var(--text-light);
-      margin: 0 0 30px;
+      margin: 0 0 20px;
     }
     .jornada-iv-bloque p {
       font-family: 'Inter', sans-serif;
-      font-size: 14px;
+      font-size: 14.5px;
       font-weight: 300;
-      line-height: 1.75;
+      line-height: 1.5;
       color: var(--text-mid);
-      margin: 0 0 14px;
+      margin: 0 0 8px;
     }
+    /* texto corrido de lectura: justificado, con medida y particion de palabra */
+    .jornada-iv-bloque > p,
+    .jornada-iv-bloque-medio p,
+    .jornada-iv-actos li > div > p,
+    .jornada-iv-quienes li {
+      text-align: justify;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+    .jornada-iv-bloque > p { max-width: 74ch; }
+    /* el repertorio no es texto corrido */
+    .jornada-iv-actos li > div > p.repertorio { text-align: left; hyphens: manual; }
     .jornada-iv-bloque p:last-child { margin-bottom: 0; }
     .jornada-iv-bloque strong { font-weight: 500; color: var(--text); }
+
+    /* el descanso no es un acto: mismo patron, mucho menos peso */
+    .jornada-iv-bloque.jornada-iv-descanso {
+      margin-top: 40px;
+      padding-top: 28px;
+    }
+    .jornada-iv-descanso .jornada-iv-bloque-hora,
+    .jornada-iv-descanso .jornada-iv-bloque-titulo { color: var(--text-light); }
+    .jornada-iv-descanso .jornada-iv-bloque-titulo {
+      font-size: 24px;
+      margin: 0;
+    }
 
     .jornada-iv-cita {
       font-family: 'Cormorant Garamond', serif;
@@ -702,20 +666,26 @@
     }
 
     /* rejilla de cuadros dentro de un bloque */
-    .jornada-iv-obras {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      align-items: start;
-      margin-top: 24px;
+    /* Las obras, colgadas como en una pared: cada fila a una misma altura y los
+       anchos, los que pida cada lienzo. Nada se recorta. */
+    .jornada-iv-hilera {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 26px;
+      margin-top: 22px;
     }
-    .jornada-iv-obras .obra-item { overflow: visible; }
-    .jornada-iv-obras .obra-img {
+    .jornada-iv-hilera .obra-item { overflow: visible; }
+    .jornada-iv-hilera .obra-img {
       aspect-ratio: unset;
       object-fit: contain;
-      height: auto;
+      width: auto;
+      max-width: 100%;
     }
-    .jornada-iv-obras .obra-fecha { text-align: center; }
+    .jornada-iv-hilera .obra-fecha { text-align: center; }
+    .jornada-iv-hilera-apaisadas .obra-img { height: 318px; }
+    .jornada-iv-hilera-verticales .obra-img { height: 292px; }
 
     /* video vertical dentro de un bloque */
     .jornada-iv-video {
@@ -739,7 +709,7 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--text-mid);
-      margin: 44px 0 6px;
+      margin: 32px 0 6px;
     }
 
     /* actos dentro de un bloque compartido */
@@ -752,7 +722,7 @@
       display: grid;
       grid-template-columns: 76px 1fr;
       gap: 24px;
-      padding: 20px 0;
+      padding: 16px 0;
       border-bottom: 1px solid var(--border);
     }
     .jornada-iv-actos li:last-child { border-bottom: none; }
@@ -771,6 +741,14 @@
       color: var(--text);
       margin: 0 0 8px;
     }
+    .jornada-iv-actos .repertorio {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      color: var(--text);
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
 
     /* semblanzas de los participantes en la exposicion */
     .jornada-iv-quienes {
@@ -780,11 +758,11 @@
     }
     .jornada-iv-quienes li {
       font-family: 'Inter', sans-serif;
-      font-size: 14px;
+      font-size: 14.5px;
       font-weight: 300;
-      line-height: 1.75;
+      line-height: 1.5;
       color: var(--text-mid);
-      padding: 14px 0;
+      padding: 11px 0;
       border-top: 1px solid var(--border);
     }
     .jornada-iv-quienes b {
@@ -817,11 +795,13 @@
       #jornada-iv { padding: 64px 24px; }
       .jornada-iv-carteles { grid-template-columns: 1fr; gap: 28px; }
       .jornada-iv-meta { padding: 24px; }
-      .jornada-iv-programa li { grid-template-columns: 1fr; gap: 4px; padding: 22px 0; }
-      .jornada-iv-programa .hora { font-size: 19px; }
       .jornada-iv-bloque-medio { grid-template-columns: 1fr; gap: 28px; }
       .jornada-iv-bloque-duo { grid-template-columns: 1fr; gap: 24px; }
-      .jornada-iv-obras { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .jornada-iv-hilera { gap: 16px; }
+      .jornada-iv-hilera .obra-item { flex: 0 1 calc(50% - 8px); }
+      .jornada-iv-hilera .obra-img,
+      .jornada-iv-hilera-apaisadas .obra-img,
+      .jornada-iv-hilera-verticales .obra-img { height: auto; width: 100%; }
       .jornada-iv-bloque { margin-top: 52px; padding-top: 40px; }
       .jornada-iv-bloque-titulo { font-size: 28px; }
       .jornada-iv-actos li { grid-template-columns: 1fr; gap: 4px; padding: 18px 0; }
@@ -2494,94 +2474,33 @@
         </figure>
       </div>
 
-      <h3 class="jornada-iv-sub only-es">Programa</h3>
-      <h3 class="jornada-iv-sub only-en">Programme</h3>
+      <!-- ── bloque: inauguración ── -->
+      <div class="jornada-iv-bloque">
+        <p class="jornada-iv-bloque-hora only-es">09:45 · Apertura</p>
+        <p class="jornada-iv-bloque-hora only-en">09:45 · Opening</p>
+        <h3 class="jornada-iv-bloque-titulo only-es">Inauguración</h3>
+        <h3 class="jornada-iv-bloque-titulo only-en">Opening</h3>
+        <p class="jornada-iv-bloque-sub only-es">Bienvenida y presentación del programa</p>
+        <p class="jornada-iv-bloque-sub only-en">Welcome and presentation of the programme</p>
 
-      <ol class="jornada-iv-programa only-es">
-        <li><span class="hora">09:45</span><div class="acto">
-          <h4>Inauguración</h4>
-          <p>Bienvenida del <strong>Prof. Jesús Usón</strong>, presidente de honor y fundador del CCMIJU. Presentación del programa por el director científico <strong>Dr. Francisco Sánchez-Margallo</strong>, los coordinadores <strong>Dr. Álvaro y Fernando Serrano Pascual</strong> y, por parte de ASCEMI, <strong>Antonio Bueno</strong>.</p>
-        </div></li>
-        <li><span class="hora">10:00</span><div class="acto">
-          <h4>El papel de la bioimpresión 3D en medicina personalizada</h4>
-          <p>Conferencia del <strong>Dr. Joaquín Gómez Abellán</strong>, científico del CCMIJU. Bioimpresión de tejido ovárico y uterino para crear dispositivos implantables que ayuden a tratar patologías reproductivas.</p>
-        </div></li>
-        <li><span class="hora">10:20</span><div class="acto">
-          <h4>Deporte e <span class="incl">INCLUSIÓN</span>: la mística de la superación</h4>
-          <p><strong><span class="incl">KINI</span> Carrasco Ávila</strong></p>
-        </div></li>
-        <li><span class="hora">10:40</span><div class="acto">
-          <h4>Lectura poética y proyección de vídeo: <em>Travesía por el dolor</em></h4>
-          <p><strong>Clara del Carmen Martín</strong>. El testimonio poético de una mujer que narra su travesía por el sufrimiento psíquico.</p>
-        </div></li>
-        <li><span class="hora">11:00</span><div class="acto">
-          <h4>Presentación y entrevista: <em>Infancia debilitada</em></h4>
-          <p><strong>Carlos Montenegro</strong> (Madrid, 1947) presenta su relato autobiográfico, un alegato contra el alcoholismo que padeció su madre y sufrió toda su familia.</p>
-        </div></li>
-        <li><span class="hora">11:20</span><div class="acto">
-          <h4>Exposición <em>De profundis</em></h4>
-          <p>Carmen Pascual, Jesús Usón, Olegario, Carlos Montenegro y Clara del Carmen Martín. Con acto de entrega de obra.</p>
-        </div></li>
-        <li class="descanso"><span class="hora">11:45</span><div class="acto">
-          <h4>Descanso</h4>
-        </div></li>
-        <li><span class="hora">12:10</span><div class="acto">
-          <h4>Música y educación inclusiva</h4>
-          <p><strong>Dra. Silvia Núñez Díaz</strong>, con <strong>Elena Álvarez Parejo</strong> al piano.</p>
-        </div></li>
-        <li><span class="hora">12:40</span><div class="acto">
-          <h4>Cirugía cerebral en pacientes despiertos</h4>
-          <p><strong>Dr. Ángel Pérez Núñez</strong>, neurocirujano oncológico.</p>
-        </div></li>
-        <li><span class="hora">13:00</span><div class="acto">
-          <h4>Concierto de clausura. Piano solo</h4>
-          <p><strong>José María Villegas</strong></p>
-          <p class="repertorio">Bach · Chopin · Scriabin · Chacona de Bach-Busoni</p>
-        </div></li>
-      </ol>
+        <p class="only-es">Bienvenida del <strong>Prof. Jesús Usón</strong>, presidente de honor y fundador del CCMIJU. Presentación del programa por el director científico <strong>Dr. Francisco Sánchez-Margallo</strong>, los coordinadores <strong>Dr. Álvaro y Fernando Serrano Pascual</strong> y, por parte de ASCEMI, <strong>Antonio Bueno</strong>.</p>
+        <p class="only-en">Welcome by <strong>Prof. Jesús Usón</strong>, honorary president and founder of the CCMIJU. Presentation of the programme by scientific director <strong>Dr Francisco Sánchez-Margallo</strong>, coordinators <strong>Dr Álvaro and Fernando Serrano Pascual</strong> and, on behalf of ASCEMI, <strong>Antonio Bueno</strong>.</p>
+      </div>
 
-      <ol class="jornada-iv-programa only-en">
-        <li><span class="hora">09:45</span><div class="acto">
-          <h4>Opening</h4>
-          <p>Welcome by <strong>Prof. Jesús Usón</strong>, honorary president and founder of the CCMIJU. Presentation of the programme by scientific director <strong>Dr Francisco Sánchez-Margallo</strong>, coordinators <strong>Dr Álvaro and Fernando Serrano Pascual</strong> and, on behalf of ASCEMI, <strong>Antonio Bueno</strong>.</p>
-        </div></li>
-        <li><span class="hora">10:00</span><div class="acto">
-          <h4>The role of 3D bioprinting in personalised medicine</h4>
-          <p>Lecture by <strong>Dr Joaquín Gómez Abellán</strong>, CCMIJU scientist. Bioprinting of ovarian and uterine tissue to create implantable devices for treating reproductive conditions.</p>
-        </div></li>
-        <li><span class="hora">10:20</span><div class="acto">
-          <h4>Sport and <span class="incl">INCLUSION</span>: the mystique of endurance</h4>
-          <p><strong><span class="incl">KINI</span> Carrasco Ávila</strong></p>
-        </div></li>
-        <li><span class="hora">10:40</span><div class="acto">
-          <h4>Poetry reading and video: <em>A passage through pain</em></h4>
-          <p><strong>Clara del Carmen Martín</strong>. The poetic testimony of a woman recounting her passage through psychological suffering.</p>
-        </div></li>
-        <li><span class="hora">11:00</span><div class="acto">
-          <h4>Book presentation: <em>Infancia debilitada</em></h4>
-          <p><strong>Carlos Montenegro</strong> (Madrid, 1947) presents his autobiographical account, an indictment of the alcoholism his mother suffered and his whole family endured.</p>
-        </div></li>
-        <li><span class="hora">11:20</span><div class="acto">
-          <h4><em>De profundis</em> exhibition</h4>
-          <p>Carmen Pascual, Jesús Usón, Olegario, Carlos Montenegro and Clara del Carmen Martín. Including a handover of works.</p>
-        </div></li>
-        <li class="descanso"><span class="hora">11:45</span><div class="acto">
-          <h4>Break</h4>
-        </div></li>
-        <li><span class="hora">12:10</span><div class="acto">
-          <h4>Music and inclusive education</h4>
-          <p><strong>Dr Silvia Núñez Díaz</strong>, with <strong>Elena Álvarez Parejo</strong> at the piano.</p>
-        </div></li>
-        <li><span class="hora">12:40</span><div class="acto">
-          <h4>Brain surgery on awake patients</h4>
-          <p><strong>Dr Ángel Pérez Núñez</strong>, oncological neurosurgeon.</p>
-        </div></li>
-        <li><span class="hora">13:00</span><div class="acto">
-          <h4>Closing concert. Solo piano</h4>
-          <p><strong>José María Villegas</strong></p>
-          <p class="repertorio">Bach · Chopin · Scriabin · Bach-Busoni Chaconne</p>
-        </div></li>
-      </ol>
+      <!-- ── bloque: bioimpresión 3D ── -->
+      <div class="jornada-iv-bloque">
+        <p class="jornada-iv-bloque-hora only-es">10:00 · Ciencia</p>
+        <p class="jornada-iv-bloque-hora only-en">10:00 · Science</p>
+        <h3 class="jornada-iv-bloque-titulo only-es">El papel de la bioimpresión 3D en medicina personalizada</h3>
+        <h3 class="jornada-iv-bloque-titulo only-en">The role of 3D bioprinting in personalised medicine</h3>
+        <p class="jornada-iv-bloque-sub only-es">Dr. Joaquín Gómez Abellán, científico del CCMIJU</p>
+        <p class="jornada-iv-bloque-sub only-en">Dr Joaquín Gómez Abellán, CCMIJU scientist</p>
+
+        <p class="only-es">Biólogo y máster en biomedicina, investiga en el CCMIJU la bioimpresión de tejido ovárico y uterino para crear dispositivos implantables que ayuden a tratar patologías reproductivas.</p>
+        <p class="only-es">La medicina personalizada fabrica para cada paciente el tejido que necesita. La conferencia explica cómo se imprime materia viva y qué puede devolver a quien ha perdido una función.</p>
+        <p class="only-en">A biologist with a master's degree in biomedicine, at the CCMIJU he researches the bioprinting of ovarian and uterine tissue to create implantable devices for treating reproductive conditions.</p>
+        <p class="only-en">Personalised medicine builds, for each patient, the tissue they need. The lecture explains how living matter is printed and what it can give back to someone who has lost a function.</p>
+      </div>
 
       <!-- ── bloque: KINI Carrasco ── -->
       <div class="jornada-iv-bloque">
@@ -2617,8 +2536,8 @@
         <p class="jornada-iv-bloque-hora only-en">10:40 · Poetry reading</p>
         <h3 class="jornada-iv-bloque-titulo only-es"><em>Travesía por el dolor</em></h3>
         <h3 class="jornada-iv-bloque-titulo only-en"><em>A passage through pain</em></h3>
-        <p class="jornada-iv-bloque-sub only-es">Clara del Carmen Martín. Lectura poética y proyección de vídeo</p>
-        <p class="jornada-iv-bloque-sub only-en">Clara del Carmen Martín. Poetry reading and video projection</p>
+        <p class="jornada-iv-bloque-sub only-es">Clara del Carmen Martín (El Torno, Cáceres, 1999). Lectura poética y proyección de vídeo</p>
+        <p class="jornada-iv-bloque-sub only-en">Clara del Carmen Martín (El Torno, Cáceres, 1999). Poetry reading and video projection</p>
 
         <p class="only-es">El testimonio poético de una mujer que narra su travesía por el sufrimiento psíquico, una mística que se inserta en la tradición espiritual de introspección y resistencia, de gran autenticidad literaria y humana. Su voz llega acompañada de proyección de vídeo.</p>
         <p class="only-en">The poetic testimony of a woman recounting her passage through psychological suffering, a mysticism rooted in the spiritual tradition of introspection and resistance, of great literary and human authenticity. Her voice comes accompanied by video projection.</p>
@@ -2630,6 +2549,19 @@
           <p class="obra-fecha only-es"><em>Primavera</em>, de Clara del Carmen Martín</p>
           <p class="obra-fecha only-en"><em>Primavera</em>, by Clara del Carmen Martín</p>
         </div>
+      </div>
+
+      <!-- ── bloque: Infancia debilitada ── -->
+      <div class="jornada-iv-bloque">
+        <p class="jornada-iv-bloque-hora only-es">11:00 · Presentación de libro</p>
+        <p class="jornada-iv-bloque-hora only-en">11:00 · Book presentation</p>
+        <h3 class="jornada-iv-bloque-titulo only-es"><em>Infancia debilitada</em></h3>
+        <h3 class="jornada-iv-bloque-titulo only-en"><em>Infancia debilitada</em></h3>
+        <p class="jornada-iv-bloque-sub only-es">Carlos Montenegro (Madrid, 1947). Presentación y entrevista</p>
+        <p class="jornada-iv-bloque-sub only-en">Carlos Montenegro (Madrid, 1947). Presentation and interview</p>
+
+        <p class="only-es"><strong>Carlos Montenegro</strong> presenta su relato autobiográfico, un alegato contra el alcoholismo que padeció su madre y sufrió toda su familia. Paradigma de superación y de generosidad, es un ejemplo de resiliencia y de valores humanos.</p>
+        <p class="only-en"><strong>Carlos Montenegro</strong> presents his autobiographical account, an indictment of the alcoholism his mother suffered and his whole family endured. A model of resilience and generosity, he is an example of human values.</p>
       </div>
 
       <!-- ── bloque: De profundis ── -->
@@ -2680,7 +2612,7 @@
           <li><b>Carmen Pascual.</b> A los 80 años sufrió un ictus que le produjo una hemiplejía y una afasia total. A partir de entonces, y hasta su fallecimiento con 93 años, realizó más de 1.500 obras de pintura, expuestas en numerosas muestras individuales y colectivas.</li>
           <li><b>Jesús Usón.</b> Fundador y presidente de honor del CCMIJU. Los principios de lo que hoy es un centro de excelencia en investigación y formación en cirugía de mínima invasión, de máxima referencia internacional, empezaron habilitando como laboratorios unas «cochiqueras».</li>
           <li><b>Olegario.</b> Natural de Mohedas de Granadilla, fue un niño prodigio de la escultura y de la talla directa en piedra y madera. Desde un ambiente y una tierra humildes ha logrado una reputada fama de escultor y docente, maestro de maestros, profesor titular de escultura de la Facultad de Bellas Artes de Sevilla.</li>
-          <li><b>Carlos Montenegro.</b> Paradigma de superación y humanismo, autor de <em>Infancia debilitada</em>, un relato autobiográfico que va más allá del ambiente sórdido que novela Zola en <em>La taberna</em>. En esta ocasión muestra sus pinturas, luminosas y llenas de encanto, rigor y verdad.</li>
+          <li><b>Carlos Montenegro</b>, artista invitado. Paradigma de superación y humanismo, autor de <em>Infancia debilitada</em>, un relato autobiográfico que va más allá del ambiente sórdido que novela Zola en <em>La taberna</em>. En esta ocasión muestra sus pinturas, luminosas y llenas de encanto, rigor y verdad.</li>
           <li><b>Clara del Carmen Martín.</b> El testimonio poético de una mujer que narra su travesía por el sufrimiento psíquico, una mística que se inserta en la tradición espiritual de introspección y resistencia, de gran autenticidad literaria y humana.</li>
         </ul>
 
@@ -2688,7 +2620,7 @@
           <li><b>Carmen Pascual.</b> At the age of 80 she suffered a stroke that left her with hemiplegia and total aphasia. From then until her death at 93 she produced more than 1,500 paintings, shown in numerous solo and group exhibitions.</li>
           <li><b>Jesús Usón.</b> Founder and honorary president of the CCMIJU. What is today an internationally renowned centre of excellence in minimally invasive surgery research and training began by fitting out some pigsties as laboratories.</li>
           <li><b>Olegario.</b> Born in Mohedas de Granadilla, he was a child prodigy of sculpture and of direct carving in stone and wood. From humble beginnings he has earned a distinguished reputation as sculptor and teacher, and is professor of sculpture at the Seville Faculty of Fine Arts.</li>
-          <li><b>Carlos Montenegro.</b> A model of resilience and humanism, author of <em>Infancia debilitada</em>, an autobiographical account that goes beyond the sordid world Zola portrays in <em>L'Assommoir</em>. Here he shows his paintings: luminous, full of charm, rigour and truth.</li>
+          <li><b>Carlos Montenegro</b>, guest artist. A model of resilience and humanism, author of <em>Infancia debilitada</em>, an autobiographical account that goes beyond the sordid world Zola portrays in <em>L'Assommoir</em>. Here he shows his paintings: luminous, full of charm, rigour and truth.</li>
           <li><b>Clara del Carmen Martín.</b> The poetic testimony of a woman recounting her passage through psychological suffering, a mysticism rooted in the spiritual tradition of introspection and resistance, of great literary and human authenticity.</li>
         </ul>
 
@@ -2697,7 +2629,7 @@
         <p class="only-es">Seis de las obras que trae a la exposición: luminosas, minuciosas, llenas de encanto, rigor y verdad.</p>
         <p class="only-en">Six of the works he brings to the exhibition: luminous, meticulous, full of charm, rigour and truth.</p>
 
-        <div class="jornada-iv-obras">
+        <div class="jornada-iv-hilera jornada-iv-hilera-apaisadas">
           <div class="obra-item">
             <img src="obras/jornada-iv/montenegro-vista-el-torno.jpg" class="obra-img" loading="lazy"
                  alt="Vista de El Torno, pintura de Carlos Montenegro: el pueblo de tejados rojos en la ladera del valle">
@@ -2708,6 +2640,9 @@
                  alt="Choza rusa, pintura de Carlos Montenegro: casa de tejado de paja tras una empalizada y un jardín florido">
             <p class="obra-fecha">Choza rusa</p>
           </div>
+        </div>
+
+        <div class="jornada-iv-hilera jornada-iv-hilera-verticales">
           <div class="obra-item">
             <img src="obras/jornada-iv/montenegro-calle-de-madrid.jpg" class="obra-img" loading="lazy"
                  alt="Calle de Madrid, dibujo a tinta de Carlos Montenegro: una calle en cuesta entre casas con balcones">
@@ -2729,6 +2664,14 @@
             <p class="obra-fecha">Jarrón con margaritas de fantasía</p>
           </div>
         </div>
+      </div>
+
+      <!-- ── bloque: descanso ── -->
+      <div class="jornada-iv-bloque jornada-iv-descanso">
+        <p class="jornada-iv-bloque-hora only-es">11:45</p>
+        <p class="jornada-iv-bloque-hora only-en">11:45</p>
+        <h3 class="jornada-iv-bloque-titulo only-es">Descanso</h3>
+        <h3 class="jornada-iv-bloque-titulo only-en">Break</h3>
       </div>
 
       <!-- ── bloque: música y ciencia (dos carteles, un solo contenido) ── -->
@@ -2755,27 +2698,22 @@
           </figure>
         </div>
 
-        <div class="jornada-iv-bloque-ancho">
-          <figure>
-            <img src="obras/jornada-iv/villegas-concierto.jpg" class="obra-img" loading="lazy"
-                 alt="José María Villegas junto al piano de cola, saludando al público al final de su concierto">
-            <figcaption class="only-es">José María Villegas en el concierto con el que celebró su recuperación tras la cirugía. Gran Teatro de Cáceres, 4 de marzo de 2026. Foto: Manuel Curiel.</figcaption>
-            <figcaption class="only-en">José María Villegas at the concert celebrating his recovery after surgery. Gran Teatro de Cáceres, 4 March 2026. Photo: Manuel Curiel.</figcaption>
-          </figure>
-        </div>
-
         <ol class="jornada-iv-actos only-es">
           <li><span class="hora">12:10</span><div>
             <h4>Estimulación neuronal a través de la música II</h4>
-            <p>Conferencia de la <strong>Dra. Silvia Núñez Díaz</strong>, creadora y directora del Proyecto NeuroRedes y profesora del Conservatorio Oficial de Música «Esteban Sánchez» de Mérida. Al piano, <strong>Elena Álvarez Parejo</strong>, alumna con síndrome de Down integrada en la educación normalizada gracias al Proyecto NeuroRedes.</p>
+            <p>Conferencia de la <strong>Dra. Silvia Núñez Díaz</strong>, creadora y directora del Proyecto NeuroRedes, con <strong>Elena Álvarez Parejo</strong> al piano. Continúa la conferencia que ella misma abrió en la III Jornada, en octubre de 2025.</p>
+            <p>Doctora <em>cum laude</em> en Ciencias de la Salud por la Universidad de Alcalá, con formación en Psicología, Neuropsicología, Educación y Musicoterapia. Profesora de piano y de neuropsicología de la música en el Conservatorio Profesional de Música «Esteban Sánchez» de Mérida, donde dirige el Proyecto NeuroRedes, basado en la metodología SINUDI: un programa pionero de intervención neuropsicológica musical para personas con discapacidad cognitiva, cuyos resultados evidencian el efecto de la música sobre la atención, la memoria y la plasticidad cerebral.</p>
+            <p><strong>Elena Álvarez Parejo</strong> es alumna con síndrome de Down integrada en la educación musical normalizada gracias al Proyecto NeuroRedes.</p>
           </div></li>
           <li><span class="hora">12:40</span><div>
             <h4>Cirugía cerebral en pacientes despiertos</h4>
-            <p>Conferencia del <strong>Dr. Ángel Pérez Núñez</strong>, neurocirujano oncológico del Hospital Universitario 12 de Octubre.</p>
+            <p>Conferencia del <strong>Dr. Ángel Pérez Núñez</strong>, neurocirujano oncológico del Hospital Universitario 12 de Octubre, donde desarrolla su actividad principalmente en el ámbito de la Neuro-Oncología.</p>
+            <p>Completó su formación en el UCSF Brain Tumor Center de San Francisco. Participó en la creación de la Unidad Multidisciplinar de Neuro-Oncología del hospital y del Grupo de Investigación en Neuro-Oncología, de los que es miembro. Tiene amplia experiencia en la cirugía del paciente despierto, que permite monitorizar las áreas cerebrales esenciales y optimizar así el resultado oncológico y funcional en la resección de tumores cerebrales.</p>
           </div></li>
           <li><span class="hora">13:00</span><div>
             <h4>Concierto de clausura. Piano solo</h4>
-            <p><strong>José María Villegas</strong>, alumno del pianista georgiano Alexander Kandelaki, se formó en el Conservatorio Superior de Badajoz y en The Juilliard School de Nueva York. Ha obtenido numerosos premios y actuado en distintos países. Desde 2013 reside en Extremadura, donde ha conseguido el mayor de todos sus logros: ser padre de Vera y Mateo Villegas Almoril.</p>
+            <p><strong>José María Villegas</strong>, piano.</p>
+            <p>Natural de Sevilla y alumno del pianista georgiano Alexander Kandelaki, se formó en el Conservatorio Superior de Badajoz, en The Juilliard School de Nueva York y en la Hochschule für Musik, Theater und Medien de Hannover. Premiado en numerosos concursos nacionales e internacionales, ha participado en festivales internacionales y ofrecido conciertos en España, Francia, Italia, Bélgica, los Países Bajos, Alemania, Estados Unidos, Venezuela y Argentina. Profesor en el Conservatorio Profesional de Música de Plasencia y en el Superior de Cáceres, desde 2013 reside en Extremadura, con la que mantiene un vínculo muy especial y donde ha conseguido el mayor de todos sus logros: ser padre de Vera y Mateo Villegas Almoril.</p>
             <p class="repertorio">Bach · Chopin · Scriabin · Chacona de Bach-Busoni</p>
           </div></li>
         </ol>
@@ -2783,15 +2721,19 @@
         <ol class="jornada-iv-actos only-en">
           <li><span class="hora">12:10</span><div>
             <h4>Neural stimulation through music II</h4>
-            <p>Lecture by <strong>Dr Silvia Núñez Díaz</strong>, founder and director of the NeuroRedes Project and teacher at the «Esteban Sánchez» Conservatory of Music in Mérida. At the piano, <strong>Elena Álvarez Parejo</strong>, a student with Down syndrome integrated into mainstream education thanks to the NeuroRedes Project.</p>
+            <p>Lecture by <strong>Dr Silvia Núñez Díaz</strong>, founder and director of the NeuroRedes Project, with <strong>Elena Álvarez Parejo</strong> at the piano. It continues the lecture she gave at the III Jornada in October 2025.</p>
+            <p>PhD <em>cum laude</em> in Health Sciences from the University of Alcalá, with training in Psychology, Neuropsychology, Education and Music Therapy. She teaches piano and the neuropsychology of music at the «Esteban Sánchez» Professional Conservatory of Music in Mérida, where she directs the NeuroRedes Project, based on the SINUDI method: a pioneering programme of musical neuropsychological intervention for people with cognitive disabilities, whose results show the effect of music on attention, memory and brain plasticity.</p>
+            <p><strong>Elena Álvarez Parejo</strong> is a student with Down syndrome integrated into mainstream music education thanks to the NeuroRedes Project.</p>
           </div></li>
           <li><span class="hora">12:40</span><div>
             <h4>Brain surgery on awake patients</h4>
-            <p>Lecture by <strong>Dr Ángel Pérez Núñez</strong>, oncological neurosurgeon at Hospital Universitario 12 de Octubre.</p>
+            <p>Lecture by <strong>Dr Ángel Pérez Núñez</strong>, oncological neurosurgeon at Hospital Universitario 12 de Octubre, where he works mainly in Neuro-Oncology.</p>
+            <p>He completed his training at the UCSF Brain Tumor Center in San Francisco. He took part in setting up the Multidisciplinary Neuro-Oncology Unit of the hospital and its Neuro-Oncology Research Group, of which he is a member. He has extensive experience in awake patient surgery, which allows the essential areas of the brain to be monitored and so optimises the oncological and functional outcome when resecting brain tumours.</p>
           </div></li>
           <li><span class="hora">13:00</span><div>
             <h4>Closing concert. Solo piano</h4>
-            <p><strong>José María Villegas</strong>, a student of Georgian pianist Alexander Kandelaki, trained at the Badajoz Conservatory and at The Juilliard School in New York. He has won numerous prizes and performed in many countries. Since 2013 he has lived in Extremadura, where he achieved his greatest accomplishment: becoming father to Vera and Mateo Villegas Almoril.</p>
+            <p><strong>José María Villegas</strong>, piano.</p>
+            <p>Born in Seville and a student of Georgian pianist Alexander Kandelaki, he trained at the Badajoz Conservatory, at The Juilliard School in New York and at the Hochschule für Musik, Theater und Medien in Hanover. A prizewinner in many national and international competitions, he has taken part in international festivals and given concerts in Spain, France, Italy, Belgium, the Netherlands, Germany, the United States, Venezuela and Argentina. A teacher at the Professional Conservatory of Music in Plasencia and the Higher Conservatory in Cáceres, since 2013 he has lived in Extremadura, to which he feels a very special bond and where he achieved his greatest accomplishment: becoming father to Vera and Mateo Villegas Almoril.</p>
             <p class="repertorio">Bach · Chopin · Scriabin · Bach-Busoni Chaconne</p>
           </div></li>
         </ol>
