@@ -257,8 +257,8 @@ FILA_BASE = [           # cinco, las de mayor extension horizontal
              (0.0344, 0.2298, 0.2063, 0.3977), "Silvia Núñez",      0.20),
 ]
 
-HUECO, ALTO_ALTA, ALTO_BASE = 15, 180, 202
-Y_PIE, FIN_PIE = 772, 1158     # banda del concierto, en la tarjeta oscura
+HUECO, ALTO_ALTA, ALTO_BASE = 15, 140, 160
+Y_PIE, FIN_PIE = 684, 1038     # banda del concierto, en la tarjeta oscura
 X_DCHA = 1040                  # hasta donde puede llegar el programa
 
 
@@ -380,6 +380,10 @@ PARTIDO = {
 }
 
 
+WEB = "https://www.fundacioncarmenpascual.org/"
+CAJA_QR = CAJA_WEB = None      # las rellena la tarjeta al dibujar el pie
+
+
 PROGRAMA = [
     ("09:45", "Inauguración. Prof. Jesús Usón y Dr. Francisco Sánchez-Margallo"),
     ("10:00", "Bioimpresión 3D en medicina personalizada. Dr. Joaquín Gómez Abellán"),
@@ -455,14 +459,14 @@ def tarjeta(variante="foto"):
 
     # imagen o mosaico
     if sobre_foto:
-        mosaico_participantes(img, d, M, 322 if fondo_oscuro else 316, CW)
+        mosaico_participantes(img, d, M, 316, CW)
         credito = None          # los creditos de las fotos van en la web
         if fondo_oscuro:
             perfil = fondo_pie(img, W, Y_PIE, FIN_PIE - Y_PIE)
             barra_tricolor(d, 0, Y_PIE, W, 8)
             # bajado 24 px: deja el mismo aire sobre "PROGRAMA" que bajo la
             # ultima linea, dentro de la banda del concierto
-            y_credito, y_label, y_prog, salto = 0, 812, 844, 32
+            y_credito, y_label, y_prog, salto = 0, 712, 744, 31
         else:
             y_credito, y_label, y_prog, salto = 0, 774, 808, 33
     elif variante == "cuatro":
@@ -533,10 +537,29 @@ def tarjeta(variante="foto"):
         # concierto y la de los logotipos. Se centra la mancha real de las
         # letras, no la caja de la fuente: si no, el hueco del descendente
         # -la p de pascual- deja mas aire arriba que abajo.
-        enlace, f_enlace = "fundacioncarmenpascual.org", sans(29, "bold")
-        caja = d.textbbox((0, 0), enlace, font=f_enlace, anchor="ma")
-        y_enlace = FIN_PIE + ((1206 - FIN_PIE) - (caja[3] - caja[1])) / 2 - caja[1]
-        d.text((W / 2, y_enlace), enlace, font=f_enlace, fill=GREEN, anchor="ma")
+        # El QR de la Fundacion -el mismo que ya esta difundido y que esta en
+        # la web, docs/qr-fundacion.png- recortado sin su pie, que aqui sobra
+        # porque el nombre y la direccion van al lado. Es lo unico que lleva a
+        # la web desde la propia imagen: el texto de una foto no se pulsa.
+        LADO = 148
+        qr = Image.open(os.path.join(BASE, "docs", "qr-fundacion.png")).convert("RGB")
+        qr = qr.crop((96, 96, 670, 670)).resize((LADO, LADO), Image.LANCZOS)
+
+        f_pie, f_web = sans(20), sans(27, "bold")
+        rotulo, web = "Programa, obras y vídeos en", "www.fundacioncarmenpascual.org"
+        ancho_txt = max(ancho(d, rotulo, f_pie), ancho(d, web, f_web))
+        x = (W - (LADO + 26 + ancho_txt)) // 2
+        y = FIN_PIE + ((1206 - FIN_PIE) - LADO) // 2
+
+        img.paste(qr, (x, y))
+        d.text((x + LADO + 26, y + 42), rotulo, font=f_pie, fill=TEXT_MID)
+        d.text((x + LADO + 26, y + 74), web, font=f_web, fill=GREEN)
+
+        # se apuntan las dos zonas, para que el PDF ponga ahi los enlaces
+        global CAJA_QR, CAJA_WEB
+        CAJA_QR  = (x, y, x + LADO, y + LADO)
+        CAJA_WEB = (x + LADO + 26, y + 70,
+                    x + LADO + 26 + ancho(d, web, f_web), y + 110)
     else:
         d.line([(M, 1108), (M + CW, 1108)], fill=BORDER, width=1)
         d.text((W / 2, 1122), "Los cinco carteles, las obras y los vídeos, en",
@@ -562,6 +585,39 @@ def tarjeta(variante="foto"):
     salida = os.path.join(OBRAS, nombre)
     img.save(salida, "JPEG", quality=88, progressive=True, optimize=True)
     print("%-28s %dx%d  %d KB" % (nombre, img.width, img.height, os.path.getsize(salida) // 1024))
+
+
+# ══ 1 bis. La misma tarjeta en PDF, con la direccion pulsable ══
+def tarjeta_pdf(jpg="tarjeta-whatsapp-quirofano.jpg",
+                nombre="IV Jornada de Arte y Ciencia por la INCLUSIÓN.pdf"):
+    """Mete el JPG en un PDF y le pone encima una zona de enlace sobre la
+    direccion escrita.
+
+    En una imagen el texto no se puede pulsar; en un PDF si, porque el enlace
+    es una anotacion aparte que el visor coloca sobre la pagina. Y al mandarlo
+    como documento, lo que se anuncia es el nombre del fichero: de ahi que se
+    llame como la Jornada.
+    """
+    from reportlab.pdfgen import canvas
+
+    ANCHO, ALTO, ESCALA = 1080, 1350, 0.5        # 540 x 675 pt, a 144 ppp
+    W, H = ANCHO * ESCALA, ALTO * ESCALA
+    salida = os.path.join(OBRAS, nombre)
+    c = canvas.Canvas(salida, pagesize=(W, H))
+    c.drawImage(os.path.join(OBRAS, jpg), 0, 0, W, H)
+
+    for caja in (CAJA_QR, CAJA_WEB):     # de pixeles a puntos, con el origen
+        if caja:                         # abajo, que es como cuenta el PDF
+            x0, y0, x1, y1 = caja
+            c.linkURL(WEB, (x0 * ESCALA, (ALTO - y1) * ESCALA,
+                            x1 * ESCALA, (ALTO - y0) * ESCALA), relative=0, thickness=0)
+
+    c.setTitle("IV Jornada de Arte y Ciencia por la INCLUSIÓN")
+    c.setAuthor("Fundación Carmen Pascual. Arte Salud Naturaleza")
+    c.setSubject("Viernes 23 de octubre de 2026, 09:45 h. CCMIJU, Cáceres")
+    c.save()
+    print("%-28s %.0fx%.0f pt  %d KB" % (nombre[:28], W, H,
+                                          os.path.getsize(salida) // 1024))
 
 
 # ══ 2. Vista previa del enlace, 1200 x 630 ════════════════════
@@ -594,4 +650,5 @@ if __name__ == "__main__":
     tarjeta("cuatro")
     tarjeta("participantes")
     tarjeta("quirofano")
+    tarjeta_pdf()
     og()
