@@ -1,0 +1,10 @@
+# Los binarios se guardan tal cual: sin tocarles los finales de linea.
+# Sin esto, Git trata el PDF como texto y al pasarlo por otra maquina lo
+# deja inservible.
+*.pdf  binary
+*.jpg  binary
+*.jpeg binary
+*.png  binary
+*.mp4  binary
+*.docx binary
+*.xlsx binary
