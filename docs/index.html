@@ -689,12 +689,23 @@
       grid-template-columns: 1.435fr 1.1808fr;
       gap: 26px;
     }
-    /* Calle de Madrid, Isidora, La boda y el bodegon: separacion mas corta,
-       que es lo que permite que los cuatro quepan en la misma anchura */
-    .jornada-iv-hilera-verticales {
-      grid-template-columns: 0.7129fr 0.8271fr 0.7285fr 0.7129fr;
-      gap: 18px;
+    /* Las seis verticales, en dos hileras de tres por orden de fecha. Cada
+       columna va en proporcion a su lienzo, de modo que los tres de una hilera
+       comparten altura. La segunda hilera se estrecha al 95,6 % para que su
+       altura case con la de la primera sin tocar la separacion. */
+    .jornada-iv-hilera-verticales { gap: 18px; }
+    .jornada-iv-hilera-verticales-1 {
+      grid-template-columns: 0.7129fr 0.7129fr 0.8271fr;
     }
+    .jornada-iv-hilera-verticales-2 {
+      grid-template-columns: 0.8234fr 0.7285fr 0.5988fr;
+      width: 95.6%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* el pliego de notas al programa, a todo lo ancho del bloque */
+    .jornada-iv-notas-pliego { margin-bottom: 36px; }
 
     /* video vertical dentro de un bloque */
     .jornada-iv-video {
@@ -808,7 +819,13 @@
       .jornada-iv-bloque-duo { grid-template-columns: 1fr; gap: 24px; }
       .jornada-iv-hilera { gap: 16px; }
       .jornada-iv-hilera-apaisadas { grid-template-columns: 1fr; }
-      .jornada-iv-hilera-verticales { grid-template-columns: repeat(2, 1fr); }
+      .jornada-iv-verticales-wrap {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-top: 22px;
+      }
+      .jornada-iv-hilera-verticales { display: contents; }
       .jornada-iv-bloque { margin-top: 52px; padding-top: 40px; }
       .jornada-iv-bloque-titulo { font-size: 28px; }
       .jornada-iv-actos li { grid-template-columns: 1fr; gap: 4px; padding: 18px 0; }
@@ -2633,42 +2650,57 @@
 
         <p class="jornada-iv-epigrafe only-es">Pinturas de Carlos Montenegro</p>
         <p class="jornada-iv-epigrafe only-en">Paintings by Carlos Montenegro</p>
-        <p class="only-es">Seis de las obras que trae a la exposición: luminosas, minuciosas, llenas de encanto, rigor y verdad.</p>
-        <p class="only-en">Six of the works he brings to the exhibition: luminous, meticulous, full of charm, rigour and truth.</p>
+        <p class="only-es">Ocho de las obras que trae a la exposición: luminosas, minuciosas, llenas de encanto, rigor y verdad.</p>
+        <p class="only-en">Eight of the works he brings to the exhibition: luminous, meticulous, full of charm, rigour and truth.</p>
 
         <div class="jornada-iv-hilera jornada-iv-hilera-apaisadas">
           <div class="obra-item">
             <img src="obras/jornada-iv/montenegro-vista-el-torno.jpg" class="obra-img" loading="lazy"
-                 alt="Vista de El Torno, pintura de Carlos Montenegro: el pueblo de tejados rojos en la ladera del valle">
-            <p class="obra-fecha">Vista de El Torno</p>
+                 alt="Vista de El Torno, 2010, pintura de Carlos Montenegro: el pueblo de tejados rojos en la ladera del valle">
+            <p class="obra-fecha">Vista de El Torno, 2010</p>
           </div>
           <div class="obra-item">
             <img src="obras/jornada-iv/montenegro-choza-rusa.jpg" class="obra-img" loading="lazy"
-                 alt="Choza rusa, pintura de Carlos Montenegro: casa de tejado de paja tras una empalizada y un jardín florido">
-            <p class="obra-fecha">Choza rusa</p>
+                 alt="Choza rusa, 1995, pintura de Carlos Montenegro: casa de tejado de paja tras una empalizada y un jardín florido">
+            <p class="obra-fecha">Choza rusa, 1995</p>
           </div>
         </div>
 
-        <div class="jornada-iv-hilera jornada-iv-hilera-verticales">
-          <div class="obra-item">
-            <img src="obras/jornada-iv/montenegro-calle-de-madrid.jpg" class="obra-img" loading="lazy"
-                 alt="Calle de Madrid, dibujo a tinta de Carlos Montenegro: una calle en cuesta entre casas con balcones">
-            <p class="obra-fecha">Calle de Madrid</p>
+        <div class="jornada-iv-verticales-wrap">
+          <div class="jornada-iv-hilera jornada-iv-hilera-verticales jornada-iv-hilera-verticales-1">
+            <div class="obra-item">
+              <img src="obras/jornada-iv/montenegro-antigua-calle-tesoro.jpg" class="obra-img" loading="lazy"
+                   alt="Antigua calle del Tesoro, 1962, dibujo a tinta de Carlos Montenegro: una calle en cuesta entre casas con balcones">
+              <p class="obra-fecha">Antigua calle del Tesoro, 1962</p>
+            </div>
+            <div class="obra-item">
+              <img src="obras/jornada-iv/montenegro-jarron-margaritas.jpg" class="obra-img" loading="lazy"
+                   alt="Jarrón con margaritas de fantasía, 1990, pintura de Carlos Montenegro: cuatro margaritas de colores en un jarrón de barro">
+              <p class="obra-fecha">Jarrón con margaritas de fantasía, 1990</p>
+            </div>
+            <div class="obra-item">
+              <img src="obras/jornada-iv/montenegro-casa-antolines.jpg" class="obra-img" loading="lazy"
+                   alt="Casa de los Antolines con Isidora, 1995, pintura de Carlos Montenegro: una mujer en el soportal de una calle de casas encaladas">
+              <p class="obra-fecha">Casa de los Antolines con Isidora, 1995</p>
+            </div>
           </div>
-          <div class="obra-item">
-            <img src="obras/jornada-iv/montenegro-isidora.jpg" class="obra-img" loading="lazy"
-                 alt="Isidora, pintura de Carlos Montenegro: una mujer en el soportal de una calle de casas encaladas">
-            <p class="obra-fecha">Isidora</p>
-          </div>
-          <div class="obra-item">
-            <img src="obras/jornada-iv/montenegro-la-boda.jpg" class="obra-img" loading="lazy"
-                 alt="La boda, pintura de Carlos Montenegro: retrato de una pareja de novios con ramo de rosas">
-            <p class="obra-fecha">La boda</p>
-          </div>
-          <div class="obra-item">
-            <img src="obras/jornada-iv/montenegro-jarron-margaritas.jpg" class="obra-img" loading="lazy"
-                 alt="Jarrón con margaritas de fantasía, pintura de Carlos Montenegro: cuatro margaritas de colores en un jarrón de barro">
-            <p class="obra-fecha">Jarrón con margaritas de fantasía</p>
+
+          <div class="jornada-iv-hilera jornada-iv-hilera-verticales jornada-iv-hilera-verticales-2">
+            <div class="obra-item">
+              <img src="obras/jornada-iv/montenegro-casa-rural-montana.jpg" class="obra-img" loading="lazy"
+                   alt="Casa Rural de Montaña, 1995, pintura de Carlos Montenegro: casa alpina de madera con los balcones llenos de flores y un lilo junto a la empalizada">
+              <p class="obra-fecha">Casa Rural de Montaña, 1995</p>
+            </div>
+            <div class="obra-item">
+              <img src="obras/jornada-iv/montenegro-maria-y-carlos.jpg" class="obra-img" loading="lazy"
+                   alt="María y Carlos, 2001, pintura de Carlos Montenegro: retrato de una pareja de novios con ramo de rosas">
+              <p class="obra-fecha">María y Carlos, 2001</p>
+            </div>
+            <div class="obra-item">
+              <img src="obras/jornada-iv/montenegro-juan-gris.jpg" class="obra-img" loading="lazy"
+                   alt="Copia de Juan Gris, 2004, pintura de Carlos Montenegro: bodegón cubista en grises, ocres y granate con las letras de un periódico">
+              <p class="obra-fecha">Copia de Juan Gris, 2004</p>
+            </div>
           </div>
         </div>
       </div>
@@ -2753,20 +2785,12 @@
         <p class="only-es">El programa del concierto y sus notas, con las obras de Bach, Chopin, Scriabin y la Chacona de Bach-Busoni.</p>
         <p class="only-en">The concert programme and its notes, with works by Bach, Chopin, Scriabin and the Bach-Busoni Chaconne.</p>
 
-        <div class="jornada-iv-bloque-duo">
-          <figure>
-            <img src="obras/jornada-iv/notas-programa-1.jpg" class="obra-img" loading="lazy"
-                 alt="Primera hoja de las notas al programa del concierto de clausura, con la fotografía y la semblanza de José María Villegas">
-            <figcaption class="only-es">El intérprete. Pulsa para ampliar.</figcaption>
-            <figcaption class="only-en">The performer. Click to enlarge.</figcaption>
-          </figure>
-          <figure>
-            <img src="obras/jornada-iv/notas-programa-2.jpg" class="obra-img" loading="lazy"
-                 alt="Segunda hoja de las notas al programa, con el repertorio del concierto y el comentario de las obras">
-            <figcaption class="only-es">Programa y comentario. Pulsa para ampliar.</figcaption>
-            <figcaption class="only-en">Programme and commentary. Click to enlarge.</figcaption>
-          </figure>
-        </div>
+        <figure class="jornada-iv-notas-pliego">
+          <img src="obras/jornada-iv/notas-programa.jpg" class="obra-img" loading="lazy"
+               alt="Hoja de notas al programa del concierto de clausura: a la izquierda, la fotografía y la semblanza de José María Villegas; a la derecha, el repertorio y el comentario de las obras">
+          <figcaption class="only-es">Notas al programa, en su hoja completa. Pulsa para ampliar y vuelve a pulsar para leerla.</figcaption>
+          <figcaption class="only-en">The programme notes, in the full sheet. Click to enlarge, then click again to read it.</figcaption>
+        </figure>
       </div>
 
 
