@@ -2406,8 +2406,8 @@
       <img src="logo-color.jpeg" alt="Fundación Carmen Pascual. Arte Salud Naturaleza" class="hero-logo">
       <a href="#jornada-iv" class="hero-jornada" id="btn-jornada-iv" onclick="return abrirJornadaIV(event);">
         <span class="hero-jornada-cartela">
-          <span class="only-es">Próxima actividad</span>
-          <span class="only-en">Upcoming activity</span>
+          <span class="only-es">Última actividad</span>
+          <span class="only-en">Latest activity</span>
         </span>
         <span class="hero-jornada-texto">
           <span class="only-es">IV Jornada de Arte y Ciencia por la <span class="incl">INCLUSIÓN</span></span>
@@ -2455,8 +2455,8 @@
   <section id="jornada-iv" style="display: none;">
     <div class="jornada-iv-inner">
 
-      <p class="section-label only-es">Próxima actividad</p>
-      <p class="section-label only-en">Next event</p>
+      <p class="section-label only-es">Última actividad</p>
+      <p class="section-label only-en">Latest event</p>
       <h2 class="jornada-iv-title only-es">IV Jornada de Arte y Ciencia por la <span class="incl">INCLUSIÓN</span></h2>
       <h2 class="jornada-iv-title only-en">IV Art and Science Conference for <span class="incl">INCLUSION</span></h2>
 
@@ -2779,6 +2779,29 @@
 
         <p class="only-es">El pianista <strong>José María Villegas</strong> padeció un tumor cerebral y fue intervenido con éxito por el <strong>Dr. Ángel Pérez</strong> mientras tocaba el instrumento. Hoy está totalmente recuperado para la docencia, la música y la vida. El cirujano explica la intervención y, acto seguido, el paciente se sienta al piano.</p>
         <p class="only-en">Pianist <strong>José María Villegas</strong> had a brain tumour and was successfully operated on by <strong>Dr Ángel Pérez</strong> while playing the instrument. Today he has fully recovered for teaching, music and life. The surgeon explains the operation and, moments later, the patient sits down at the piano.</p>
+
+        <p class="jornada-iv-epigrafe only-es">El concierto, en vídeo</p>
+        <p class="jornada-iv-epigrafe only-en">The concert, on video</p>
+
+        <div class="acarmen-video-wrap" style="margin-top: 12px;">
+          <p class="acarmen-video-title only-es">JM Villegas. <em>Obertura francesa</em> BWV 831, de Johann Sebastian Bach</p>
+          <p class="acarmen-video-title only-en">JM Villegas. <em>French Overture</em> BWV 831, by Johann Sebastian Bach</p>
+          <div class="acarmen-video-ratio" id="yt-villegas-wrap">
+            <div id="yt-villegas-facade" onclick="loadYTVillegas()"
+                 style="position:absolute;inset:0;cursor:pointer;background:#000;">
+              <img src="obras/jornada-iv/concierto-villegas-poster.jpg"
+                   alt="Concierto de clausura de José María Villegas en la IV Jornada de Arte y Ciencia por la INCLUSIÓN"
+                   style="width:100%;height:100%;object-fit:cover;opacity:0.9;" loading="lazy">
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+                <div style="width:72px;height:72px;background:rgba(0,0,0,0.65);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                  <svg viewBox="0 0 24 24" width="36" height="36" fill="white"><polygon points="8,5 19,12 8,19"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="acarmen-video-caption only-es">José María Villegas, piano. Concierto de clausura. CCMIJU, 23 de octubre de 2026.</p>
+          <p class="acarmen-video-caption only-en">José María Villegas, piano. Closing concert. CCMIJU, 23 October 2026.</p>
+        </div>
 
         <p class="jornada-iv-epigrafe only-es">Notas al programa. La danza como memoria</p>
         <p class="jornada-iv-epigrafe only-en">Programme notes. Dance as memory</p>
@@ -5855,6 +5878,19 @@ pintura y versu!</div>
         var iframe = document.createElement('iframe');
         iframe.src = 'https://www.youtube.com/embed/FwrOgHHOqSs?autoplay=1';
         iframe.title = 'Tres Sonetos de Invierno para Carmen Pascual — Sandro Bakhuashvili';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;';
+        wrap.appendChild(iframe);
+      };
+
+      window.loadYTVillegas = function () {
+        var facade = document.getElementById('yt-villegas-facade');
+        var wrap   = document.getElementById('yt-villegas-wrap');
+        facade.style.display = 'none';
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube.com/embed/zuPAmp3SC6k?autoplay=1';
+        iframe.title = 'JM Villegas. Obertura francesa BWV 831 — IV Jornada de Arte y Ciencia por la INCLUSIÓN';
         iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
         iframe.allowFullscreen = true;
         iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;';
