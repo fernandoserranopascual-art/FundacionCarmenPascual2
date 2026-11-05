@@ -1889,6 +1889,31 @@
     }
     .acarmen-video-aviso strong { font-weight: 500; color: var(--text); }
     .acarmen-video-noselect img { -webkit-user-select: none; user-select: none; -webkit-user-drag: none; }
+    .acarmen-video-locked { position: absolute; inset: 0; background: #000; }
+    .acarmen-video-locked img { width: 100%; height: 100%; object-fit: cover; opacity: 0.45; }
+    .acarmen-video-locked-capa {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.38);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-align: center;
+      padding: 16px;
+    }
+    .acarmen-video-locked-capa svg { width: 34px; height: 34px; fill: rgba(255,255,255,0.92); }
+    .acarmen-video-locked-capa span {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.92);
+    }
+    .acarmen-video-acceso { margin-top: 14px; }
+    .acarmen-video-acceso .btn-outline { display: inline-block; font-size: 12px; padding: 11px 24px; }
 
     /* ── ACTIVIDADES ─────────────────────────────────── */
     #actividades { background: var(--cream-dark); padding: 96px 48px; }
@@ -2815,25 +2840,24 @@
         <div class="acarmen-video-wrap" style="margin-top: 12px;">
           <p class="acarmen-video-title only-es">JM Villegas. <em>Obertura francesa</em> BWV 831, de Johann Sebastian Bach</p>
           <p class="acarmen-video-title only-en">JM Villegas. <em>French Overture</em> BWV 831, by Johann Sebastian Bach</p>
-          <div class="acarmen-video-ratio" id="yt-villegas-wrap">
-            <div id="yt-villegas-facade" onclick="loadYTVillegas()"
-                 class="acarmen-video-noselect" oncontextmenu="return false;"
-                 style="position:absolute;inset:0;cursor:pointer;background:#000;">
+          <div class="acarmen-video-ratio">
+            <div class="acarmen-video-locked acarmen-video-noselect" oncontextmenu="return false;">
               <img src="obras/jornada-iv/concierto-villegas-poster.jpg"
                    alt="Concierto de clausura de José María Villegas en la IV Jornada de Arte y Ciencia por la INCLUSIÓN"
-                   draggable="false" oncontextmenu="return false;"
-                   style="width:100%;height:100%;object-fit:cover;opacity:0.9;" loading="lazy">
-              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
-                <div style="width:72px;height:72px;background:rgba(0,0,0,0.65);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-                  <svg viewBox="0 0 24 24" width="36" height="36" fill="white"><polygon points="8,5 19,12 8,19"/></svg>
-                </div>
+                   draggable="false" oncontextmenu="return false;" loading="lazy">
+              <div class="acarmen-video-locked-capa">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a5 5 0 0 0-5 5v3H6a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V11a1 1 0 0 0-1-1h-1V7a5 5 0 0 0-5-5zm0 2a3 3 0 0 1 3 3v3H9V7a3 3 0 0 1 3-3zm0 10a1.6 1.6 0 0 1 .8 2.99V19a.8.8 0 0 1-1.6 0v-2.01A1.6 1.6 0 0 1 12 14z"/></svg>
+                <span class="only-es">Acceso bajo autorización</span>
+                <span class="only-en">Access by authorisation</span>
               </div>
             </div>
           </div>
           <p class="acarmen-video-caption only-es">José María Villegas, piano. Concierto de clausura. CCMIJU, 23 de octubre de 2026.</p>
           <p class="acarmen-video-caption only-en">José María Villegas, piano. Closing concert. CCMIJU, 23 October 2026.</p>
-          <p class="acarmen-video-aviso only-es"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a5 5 0 0 0-5 5v3H6a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V11a1 1 0 0 0-1-1h-1V7a5 5 0 0 0-5-5zm0 2a3 3 0 0 1 3 3v3H9V7a3 3 0 0 1 3-3zm0 10a1.6 1.6 0 0 1 .8 2.99V19a.8.8 0 0 1-1.6 0v-2.01A1.6 1.6 0 0 1 12 14z"/></svg><span><strong>Grabación protegida.</strong> El vídeo puede verse aquí libremente, pero <strong>no está autorizada su descarga</strong>, copia, reproducción pública ni reutilización, total o parcial, por ningún medio. Los derechos pertenecen al intérprete y a la Fundación Carmen Pascual. Para solicitar permiso: <a href="mailto:info@fundacioncarmenpascual.org?subject=Solicitud%20de%20autorizaci%C3%B3n%20para%20descargar%20el%20v%C3%ADdeo%20del%20concierto%20de%20JM%20Villegas">info@fundacioncarmenpascual.org</a>.</span></p>
-          <p class="acarmen-video-aviso only-en"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a5 5 0 0 0-5 5v3H6a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V11a1 1 0 0 0-1-1h-1V7a5 5 0 0 0-5-5zm0 2a3 3 0 0 1 3 3v3H9V7a3 3 0 0 1 3-3zm0 10a1.6 1.6 0 0 1 .8 2.99V19a.8.8 0 0 1-1.6 0v-2.01A1.6 1.6 0 0 1 12 14z"/></svg><span><strong>Protected recording.</strong> The video may be watched here freely, but <strong>downloading is not authorised</strong>, nor is copying, public performance or reuse, in whole or in part, by any means. The rights belong to the performer and to Fundación Carmen Pascual. To request permission: <a href="mailto:info@fundacioncarmenpascual.org?subject=Request%20for%20permission%20to%20download%20the%20JM%20Villegas%20concert%20video">info@fundacioncarmenpascual.org</a>.</span></p>
+          <p class="acarmen-video-aviso only-es"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a5 5 0 0 0-5 5v3H6a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V11a1 1 0 0 0-1-1h-1V7a5 5 0 0 0-5-5zm0 2a3 3 0 0 1 3 3v3H9V7a3 3 0 0 1 3-3zm0 10a1.6 1.6 0 0 1 .8 2.99V19a.8.8 0 0 1-1.6 0v-2.01A1.6 1.6 0 0 1 12 14z"/></svg><span><strong>Grabación de acceso restringido.</strong> El concierto no es de acceso libre: los derechos pertenecen al intérprete y a la Fundación Carmen Pascual, y no están autorizadas su descarga, copia, reproducción pública ni reutilización, total o parcial. Para verlo, solicita acceso indicando tu cuenta de Google y te invitaremos a la grabación.</span></p>
+          <p class="acarmen-video-aviso only-en"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a5 5 0 0 0-5 5v3H6a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V11a1 1 0 0 0-1-1h-1V7a5 5 0 0 0-5-5zm0 2a3 3 0 0 1 3 3v3H9V7a3 3 0 0 1 3-3zm0 10a1.6 1.6 0 0 1 .8 2.99V19a.8.8 0 0 1-1.6 0v-2.01A1.6 1.6 0 0 1 12 14z"/></svg><span><strong>Restricted recording.</strong> The concert is not freely available: the rights belong to the performer and to Fundación Carmen Pascual, and downloading, copying, public performance and reuse, in whole or in part, are not authorised. To watch it, request access giving your Google account and we will send you an invitation.</span></p>
+          <p class="acarmen-video-acceso only-es"><a class="btn-outline" href="mailto:info@fundacioncarmenpascual.org?subject=Solicitud%20de%20acceso%20al%20v%C3%ADdeo%20del%20concierto%20de%20JM%20Villegas&amp;body=Buenos%20d%C3%ADas%3A%0D%0A%0D%0AMe%20gustar%C3%ADa%20ver%20la%20grabaci%C3%B3n%20del%20concierto%20de%20clausura%20de%20la%20IV%20Jornada%20de%20Arte%20y%20Ciencia%20por%20la%20INCLUSI%C3%93N.%0D%0A%0D%0AMi%20cuenta%20de%20Google%2C%20para%20recibir%20la%20invitaci%C3%B3n%3A%0D%0A%0D%0ANombre%20y%20motivo%20de%20la%20solicitud%3A%0D%0A%0D%0AGracias.">SOLICITAR ACCESO AL CONCIERTO</a></p>
+          <p class="acarmen-video-acceso only-en"><a class="btn-outline" href="mailto:info@fundacioncarmenpascual.org?subject=Request%20for%20access%20to%20the%20JM%20Villegas%20concert%20video&amp;body=Hello%2C%0D%0A%0D%0AI%20would%20like%20to%20watch%20the%20recording%20of%20the%20closing%20concert%20of%20the%20IV%20Jornada%20de%20Arte%20y%20Ciencia%20por%20la%20INCLUSION.%0D%0A%0D%0AMy%20Google%20account%2C%20to%20receive%20the%20invitation%3A%0D%0A%0D%0AName%20and%20reason%20for%20the%20request%3A%0D%0A%0D%0AThank%20you.">REQUEST ACCESS TO THE CONCERT</a></p>
         </div>
 
         <p class="jornada-iv-epigrafe only-es">Notas al programa. La danza como memoria</p>
@@ -5911,19 +5935,6 @@ pintura y versu!</div>
         var iframe = document.createElement('iframe');
         iframe.src = 'https://www.youtube.com/embed/FwrOgHHOqSs?autoplay=1';
         iframe.title = 'Tres Sonetos de Invierno para Carmen Pascual — Sandro Bakhuashvili';
-        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-        iframe.allowFullscreen = true;
-        iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;';
-        wrap.appendChild(iframe);
-      };
-
-      window.loadYTVillegas = function () {
-        var facade = document.getElementById('yt-villegas-facade');
-        var wrap   = document.getElementById('yt-villegas-wrap');
-        facade.style.display = 'none';
-        var iframe = document.createElement('iframe');
-        iframe.src = 'https://www.youtube.com/embed/rFqSl2XMeX8?autoplay=1&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3';
-        iframe.title = 'JM Villegas. Obertura francesa BWV 831 — IV Jornada de Arte y Ciencia por la INCLUSIÓN';
         iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
         iframe.allowFullscreen = true;
         iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;';
