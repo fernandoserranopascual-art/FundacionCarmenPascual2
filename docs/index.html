@@ -1860,6 +1860,35 @@
       letter-spacing: 0.04em;
       margin-top: 6px;
     }
+    .acarmen-video-aviso {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-top: 10px;
+      padding: 10px 12px;
+      background: var(--cream-dark);
+      border-left: 2px solid var(--green);
+      font-family: 'Inter', sans-serif;
+      font-size: 11.5px;
+      font-weight: 300;
+      line-height: 1.55;
+      color: var(--text-mid);
+      letter-spacing: 0.02em;
+    }
+    .acarmen-video-aviso svg {
+      flex: 0 0 auto;
+      width: 13px;
+      height: 13px;
+      margin-top: 2px;
+      fill: var(--green);
+    }
+    .acarmen-video-aviso a {
+      color: var(--green-dark);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .acarmen-video-aviso strong { font-weight: 500; color: var(--text); }
+    .acarmen-video-noselect img { -webkit-user-select: none; user-select: none; -webkit-user-drag: none; }
 
     /* ── ACTIVIDADES ─────────────────────────────────── */
     #actividades { background: var(--cream-dark); padding: 96px 48px; }
@@ -2788,9 +2817,11 @@
           <p class="acarmen-video-title only-en">JM Villegas. <em>French Overture</em> BWV 831, by Johann Sebastian Bach</p>
           <div class="acarmen-video-ratio" id="yt-villegas-wrap">
             <div id="yt-villegas-facade" onclick="loadYTVillegas()"
+                 class="acarmen-video-noselect" oncontextmenu="return false;"
                  style="position:absolute;inset:0;cursor:pointer;background:#000;">
               <img src="obras/jornada-iv/concierto-villegas-poster.jpg"
                    alt="Concierto de clausura de José María Villegas en la IV Jornada de Arte y Ciencia por la INCLUSIÓN"
+                   draggable="false" oncontextmenu="return false;"
                    style="width:100%;height:100%;object-fit:cover;opacity:0.9;" loading="lazy">
               <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
                 <div style="width:72px;height:72px;background:rgba(0,0,0,0.65);border-radius:50%;display:flex;align-items:center;justify-content:center;">
@@ -2801,6 +2832,8 @@
           </div>
           <p class="acarmen-video-caption only-es">José María Villegas, piano. Concierto de clausura. CCMIJU, 23 de octubre de 2026.</p>
           <p class="acarmen-video-caption only-en">José María Villegas, piano. Closing concert. CCMIJU, 23 October 2026.</p>
+          <p class="acarmen-video-aviso only-es"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a5 5 0 0 0-5 5v3H6a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V11a1 1 0 0 0-1-1h-1V7a5 5 0 0 0-5-5zm0 2a3 3 0 0 1 3 3v3H9V7a3 3 0 0 1 3-3zm0 10a1.6 1.6 0 0 1 .8 2.99V19a.8.8 0 0 1-1.6 0v-2.01A1.6 1.6 0 0 1 12 14z"/></svg><span><strong>Grabación protegida.</strong> El vídeo puede verse aquí libremente, pero <strong>no está autorizada su descarga</strong>, copia, reproducción pública ni reutilización, total o parcial, por ningún medio. Los derechos pertenecen al intérprete y a la Fundación Carmen Pascual. Para solicitar permiso: <a href="mailto:info@fundacioncarmenpascual.org?subject=Solicitud%20de%20autorizaci%C3%B3n%20para%20descargar%20el%20v%C3%ADdeo%20del%20concierto%20de%20JM%20Villegas">info@fundacioncarmenpascual.org</a>.</span></p>
+          <p class="acarmen-video-aviso only-en"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a5 5 0 0 0-5 5v3H6a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V11a1 1 0 0 0-1-1h-1V7a5 5 0 0 0-5-5zm0 2a3 3 0 0 1 3 3v3H9V7a3 3 0 0 1 3-3zm0 10a1.6 1.6 0 0 1 .8 2.99V19a.8.8 0 0 1-1.6 0v-2.01A1.6 1.6 0 0 1 12 14z"/></svg><span><strong>Protected recording.</strong> The video may be watched here freely, but <strong>downloading is not authorised</strong>, nor is copying, public performance or reuse, in whole or in part, by any means. The rights belong to the performer and to Fundación Carmen Pascual. To request permission: <a href="mailto:info@fundacioncarmenpascual.org?subject=Request%20for%20permission%20to%20download%20the%20JM%20Villegas%20concert%20video">info@fundacioncarmenpascual.org</a>.</span></p>
         </div>
 
         <p class="jornada-iv-epigrafe only-es">Notas al programa. La danza como memoria</p>
@@ -5889,7 +5922,7 @@ pintura y versu!</div>
         var wrap   = document.getElementById('yt-villegas-wrap');
         facade.style.display = 'none';
         var iframe = document.createElement('iframe');
-        iframe.src = 'https://www.youtube.com/embed/rFqSl2XMeX8?autoplay=1';
+        iframe.src = 'https://www.youtube.com/embed/rFqSl2XMeX8?autoplay=1&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3';
         iframe.title = 'JM Villegas. Obertura francesa BWV 831 — IV Jornada de Arte y Ciencia por la INCLUSIÓN';
         iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
         iframe.allowFullscreen = true;
