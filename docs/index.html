@@ -5952,5 +5952,13 @@ pintura y versu!</div>
     })();
   </script>
 
+  <!-- Medicion de visitas (Cloudflare Web Analytics). Es solo para nosotros: los datos se
+       ven en el panel de Cloudflare, no en la web. NO usa cookies ni identifica a nadie, y
+       por eso la pagina no necesita banner de consentimiento. El token no es una clave
+       secreta: nombra al sitio, y va a la vista en el HTML a proposito. Cuenta solo a quien
+       tenga JavaScript activo y no use bloqueador, asi que la cifra se queda algo corta. -->
+  <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js'
+          data-cf-beacon='{"token": "6173340c8aea423d9113ee36cedbbb0b"}'></script>
+
 </body>
 </html>
