@@ -426,8 +426,9 @@
 
     .btn-outline:hover { border-color: var(--green); color: var(--green); }
 
-    /* ── IV JORNADA ──────────────────────────────────── */
-    #jornada-iv {
+    /* ── IV JORNADA · ENCUENTROS COMARCALES ──────────── */
+    #jornada-iv,
+    #encuentros {
       padding: 96px 48px;
       background: var(--cream-alt);
       border-top: 1px solid var(--border);
@@ -811,8 +812,51 @@
 
     .jornada-iv-cierre { margin-top: 40px; }
 
+    /* Segunda cartela del hero, encadenada bajo la primera */
+    .hero-jornada + .hero-jornada { margin-top: -47px; }
+
+    /* Aviso de anteproyecto, al frente de los Encuentros Comarcales */
+    .encuentros-aviso {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--text-mid);
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--green);
+      padding: 20px 24px;
+      margin: 0 0 40px;
+    }
+
+    .encuentros-aviso strong {
+      font-weight: 500;
+      color: var(--green-dark);
+      letter-spacing: 0.04em;
+    }
+
+    .encuentros-ejes {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text-mid);
+      list-style: none;
+      padding: 0;
+      margin: 0 0 8px;
+    }
+
+    .encuentros-ejes li { padding: 10px 0; border-bottom: 1px solid var(--border); }
+    .encuentros-ejes li:last-child { border-bottom: none; }
+    .encuentros-ejes b {
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: 0.06em;
+    }
+
     @media (max-width: 860px) {
-      #jornada-iv { padding: 64px 24px; }
+      #jornada-iv, #encuentros { padding: 64px 24px; }
       .jornada-iv-carteles { grid-template-columns: 1fr; gap: 28px; }
       .jornada-iv-meta { padding: 24px; }
       .jornada-iv-bloque-medio { grid-template-columns: 1fr; gap: 28px; }
@@ -2361,6 +2405,11 @@
     <div style="display:flex;align-items:center;gap:0;">
       <ul class="nav-links" id="navLinks">
 
+        <li><a href="#encuentros" onclick="closeMenu()">
+          <span class="only-es">Próxima actividad</span>
+          <span class="only-en">Next activity</span>
+        </a></li>
+
         <li><a href="#mision" onclick="closeMenu()">
           <span class="only-es">Misión</span>
           <span class="only-en">Mission</span>
@@ -2458,6 +2507,16 @@
   <section id="inicio">
     <div class="hero-inner">
       <img src="logo-color.jpeg" alt="Fundación Carmen Pascual. Arte Salud Naturaleza" class="hero-logo">
+      <a href="#encuentros" class="hero-jornada" id="btn-encuentros" onclick="return abrirEncuentros(event);">
+        <span class="hero-jornada-cartela">
+          <span class="only-es">Próxima actividad</span>
+          <span class="only-en">Next activity</span>
+        </span>
+        <span class="hero-jornada-texto">
+          <span class="only-es">Encuentros Comarcales con Carmen Pascual por la <span class="incl">INCLUSIÓN</span></span>
+          <span class="only-en">Comarcal Encounters with Carmen Pascual for <span class="incl">INCLUSION</span></span>
+        </span>
+      </a>
       <a href="#jornada-iv" class="hero-jornada" id="btn-jornada-iv" onclick="return abrirJornadaIV(event);">
         <span class="hero-jornada-cartela">
           <span class="only-es">Última actividad</span>
@@ -2879,6 +2938,138 @@
 
       <div class="jornada-iv-cierre">
         <button class="btn-outline" onclick="cerrarJornadaIV()">
+          <span class="only-es">CERRAR</span>
+          <span class="only-en">CLOSE</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── ENCUENTROS COMARCALES (oculta; se abre desde la leyenda del hero) ── -->
+  <section id="encuentros" style="display: none;">
+    <div class="jornada-iv-inner">
+
+      <p class="section-label only-es">Próxima actividad</p>
+      <p class="section-label only-en">Next activity</p>
+      <h2 class="jornada-iv-title only-es">Encuentros Comarcales con Carmen Pascual por la <span class="incl">INCLUSIÓN</span></h2>
+      <h2 class="jornada-iv-title only-en">Comarcal Encounters with Carmen Pascual for <span class="incl">INCLUSION</span></h2>
+
+      <p class="encuentros-aviso only-es"><strong>ANTEPROYECTO.</strong> Lo que sigue es el anteproyecto del proyecto, y así debe leerse: las sedes y los contenidos están propuestos, no comprometidos; las fechas de los dos Encuentros comarcales siguen sin fijar, y los participantes se irán anunciando a medida que se confirmen. Se publica para darlo a conocer y para buscar la colaboración de las instituciones y de las entidades del territorio.</p>
+      <p class="encuentros-aviso only-en"><strong>PRELIMINARY DRAFT.</strong> What follows is the preliminary draft of the project, and should be read as such: venues and contents are proposed, not committed; the dates of the two comarcal Encounters are still to be set, and participants will be announced as they are confirmed. It is published to make the project known and to seek the collaboration of the institutions and organisations of the territory.</p>
+
+      <dl class="jornada-iv-meta">
+        <div>
+          <dt class="only-es">Ámbito</dt>
+          <dt class="only-en">Scope</dt>
+          <dd class="only-es">Comarcas de la provincia de Cáceres</dd>
+          <dd class="only-en">Comarcas of the province of Cáceres, Spain</dd>
+        </div>
+        <div>
+          <dt class="only-es">Calendario</dt>
+          <dt class="only-en">Calendar</dt>
+          <dd class="only-es">2027. Tres apartados: una inauguración en la capital y dos Encuentros comarcales</dd>
+          <dd class="only-en">2027. Three parts: an opening in the provincial capital and two comarcal Encounters</dd>
+        </div>
+        <div>
+          <dt class="only-es">Promueve</dt>
+          <dt class="only-en">Promoted by</dt>
+          <dd>Fundación Carmen Pascual <span class="jornada-iv-ast">*</span></dd>
+        </div>
+      </dl>
+
+      <!-- ── intenciones ── -->
+      <div class="jornada-iv-bloque">
+        <p class="jornada-iv-bloque-hora only-es">El propósito</p>
+        <p class="jornada-iv-bloque-hora only-en">The purpose</p>
+        <h3 class="jornada-iv-bloque-titulo only-es">Llevar a las comarcas lo que ya funciona en un pueblo</h3>
+        <h3 class="jornada-iv-bloque-titulo only-en">Taking to the comarcas what already works in one village</h3>
+        <p class="jornada-iv-bloque-sub only-es">Arte, salud y naturaleza, en el territorio y con su gente</p>
+        <p class="jornada-iv-bloque-sub only-en">Art, health and nature, in the territory and with its people</p>
+
+        <p class="only-es">Los Encuentros Comarcales llevan a las comarcas de la provincia de Cáceres el encuentro entre el <strong>ARTE</strong>, la <strong>SALUD</strong> y la <strong>NATURALEZA</strong> que da sentido a la Fundación. Cada Encuentro se celebra en una comarca y en su mejor momento del año, se apoya en la obra de Carmen Pascual y reúne alrededor de ella a los poetas, los artistas, los músicos, los naturalistas y los investigadores del propio territorio.</p>
+        <p class="only-es">La <span class="incl">INCLUSIÓN</span> no es el tema de los Encuentros: es su manera de hacerlos. De ahí que el criterio de participación sea siempre la proximidad —personas vinculadas a la localidad y a su comarca— y que las actividades estén pensadas para poder hacerse acompañado: el herbario, las rutas, los talleres, la sala de exposiciones.</p>
+        <p class="only-es">Detrás hay un trabajo hecho y probado: <strong>veintiún Ciclos de Arte Salud Naturaleza</strong> en El Torno, bajo el título genérico «Un árbol llamado El Torno», y <strong>cuatro Jornadas de Arte y Ciencia por la <span class="incl">INCLUSIÓN</span></strong> en el CCMIJU de Cáceres. Esa es la razón de que el proyecto pueda plantearse ya a escala provincial: lo que se lleva a las comarcas no es una idea, es un modo de hacer las cosas que ya funciona.</p>
+        <p class="only-es">La programación, los contactos, el diseño, la creación de contenidos y la coordinación los realiza íntegramente la Fundación, y son su aportación propia a cada Encuentro. En todos ellos se procura la colaboración de las entidades locales y mancomunales, con medios materiales y humanos, porque los Encuentros se hacen <em>con</em> el territorio y no solamente <em>en</em> el territorio.</p>
+
+        <p class="only-en">The Comarcal Encounters take to the comarcas of the province of Cáceres the meeting of <strong>ART</strong>, <strong>HEALTH</strong> and <strong>NATURE</strong> that gives the Foundation its purpose. Each Encounter is held in one comarca and at its best time of year, rests on the work of Carmen Pascual and gathers around it the poets, artists, musicians, naturalists and researchers of that same territory.</p>
+        <p class="only-en"><span class="incl">INCLUSION</span> is not the subject of the Encounters: it is the way they are made. Hence the criterion for taking part is always proximity —people connected to the town and to its comarca— and the activities are devised so that they can be done in company: the herbarium, the walks, the workshops, the exhibition room.</p>
+        <p class="only-en">Behind it lies work already done and tested: <strong>twenty-one Art Health Nature Cycles</strong> in El Torno, under the general title «A tree called El Torno», and <strong>four Art and Science Conferences for <span class="incl">INCLUSION</span></strong> at the CCMIJU in Cáceres. That is why the project can now be set out on a provincial scale: what is taken to the comarcas is not an idea, but a way of doing things that already works.</p>
+        <p class="only-en">The programming, the contacts, the design, the creation of contents and the coordination are carried out entirely by the Foundation, and are its own contribution to each Encounter. In all of them the collaboration of local and inter-municipal bodies is sought, with material and human means, because the Encounters are made <em>with</em> the territory and not merely <em>in</em> it.</p>
+      </div>
+
+      <!-- ── los cinco ejes ── -->
+      <div class="jornada-iv-bloque">
+        <p class="jornada-iv-bloque-hora only-es">La forma</p>
+        <p class="jornada-iv-bloque-hora only-en">The form</p>
+        <h3 class="jornada-iv-bloque-titulo only-es">Cinco ejes que se repiten en cada Encuentro</h3>
+        <h3 class="jornada-iv-bloque-titulo only-en">Five threads running through every Encounter</h3>
+
+        <ul class="encuentros-ejes only-es">
+          <li><b>ARTE.</b> Exposición de pinturas de Carmen Pascual, acompañada por la obra de artistas del territorio y por intervenciones en el paisaje.</li>
+          <li><b>LITERATURA Y POESÍA.</b> Lectura poética a cargo de un poeta de la comarca y presentación de libro, cuando lo haya.</li>
+          <li><b>NATURALEZA.</b> El Herbario <span class="incl">INCLUSIVO</span>, las lecciones de botánica y las rutas inclusivas de conocimiento y disfrute del medio natural.</li>
+          <li><b>SALUD.</b> Una conferencia de divulgación científica, en la línea de las Jornadas de Arte y Ciencia, sobre la investigación y el cuidado de la salud.</li>
+          <li><b>MÚSICA.</b> Un concierto a cargo de un joven intérprete vinculado a la localidad o a su entorno.</li>
+        </ul>
+
+        <ul class="encuentros-ejes only-en">
+          <li><b>ART.</b> An exhibition of Carmen Pascual's paintings, alongside the work of artists from the territory and interventions in the landscape.</li>
+          <li><b>LITERATURE AND POETRY.</b> A poetry reading by a poet from the comarca, and a book launch where there is one.</li>
+          <li><b>NATURE.</b> The <span class="incl">INCLUSIVE</span> Herbarium, the botany lessons and the inclusive walks for knowing and enjoying the natural environment.</li>
+          <li><b>HEALTH.</b> A science outreach lecture, in the line of the Art and Science Conferences, on research and the care of health.</li>
+          <li><b>MUSIC.</b> A concert by a young performer connected to the town or its surroundings.</li>
+        </ul>
+      </div>
+
+      <!-- ── apartado 1: inauguracion ── -->
+      <div class="jornada-iv-bloque">
+        <p class="jornada-iv-bloque-hora only-es">Inauguración · Cáceres</p>
+        <p class="jornada-iv-bloque-hora only-en">Opening · Cáceres</p>
+        <h3 class="jornada-iv-bloque-titulo only-es">Museo Guayasamín</h3>
+        <h3 class="jornada-iv-bloque-titulo only-en">Guayasamín Museum</h3>
+        <p class="jornada-iv-bloque-sub only-es">Viernes 5 de marzo de 2027 · fecha prevista</p>
+        <p class="jornada-iv-bloque-sub only-en">Friday, 5 March 2027 · expected date</p>
+
+        <p class="only-es">El proyecto se presenta en la capital, en una tarde que recorre los cinco ejes y los enseña juntos: una lección de botánica en el jardín del Museo, la exposición de pinturas de Carmen Pascual con una instalación en ese mismo jardín, una lectura poética, una conferencia sobre los retos de la investigación científica para mejorar la salud y un concierto de piano como clausura.</p>
+        <p class="only-es">El criterio de la inauguración es el mismo que regirá después en cada comarca, aplicado aquí a la ciudad: participantes vinculados a Cáceres.</p>
+        <p class="only-en">The project is presented in the provincial capital, in an afternoon that runs through the five threads and shows them together: a botany lesson in the Museum garden, the exhibition of Carmen Pascual's paintings with an installation in that same garden, a poetry reading, a lecture on the challenges of scientific research in improving health, and a piano concert to close.</p>
+        <p class="only-en">The criterion of the opening is the one that will govern each comarca afterwards, applied here to the city: participants connected to Cáceres.</p>
+      </div>
+
+      <!-- ── apartado 2: I Encuentro ── -->
+      <div class="jornada-iv-bloque">
+        <p class="jornada-iv-bloque-hora only-es">I Encuentro · Valle del Jerte</p>
+        <p class="jornada-iv-bloque-hora only-en">1st Encounter · Jerte Valley</p>
+        <h3 class="jornada-iv-bloque-titulo only-es">El Torno y Jerte</h3>
+        <h3 class="jornada-iv-bloque-titulo only-en">El Torno and Jerte</h3>
+        <p class="jornada-iv-bloque-sub only-es">Primavera de 2027, con el Cerezo en Flor · fecha por fijar</p>
+        <p class="jornada-iv-bloque-sub only-en">Spring 2027, with the Cherry Blossom · date to be set</p>
+
+        <p class="only-es">El primer Encuentro se abre en <strong>El Torno</strong>, donde nacieron los Ciclos, y se clausura en <strong>Jerte</strong>, en el otro extremo del valle. Entre los dos extremos: una exposición <span class="incl">INCLUSIVA</span> con obra de Carmen Pascual y de artistas del valle, una lectura poética, el arranque del <strong>Herbario <span class="incl">INCLUSIVO</span> del Valle del Jerte</strong>, intervenciones en la naturaleza a lo largo de una ruta, música al aire libre en un mirador del valle, una conferencia de salud y un concierto de clausura en la iglesia parroquial de Jerte.</p>
+        <p class="only-es">La fecha depende de la floración, que no se deja fijar con un año de antelación: el Encuentro se celebrará cuando el valle esté blanco.</p>
+        <p class="only-en">The first Encounter opens in <strong>El Torno</strong>, where the Cycles began, and closes in <strong>Jerte</strong>, at the other end of the valley. Between the two ends: an <span class="incl">INCLUSIVE</span> exhibition with work by Carmen Pascual and artists from the valley, a poetry reading, the start of the <strong><span class="incl">INCLUSIVE</span> Herbarium of the Jerte Valley</strong>, interventions in nature along a walking route, open-air music at one of the valley's viewpoints, a health lecture and a closing concert in the parish church of Jerte.</p>
+        <p class="only-en">The date depends on the blossom, which cannot be fixed a year ahead: the Encounter will be held when the valley turns white.</p>
+      </div>
+
+      <!-- ── apartado 3: II Encuentro ── -->
+      <div class="jornada-iv-bloque">
+        <p class="jornada-iv-bloque-hora only-es">II Encuentro · Valle del Ambroz</p>
+        <p class="jornada-iv-bloque-hora only-en">2nd Encounter · Ambroz Valley</p>
+        <h3 class="jornada-iv-bloque-titulo only-es">Hervás</h3>
+        <h3 class="jornada-iv-bloque-titulo only-en">Hervás</h3>
+        <p class="jornada-iv-bloque-sub only-es">Otoño de 2027, con el Otoño Mágico · fecha por fijar</p>
+        <p class="jornada-iv-bloque-sub only-en">Autumn 2027, with the Otoño Mágico · date to be set</p>
+
+        <p class="only-es">El segundo Encuentro se celebra en <strong>Hervás</strong> coincidiendo con el Otoño Mágico del Ambroz, con una exposición <span class="incl">INCLUSIVA</span> en una sala del municipio, lectura poética, concierto de piano y rutas inclusivas de conocimiento y disfrute del medio natural. En un valle que en otoño cambia de color, la naturaleza es el primer contenido y no el decorado.</p>
+        <p class="only-en">The second Encounter is held in <strong>Hervás</strong>, coinciding with the Ambroz Otoño Mágico, with an <span class="incl">INCLUSIVE</span> exhibition in a venue of the town, a poetry reading, a piano concert and inclusive walks for knowing and enjoying the natural environment. In a valley that changes colour in autumn, nature is the first content and not the setting.</p>
+      </div>
+
+      <p class="jornada-iv-colaboran only-es"><strong>En preparación.</strong> La Fundación está abierta a la colaboración de ayuntamientos, mancomunidades, museos, centros de investigación, asociaciones y entidades que quieran sumarse a cualquiera de los tres apartados. Para proponer una colaboración: <a href="mailto:info@fundacioncarmenpascual.org?subject=Encuentros%20Comarcales%20con%20Carmen%20Pascual%20por%20la%20INCLUSI%C3%93N">info@fundacioncarmenpascual.org</a>.<br><span class="jornada-iv-nota">* Fundación Carmen Pascual. Arte Salud Naturaleza, pendiente de inscripción en el Registro de Fundaciones de competencia estatal.</span></p>
+      <p class="jornada-iv-colaboran only-en"><strong>In preparation.</strong> The Foundation welcomes the collaboration of town councils, inter-municipal bodies, museums, research centres, associations and organisations wishing to join any of the three parts. To propose a collaboration: <a href="mailto:info@fundacioncarmenpascual.org?subject=Comarcal%20Encounters%20with%20Carmen%20Pascual%20for%20INCLUSION">info@fundacioncarmenpascual.org</a>.<br><span class="jornada-iv-nota">* Fundación Carmen Pascual. Arte Salud Naturaleza, pending registration in the Spanish national Register of Foundations.</span></p>
+
+      <div class="jornada-iv-cierre">
+        <button class="btn-outline" onclick="cerrarEncuentros()">
           <span class="only-es">CERRAR</span>
           <span class="only-en">CLOSE</span>
         </button>
@@ -5839,6 +6030,37 @@ pintura y versu!</div>
     window.addEventListener('DOMContentLoaded', abrirJornadaIVdesdeURL);
     window.addEventListener('load', abrirJornadaIVdesdeURL);
     window.addEventListener('hashchange', abrirJornadaIVdesdeURL);
+
+    function abrirEncuentros(e) {
+      if (e) e.preventDefault();
+      var seccion = document.getElementById('encuentros');
+      var abierta = seccion.style.display !== 'none';
+      seccion.style.display = abierta ? 'none' : 'block';
+      if (!abierta) {
+        seccion.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      return false;
+    }
+
+    function cerrarEncuentros() {
+      document.getElementById('encuentros').style.display = 'none';
+      document.getElementById('btn-encuentros').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (window.location.hash === '#encuentros') {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+    }
+
+    // Enlace directo desde fuera: /#encuentros abre la seccion ya desplegada.
+    function abrirEncuentrosDesdeURL() {
+      if (window.location.hash !== '#encuentros') return;
+      var seccion = document.getElementById('encuentros');
+      if (!seccion) return;
+      seccion.style.display = 'block';
+      seccion.scrollIntoView({ block: 'start' });
+    }
+    window.addEventListener('DOMContentLoaded', abrirEncuentrosDesdeURL);
+    window.addEventListener('load', abrirEncuentrosDesdeURL);
+    window.addEventListener('hashchange', abrirEncuentrosDesdeURL);
 
     function toggleJornadaIII() {
       abrirModalContenido('jornada-iii-contenidos', 'III Jornada Arte y Ciencia · CCMIJU · Cáceres');
