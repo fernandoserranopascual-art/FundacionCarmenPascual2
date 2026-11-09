@@ -257,8 +257,8 @@
       flex-direction: column;
       align-items: stretch;
       width: fit-content;
-      max-width: 100%;
-      margin: -41px auto 65px;
+      max-width: clamp(230px, 40vw, 360px);
+      margin: -34px auto 40px;
       text-decoration: none;
     }
 
@@ -266,11 +266,11 @@
     .hero-jornada-cartela {
       background: var(--green);
       color: #fff;
-      padding: 8px 18px 9px;
+      padding: 6px 14px 7px;
       font-family: 'Inter', sans-serif;
-      font-size: 11px;
+      font-size: 9.5px;
       font-weight: 500;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       line-height: 1;
       text-align: center;
@@ -279,15 +279,15 @@
 
     .hero-jornada-texto {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(19px, 2.9vw, 30px);
+      font-size: clamp(12.5px, 1.4vw, 15.5px);
       font-weight: 300;
-      line-height: 1.25;
+      line-height: 1.4;
       letter-spacing: 0.01em;
-      color: var(--text);
+      color: var(--text-mid);
       background: transparent;
-      border: 1px solid var(--text);
+      border: 1px solid var(--border);
       border-top: none;
-      padding: 14px 28px 16px;
+      padding: 9px 16px 11px;
       text-align: center;
       transition: border-color 0.2s, color 0.2s;
     }
@@ -813,7 +813,7 @@
     .jornada-iv-cierre { margin-top: 40px; }
 
     /* Segunda cartela del hero, encadenada bajo la primera */
-    .hero-jornada + .hero-jornada { margin-top: -47px; }
+    .hero-jornada + .hero-jornada { margin-top: -28px; }
 
     /* Aviso de anteproyecto, al frente de los Encuentros Comarcales */
     .encuentros-aviso {
